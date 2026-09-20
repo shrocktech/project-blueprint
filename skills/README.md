@@ -4,6 +4,7 @@
 | --- | --- |
 | [adopt-existing](adopt-existing/SKILL.md) | Adopting or updating the blueprint in an existing application |
 | [issue-interview](issue-interview/SKILL.md) | A requested walkthrough of pending user decisions/setup |
+| [interface-design](interface-design/SKILL.md) | Compact page/form layouts, action feedback, and rendered UI verification |
 | [legal-review](legal-review/SKILL.md) | Terms/privacy preparation and review for the project's jurisdictions |
 
 Read only the applicable skill. These are portable source packages, not automatically installed or activated by copying `template/`.

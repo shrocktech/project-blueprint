@@ -7,6 +7,34 @@ Apply these defaults to new UI when compatible with the established stack. Prese
 - WordPress keeps its theme/plugin UI and established Bootstrap/Tabler; blueprint adoption never introduces a replacement framework.
 - Reuse components and keep interfaces simple, accessible, and consistent. Respect lockfiles; upgrades follow [updates.md](updates.md).
 
+## Page and form layout
+
+- Use a compact title/action row for application pages, with useful content directly below. Avoid oversized headers and decorative empty space in settings and administration screens.
+- Reuse a page shell, header, content sections, field groups, checkbox rows, and action area in the established stack. Keep project-specific patterns in `docs/internal/`.
+- Put two or three related short fields in a row when they fit comfortably; give long or complex controls more width. Stack on narrow screens and preserve logical reading/tab order. Do not force unrelated fields into columns.
+- Use the existing spacing scale for page padding, field gaps, and sections. Align labels, control edges, and actions consistently; keep helper/error text associated with its field without displacing neighboring controls unnecessarily.
+- Center checkboxes, radios, and icons beside single-line text; align controls to the first line of wrapping labels. Associate labels with controls and make the label clickable.
+- Keep density comfortable: readable text, visible focus, usable hit targets, and layouts that reflow when zoomed. Compactness must not hide labels or clip content.
+
+Use the `interface-design` skill at its recorded location for layout planning and rendered verification. Follow [AGENTS.md](AGENTS.md) for skill discovery.
+
+## Save, submit, and feedback
+
+Apply these defaults where compatible with the interaction; preserve established native flows that already provide clear feedback.
+
+| State | Required behavior |
+| --- | --- |
+| Unchanged | Keep Save visible but inactive and visually subdued until values differ meaningfully from the last confirmed saved state. Reverting edits restores this state. |
+| Incomplete or invalid | Keep Submit/Save inactive until applicable required fields are complete and supplied values pass client-checkable validation. Optional fields may stay empty. Explain what is missing or invalid near the fields; do not rely on clicking a disabled button to reveal errors. |
+| Ready | Enable and emphasize the action. Creating/submitting a new record does not require edits when its defaults are valid. |
+| Processing | Show immediate progress, such as a spinner with "Saving..." or a status message. Prevent duplicate activation by click or Enter, keep the action's layout stable, and expose busy/status changes to assistive technology. |
+| Success | Show a clear confirmation or unmistakable result only after the server confirms success. Reset the saved baseline to confirmed values; preserve any newer unsaved edits. |
+| Failure | Show a useful error and next step, preserve the draft safely, and allow correction or appropriate retry. A timeout or unknown outcome is not success; verify the result before retrying actions that could duplicate effects. |
+
+- Reevaluate readiness after typing, clearing, selection, paste, and autofill. Show validation at helpful moments rather than interrupting every keystroke. Server-only checks run on submission; never make them an impossible prerequisite for enabling the button. Always validate and authorize server-side.
+- Keep pending, success, and failure distinguishable through text, not just color or motion. Announce asynchronous status changes without stealing focus; associate field errors and keep them available until resolved.
+- Native page navigation, including established WordPress flows, can provide progress feedback without an extra spinner. The destination must still communicate the outcome; a refresh alone is not proof of a successful save. Autosave needs equivalent saving/saved/error feedback. Record justified exceptions in project documentation.
+
 ## Credential fields, where applicable
 
 - Mask secret inputs by default; provide an accessible, keyboard-operable eye toggle for the entered draft. Allow paste/password managers and appropriate autocomplete; the toggle must not submit the form.

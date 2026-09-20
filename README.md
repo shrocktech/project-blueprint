@@ -36,6 +36,12 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 
 Existing applications retain their framework, custom code, and data; WordPress retains its themes/plugins and established Bootstrap/Tabler. The adoption skill covers label migration and transitioning current work to `develop` without losing history or unfinished work. Application upgrades and production-affecting changes are separate tasks.
 
+## Interface design
+
+For UI work, agents follow [design.md](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md): compact headers, responsive field groups, consistent alignment, and clear save/submit feedback. Existing frameworks and native interactions remain in place. Agents verify the rendered result as well as form behavior.
+
+> Build or refine this screen using our design standards and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at desktop and mobile widths.
+
 ## Interview prompt
 
 > Interview me about paused or in-progress issues needing my input. Ask one brief question at a time with an issue link, A as your recommendation, useful B/C alternatives, D to answer later, and E to answer in the issue. Accept my own answer too. Immediately comment each answer on its issue. When resolved, leave only IN PROGRESS, verify the Project status, and confirm before the next question. Keep unresolved items paused. Finish with a brief linked recap; keep the session focused on the interview.
@@ -66,13 +72,13 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/AGENTS.md](template/AGENTS.md) | Project facts, commands, core rules, conditional reading map |
 | [template/project.md](template/project.md) | Initial setup and environment defaults |
 | [template/git-workflow.md](template/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
-| [template/design.md](template/design.md) | Stack-compatible UI preferences |
+| [template/design.md](template/design.md) | Stack-compatible layouts, form actions, feedback, and credential fields |
 | [template/security.md](template/security.md) | Credentials, data, access, and reporting |
 | [template/legal.md](template/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
 | [template/documentation.md](template/documentation.md) | Private internal, public, optional admin docs, and changelogs |
 | [template/packages.md](template/packages.md) / [template/updates.md](template/updates.md) | Package choice and verified maintenance |
 | [template/launch.md](template/launch.md) | Release preparation and verification |
-| [skills/](skills/) | On-demand adoption, interview, and legal-review procedures |
+| [skills/](skills/) | Task-specific adoption, interview, interface-design, and legal-review procedures |
 | [PowerShell](scripts/setup-labels.ps1) / [Bash](scripts/setup-labels.sh) / [labels](scripts/labels.json) | Label setup and canonical colors |
 
 `agent.md` points to `AGENTS.md`; `CLAUDE.md` imports it using `@AGENTS.md`. Verify the target tool's discovery during setup. Detailed guides and skills are read only when relevant.
