@@ -20,9 +20,9 @@ Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker i
 
 Questions and reviews do not start unrelated implementation. The 90% confidence guideline is judgment, not a measured probability. Agents handle routine tested dependency updates without version-by-version decisions; unattended work requires a real runner.
 
-## Setup prompt
+## Project setup
 
-> Set up this project using `<blueprint-source>`. Follow its README adoption steps. If an application already exists, use adopt-existing first and preserve its stack, data, working features, and live behavior. Merge instructions and configure only compatible, authorized automation.
+Use the setup prompt in [Prompts](#prompts).
 
 Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/REPO` below means the target repository. The adopting agent should:
 
@@ -40,11 +40,11 @@ Existing applications retain their framework, custom code, and data; WordPress r
 
 For UI work, agents follow [design.md](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md): compact headers, responsive field groups, consistent alignment, useful muted icons, and clear save/submit feedback. Favor icons alongside labels in admin menus, features, and checkout. Existing frameworks and native interactions remain in place. Agents verify the rendered result as well as form behavior.
 
-> Build or refine this screen using our design standards and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at desktop and mobile widths.
+Use the interface prompt in [Prompts](#prompts).
 
-## Interview prompt
+## Issue interviews
 
-> Interview me about paused or in-progress issues needing my input. Ask one brief question at a time with an issue link, A as your recommendation, useful B/C alternatives, D to answer later, and E to answer in the issue. Accept my own answer too. Immediately comment each answer on its issue. When resolved, leave only IN PROGRESS, verify the Project status, and confirm before the next question. Keep unresolved items paused. Finish with a brief linked recap; keep the session focused on the interview.
+Use the interview prompt in [Prompts](#prompts).
 
 The [interview skill](skills/issue-interview/SKILL.md) defines the procedure, including verified setup, deferrals, and immediate updates.
 
@@ -52,7 +52,7 @@ The [interview skill](skills/issue-interview/SKILL.md) defines the procedure, in
 
 Use [legal.md](template/legal.md) and [legal-review](skills/legal-review/SKILL.md) for policies based on the project's actual jurisdictions and practices. Agents draft brief, accurate text without unsupported promises. The owner, defined in project `AGENTS.md`, or an explicitly authorized legal/business delegate approves initial policies and material changes. Approval may accompany a release that identifies the policy version. Non-substantive corrections need no repeat approval; qualified review follows `legal.md`.
 
-> Review this project's customer terms and privacy needs using legal-review. Inspect the application and existing policies first, keep wording brief and factual, and ask only for missing material decisions. Prepare applicable drafts in docs/public/legal and report any unresolved questions.
+Use the legal prompt in [Prompts](#prompts).
 
 Review before collecting real personal information, even for a waitlist or beta. The agent keeps policies aligned with later features; publishing follows your release authorization. A paid generator or outside skill is not required.
 
@@ -83,8 +83,24 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 
 `agent.md` points to `AGENTS.md`; `CLAUDE.md` imports it using `@AGENTS.md`. Verify the target tool's discovery during setup. Detailed guides and skills are read only when relevant.
 
-## Maintaining this repository
-
 Start from the repository root and follow its `AGENTS.md`. `template/AGENTS.md` belongs to the adopting application; treat it as payload while maintaining this blueprint. Verify active guidance because tools can also discover nested instruction files. Keep blueprint-maintenance notes outside `template/`.
 
 This repository uses only `main`, with owned isolated checkouts or detached worktrees and issue tracking under root `AGENTS.md`. Verify links, skills, and affected helpers before committing and pushing. Application development/release branches are specified by the payload. This repository has no application runtime or dependency repair runner; configure and verify automation in each adopting project.
+
+## Prompts
+
+**Setup**
+
+> Set up this project using `<blueprint-source>`. Follow its README adoption steps. If an application already exists, use adopt-existing first and preserve its stack, data, working features, and live behavior. Merge instructions and configure only compatible, authorized automation.
+
+**Interface design**
+
+> Build or refine this screen using our design standards and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at desktop and mobile widths.
+
+**Issue interview**
+
+> Interview me about paused or in-progress issues needing my input. Ask one brief question at a time with an issue link, A as your recommendation, useful B/C alternatives, D to answer later, and E to answer in the issue. Accept my own answer too. Immediately comment each answer on its issue. When resolved, leave only IN PROGRESS, verify the Project status, and confirm before the next question. Keep unresolved items paused. Finish with a brief linked recap; keep the session focused on the interview.
+
+**Legal review**
+
+> Review this project's customer terms and privacy needs using legal-review. Inspect the application and existing policies first, keep wording brief and factual, and ask only for missing material decisions. Prepare applicable drafts in docs/public/legal and report any unresolved questions.
