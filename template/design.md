@@ -3,9 +3,18 @@
 Apply these defaults to new UI when compatible with the established stack. Preserve existing frameworks, components, icons, and custom code; replacement needs explicit permission.
 
 - For new projects, use the latest stable Tailwind CSS, verifying the version at installation.
-- For compatible React projects, use shadcn/ui, Lucide icons, and shadcn-admin as the dashboard starting point. Other stacks use maintained native solutions under [packages.md](packages.md).
+- For compatible React projects, use shadcn/ui and shadcn-admin as the dashboard starting point; choose icons below. Other stacks use maintained native solutions under [packages.md](packages.md).
 - WordPress keeps its theme/plugin UI and established Bootstrap/Tabler; blueprint adoption never introduces a replacement framework.
 - Reuse components and keep interfaces simple, accessible, and consistent. Respect lockfiles; upgrades follow [updates.md](updates.md).
+
+## Icons
+
+- Use recognizable icons generously alongside labels in admin navigation, menus, actions, and feature groups. Include them on customer-facing pages where space allows and they improve scanning; keep text readable and avoid crowding.
+- Keep the established icon set. For new choices, prefer [Lucide](https://lucide.dev/), [Heroicons](https://heroicons.com/), or [Bootstrap Icons](https://icons.getbootstrap.com/) as appropriate to the stack. Use one coherent set for general UI, consistent sizes, stroke/fill style, spacing, and meanings; load only needed assets.
+- Default to muted monochrome using theme colors, with sufficient contrast in supported themes. Muted must not imply disabled. Reserve accent/status colors for meaningful states and provide non-color cues too.
+- Use recognizable provider marks for service integrations where useful. Prefer permitted monochrome variants that fit the muted palette; respect asset licenses and brand-use rules. If no permitted muted variant exists, use a generic service icon with the provider name. Provider/payment marks may supplement the general UI set.
+- Use card/payment icons at checkout and lock/shield icons for actual security features. Show only supported payment-brand marks; preserve payment-provider controls. Icons must not imply unverified certification, guarantees, or protection.
+- Keep visible labels where practical; give icon-only buttons and collapsed navigation accessible names and discoverable text on focus/hover. Hide decorative icons from assistive technology, and keep icons inside the same button/link target as their label.
 
 ## Page and form layout
 

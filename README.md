@@ -38,7 +38,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 
 ## Interface design
 
-For UI work, agents follow [design.md](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md): compact headers, responsive field groups, consistent alignment, and clear save/submit feedback. Existing frameworks and native interactions remain in place. Agents verify the rendered result as well as form behavior.
+For UI work, agents follow [design.md](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md): compact headers, responsive field groups, consistent alignment, useful muted icons, and clear save/submit feedback. Favor icons alongside labels in admin menus, features, and checkout. Existing frameworks and native interactions remain in place. Agents verify the rendered result as well as form behavior.
 
 > Build or refine this screen using our design standards and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at desktop and mobile widths.
 
