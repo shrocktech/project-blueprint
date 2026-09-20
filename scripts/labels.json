@@ -1,0 +1,16 @@
+[
+  {"name":"BACKLOG","color":"B1BAC4","description":"Future or unapproved work"},
+  {"name":"TO DO","color":"0075CA","description":"Approved work ready to start"},
+  {"name":"IN PROGRESS","color":"FBCA04","description":"Started work, including paused issues"},
+  {"name":"COMPLETED","color":"A371F7","description":"Closed and done; the only label retained on completion"},
+  {"name":"implementation","color":"C2E0C6","description":"Implementing the issue"},
+  {"name":"testing","color":"BFD4F2","description":"Verifying the issue"},
+  {"name":"deployment","color":"1D76DB","description":"Integration, delivery, and deployment verification"},
+  {"name":"paused: decision","color":"D93F0B","description":"Waiting for a user answer, choice, or missing information"},
+  {"name":"paused: setup","color":"B60205","description":"Waiting for a required user action or account setup"},
+  {"name":"paused: external","color":"6A737D","description":"Waiting for a provider, service, or dependency"},
+  {"name":"suggestion","color":"76B5C5","description":"Optional improvement awaiting approval in BACKLOG"},
+  {"name":"bug","color":"D73A4A","description":"Something is not working"},
+  {"name":"feature","color":"0E8A16","description":"New functionality"},
+  {"name":"enhancement","color":"A2EEEF","description":"Improvement to existing functionality"}
+]

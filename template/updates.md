@@ -1,0 +1,41 @@
+# Automatic Dependency Maintenance
+
+Routine dependency maintenance is approved work. Agents and automation should integrate suitable updates without asking the owner to approve each package version. Follow [packages.md](packages.md), [git-workflow.md](git-workflow.md), and [security.md](security.md).
+
+During blueprint adoption, use the `adopt-existing` skill to inventory current versions/settings. Upgrades, migrations, and live automation changes are separate maintenance tasks.
+
+## Update policy
+
+- Check supported dependencies weekly with Dependabot. Enable security alerts and security update PRs; assess relevant vulnerabilities promptly rather than waiting for the weekly run. Include application packages, build tooling, and workflow/container dependencies where present.
+- Automatically merge eligible stable patch/minor updates into `develop` after required checks pass. Group compatible routine updates to reduce noise; isolate failures and major upgrades.
+- Agents handle major upgrades, compatibility repairs, and security fixes autonomously when behavior and approved requirements can be preserved. Review release notes, perform migrations, and verify affected behavior before integration. A major version alone is not a reason to ask the owner.
+- Ask only for genuine product, cost, licensing, architecture, or destructive-data decisions. Use the appropriate `paused:` label under [git-workflow.md](git-workflow.md) when necessary; continue other work.
+- Automatic integration into `develop` does not authorize production deployment. Once live, track whether a security fix has reached the deployed version; promptly flag release action if an affected production version remains exposed. Follow [git-workflow.md](git-workflow.md) for release authorization and [launch.md](launch.md) for delivery.
+
+## WordPress maintenance
+
+Inventory WordPress core, themes, plugins, PHP, and separately managed packages. Identify which updater covers each; do not assume Dependabot covers the whole installation. Preserve existing automatic-update settings during adoption and document gaps as separate maintenance work.
+
+For later updates, use the isolated development/test environment, or staging if already authorized and active under [project.md](project.md). Verify compatibility and recovery for both files and database, and test relevant frontend/admin flows, forms, authentication, and commerce if present. Preserve uploads/content and licenses; check existing vendor/theme customizations before updating. Production updates follow the site's authorized release process. Repository merges do not by themselves prove a WordPress installation was updated.
+
+## Configure each application
+
+1. Inventory actual manifests, lockfiles, directories, registries, and CI checks. Create `.github/dependabot.yml` for supported ecosystems with weekly version checks. Keep the config on the repository's default branch. Prefer `develop` as the default/integration branch while production stays on `main`.
+2. Enable the dependency graph, vulnerability alerts, and available security-update features. Dependabot security PRs normally target the default branch; setting a version-update target is not enough to route security fixes. Verify the behavior for the current GitHub setup. If the default is `main`, arrange a tested integration path through `develop` rather than blindly enabling production-branch auto-merge.
+3. Configure automated tests, build, lint/type checks, and relevant smoke tests as required verification. Use native auto-merge and branch rules only where available on GitHub Free. Otherwise use the agent integration path below. Missing, skipped, pending, or failed required checks must not count as success. Validate the current PR revision against the current integration branch; do not bypass existing protection or use administrator overrides.
+4. Restrict automatic eligibility to verified Dependabot-origin PRs targeting `develop`, containing expected dependency/lockfile changes and passing policy checks. Keep workflow permissions minimal and pin external actions to reviewed immutable revisions. Do not execute untrusted PR code in a privileged approval/merge job or expose production secrets to dependency tests.
+5. Connect update PRs to an automatically created maintenance issue (individual or coherent batch) and the Project, using the normal status/stage lifecycle. Dependabot creates its own isolated PR branch; human/agent code changes still require an owned issue worktree. An agent repairing a bot PR must coordinate ownership, not race the bot on its branch. Close the linked issue with only `COMPLETED` after required integration and delivery succeed; closing a PR alone is not proof of completion.
+6. Use an existing authorized runner or supported dispatch mechanism for unattended repairs when available without new charges. Dependabot and auto-merge do not perform arbitrary repairs or wake an idle chat agent. Verify any handoff and record run/status links. Otherwise active agents process maintenance during live queue refreshes; document that unattended repair/integration is not configured. Never claim automation is active from instructions alone.
+7. Verify the configured path with an applicable update: detection, passing checks, integration, delivery checks, and issue completion. Also verify that a failed or ineligible update stays unmerged. Record which steps are unattended versus performed by an active agent, the schedule, coverage, checks, and remaining gaps in `docs/internal/`; link the status from [project.md](project.md). A verified free path satisfies setup without native paid features.
+
+## GitHub Free integration and usage
+
+- Native auto-merge and protected branches are available for public Free repositories but may require a paid plan for private ones. Do not upgrade or make a private repository public to obtain them. Preserve any existing protections.
+- Where native enforcement is unavailable, an active agent (or an already authorized runner) reviews eligibility, fetches the latest PR head and `develop`, and prepares their combined candidate in an isolated checkout. Run all required checks on that exact candidate. Recheck that the PR head is unchanged, then push the tested candidate to `develop` using a normal fast-forward push. A changed PR head or rejected push requires refreshing and revalidation; never force or merge an untested replacement. Verify the remote commit and record checks and PR/issue links. This is procedural enforcement, not server-enforced branch protection.
+- Routine verified integration needs no owner decision per update. Unavailable tests still block integration; free compatibility never means treating unverified work as passing. Keep production release authorization separate.
+- Keep Actions within the account's included free minutes/storage: use standard eligible runners, short retention, and avoid redundant runs. Do not enable paid overages, larger runners, or paid security add-ons. Check current allowances and billing controls before enabling workflows. If free capacity is unavailable, use existing authorized local resources or defer verification; do not merge unchecked changes. Self-hosted resources and agent services are not assumed to be cost-free.
+
+Keep routine results in the issue/automation history. Notify the owner only for meaningful failures, required decisions, or release action. Recheck unresolved updates during live queue refreshes. Update relevant docs and, after go-live, customer-facing changelog entries when warranted.
+
+
+Implementation references: [Dependabot configuration](https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference), [auto-merge availability](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository), [protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches), and [Actions usage](https://docs.github.com/en/billing/concepts/product-billing/github-actions). Consult current documentation during setup.
