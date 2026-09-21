@@ -9,6 +9,7 @@ Start sessions at the repository root and verify active instruction sources. Cor
 - No application installation, build, or runtime tests apply here.
 - Review the diff and run `git diff --check` (or `git diff --cached --check`).
 - Verify all relative Markdown links in both this repository and a copied `template/` directory.
+- Update affected README graphics in the same issue as workflow changes.
 - For skill edits, validate frontmatter and relevant references; verify that target-project filenames are not incorrectly resolved relative to the installed skill.
 - For label-helper edits, preview with `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires jq). Resolve the target repository from the checkout, validate the helper, and verify authorized GitHub changes.
 
@@ -18,7 +19,7 @@ Use [template/git-workflow.md](template/git-workflow.md) for issues, tracking, l
 
 Use the 90% judgment guideline and autonomous-work boundaries in [template/AGENTS.md](template/AGENTS.md); it is not a measured probability. Follow [template/security.md](template/security.md) for credentials and data. Read other templates only when changing their subject matter.
 
-Keep all distributed files generic: no personal, company, account, repository, or application identities. Use placeholders; adopting projects record their own configuration, authority, and jurisdictions. Keep blueprint-maintenance notes outside `template/`. Maintain consistent README instructions, labels, and authorized autonomy. Verify integration into `main`, then close the issue with only `COMPLETED`.
+Keep distributed files generic: no adopting-project personal, company, account, repository, or application identities. Use placeholders for project configuration, authority, and jurisdictions. Relevant third-party sources, packages, and skills may be named; citations do not authorize installation. Keep maintenance notes outside `template/`. Maintain consistent instructions, labels, and authorized autonomy. Verify integration into `main`, then close with only `COMPLETED`.
 
 All blueprint requirements must support GitHub Free for public and private repositories. Never require a plan upgrade, billed usage, or public visibility; document verified free alternatives.
 

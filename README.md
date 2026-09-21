@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-![Application workflow: backlog approval, issue worktree, implementation, testing, delivery to develop, completion and queue refresh; paused issues resume after verified resolution, and production releases require owner authorization.](assets/project-workflow-landscape.jpg)
+![Application workflow: project phases, issue worktrees, testing, delivery to develop, completion and queue refresh; pauses resolve before resumption. Private production beta and public opening require explicit authorization.](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches). Detailed instructions follow below.
 
@@ -37,7 +37,7 @@ Questions and reviews do not start unrelated implementation. The 90% confidence 
 
 [phases.md](template/phases.md) defines the work and completion criteria. You direct transitions; the agent recommends advancing when ready, without repeated prompts. Say “we're in specification” or “move to setup.” The recorded phase guides focus; changing it does not authorize deployment or public opening. New features do not reset the whole product.
 
-The admin header shows the phase, such as `DEVELOPMENT: specs`, beside the actual environment. An invited production beta can show environment `PRODUCTION` and phase `RELEASE: beta`. The final phase displays only `PRODUCTION`, with no subphase.
+Owner/developer admin views identify **Environment** and **Project phase** separately: an invited production beta shows `PRODUCTION` and `RELEASE: beta`. The final phase is `PRODUCTION`, without a subphase. Customer-admin views need no lifecycle display; phases are not GitHub labels or Project fields.
 
 ## Project setup
 
@@ -77,11 +77,11 @@ Review before collecting real personal information, even for a waitlist or beta.
 
 ## Marketing and pricing
 
-[marketing.md](template/marketing.md) keeps landing pages and product claims accurate; [pricing.md](template/pricing.md) governs commercial decisions. The [pricing-research skill](skills/pricing-research/SKILL.md) compares relevant products, costs, value, and refund terms, then presents a recommendation and alternatives. You approve initial prices and material changes; agents reuse those decisions to keep pages, checkout, billing, and docs consistent. Policy wording follows the legal rules above, and publication follows release authorization.
+[offering.md](template/offering.md) keeps marketing and commercial decisions consistent before and after launch. The [pricing-research skill](skills/pricing-research/SKILL.md) compares products, costs, value, and refund terms, then recommends alternatives. You approve initial prices and material changes; agents keep pages, checkout, billing, and docs aligned. Policies follow the legal rules; publication follows release authorization.
 
 Use the pricing prompt in [Prompts](#prompts). Research and business decisions stay in private project docs; approved customer policies belong in `docs/public/legal/`.
 
-When marketing work begins, the agent asks whether to install relevant skills from Corey Haines's collection linked in `marketing.md`. It is optional, is not bundled or downloaded during setup, and requires your approval before installation. You can defer it and continue with the blueprint's concise guidance.
+When marketing begins, the agent offers relevant Corey Haines skills linked in `offering.md`. Installation is optional, requires approval and review, and never happens during setup. The agent records your choice without repeated prompts; deferral does not block work.
 
 ## Environments and costs
 
@@ -101,7 +101,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/project.md](template/project.md) | Initial setup and environment defaults |
 | [template/git-workflow.md](template/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
 | [template/design.md](template/design.md) | Stack-compatible layouts, form actions, feedback, and credential fields |
-| [template/marketing.md](template/marketing.md) / [template/pricing.md](template/pricing.md) | Accurate offers, researched commercial decisions, and consistent customer information |
+| [template/offering.md](template/offering.md) | Accurate marketing, researched commercial decisions, and consistent customer information |
 | [template/security.md](template/security.md) | Credentials, data, access, and reporting |
 | [template/legal.md](template/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
 | [template/documentation.md](template/documentation.md) | Private internal, public, optional admin docs, and changelogs |

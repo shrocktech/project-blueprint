@@ -2,7 +2,7 @@
 
 Record business locations, customer/service regions, and product scope in private project docs. Determine applicable jurisdictions from those facts; assume no country or regional exemption. Reassess when operations, targeting, customers, or relevant law change. Use current official sources rather than importing unrelated regional boilerplate.
 
-Use the `legal-review` skill at the location recorded in [AGENTS.md](AGENTS.md) for initial policies, material policy changes, or uncertain applicability. Read [security.md](security.md) for technical safeguards. Commercial research follows [pricing.md](pricing.md); this file governs policy wording and obligations.
+Use the `legal-review` skill at the location recorded in [AGENTS.md](AGENTS.md) for initial policies, material policy changes, or uncertain applicability. Read [security.md](security.md) for technical safeguards. Commercial research follows [offering.md](offering.md); this file governs policy wording and obligations.
 
 - Write brief, plain-language policies describing verified practices. Keep applicable disclosures; brevity is not permission to omit them. Avoid unrelated boilerplate and blanket compliance claims.
 - Never promise perfect security. Claims about confidentiality, sharing, deletion, retention, uptime, refunds, or response deadlines need verified operational support and authorization. Distinguish legal duties from optional promises; never conceal gaps or silently weaken existing commitments.
