@@ -17,6 +17,7 @@ Apply these defaults to new UI when compatible with the established stack. Prese
 ## Page and form layout
 
 - Use a compact title/action row for application pages, with useful content directly below. Avoid oversized headers and decorative empty space in settings and administration screens.
+- Show a persistent badge for the current environment inside the admin header, normally upper right before utility icons: `DEVELOPMENT`, `PRODUCTION`, or `STAGING` when staging is active. Use consistent, distinct colors with readable text and adequate contrast in supported themes; keep it visible on narrow screens. Derive the label from explicit deployment-environment configuration, not build mode or hostname alone.
 - Use shared components for the page shell, header, sections, field groups, checkbox rows, and actions. Keep primary action placement clear without redundant controls; project-specific patterns belong in `docs/internal/`.
 - Put two or three related short fields in a row when they fit comfortably; give long or complex controls more width. Stack on narrow screens and preserve logical reading/tab order. Do not force unrelated fields into columns.
 - Use the existing spacing scale for page padding, field gaps, and sections. Align labels, control edges, and actions consistently; keep helper/error text associated with its field without displacing neighboring controls unnecessarily.
