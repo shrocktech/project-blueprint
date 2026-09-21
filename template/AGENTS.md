@@ -11,7 +11,7 @@ Follow the user's latest instructions. Fill project facts and commands during se
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
 - Blueprint source (repository or URL): TODO; adopted revision: TODO; local exceptions: TODO.
-- Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, and `legal-review` skills during setup. A source folder alone does not install skills.
+- Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
 
 ## Verified commands
 
@@ -49,6 +49,8 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Issues, implementation, queue, commits | [git-workflow.md](git-workflow.md) |
 | User-requested issue interview | `issue-interview` skill at its recorded location |
 | UI | [design.md](design.md); `interface-design` skill for page/form layout and interaction work |
+| Landing pages, messaging, or offer changes | [marketing.md](marketing.md) |
+| Pricing, packaging, or refund decisions | [pricing.md](pricing.md); `pricing-research` skill for initial or material decisions |
 | Documentation | [documentation.md](documentation.md) |
 | Security | [security.md](security.md) |
 | Personal-data practices, customer terms, or policies | [legal.md](legal.md); `legal-review` skill for policy preparation or material review |

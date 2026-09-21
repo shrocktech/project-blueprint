@@ -1,0 +1,8 @@
+# Pricing and Refund Decisions
+
+Use the `pricing-research` skill at the location recorded in [AGENTS.md](AGENTS.md) before initial pricing or material commercial changes. Research comparable products, customer value, delivery/support costs, and applicable constraints; competitor prices are evidence, not a target or proof of an optimal price. Do not assume subscription tiers, discounts, or a universal refund window.
+
+- Maintain one approved commercial record indexed from private `docs/internal/` under [documentation.md](documentation.md). Identify the audience, offering, decision rationale, effective version, and approval. Link canonical billing configuration and approved policy text instead of keeping competing copies. Separate proposals from active terms.
+- The owner or explicitly authorized business delegate approves initial prices and material commercial changes; reuse recorded decisions. Research does not authorize live billing changes. State how changes affect existing customers, preserving commitments and required notices under [legal.md](legal.md).
+- Research refund eligibility, deadlines, renewals, consumed services, and cancellation separately. Policy wording, applicability review, and customer commitments follow `legal.md`; approved public policy sources belong in `docs/public/legal/`.
+- Keep advertised amounts, billing intervals, currencies, limits, charges, trials, renewals, cancellation, and refunds consistent across marketing, checkout, billing behavior, and documentation. Update affected sources with each issue; activation follows [launch.md](launch.md). Free products need only applicable rules.

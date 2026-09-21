@@ -17,6 +17,7 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | `paused: setup` | Complete the linked user-only steps and report the result. |
 | `paused: external` | Read the provider/dependency status; usually no action is needed. |
 | Clear several pending answers | Request an issue interview with the prompt below. |
+| Prepare an offer | Request pricing research with the prompt below; choose a recommendation or give your own terms. |
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change, then have existing projects adopt that revision. |
 
@@ -60,6 +61,14 @@ Use the legal prompt in [Prompts](#prompts).
 
 Review before collecting real personal information, even for a waitlist or beta. The agent keeps policies aligned with later features; publishing follows your release authorization. A paid generator or outside skill is not required.
 
+## Marketing and pricing
+
+[marketing.md](template/marketing.md) keeps landing pages and product claims accurate; [pricing.md](template/pricing.md) governs commercial decisions. The [pricing-research skill](skills/pricing-research/SKILL.md) compares relevant products, costs, value, and refund terms, then presents a recommendation and alternatives. You approve initial prices and material changes; agents reuse those decisions to keep pages, checkout, billing, and docs consistent. Policy wording follows the legal rules above, and publication follows release authorization.
+
+Use the pricing prompt in [Prompts](#prompts). Research and business decisions stay in private project docs; approved customer policies belong in `docs/public/legal/`.
+
+When marketing work begins, the agent asks whether to install relevant skills from Corey Haines's collection linked in `marketing.md`. It is optional, is not bundled or downloaded during setup, and requires your approval before installation. You can defer it and continue with the blueprint's concise guidance.
+
 ## Environments and costs
 
 Use `develop.<domain>` from `develop` for development/release testing and the main domain from `main` for authorized production releases. Before launch, preserve `main` as a snapshot. Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption.
@@ -77,12 +86,13 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/project.md](template/project.md) | Initial setup and environment defaults |
 | [template/git-workflow.md](template/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
 | [template/design.md](template/design.md) | Stack-compatible layouts, form actions, feedback, and credential fields |
+| [template/marketing.md](template/marketing.md) / [template/pricing.md](template/pricing.md) | Accurate offers, researched commercial decisions, and consistent customer information |
 | [template/security.md](template/security.md) | Credentials, data, access, and reporting |
 | [template/legal.md](template/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
 | [template/documentation.md](template/documentation.md) | Private internal, public, optional admin docs, and changelogs |
 | [template/packages.md](template/packages.md) / [template/updates.md](template/updates.md) | Package choice and verified maintenance |
 | [template/launch.md](template/launch.md) | Release preparation and verification |
-| [skills/](skills/) | Task-specific adoption, interview, interface-design, and legal-review procedures |
+| [skills/](skills/) | Task-specific adoption, interview, interface-design, pricing-research, and legal-review procedures |
 | [PowerShell](scripts/setup-labels.ps1) / [Bash](scripts/setup-labels.sh) / [labels](scripts/labels.json) | Label setup and canonical colors |
 
 `agent.md` points to `AGENTS.md`; `CLAUDE.md` imports it using `@AGENTS.md`. Verify the target tool's discovery during setup. Detailed guides and skills are read only when relevant.
@@ -108,3 +118,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 **Legal review**
 
 > Review this project's customer terms and privacy needs using legal-review. Inspect the application and existing policies first, keep wording brief and factual, and ask only for missing material decisions. Prepare applicable drafts in docs/public/legal and report any unresolved questions.
+
+**Pricing research**
+
+> Research comparable products' prices, packages, and refund terms using pricing-research. Give me a brief linked comparison, your recommended pricing and refund approach, and useful alternatives. Account for our costs and customer value. Reuse existing decisions, ask only what is missing, and identify inconsistencies in our landing page, checkout, billing, and docs.
