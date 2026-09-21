@@ -2,6 +2,10 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
+![Application workflow: backlog approval, issue worktree, implementation, testing, delivery to develop, completion and queue refresh; paused issues resume after verified resolution, and production releases require owner authorization.](assets/project-workflow-landscape.jpg)
+
+Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches). Detailed instructions follow below.
+
 ## How you operate
 
 | Situation | Your action |
