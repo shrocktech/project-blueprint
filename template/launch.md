@@ -1,6 +1,6 @@
 # Beta and Launch Checklist
 
-Use this checklist for private beta and public release under [phases.md](phases.md). Routine development and private beta do not require a customer changelog or public documentation site. Follow [git-workflow.md](git-workflow.md), [documentation.md](documentation.md), and [security.md](security.md).
+Use this checklist for private beta and public release under [phases.md](phases.md). Routine development and private beta do not require a customer changelog or public documentation site. Follow [git-workflow.md](git-workflow.md) and [documentation.md](documentation.md). Verify the candidate against the review requirements in [security.md](security.md#security-review) before admitting beta testers or releasing publicly.
 
 For an already-live product, use this checklist for subsequent releases under [git-workflow.md](git-workflow.md). Preserve release history; adoption uses the `adopt-existing` skill and does not repeat first-launch setup.
 
@@ -14,6 +14,7 @@ For an already-live product, use this checklist for subsequent releases under [g
 
 - **Release scope:** Record the launch issue, intended version, included features, known limitations, and verification results. Confirm authorization for production delivery and public opening; reuse existing explicit approvals.
 - **Release testing:** Test the recorded candidate on `develop.<domain>` or an isolated candidate preview under [project.md](project.md), keeping it stable during final checks. Staging is optional; use `staging.<domain>` only if explicitly requested and active. Do not provision staging as a launch prerequisite. Verify that the authorized production deployment uses the tested candidate.
+- **Security validation:** Recheck controls affected by beta fixes and final data-handling claims under `security.md`. Link private review evidence; unresolved critical/high findings or missing required verification block release.
 - **Customer documentation:** Prepare the initial `docs/public/` set from reviewed technical docs: getting started, core tasks, and where to get help. Include installation or configuration instructions when relevant. Check that it describes the version being launched and contains no internal-only content.
 - **Marketing and commercial consistency:** Under [offering.md](offering.md), verify landing pages, pricing pages, checkout, billing configuration, customer docs, and approved policies agree with the release. Confirm commercial decisions and test the advertised journey before activation. Repeat for each release affecting the offer.
 - **Customer terms and privacy:** Follow [legal.md](legal.md). Verify applicable policies in `docs/public/legal/` match the release, have authorized terms and effective dates, and are linked where needed. Test applicable notices, consent/acceptance, and privacy controls; exclude unfinished drafts. Required disclosures must be ready before the corresponding collection or transactions, including any pre-launch waitlist/beta.

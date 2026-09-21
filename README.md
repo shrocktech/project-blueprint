@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-![Application workflow: project phases, issue worktrees, testing, delivery to develop, completion and queue refresh; pauses resolve before resumption. Private production beta and public opening require explicit authorization.](assets/project-workflow-landscape.jpg)
+![Application workflow: specs, build, security review, release, launch, and ongoing production. Issue worktrees, testing, delivery to develop, completion, pauses, and queue refresh. Security checks and explicit authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches). Detailed instructions follow below.
 
@@ -18,7 +18,7 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | `paused: external` | Read the provider/dependency status; usually no action is needed. |
 | Clear several pending answers | Request an issue interview with the prompt below. |
 | Prepare an offer | Request pricing research with the prompt below; choose a recommendation or give your own terms. |
-| Change phase | Say “move to setup” or name the next phase; the agent records your decision under [phases.md](template/phases.md). |
+| Change phase | Say “move to security” or name the next phase; the agent records your decision under [phases.md](template/phases.md). |
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change, then have existing projects adopt that revision. |
 
@@ -30,12 +30,14 @@ Questions and reviews do not start unrelated implementation. The 90% confidence 
 
 | Parent | Subphases |
 | --- | --- |
-| **DEVELOPMENT** | specs → setup → build |
+| **DEVELOPMENT** | specs → build → security |
 | **RELEASE** | offering → beta → validation |
 | **LAUNCH** | open → feedback → stabilize |
 | **PRODUCTION** | None; final ongoing marketing, growth, maintenance, and feature releases |
 
-[phases.md](template/phases.md) defines the work and completion criteria. You direct transitions; the agent recommends advancing when ready, without repeated prompts. Say “we're in specification” or “move to setup.” The recorded phase guides focus; changing it does not authorize deployment or public opening. New features do not reset the whole product.
+[phases.md](template/phases.md) defines the work and completion criteria. You direct transitions; the agent recommends advancing when ready, without repeated prompts. Say “we're in specification” or “move to security.” The recorded phase guides focus; changing it does not authorize deployment or public opening. New features do not reset the whole product.
+
+`specs` includes security requirements and finishes with the agreed setup. Security applies throughout development; `security` is the review checkpoint before beta. Agents verify data-handling promises, admin access, application/infrastructure controls, and abuse prevention under [security.md](template/security.md#security-review). Findings and retests stay private. Unresolved critical/high findings or missing required checks block beta/release; `validation` rechecks affected controls and final customer claims.
 
 Owner/developer admin views identify **Environment** and **Project phase** separately: an invited production beta shows `PRODUCTION` and `RELEASE: beta`. The final phase is `PRODUCTION`, without a subphase. Customer-admin views need no lifecycle display; phases are not GitHub labels or Project fields.
 
@@ -102,7 +104,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/git-workflow.md](template/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
 | [template/design.md](template/design.md) | Stack-compatible layouts, form actions, feedback, and credential fields |
 | [template/offering.md](template/offering.md) | Accurate marketing, researched commercial decisions, and consistent customer information |
-| [template/security.md](template/security.md) | Credentials, data, access, and reporting |
+| [template/security.md](template/security.md) | Credentials, data, access, security review, release checks, and reporting |
 | [template/legal.md](template/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
 | [template/documentation.md](template/documentation.md) | Private internal, public, optional admin docs, and changelogs |
 | [template/packages.md](template/packages.md) / [template/updates.md](template/updates.md) | Package choice and verified maintenance |

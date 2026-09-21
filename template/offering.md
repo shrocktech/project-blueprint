@@ -3,7 +3,7 @@
 Apply before customer-facing pages or initial pricing, during launch preparation, and whenever the offer changes, including after launch. Keep copy brief and understandable to the intended audience.
 
 - Explain the audience, problem, supported benefits, and next action. Use verified capabilities and current screenshots; distinguish available features from plans. Pre-launch pages must accurately identify waitlists, previews, and availability.
-- Substantiate measurable claims, comparisons, testimonials, and trust marks. Never invent customers, guarantees, savings, scarcity, or certifications. Commitments and disclosures follow [legal.md](legal.md); presentation follows [design.md](design.md). Verify links and advertised signup/purchase journeys, including mobile.
+- Substantiate measurable claims, comparisons, testimonials, and trust marks. Never invent customers, guarantees, savings, scarcity, or certifications. Commitments and disclosures follow [legal.md](legal.md); verify data/security claims under [security.md](security.md#security-review). Presentation follows [design.md](design.md). Verify links and advertised signup/purchase journeys, including mobile.
 
 Use the `pricing-research` skill recorded in [AGENTS.md](AGENTS.md) before initial pricing or material commercial changes. Compare relevant products, customer value, delivery/support costs, and applicable constraints. Competitor prices are evidence, not a target or proof of an optimal price. Assume no subscription tiers, discounts, or universal refund window.
 

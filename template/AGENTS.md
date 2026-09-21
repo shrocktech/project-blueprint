@@ -53,7 +53,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | UI | [design.md](design.md); `interface-design` skill for page/form layout and interaction work |
 | Marketing, pricing, packaging, or refunds | [offering.md](offering.md); `pricing-research` skill for initial or material commercial decisions |
 | Documentation | [documentation.md](documentation.md) |
-| Security | [security.md](security.md) |
+| Security or customer-data changes | [security.md](security.md) |
 | Personal-data practices, customer terms, or policies | [legal.md](legal.md); `legal-review` skill for policy preparation or material review |
 | Package choice / updates | [packages.md](packages.md) / [updates.md](updates.md) |
 | Launch / release | [launch.md](launch.md) |
