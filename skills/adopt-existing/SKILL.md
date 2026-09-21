@@ -14,7 +14,7 @@ After inspection, follow `git-workflow.md` for the setup issue and tracking boot
 ## Inspect and preserve
 
 - Inventory instructions, branches, PRs, active worktrees, uncommitted work, architecture, dependencies, components, integrations, data, environments, deployment triggers, and available checks. Record what exists before changing it.
-- Establish the current lifecycle position under `phases.md` from existing decisions and evidence; ask only if unclear. Do not reset an existing project to specs or treat a production deployment as proof of the final `PRODUCTION` phase. Record its active plan in `AGENTS.md`.
+- Establish the current lifecycle position under `phases.md` from existing decisions and evidence; ask only if unclear. Do not reset an existing project to planning or treat a production deployment as proof of the final `PRODUCTION` phase. Record its active plan in `AGENTS.md`.
 - Keep established CSS/component/icon frameworks and functioning custom code. Generic defaults fill gaps; they do not justify introducing a different framework or rebuilding features.
 - Inventory and preserve schemas/migrations, configuration, secret storage, URLs, content, release history, published policies/terms, effective versions/dates, acceptance records, and live behavior. Do not discard another agent's work, reset shared history, migrate databases, replace live policies, or activate production workflows as an adoption side effect.
 - Merge unique local requirements into target instructions/private docs. Consolidate obsolete workflow rules while preserving useful knowledge. Use an owned isolated issue checkout under `git-workflow.md`.

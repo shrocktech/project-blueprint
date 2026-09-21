@@ -2,9 +2,9 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-![Application workflow: specs, build, security review, release, launch, and ongoing production. Issue worktrees, testing, delivery to develop, completion, pauses, and queue refresh. Security checks and explicit authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
+![Application workflow: planning, build, security review, release, launch, and ongoing production. Issue worktrees, testing, delivery to develop, completion, pauses, and queue refresh. Security checks and explicit authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
-Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches). Detailed instructions follow below.
+Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches).
 
 ## How you operate
 
@@ -30,16 +30,16 @@ Questions and reviews do not start unrelated implementation. The 90% confidence 
 
 | Parent | Subphases |
 | --- | --- |
-| **DEVELOPMENT** | specs → build → security |
+| **DEVELOPMENT** | planning → build → security |
 | **RELEASE** | offering → beta → validation |
 | **LAUNCH** | open → feedback → stabilize |
 | **PRODUCTION** | None; final ongoing marketing, growth, maintenance, and feature releases |
 
-[phases.md](template/phases.md) defines the work and completion criteria. You direct transitions; the agent recommends advancing when ready, without repeated prompts. Say “we're in specification” or “move to security.” The recorded phase guides focus; changing it does not authorize deployment or public opening. New features do not reset the whole product.
+[phases.md](template/phases.md) defines work and completion criteria. Direct transitions naturally, such as “move to security”; agents recommend advancement without repeated prompts. Changing phase does not authorize deployment or public opening. New features do not reset the product.
 
-`specs` includes security requirements and finishes with the agreed setup. Security applies throughout development; `security` is the review checkpoint before beta. Agents verify data-handling promises, admin access, application/infrastructure controls, and abuse prevention under [security.md](template/security.md#security-review). Findings and retests stay private. Unresolved critical/high findings or missing required checks block beta/release; `validation` rechecks affected controls and final customer claims.
+`planning` includes specifications, security requirements, and setup. Security applies throughout development, with a review before beta and rechecks during `validation`. [security.md](template/security.md#security-review) governs review scope, evidence, release requirements, and owner risk acceptance; findings stay private.
 
-Owner/developer admin views identify **Environment** and **Project phase** separately: an invited production beta shows `PRODUCTION` and `RELEASE: beta`. The final phase is `PRODUCTION`, without a subphase. Customer-admin views need no lifecycle display; phases are not GitHub labels or Project fields.
+Owner/developer admin views separate **Environment** from **Project phase**: an invited production beta shows `PRODUCTION` and `RELEASE: beta`. Final `PRODUCTION` has no subphase. Customer-admin views need no lifecycle display; phases are not GitHub labels or Project fields.
 
 ## Project setup
 
