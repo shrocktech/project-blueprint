@@ -18,12 +18,26 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | `paused: external` | Read the provider/dependency status; usually no action is needed. |
 | Clear several pending answers | Request an issue interview with the prompt below. |
 | Prepare an offer | Request pricing research with the prompt below; choose a recommendation or give your own terms. |
+| Change phase | Say “move to setup” or name the next phase; the agent records your decision under [phases.md](template/phases.md). |
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change, then have existing projects adopt that revision. |
 
 Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. Unresolved blockers keep their pause reason. Finished issues close with only purple `COMPLETED`.
 
 Questions and reviews do not start unrelated implementation. The 90% confidence guideline is judgment, not a measured probability. Agents handle routine tested dependency updates without version-by-version decisions; unattended work requires a real runner.
+
+## Project phases
+
+| Parent | Subphases |
+| --- | --- |
+| **DEVELOPMENT** | specs → setup → build |
+| **RELEASE** | offering → beta → validation |
+| **LAUNCH** | open → feedback → stabilize |
+| **PRODUCTION** | None; final ongoing marketing, growth, maintenance, and feature releases |
+
+[phases.md](template/phases.md) defines the work and completion criteria. You direct transitions; the agent recommends advancing when ready, without repeated prompts. Say “we're in specification” or “move to setup.” The recorded phase guides focus; changing it does not authorize deployment or public opening. New features do not reset the whole product.
+
+The admin header shows the phase, such as `DEVELOPMENT: specs`, beside the actual environment. An invited production beta can show environment `PRODUCTION` and phase `RELEASE: beta`. The final phase displays only `PRODUCTION`, with no subphase.
 
 ## Project setup
 
@@ -71,7 +85,7 @@ When marketing work begins, the agent asks whether to install relevant skills fr
 
 ## Environments and costs
 
-Use `develop.<domain>` from `develop` for development/release testing and the main domain from `main` for authorized production releases. Before launch, preserve `main` as a snapshot. Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption.
+Use `develop.<domain>` from `develop` for development/testing and the main domain from `main` for authorized production releases. During `RELEASE: beta`, an explicitly authorized private beta can run there with invitation-only access; public opening requires launch authorization under [launch.md](template/launch.md). Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption.
 
 Use generic placeholders here. Record actual application domains, provider configuration, and deployment details only in the adopting project's appropriate documentation.
 
@@ -83,6 +97,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Maintaining this blueprint repository |
 | [template/AGENTS.md](template/AGENTS.md) | Project facts, commands, core rules, conditional reading map |
+| [template/phases.md](template/phases.md) | Lifecycle focus, subphases, completion criteria, and user-directed transitions |
 | [template/project.md](template/project.md) | Initial setup and environment defaults |
 | [template/git-workflow.md](template/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
 | [template/design.md](template/design.md) | Stack-compatible layouts, form actions, feedback, and credential fields |
@@ -91,7 +106,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/legal.md](template/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
 | [template/documentation.md](template/documentation.md) | Private internal, public, optional admin docs, and changelogs |
 | [template/packages.md](template/packages.md) / [template/updates.md](template/updates.md) | Package choice and verified maintenance |
-| [template/launch.md](template/launch.md) | Release preparation and verification |
+| [template/launch.md](template/launch.md) | Private beta, public opening, and release verification |
 | [skills/](skills/) | Task-specific adoption, interview, interface-design, pricing-research, and legal-review procedures |
 | [PowerShell](scripts/setup-labels.ps1) / [Bash](scripts/setup-labels.sh) / [labels](scripts/labels.json) | Label setup and canonical colors |
 

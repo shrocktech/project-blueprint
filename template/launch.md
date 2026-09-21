@@ -1,12 +1,18 @@
-# Launch Checklist
+# Beta and Launch Checklist
 
-Use this checklist when the application is ready to go live. Routine development and internal prereleases do not require a customer changelog or public documentation site. Follow [git-workflow.md](git-workflow.md), [documentation.md](documentation.md), and [security.md](security.md).
+Use this checklist for private beta and public release under [phases.md](phases.md). Routine development and private beta do not require a customer changelog or public documentation site. Follow [git-workflow.md](git-workflow.md), [documentation.md](documentation.md), and [security.md](security.md).
 
 For an already-live product, use this checklist for subsequent releases under [git-workflow.md](git-workflow.md). Preserve release history; adoption uses the `adopt-existing` skill and does not repeat first-launch setup.
 
+## Private beta
+
+- Test critical journeys outside production first. With explicit beta-release authorization, promote the tested candidate to `main` and the normal production address, enforcing invitation-only access server-side. Display beta status; verify access controls, recovery, and applicable notices before admitting testers. Staging remains optional under [project.md](project.md).
+- Record invited scope, known limits, charges if any, and whether accounts/data persist or reset. Treat beta data as real; keep destructive, stress, and disposable-data tests outside production. Provide the instructions/support testers need without requiring a full public docs site.
+- Turn feedback into issues: fix and retest launch blockers; put optional ideas in the backlog. Continue implementation on issue branches into `develop`, delivering beta fixes within recorded release authorization. Beta permission does not authorize public opening; verify the final candidate before recommending launch.
+
 ## Prepare the first public launch
 
-- **Release scope:** Record the launch issue, intended version, included features, known limitations, and verification results. Confirm launch authorization before promoting to production.
+- **Release scope:** Record the launch issue, intended version, included features, known limitations, and verification results. Confirm authorization for production delivery and public opening; reuse existing explicit approvals.
 - **Release testing:** Test the recorded candidate on `develop.<domain>` or an isolated candidate preview under [project.md](project.md), keeping it stable during final checks. Staging is optional; use `staging.<domain>` only if explicitly requested and active. Do not provision staging as a launch prerequisite. Verify that the authorized production deployment uses the tested candidate.
 - **Customer documentation:** Prepare the initial `docs/public/` set from reviewed technical docs: getting started, core tasks, and where to get help. Include installation or configuration instructions when relevant. Check that it describes the version being launched and contains no internal-only content.
 - **Marketing and commercial consistency:** Under [marketing.md](marketing.md) and [pricing.md](pricing.md), verify landing pages, pricing pages, checkout, billing configuration, customer docs, and approved policies agree with the release. Confirm commercial decisions and test the advertised journey before activation. Repeat for each release affecting the offer.
@@ -19,7 +25,7 @@ For an already-live product, use this checklist for subsequent releases under [g
 
 ## Go live and verify
 
-Deploy the authorized release from `main` and publish the matching customer docs and applicable policies from `docs/public/`, administrator docs from `docs/admin/` when applicable, and changelog. Verify the live application and documentation links using the intended access levels, including denial of unauthorized access to restricted admin docs. Keep internal documentation private. Record the deployed version, documentation destinations, verification results, and any blockers in the launch issue before closing it.
+Deploy or verify the authorized candidate on `main`, open the approved customer access, and remove beta status. Publish matching customer docs and applicable policies from `docs/public/`, administrator docs from `docs/admin/` when applicable, and changelog. Verify critical live journeys and documentation links, including denial of unauthorized admin access. Keep internal docs private. Record the deployed version, documentation destinations, checks, and blockers in the launch issue before closing it. Lifecycle progression follows [phases.md](phases.md).
 
 ## After launch
 

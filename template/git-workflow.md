@@ -62,7 +62,7 @@ Honor an explicit stop, review-only scope, or execution limit. Preserve a handof
 
 ## Isolation, branches, and delivery
 
-Use `issue branch → develop → main` before and after launch. `develop` integrates finished work; `main` holds the initial or preserved pre-launch baseline, then production releases. Do not update `main` or production until the user explicitly authorizes the release; passing tests alone is not that instruction. Keep branches short-lived and never implement directly on either shared branch. Production releases follow [launch.md](launch.md).
+Use `issue branch → develop → main` in every lifecycle phase. `develop` integrates finished work; `main` holds the preserved baseline, then authorized private-beta and public production releases. Do not update `main` or production without explicit release authorization; passing tests or changing phase is insufficient. Keep branches short-lived and never implement directly on shared branches. Beta releases and public opening follow [launch.md](launch.md).
 
 Inspect status and worktrees, fetch, and create an issue branch/worktree from `origin/develop`:
 

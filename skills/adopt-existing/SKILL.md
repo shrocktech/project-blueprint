@@ -14,6 +14,7 @@ After inspection, follow `git-workflow.md` for the setup issue and tracking boot
 ## Inspect and preserve
 
 - Inventory instructions, branches, PRs, active worktrees, uncommitted work, architecture, dependencies, components, integrations, data, environments, deployment triggers, and available checks. Record what exists before changing it.
+- Establish the current lifecycle position under `phases.md` from existing decisions and evidence; ask only if unclear. Do not reset an existing project to specs or treat a production deployment as proof of the final `PRODUCTION` phase. Record its active plan in `AGENTS.md`.
 - Keep established CSS/component/icon frameworks and functioning custom code. Generic defaults fill gaps; they do not justify introducing a different framework or rebuilding features.
 - Inventory and preserve schemas/migrations, configuration, secret storage, URLs, content, release history, published policies/terms, effective versions/dates, acceptance records, and live behavior. Do not discard another agent's work, reset shared history, migrate databases, replace live policies, or activate production workflows as an adoption side effect.
 - Merge unique local requirements into target instructions/private docs. Consolidate obsolete workflow rules while preserving useful knowledge. Use an owned isolated issue checkout under `git-workflow.md`.
@@ -26,7 +27,7 @@ After inspection, follow `git-workflow.md` for the setup issue and tracking boot
 4. Follow `project.md` for authorized development/test routing and optional staging. Verify the replacement preview and deployed commit before retiring an old preview. Preserve production routing and existing operational update settings. Branch transitions never relocate databases, uploads, hosted customer applications, or other runtime resources.
 5. Record the final branches, routes/triggers, checks, and pending transition work in `docs/internal/`. Preserve `main`, its history, and any distinct deployed/unreleased states.
 
-Before launch, development may already have happened on `main`; preserve that snapshot rather than emptying it. Continue testing on `develop` until the authorized first launch. An existing landing page or unpublished production domain can remain as-is.
+Before launch, preserve existing `main` history and deployed behavior. Continue implementation/testing through `develop`; changes to `main` require an authorized beta or public release under `launch.md`. Existing landing pages and private betas retain their access settings until an authorized change.
 
 For already-live products, preserve the current service and release baseline. If a transition cannot be isolated from production, pause that step with a brief recommendation while continuing independent work. Preserve tags, release notes, public docs, and changelog history. If a changelog is missing, draft from verified facts and future Unreleased entries; never invent history or treat adoption as a first launch. Subsequent release preparation follows `launch.md`.
 

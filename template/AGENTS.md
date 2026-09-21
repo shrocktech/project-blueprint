@@ -5,6 +5,7 @@ Follow the user's latest instructions. Fill project facts and commands during se
 ## Project facts
 
 - Purpose, users, stack, runtime, package manager, directories: to be filled in.
+- Lifecycle: phase TODO; subphase TODO (`none` for `PRODUCTION`); active plan TODO. Use [phases.md](phases.md) for current focus and transitions.
 - Owner: the human authorized to bind the project/business; record their role and delegates. Policy approval requires explicit legal/business delegation; development or release access alone does not confer it.
 - Business and customer/service jurisdictions: record verified scope in private project docs; no assumed country.
 - Conventions: link existing formatter/linter configuration and patterns.
@@ -44,6 +45,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 
 | Task | Guidance |
 | --- | --- |
+| Phase planning or transitions | [phases.md](phases.md) |
 | Setup or environments | [project.md](project.md) |
 | Existing-project adoption | `adopt-existing` skill at its recorded location, before changes |
 | Issues, implementation, queue, commits | [git-workflow.md](git-workflow.md) |
