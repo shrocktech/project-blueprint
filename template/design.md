@@ -47,7 +47,8 @@ Apply these defaults where compatible with the interaction; preserve established
 ## Credential fields, where applicable
 
 - Mask secret inputs by default; provide an accessible, keyboard-operable eye toggle for the entered draft. Allow paste/password managers and appropriate autocomplete; the toggle must not submit the form.
-- Represent a saved credential with fixed `********` and "Saved", based on server confirmation. Show "Not configured" otherwise. The display must contain neither the secret nor its length and must never be submitted as a replacement.
+- After server confirmation, show saved credentials as fixed `********` and "Saved" by default; absent credentials show "Not configured".
+- For saved API keys, show the first four and last four characters around fixed `********`, for example `abcd********wxyz — Saved`, subject to the preview rules in [security.md](security.md). Use the fixed mask when no preview is available. Saved indicators never reveal the full value or actual length, become editable values, or get submitted as replacements; the eye toggle reveals only the entered draft.
 - Keep Replace/Remove explicit: unchanged means keep, cancellation discards the draft, and successful saving clears it. Failed saves never claim success. Do not fetch stored secrets just to populate the field; login passwords use change/reset.
 - Application-specific credential request formats, components, and state diagrams belong in `docs/internal/`.
 
