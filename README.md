@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-![Application workflow: planning, build, security review, release, launch, and ongoing production. Issue worktrees, testing, delivery to develop, completion, pauses, and queue refresh. Security checks and explicit authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
+![Application workflow: planning, build, security review, release, launch, and ongoing production. Issue worktrees, testing, delivery to develop, comment review, posted results, completion, pauses, and queue refresh. Security checks and explicit authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches).
 
@@ -22,7 +22,9 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change, then have existing projects adopt that revision. |
 
-Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. Unresolved blockers keep their pause reason. Finished issues close with only purple `COMPLETED`.
+Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. Unresolved blockers keep their pause reason.
+
+Before closing, the agent checks every comment, addresses your requests/questions, and posts a brief result on the issue. New or edited comments trigger another review; missed unresolved input found just after closure reopens the issue. Finished issues close with only purple `COMPLETED` under the [completion checks](template/git-workflow.md#isolation-branches-and-delivery).
 
 Routine work uses [verified direct integration](template/git-workflow.md#isolation-branches-and-delivery), without mandatory pull requests or extra reviewers. Agents handle eligible Dependabot update PRs without per-version owner review; unattended work requires a verified runner. Existing repository protections still apply.
 

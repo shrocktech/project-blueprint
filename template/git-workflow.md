@@ -49,7 +49,7 @@ Proactively record worthwhile optional improvements as separate `BACKLOG` + `sug
 
 ## Issue-first and live queue
 
-Every development change, including small fixes, needs an issue with outcome and acceptance criteria. Read current comments, dependencies, and ownership before claiming it. Keep one primary active task per agent; record ownership and set `IN PROGRESS` + `implementation` before editing. Put corrections on the current issue; capture separate user requests as `TO DO` and finish the current task unless reprioritized. Unapproved discoveries belong in `BACKLOG`.
+Every development change, including small fixes, needs an issue with outcome and acceptance criteria. Read the current body, all comment pages, dependencies, and ownership when claiming/resuming, changing stages, and before integration. Include edits to older comments; a remembered discussion is not current. Keep one primary active task per agent; record ownership and set `IN PROGRESS` + `implementation` before editing. Put corrections on the current issue; capture separate user requests as `TO DO` and finish the current task unless reprioritized. Unapproved discoveries belong in `BACKLOG`.
 
 During authorized implementation/queue work:
 
@@ -77,8 +77,10 @@ An existing isolated checkout/sandbox dedicated to this issue on its own branch 
 
 Before completing:
 
-1. Verify acceptance criteria and changed behavior with relevant tests, build/lint/type checks; report skipped or failed checks honestly. Update affected docs under [documentation.md](documentation.md), or explain why none are needed.
-2. Review staged scope/secrets, commit with the issue reference, fetch current `develop`, and combine it with the issue branch in the owned checkout. Resolve conflicts and verify required checks pass on that exact candidate.
-3. Push the tested candidate directly to `develop` with a normal fast-forward push, or use the requested/required PR path. If `develop` advances or the push is rejected, refresh and revalidate before retrying. Never force-push shared history, bypass protections, or integrate an untested replacement.
-4. Confirm remote integration, required delivery checks, and current internal documentation. Remove only your own clean completed worktree and merged branch, then prune; preserve paused work.
-5. Add a brief result note with verification, docs, delivery, and commit links (PR links when used). Set Project status `COMPLETED`, replace all labels with only `COMPLETED`, and close with the completed reason. Verify all three agree. This does not imply a production release.
+1. Refresh the body and every comment, including edits. Reconcile each request, correction, and question with the latest user decisions. Implement/verify required work and answer questions; deferring required work needs explicit user instruction and a linked follow-up. Never silently omit or split required work merely to close the issue.
+2. Verify acceptance criteria and changed behavior with relevant tests, build/lint/type checks; report skipped or failed checks honestly. Update affected docs under [documentation.md](documentation.md), or explain why none are needed.
+3. Review staged scope/secrets, commit with the issue reference, fetch current `develop`, and combine it with the issue branch in the owned checkout. Resolve conflicts and verify required checks pass on that exact candidate.
+4. Push the tested candidate directly to `develop` with a normal fast-forward push, or use the requested/required PR path. If `develop` advances or the push is rejected, refresh and revalidate before retrying. Never force-push shared history, bypass protections, or integrate an untested replacement. Confirm remote integration, required delivery checks, and current documentation.
+5. Post a brief result comment **on the issue**, covering changes, request/question outcomes, verification, docs, delivery, and commit links (PR links when used). Group related outcomes and link relevant comments; chat updates alone do not count. Read back the saved comment; a failed or unverified write blocks closure.
+6. Immediately refresh the body and all comments again. Review any unaddressed new/edited content, complete affected work/checks, and update the result before repeating this check. Only then set Project status `COMPLETED`, replace labels with only `COMPLETED`, and close as completed. Automatic closing keywords/actions must not bypass this sequence.
+7. Verify issue state, labels, and Project status agree, and reread the body/comments immediately after closure. If missed input still needs resolution, reopen and restore `IN PROGRESS` with the appropriate stage or pause reason; continue the work. After successful closure verification, remove only your own clean merged worktree/branch and prune; preserve paused work. Completion does not imply a production release.

@@ -30,7 +30,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 
 - Development needs an issue and an isolated issue branch/worktree; an existing dedicated checkout suffices. Follow [git-workflow.md](git-workflow.md) for verified direct integration and release authorization.
 - Never update `main` or deploy production without an explicit release instruction; passing tests and a completed issue are not that instruction.
-- Done means verified behavior, current affected docs, successful integration/delivery, and a closed issue labeled only `COMPLETED`.
+- Done means every issue comment addressed, a verified result comment posted, verified behavior, current docs, successful delivery, and a closed issue with only `COMPLETED`. Follow the final comment/closure checks in [git-workflow.md](git-workflow.md); unread or unresolved input blocks closing.
 - During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.
 - Never expose or commit secrets; use synthetic test data. Credentials authorize approved work only.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
