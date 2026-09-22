@@ -28,7 +28,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 
 ## Always apply
 
-- Development needs an issue and an isolated issue branch/worktree; an existing dedicated checkout suffices. Follow [git-workflow.md](git-workflow.md) for integration and release authorization.
+- Development needs an issue and an isolated issue branch/worktree; an existing dedicated checkout suffices. Follow [git-workflow.md](git-workflow.md) for verified direct integration and release authorization.
 - Never update `main` or deploy production without an explicit release instruction; passing tests and a completed issue are not that instruction.
 - Done means verified behavior, current affected docs, successful integration/delivery, and a closed issue labeled only `COMPLETED`.
 - During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.

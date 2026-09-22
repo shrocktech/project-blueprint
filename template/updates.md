@@ -1,6 +1,6 @@
 # Automatic Dependency Maintenance
 
-Routine dependency maintenance is approved work. Agents and automation should integrate suitable updates without asking the owner to approve each package version. Follow [packages.md](packages.md), [git-workflow.md](git-workflow.md), and [security.md](security.md).
+Routine dependency maintenance is approved work. Dependabot creates update PRs; active agents or verified automation handle eligible updates without per-version owner review. Ordinary issue work follows [git-workflow.md](git-workflow.md)'s direct integration default. Apply [packages.md](packages.md) and [security.md](security.md).
 
 During blueprint adoption, use the `adopt-existing` skill to inventory current versions/settings. Upgrades, migrations, and live automation changes are separate maintenance tasks.
 

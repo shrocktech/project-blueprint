@@ -64,6 +64,8 @@ Honor an explicit stop, review-only scope, or execution limit. Preserve a handof
 
 Use `issue branch → develop → main` in every lifecycle phase. `develop` integrates finished work; `main` holds the preserved baseline, then authorized private-beta and public production releases. Do not update `main` or production without explicit release authorization; passing tests or changing phase is insufficient. Keep branches short-lived and never implement directly on shared branches. Beta releases and public opening follow [launch.md](launch.md).
 
+Default to verified direct integration from the owned issue worktree, without a pull request (PR) or separate reviewer. Use a PR only when the owner requests one or existing repository rules require it. Do not introduce mandatory PRs or human review gates during setup; preserve existing protections. Dependabot update PRs follow [updates.md](updates.md).
+
 Inspect status and worktrees, fetch, and create an issue branch/worktree from `origin/develop`:
 
 ```sh
@@ -76,7 +78,7 @@ An existing isolated checkout/sandbox dedicated to this issue on its own branch 
 Before completing:
 
 1. Verify acceptance criteria and changed behavior with relevant tests, build/lint/type checks; report skipped or failed checks honestly. Update affected docs under [documentation.md](documentation.md), or explain why none are needed.
-2. Review staged scope/secrets, commit with the issue reference, fetch current `develop`, resolve integration conflicts, and rerun affected checks.
-3. Push and merge through the permitted process, respecting available protections. On GitHub Free private repositories, enforce the documented checks through the agent's verified integration process in [updates.md](updates.md); paid branch protection is not required. If `develop` advances, synchronize and verify again; never force-push shared history.
+2. Review staged scope/secrets, commit with the issue reference, fetch current `develop`, and combine it with the issue branch in the owned checkout. Resolve conflicts and verify required checks pass on that exact candidate.
+3. Push the tested candidate directly to `develop` with a normal fast-forward push, or use the requested/required PR path. If `develop` advances or the push is rejected, refresh and revalidate before retrying. Never force-push shared history, bypass protections, or integrate an untested replacement.
 4. Confirm remote integration, required delivery checks, and current internal documentation. Remove only your own clean completed worktree and merged branch, then prune; preserve paused work.
-5. Add a brief result note with verification, docs, delivery, and commit/PR links. Set Project status `COMPLETED`, replace all labels with only `COMPLETED`, and close with the completed reason. Verify all three agree. This does not imply a production release.
+5. Add a brief result note with verification, docs, delivery, and commit links (PR links when used). Set Project status `COMPLETED`, replace all labels with only `COMPLETED`, and close with the completed reason. Verify all three agree. This does not imply a production release.

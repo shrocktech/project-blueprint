@@ -24,7 +24,9 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 
 Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. Unresolved blockers keep their pause reason. Finished issues close with only purple `COMPLETED`.
 
-Questions and reviews do not start unrelated implementation. The 90% confidence guideline is judgment, not a measured probability. Agents handle routine tested dependency updates without version-by-version decisions; unattended work requires a real runner.
+Routine work uses [verified direct integration](template/git-workflow.md#isolation-branches-and-delivery), without mandatory pull requests or extra reviewers. Agents handle eligible Dependabot update PRs without per-version owner review; unattended work requires a verified runner. Existing repository protections still apply.
+
+Questions and reviews do not start unrelated implementation. The 90% confidence guideline is judgment, not a measured probability.
 
 ## Project phases
 
