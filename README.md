@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-![Application workflow: planning, build, security review, release, launch, and ongoing production. Issue worktrees, testing, delivery to develop, comment review, posted results, completion, pauses, and queue refresh. Security checks and explicit authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
+![Application workflow: planning, build, security review, release, launch, and ongoing production. BACKLOG, TO DO, IN PROGRESS implementation, IN REVIEW testing/delivery, and purple DONE after comment checks and posted results. Owned issue worktrees, pauses, and live queue refresh. Security checks and explicit authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches).
 
@@ -22,9 +22,11 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change, then have existing projects adopt that revision. |
 
-Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. Unresolved blockers keep their pause reason.
+The board and matching issue labels follow `BACKLOG → TO DO → IN PROGRESS → IN REVIEW → DONE`. `IN REVIEW` shows finished implementation undergoing tests, automated checks, or final delivery verification; it does not require your review of every issue. Fixes return to `IN PROGRESS`.
 
-Before closing, the agent checks every comment, addresses your requests/questions, and posts a brief result on the issue. New or edited comments trigger another review; missed unresolved input found just after closure reopens the issue. Finished issues close with only purple `COMPLETED` under the [completion checks](template/git-workflow.md#isolation-branches-and-delivery).
+Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. When work resumes, testing/delivery returns to `IN REVIEW`. Unresolved blockers keep their pause reason.
+
+Before closing, the agent checks every comment, addresses your requests/questions, and posts a brief result on the issue. New or edited comments trigger another review; missed unresolved input found just after closure reopens the issue. Finished issues close with only purple `DONE` under the [completion checks](template/git-workflow.md#isolation-branches-and-delivery).
 
 Routine work uses [verified direct integration](template/git-workflow.md#isolation-branches-and-delivery), without mandatory pull requests or extra reviewers. The same guide covers parallel ownership, service isolation, and small, coherent commits before final delivery. Agents handle eligible Dependabot update PRs without per-version owner review; unattended work requires a verified runner. Existing repository protections still apply.
 
@@ -53,7 +55,7 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 
 1. Fetch this blueprint into a separate checkout and record its commit. Read [git-workflow.md](template/git-workflow.md) and, for an existing application, [adopt-existing](skills/adopt-existing/SKILL.md). Inspect before editing the target.
 2. Create/claim a setup issue and follow the bootstrap order in [git-workflow.md](template/git-workflow.md).
-3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its four statuses, preserving existing mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` and add issue stage `implementation`.
+3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its five statuses, preserving existing mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` and add issue stage `implementation`.
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
 5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Procedures in `skills/` remain separate.
 6. Make applicable [skills](skills/README.md) available through supported installation, or retain the blueprint checkout and record verified skill paths. Keep repository-local installations in the setup checkout. Fill facts/commands and complete `project.md`.

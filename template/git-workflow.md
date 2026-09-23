@@ -4,20 +4,23 @@ Apply during development and queue work, not merely because the user asks a ques
 
 ## Status and labels
 
-Verify repository, Issues, and Project access before development; create/link the Project if missing. During bootstrap, create/claim the setup issue, then establish needed label/status definitions before assigning them; preserve existing mappings. Keep the four Project statuses synchronized with exactly one uppercase workflow label:
+Verify repository, Issues, and Project access before development; create/link the Project if missing. During bootstrap, create/claim the setup issue, then establish needed label/status definitions before assigning them; preserve existing mappings. Use a board grouped by Status, with these five statuses in order and exactly one matching uppercase workflow label:
 
 | Status / label | Meaning |
 | --- | --- |
 | `BACKLOG` | Future/unapproved work; do not implement. |
 | `TO DO` | Approved work expected to be done. |
-| `IN PROGRESS` | Started, including paused work. |
-| `COMPLETED` | Closed as completed, verified and delivered. Purple (`A371F7`); purple Project status. |
+| `IN PROGRESS` | Implementation underway, paused, or ready to resume. |
+| `IN REVIEW` | Implementation finished; final testing, agent review, or delivery verification underway. |
+| `DONE` | Closed as completed, verified and delivered. Purple (`A371F7`); purple Project status. |
 
 Project authorization is separate from repository authorization; inspect token scopes and account/organization permissions before attributing a failure to the plan. Synchronize through available tools during active work; background synchronization is optional. Report genuine missing access with exact setup steps, not a plan-upgrade request.
 
 Active work has one lowercase stage: `implementation`, `testing`, or `deployment`. Deployment means final integration and delivery verification in the intended environment; ordinary work targets development, with staging only if already authorized and active. Production requires release authorization. Follow the environment defaults in [project.md](project.md). Documentation-only work needs verified remote integration, not a runtime deployment.
 
-Apply `implementation` when claiming new work, replace it with `testing` when verification begins, then with `deployment` before integration/delivery. Replace the previous stage rather than accumulating stages. If verification finds a fix, return to `implementation` and then `testing`; paused work uses the removal/restoration rules below.
+Use `IN PROGRESS` + `implementation` while building. When implementation is finished and final verification begins, move the Project and workflow label to `IN REVIEW` + `testing`; remain `IN REVIEW` with `deployment` during integration/delivery. Replace previous status/stage labels. A required code or content fix returns to `IN PROGRESS` + `implementation`, then repeat verification in `IN REVIEW`. Review means agent verification and automated checks; it adds no mandatory PR or human approval.
+
+Routine pending checks stay `IN REVIEW`; record the candidate, run links, and remaining checks in the issue. Recheck results during active work and queue refreshes; pending, skipped, or unavailable required checks are not passes. If progress requires a user answer, setup, or provider/dependency change, use the pause flow below, even when discovered during review.
 
 Use `bug`, `feature`, and `enhancement` while useful. Optional backlog items use `BACKLOG` plus exactly one descriptive label:
 
@@ -27,7 +30,7 @@ Use `bug`, `feature`, and `enhancement` while useful. Optional backlog items use
 | `suggestion` | Recommended improvement with a brief reason. |
 | `proposal` | Developed recommendation with scope, benefits, effort, and a decision needed. |
 
-Choose the best fit; replace rather than stack these labels as the item develops. None authorizes implementation. At completion remove every label except `COMPLETED`. Never mark canceled or unfinished issues completed.
+Choose the best fit; replace rather than stack these labels as the item develops. None authorizes implementation. At completion remove every label except `DONE`. Never mark canceled or unfinished issues completed.
 
 ## Paused work
 
@@ -41,7 +44,7 @@ Keep the issue open in the `IN PROGRESS` column with exactly `IN PROGRESS` and o
 
 Try available APIs/tools and the authorized autonomous actions first. Before removing labels, record the paused stage and existing type labels (`bug`, `feature`, `enhancement`) in the issue comment; preserve the worktree. Continue independent work; if none remains, leave a handoff and take other approved work. Avoid repeated unchanged retries or nudges. When multiple blockers exist, label the immediate next dependency and list the others briefly; change the reason as work advances.
 
-After an answer or completed setup resolves all blockers, keep the issue open with only `IN PROGRESS` and matching Project status: this means ready to resume. Preserve removed stage/type history in comments. An answer alone does not resolve an external dependency; verify it and retain the appropriate pause reason while blocked. At task boundaries, read new comments and resume eligible owned work before new `TO DO` unless reprioritized. Restore stage/type labels only when implementation resumes, honoring later user changes and ownership. Recheck external waits at task boundaries or through configured monitoring; label changes do not wake idle agents.
+After an answer or completed setup resolves all blockers, keep the issue open with only `IN PROGRESS` and matching Project status: this means ready to resume. Preserve removed stage/type history in comments. An answer alone does not resolve an external dependency; verify it and retain the appropriate pause reason while blocked. At task boundaries, read new comments and resume eligible owned work before new `TO DO` unless reprioritized. When work resumes, restore its stage/type and corresponding status: `IN PROGRESS` for implementation, `IN REVIEW` for testing/delivery, honoring later user changes and ownership. Recheck external waits at task boundaries or through configured monitoring; label changes do not wake idle agents.
 
 Quote pause labels exactly in commands and searches: `gh issue list --label 'paused: decision'` or `label:"paused: decision"`.
 
@@ -62,9 +65,9 @@ Every development change, including small fixes, needs an issue with outcome and
 During authorized implementation/queue work:
 
 1. Fetch current Issues and Project statuses at session start/resumption, after each completed or paused issue, and before selecting work. Read all result pages; a remembered starting list is not the queue.
-2. Follow user priority, then eligible resumable owned work, then available `TO DO`. Recheck ownership/status before claiming. Reconcile clear status/label drift from the latest user action; do not guess approval from ambiguous mismatches.
+2. Follow user priority, then eligible owned work (including `IN REVIEW` checks and ready resumptions), then available `TO DO`. Recheck ownership/status before claiming. Reconcile clear status/label drift from the latest user action; do not guess approval from ambiguous mismatches.
 3. Complete or properly pause the task, then fetch again. Include new tasks added during the session; do not ask to continue already approved work.
-4. Before stopping for lack of work, fetch again and confirm no actionable `TO DO` or eligible resumable work remains. Distinguish paused/other-agent work from an empty queue. Failed reads do not prove emptiness.
+4. Before stopping for lack of work, fetch again and confirm no actionable `TO DO` or eligible owned work remains. Pending `IN REVIEW` work needs a run/status handoff and an active session or verified runner for follow-up; never abandon it as done. Distinguish pending/paused/other-agent work from an empty queue. Failed reads do not prove emptiness.
 
 Honor an explicit stop, review-only scope, or execution limit. Preserve a handoff if unable to continue. Later work requires an active session or separately configured wakeup; these instructions do not install automation.
 
@@ -96,5 +99,5 @@ Before completing:
 3. Review staged scope/secrets, commit any remaining changes with the issue reference, fetch current `develop`, and combine it with the issue branch in the owned checkout. Resolve conflicts and verify required checks pass on that exact candidate.
 4. Push the tested candidate directly to `develop` with a normal fast-forward push, or use the requested/required PR path. If `develop` advances or the push is rejected, refresh and revalidate before retrying. Never force-push shared history, bypass protections, or integrate an untested replacement. Confirm remote integration, required delivery checks, and current documentation.
 5. Post a brief result comment **on the issue**, covering changes, request/question outcomes, verification, docs, delivery, and commit links (PR links when used). Group related outcomes and link relevant comments; chat updates alone do not count. Read back the saved comment; a failed or unverified write blocks closure.
-6. Immediately refresh the body and all comments again. Review any unaddressed new/edited content, complete affected work/checks, and update the result before repeating this check. Only then set Project status `COMPLETED`, replace labels with only `COMPLETED`, and close as completed. Automatic closing keywords/actions must not bypass this sequence.
-7. Verify issue state, labels, and Project status agree, and reread the body/comments immediately after closure. If missed input still needs resolution, reopen and restore `IN PROGRESS` with the appropriate stage or pause reason; continue the work. After successful closure verification, remove only your own clean merged worktree/branch and prune; preserve paused work. Completion does not imply a production release.
+6. Immediately refresh the body and all comments again. Review any unaddressed new/edited content, complete affected work/checks, and update the result before repeating this check. Only then set Project status `DONE`, replace labels with only `DONE`, and close as completed. Automatic closing keywords/actions must not bypass this sequence.
+7. Verify issue state, labels, and Project status agree, and reread the body/comments immediately after closure. If missed input still needs resolution, reopen, remove `DONE`, and restore the appropriate status/stage or pause state above; continue the work. After successful closure verification, remove only your own clean merged worktree/branch and prune; preserve pending/paused work. Completion does not imply a production release.

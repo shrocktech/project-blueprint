@@ -19,7 +19,7 @@ Use [template/git-workflow.md](template/git-workflow.md) for issues, tracking, l
 
 Use the 90% judgment guideline and autonomous-work boundaries in [template/AGENTS.md](template/AGENTS.md); it is not a measured probability. Follow [template/security.md](template/security.md) for credentials and data. Read other templates only when changing their subject matter.
 
-Keep distributed files generic: no adopting-project personal, company, account, repository, or application identities. Use placeholders for project configuration, authority, and jurisdictions. Relevant third-party sources, packages, and skills may be named; citations do not authorize installation. Keep maintenance notes outside `template/`. Maintain consistent instructions, labels, and authorized autonomy. Verify integration into `main`, then close with only `COMPLETED`.
+Keep distributed files generic: no adopting-project personal, company, account, repository, or application identities. Use placeholders for project configuration, authority, and jurisdictions. Relevant third-party sources, packages, and skills may be named; citations do not authorize installation. Keep maintenance notes outside `template/`. Maintain consistent instructions, labels, and authorized autonomy. Verify integration into `main`, then close with only `DONE`.
 
 All blueprint requirements must support GitHub Free for public and private repositories. Never require a plan upgrade, billed usage, or public visibility; document verified free alternatives.
 

@@ -1,8 +1,9 @@
 [
   {"name":"BACKLOG","color":"B1BAC4","description":"Future or unapproved work"},
   {"name":"TO DO","color":"0075CA","description":"Approved work ready to start"},
-  {"name":"IN PROGRESS","color":"FBCA04","description":"Started work, including paused issues"},
-  {"name":"COMPLETED","color":"A371F7","description":"Closed and done; the only label retained on completion"},
+  {"name":"IN PROGRESS","color":"FBCA04","description":"Implementation underway, paused, or ready to resume"},
+  {"name":"IN REVIEW","color":"F0883E","description":"Implementation finished; final testing, agent review, or delivery verification"},
+  {"name":"DONE","color":"A371F7","description":"Closed and done; the only label retained on completion"},
   {"name":"implementation","color":"C2E0C6","description":"Implementing the issue"},
   {"name":"testing","color":"BFD4F2","description":"Verifying the issue"},
   {"name":"deployment","color":"1D76DB","description":"Integration, delivery, and deployment verification"},
