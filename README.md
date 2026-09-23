@@ -26,7 +26,7 @@ Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker i
 
 Before closing, the agent checks every comment, addresses your requests/questions, and posts a brief result on the issue. New or edited comments trigger another review; missed unresolved input found just after closure reopens the issue. Finished issues close with only purple `COMPLETED` under the [completion checks](template/git-workflow.md#isolation-branches-and-delivery).
 
-Routine work uses [verified direct integration](template/git-workflow.md#isolation-branches-and-delivery), without mandatory pull requests or extra reviewers. Agents handle eligible Dependabot update PRs without per-version owner review; unattended work requires a verified runner. Existing repository protections still apply.
+Routine work uses [verified direct integration](template/git-workflow.md#isolation-branches-and-delivery), without mandatory pull requests or extra reviewers. The same guide covers parallel ownership, service isolation, and small, coherent commits before final delivery. Agents handle eligible Dependabot update PRs without per-version owner review; unattended work requires a verified runner. Existing repository protections still apply.
 
 Questions and reviews do not start unrelated implementation. The 90% confidence guideline is judgment, not a measured probability.
 
