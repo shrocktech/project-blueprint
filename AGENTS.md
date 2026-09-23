@@ -23,6 +23,6 @@ Keep distributed files generic: no adopting-project personal, company, account, 
 
 All blueprint requirements must support GitHub Free for public and private repositories. Never require a plan upgrade, billed usage, or public visibility; document verified free alternatives.
 
-Write templates and skills as current instructions for a first-time reader. Exclude revision narratives, prior decisions, and compatibility notes about earlier blueprint drafts.
+Write templates and skills as current instructions for a first-time reader. Exclude revision narratives, prior decisions, and compatibility notes about earlier blueprint drafts. Do not publish a blueprint changelog.
 
 Prefer tightening existing text and removing duplication over adding sections. Keep each rule in one place with task-specific pointers. Add a guide only for a distinct purpose an existing guide cannot serve clearly; record that reason in the issue. Preserve required behavior when trimming.

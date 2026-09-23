@@ -2,6 +2,8 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
+This blueprint is updated in place without a changelog. Agents check for newer guidance when implementation sessions begin and adapt relevant rules to the current project.
+
 ![Application workflow: planning, build, security review, release, launch, and ongoing production. BACKLOG, TO DO, IN PROGRESS implementation, IN REVIEW testing/delivery, and purple DONE after comment checks and posted results. Owned issue worktrees, pauses, and live queue refresh. Security checks and explicit authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches).
@@ -20,7 +22,7 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Prepare an offer | Request pricing research with the prompt below; choose a recommendation or give your own terms. |
 | Change phase | Say “move to security” or name the next phase; the agent records your decision under [phases.md](template/phases.md). |
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
-| Update these standards | Request a blueprint change, then have existing projects adopt that revision. |
+| Update these standards | Request a blueprint change; existing projects follow the update guidance in their `AGENTS.md`. |
 
 The board and matching issue labels follow `BACKLOG → TO DO → IN PROGRESS → IN REVIEW → DONE`. `IN REVIEW` shows finished implementation undergoing tests, automated checks, or final delivery verification; it does not require your review of every issue. Fixes return to `IN PROGRESS`.
 

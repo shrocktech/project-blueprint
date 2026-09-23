@@ -2,6 +2,8 @@
 
 Follow the user's latest instructions. Fill project facts and commands during setup; read detailed guides only for the current task.
 
+This blueprint evolves. At implementation-session start, check the recorded source's default branch. If newer, use `adopt-existing` to apply relevant guidance, preserve project requirements/local exceptions, and record the applied revision.
+
 ## Project facts
 
 - Purpose, users, stack, runtime, package manager, directories: to be filled in.
