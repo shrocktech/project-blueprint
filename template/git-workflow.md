@@ -19,7 +19,15 @@ Active work has one lowercase stage: `implementation`, `testing`, or `deployment
 
 Apply `implementation` when claiming new work, replace it with `testing` when verification begins, then with `deployment` before integration/delivery. Replace the previous stage rather than accumulating stages. If verification finds a fix, return to `implementation` and then `testing`; paused work uses the removal/restoration rules below.
 
-Use `bug`, `feature`, and `enhancement` while useful; optional proposals use `BACKLOG` plus `suggestion`. At completion remove every label except `COMPLETED`. Never mark canceled or unfinished issues completed.
+Use `bug`, `feature`, and `enhancement` while useful. Optional backlog items use `BACKLOG` plus exactly one descriptive label:
+
+| Label | Meaning |
+| --- | --- |
+| `idea` | Early thought worth exploring. |
+| `suggestion` | Recommended improvement with a brief reason. |
+| `proposal` | Developed recommendation with scope, benefits, effort, and a decision needed. |
+
+Choose the best fit; replace rather than stack these labels as the item develops. None authorizes implementation. At completion remove every label except `COMPLETED`. Never mark canceled or unfinished issues completed.
 
 ## Paused work
 
@@ -45,7 +53,7 @@ Keep notes to the problem, what was tried/submitted, and the smallest next actio
 
 For decisions or optional proposals, ask one brief question: **A — Recommended** with a short reason, then useful **B/C** alternatives and tradeoffs. Allow the user's own answer; during interviews always include the D/E choices in the interview skill. For setup, provide short numbered steps, exact controls, expected result, and what to report back. For submitted requests, give the reference/status and say when no user action is needed. Do not promise monitoring without an actual runner.
 
-Proactively record worthwhile optional improvements as separate `BACKLOG` + `suggestion` issues, checking for duplicates and linking the originating issue and evidence. Explain benefit, recommendation, and main cost briefly; keep working on approved scope. Do not disguise necessary safety/correctness blockers as optional suggestions. On explicit approval or a user move to `TO DO`, synchronize status and remove `suggestion`; discussion alone is not approval.
+Proactively record worthwhile optional items as separate `BACKLOG` issues with the appropriate descriptive label above. Check for duplicates and link the originating issue and evidence; keep notes proportionate to the label and continue approved work. Do not disguise necessary safety/correctness blockers as optional items. On explicit approval or a user move to `TO DO`, synchronize status and remove all `idea`, `suggestion`, and `proposal` labels; discussion alone is not approval.
 
 ## Issue-first and live queue
 

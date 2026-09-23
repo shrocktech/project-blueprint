@@ -9,7 +9,9 @@
   {"name":"paused: decision","color":"D93F0B","description":"Waiting for a user answer, choice, or missing information"},
   {"name":"paused: setup","color":"B60205","description":"Waiting for a required user action or account setup"},
   {"name":"paused: external","color":"6A737D","description":"Waiting for a provider, service, or dependency"},
-  {"name":"suggestion","color":"76B5C5","description":"Optional improvement awaiting approval in BACKLOG"},
+  {"name":"idea","color":"DDD1B0","description":"Early thought worth exploring; awaiting approval in BACKLOG"},
+  {"name":"suggestion","color":"76B5C5","description":"Recommended improvement with a brief reason; awaiting approval in BACKLOG"},
+  {"name":"proposal","color":"6B8EAF","description":"Developed recommendation with scope, benefits, and effort; awaiting a decision in BACKLOG"},
   {"name":"bug","color":"D73A4A","description":"Something is not working"},
   {"name":"feature","color":"0E8A16","description":"New functionality"},
   {"name":"enhancement","color":"A2EEEF","description":"Improvement to existing functionality"}
