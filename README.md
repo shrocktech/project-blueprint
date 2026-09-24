@@ -4,7 +4,7 @@ Reusable instructions for new and existing projects. You decide what to build an
 
 This blueprint evolves without a changelog; agents check at implementation-session start and queue updates under [AGENTS.md](template/AGENTS.md), keeping current guidance until approved adoption.
 
-![Application workflow: planning, build, security, release, launch, and ongoing production. Gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender IN REVIEW with testing/delivery, and green DONE after comment checks and posted results. Owned worktrees, pink decision/red setup/silver external pauses, and live queue refresh. Security checks and authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
+![Application workflow: planning, build, security, release, launch, and ongoing production. Gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing/delivery, and green COMPLETED after comment checks and posted results. Owned worktrees, pink decision/red setup/silver external pauses, and live queue refresh. Security checks and authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches).
 
@@ -24,9 +24,9 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change; existing projects follow the update guidance in their `AGENTS.md`. |
 
-The board and matching issue labels follow `BACKLOG → TO DO → IN PROGRESS → IN REVIEW → DONE`. `IN REVIEW` shows finished implementation undergoing tests, automated checks, or final delivery verification; it does not require your review of every issue. Fixes return to `IN PROGRESS`.
+The board and matching issue labels follow `BACKLOG → TO DO → IN PROGRESS → REVIEW → COMPLETED`. `REVIEW` shows finished implementation undergoing tests, automated checks, or final delivery verification; it does not require your review of every issue. Fixes return to `IN PROGRESS`.
 
-Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. When work resumes, testing/delivery returns to `IN REVIEW`. Unresolved blockers keep their pause reason.
+Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. When work resumes, testing/delivery returns to `REVIEW`. Unresolved blockers keep their pause reason.
 
 Before closing, the agent resolves every comment, posts results, and checks for missed input under the [completion checks](template/git-workflow.md#isolation-branches-and-delivery).
 
