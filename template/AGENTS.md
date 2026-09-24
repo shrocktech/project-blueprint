@@ -2,7 +2,7 @@
 
 Follow the user's latest instructions. Fill project facts and commands during setup; read detailed guides only for the current task.
 
-This blueprint evolves. At implementation-session start, check the recorded source's default branch. If newer, use `adopt-existing` to apply relevant guidance, preserve project requirements/local exceptions, and record the applied revision.
+This blueprint evolves. At implementation-session start, compare the adopted revision with the recorded source's default-branch head. If different or adoption is unrecorded, create/update one adoption issue, preserving existing approval/ownership; new issues use `BACKLOG` + `proposal` until owner approval moves them to `TO DO`. Continue this session under current instructions. Apply guidance only in an approved update session through `adopt-existing`, preserving project requirements/local exceptions and recording the applied revision. Failed source checks do not establish an update.
 
 ## Project facts
 
@@ -60,4 +60,4 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Package choice / updates | [packages.md](packages.md) / [updates.md](updates.md) |
 | Launch / release | [launch.md](launch.md) |
 
-Read current code, issue comments, and applicable skills. Resolve material instruction conflicts explicitly. For missing skills, use `skills/<name>/SKILL.md` from the recorded source/revision. Establish missing source facts from the supplied checkout or ask; never guess a repository. If no revision is recorded, resolve the source's default branch and record the retrieved commit without inventing adoption history. `agent.md` redirects here; `CLAUDE.md` imports it.
+Read current code, issue comments, and applicable skills. Resolve material instruction conflicts explicitly. Obtain missing skills from `skills/<name>/SKILL.md` at the adopted source/revision. Establish missing source facts from the supplied checkout or ask; never guess a repository or record an unapplied revision as adopted. `agent.md` redirects here; `CLAUDE.md` imports it.

@@ -9,7 +9,7 @@ Confirm the target repository and blueprint revision. Plain filenames below refe
 
 Adoption changes instructions and workflow, not application architecture, packages, data, or production behavior. Preserve existing functionality and project-specific requirements. Replacement of an established stack or architecture needs explicit permission.
 
-After inspection, follow `git-workflow.md` for the setup issue and tracking bootstrap. Establish an owned isolated checkout before file edits or skill installation; preserve other agents' worktrees.
+Use the approved adoption/update issue and `git-workflow.md` bootstrap; discovery alone authorizes no update. Pin the source revision before edits. Establish an owned isolated checkout; preserve other agents' worktrees. Record the adopted revision only after applying and verifying guidance with local requirements intact.
 
 ## Inspect and preserve
 
@@ -43,7 +43,7 @@ For already-live products, preserve the current service and release baseline. If
 
 1. Inventory labels and Project statuses across all issues, including closed ones. Record the old-to-new mapping in the adoption issue, preserving comments, ownership, dependencies, and meaningful priority/type information.
 2. Apply canonical labels and five statuses under `git-workflow.md`. Remove obsolete definitions only when replacement is authorized, after remapping issues and updating filters/automation. Helpers only create/update label definitions; they do not migrate issues.
-3. Keep truly completed issues closed with only `DONE`; do not convert canceled work to completed. Map finished implementation awaiting testing/delivery to `IN REVIEW` based on current evidence. Started blockers stay `IN PROGRESS` with one pause reason, preserving type/stage history for resumption.
+3. Keep truly completed issues closed with only `DONE`; never mark canceled work completed. Use `IN PROGRESS` without a stage for building, or `IN REVIEW` with `testing`/`deployment` for verification/delivery, based on evidence. Started blockers keep `IN PROGRESS` plus one pause; preserve types and any review stage in comments.
 4. When adopting from `docs/wiki/` or an existing wiki, preserve useful pages, diagrams, assets, and history in private `docs/internal/` and repair links. Verify preservation before retiring wiki publishing jobs and completion requirements; never delete the only copy. Follow `documentation.md` for ongoing internal/public/admin docs and retain the application's release history.
 5. Install applicable skills through the target agent's supported mechanism or retain a readable blueprint checkout. Verify discovery or explicit file access and record the locations in target `AGENTS.md`.
 6. Complete compatible parts of `project.md`; document deferred maintenance or deployment changes honestly. Verify links, tracking, and unchanged application behavior in a safe development/test environment. Report changes and remaining user actions briefly with direct links.
