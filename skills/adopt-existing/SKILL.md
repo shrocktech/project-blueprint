@@ -14,6 +14,7 @@ Use the approved adoption/update issue and `git-workflow.md` bootstrap; discover
 ## Inspect and preserve
 
 - Inventory instructions, branches, PRs, active worktrees, uncommitted work, architecture, dependencies, components, integrations, data, environments, deployment triggers, and available checks. Record what exists before changing it.
+- Follow the setup interview in the target's `project.md` for unresolved choices or proposed changes before configuration. Reuse established decisions, preserve existing setup, and record answers without repeating routine approvals.
 - Establish the current lifecycle position under `phases.md` from existing decisions and evidence; ask only if unclear. Do not reset an existing project to planning or treat a production deployment as proof of the final `PRODUCTION` phase. Record its active plan in `AGENTS.md`.
 - Keep established CSS/component/icon frameworks and functioning custom code. Generic defaults fill gaps; they do not justify introducing a different framework or rebuilding features.
 - Inventory and preserve schemas/migrations, configuration, secret storage, URLs, content, release history, published policies/terms, effective versions/dates, acceptance records, and live behavior. Do not discard another agent's work, reset shared history, migrate databases, replace live policies, or activate production workflows as an adoption side effect.

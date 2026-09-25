@@ -2,6 +2,21 @@
 
 During setup, fill facts/commands in [AGENTS.md](AGENTS.md); routine tasks use those verified values. For an existing application, use the `adopt-existing` skill at its recorded location before merging instructions. Setup does not authorize application upgrades, data changes, or production deployment.
 
+## Setup interview
+
+Inspect the project and prior decisions first. Preserve established environments, protections, and preferences; ask only about unresolved choices or proposed changes before configuring them. Recommend a setup based on complexity, collaboration, and release risk, not size alone. Keep questions brief, allow the owner's own answer, and skip settled items.
+
+| Question | Recommended default | Alternative to discuss |
+| --- | --- | --- |
+| How would you like changes reviewed? | Agent verification and direct integration under [git-workflow.md](git-workflow.md). | Pull requests. Separately establish whether they require human approval or agent review and passing checks; preserve existing protections. |
+| Do you need a separate staging environment? | Development and production under [environment defaults](#environment-defaults). | Explicitly requested staging for release or integration checks; preserve existing staging. |
+| Would this project benefit from GSD's additional planning tools? | Blueprint's existing workflow. | Consider [GSD Core](https://github.com/open-gsd/gsd-core) for larger projects or complex work spanning multiple sessions. Install only when selected. |
+| Should approved maintenance continue when no agent session is active? | Use existing authorized automation; otherwise agents handle maintenance during active sessions. | Configure unattended maintenance under [updates.md](updates.md), explaining required access, resources, and costs before a decision. |
+
+Summarize and record answers as setup decisions in project `AGENTS.md`, linking detailed configuration and verified automation status in private project docs. Proceed on those decisions without another confirmation or repeated routine interviews; explain genuine setup blockers. Graphify remains required and Context7 remains the preferred reference with official-docs fallback; production releases still require explicit authorization.
+
+If GSD is selected, follow its current official installation guidance. Project `AGENTS.md` and Blueprint rules remain authoritative; GitHub issues/Projects remain the work queue and completion record. GSD plans support approved issues, and its implementation phases do not advance the product lifecycle. Configure its review, delivery, and automation behavior to honor recorded choices; GSD does not independently authorize tags or releases.
+
 ## Setup checklist
 
 1. Record the phase/subphase under [phases.md](phases.md), launch state, actual development/deployed commits, branches, triggers, services, and checks. New projects start at `DEVELOPMENT: planning`; existing projects retain their verified position, asking only if unclear. Mark undeployed/unconfigured items explicitly. Establish integration under [git-workflow.md](git-workflow.md) without discarding unfinished work.
