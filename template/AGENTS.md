@@ -36,6 +36,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.
 - Never expose or commit secrets; use synthetic test data. Credentials authorize approved work only.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
+- Maintain required [Graphify infrastructure](project.md#graphify) throughout development and use [current product references](packages.md#current-product-references) when implementing against external technologies.
 
 ## Autonomy
 
@@ -57,7 +58,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Documentation | [documentation.md](documentation.md) |
 | Security or customer-data changes | [security.md](security.md) |
 | Personal-data practices, customer terms, or policies | [legal.md](legal.md); `legal-review` skill for policy preparation or material review |
-| Package choice / updates | [packages.md](packages.md) / [updates.md](updates.md) |
+| Product references / package choice / updates | [packages.md](packages.md) / [updates.md](updates.md) |
 | Launch / release | [launch.md](launch.md) |
 
 Read current code, issue comments, and applicable skills. Resolve material instruction conflicts explicitly. Obtain missing skills from `skills/<name>/SKILL.md` at the adopted source/revision. Establish missing source facts from the supplied checkout or ask; never guess a repository or record an unapplied revision as adopted. `agent.md` redirects here; `CLAUDE.md` imports it.
