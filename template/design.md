@@ -8,6 +8,23 @@ Apply these defaults to new UI when compatible with the established stack. Prese
 - Interfaces must be simple, accessible, and consistent. Respect lockfiles; upgrades follow [updates.md](updates.md).
 - Draw on [Impeccable](https://github.com/pbakaus/impeccable) principles: clear visual hierarchy, purposeful typography and spacing, restrained decoration, responsive layouts, and complete interaction states. Apply them within the project's established design system and accessibility requirements; project rules take precedence over stylistic preferences. The skill is optional; this reference does not install it.
 
+## Desktop, tablet, and mobile
+
+Every web UI must work on desktop, tablet, and mobile, including customer pages, administration, and critical forms. Use fluid layouts and content-driven breakpoints within the established framework. Keep essential content and actions available at every size; shrinking the desktop page or hiding features is not a responsive implementation.
+
+Record a repeatable coverage matrix in project docs. Default viewport examples below are CSS pixels, not required layout breakpoints; add the project's supported sizes and test just above/below actual breakpoints and at intermediate widths.
+
+| View | Representative coverage |
+| --- | --- |
+| Mobile | 375 × 812, plus a narrow 320-pixel width; portrait and landscape, touch input |
+| Tablet | 768 × 1024 and 1024 × 768; touch input and both orientations |
+| Desktop | 1440 × 900 and a wider 1920 × 1080 view; mouse and keyboard |
+
+- Verify navigation, menus, dialogs, tables, images, long content, forms, and feedback states. Prevent clipped controls, overlaps, accidental page-wide horizontal scrolling, and fixed headers/footers obscuring content or focused fields. Wide tables may scroll inside a clearly usable contained region.
+- Preserve logical reading/focus order, readable text, zoom/reflow, and usable touch targets. Essential actions must work without hover. Check keyboard operation as well as touch, orientation changes, and retention of entered form data.
+- Use the required [Playwright tooling](project.md#playwright) and `interface-design` skill to inspect rendered results and exercise meaningful journeys across the matrix. Cover Chromium, Firefox, and WebKit as appropriate to supported browsers, including mobile Chromium and WebKit emulation for phone coverage. A resized desktop viewport alone does not verify touch/mobile behavior.
+- Record the candidate, routes/states, browser and viewport/device settings, assertions, visual evidence, fixes, and gaps privately. Fix responsive regressions before completion and verify critical journeys across all three device classes before release. Emulation is not physical-device testing; verify hardware-specific behavior on an actual device when needed and report unavailable checks honestly.
+
 ## Navigation and route changes
 
 During development, change navigation and routes directly. Do not add redirects from retired URLs, legacy route aliases, or compatibility shims to preserve an earlier development layout. Imagined bookmarks, external links, SEO history, or possible future users are not requirements; adding such compatibility requires an explicit owner instruction.

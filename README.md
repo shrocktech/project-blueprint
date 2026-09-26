@@ -67,7 +67,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 
 ## Interface design
 
-For UI work, agents follow [design.md](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md): compact headers, responsive field groups, consistent alignment, useful muted icons, and clear save/submit feedback. Favor icons alongside labels in admin menus, features, and checkout. Existing frameworks and native interactions remain in place. Agents verify the rendered result as well as form behavior.
+For UI work, agents follow [design.md](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md): compact headers, responsive field groups, consistent alignment, useful muted icons, and clear save/submit feedback. Favor icons alongside labels in admin menus, features, and checkout. Existing frameworks and native interactions remain in place. [Desktop, tablet, and mobile](template/design.md#desktop-tablet-and-mobile) support is required: agents install the official [Playwright CLI skill](https://github.com/microsoft/playwright-cli) during project setup, inspect rendered results, and test interactions across the recorded device matrix. A desktop screenshot or passing build alone is insufficient.
 
 Use the interface prompt in [Prompts](#prompts).
 

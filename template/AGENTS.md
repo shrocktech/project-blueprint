@@ -57,7 +57,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | WordPress implementation or review | Required [WordPress skills](project.md#wordpress-skills) at their recorded locations |
 | Issues, implementation, queue, commits | [git-workflow.md](git-workflow.md) |
 | User-requested issue interview | `issue-interview` skill at its recorded location |
-| UI | [design.md](design.md); `interface-design` skill for page/form layout and interaction work |
+| UI | [design.md](design.md), including desktop/tablet/mobile coverage; `interface-design` and installed `playwright-cli` skills for implementation and verification |
 | Marketing, pricing, packaging, or refunds | [offering.md](offering.md); `pricing-research` skill for initial or material commercial decisions |
 | Documentation | [documentation.md](documentation.md) |
 | Security or customer-data changes | [security.md](security.md) |
