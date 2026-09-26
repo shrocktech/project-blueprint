@@ -4,6 +4,8 @@ Use this checklist for private beta and public release under [phases.md](phases.
 
 For an already-live product, use this checklist for subsequent releases under [git-workflow.md](git-workflow.md). Preserve release history; adoption uses the `adopt-existing` skill and does not repeat first-launch setup.
 
+Before any production promotion, complete [delegated code review](git-workflow.md#delegated-code-review) against the verified production baseline and exact release candidate. Earlier issue reviews do not replace this release-wide check.
+
 ## Private beta
 
 - Test critical journeys outside production first. With explicit beta-release authorization, promote the tested candidate to `main` and the normal production address, enforcing invitation-only access server-side. Display beta status; verify access controls, recovery, and applicable notices before admitting testers. Staging remains optional under [project.md](project.md).

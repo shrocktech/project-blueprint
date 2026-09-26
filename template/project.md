@@ -20,11 +20,17 @@ If GSD is selected, follow its current official installation guidance. Project `
 ## Setup checklist
 
 1. Record the phase/subphase under [phases.md](phases.md), launch state, actual development/deployed commits, branches, triggers, services, and checks. New projects start at `DEVELOPMENT: planning`; existing projects retain their verified position, asking only if unclear. Mark undeployed/unconfigured items explicitly. Establish integration under [git-workflow.md](git-workflow.md) without discarding unfinished work.
-2. Complete [Playwright setup](#playwright). Fill and verify the command table from scripts/CI; identify blocked or inapplicable commands. Keep the human-facing quick start in README.
+2. Complete [Playwright setup](#playwright) and [Open Code Review setup](#open-code-review). Fill and verify the command table from scripts/CI; identify blocked or inapplicable commands. Keep the human-facing quick start in README.
 3. Establish private `docs/internal/` and its index under [documentation.md](documentation.md). Add `docs/public/` and optional `docs/admin/` only when needed; record each source, destination, build command, audience, and access restrictions. Verify links and existing delivery without publishing an unauthorized release.
 4. Complete [Betterleaks secret-scanning setup](security.md#secret-scanning). Document test-data setup, secret configuration, and private vulnerability reporting under [security.md](security.md), without secret values. Record business/service regions and existing policies under [legal.md](legal.md); assess applicable notices before real personal-data collection, including pre-launch. Identify existing commercial decisions and customer-facing pages under [offering.md](offering.md). Adoption does not authorize replacing live policies or offers.
 5. Configure maintenance under [updates.md](updates.md), recording schedule, coverage, checks, runner/run links, and gaps. Distinguish active-agent work from verified unattended automation; record package rationale.
 6. Set up [Graphify](#graphify) and verify access to current product references under [packages.md](packages.md#current-product-references). Record blueprint revision, local exceptions, and accessible skill locations in `AGENTS.md`. Verify installed discovery or explicit reading from a retained blueprint checkout. Application domains and provider details belong in project docs, not the reusable blueprint.
+
+## Open Code Review
+
+Open Code Review is required review tooling for adopting projects, not an optional interview choice. Install the official [Alibaba CLI](https://github.com/alibaba/open-code-review) (`@alibaba-group/open-code-review`, command `ocr`) and its `open-code-review-delegate` skill through the active agent's supported mechanism, following [current delegation instructions](https://github.com/alibaba/open-code-review/blob/main/pages/src/content/docs/en/integrations/delegate.md). Verify CLI operation and skill discovery; record installed versions/revisions, skill location, and review commands in project `AGENTS.md`. Keep tooling current under [updates.md](updates.md).
+
+Delegation uses the host agent's existing model allowance without a separate OCR model endpoint or API key; it is not unlimited free inference. Project instructions remain authoritative. Verify setup through the complete [delegated review workflow](git-workflow.md#delegated-code-review) on an actual change; record a blocker if none is available yet. A preview command alone cannot verify review completion.
 
 ## Playwright
 
