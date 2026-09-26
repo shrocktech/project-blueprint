@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-This blueprint evolves without a changelog; agents check at implementation-session start and queue updates under [AGENTS.md](template/AGENTS.md), keeping current guidance until approved adoption.
+Agents keep this blueprint current through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance): check at session start and daily during ongoing work, with verified scheduled checks when configured. They create an issue and apply routine compatible corrections and relevant skill updates autonomously at the 90% judgment threshold; major workflow changes require your decision. Setup records actual automation and gaps; copying instructions alone does not start a monitor.
 
 ![Application workflow: planning, build, security, release, launch, and ongoing production. Dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing/delivery, and green COMPLETED after comment checks and posted results. Owned worktrees, pink decision/red setup/silver external pauses, and live queue refresh. Security checks and authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 

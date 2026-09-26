@@ -1,8 +1,18 @@
-# Automatic Dependency Maintenance
+# Project Maintenance
 
 Routine dependency maintenance is approved work. Dependabot creates update PRs; active agents or verified automation handle eligible updates without per-version owner review. Ordinary issue work follows [git-workflow.md](git-workflow.md)'s direct integration default. Apply [packages.md](packages.md) and [security.md](security.md).
 
-During blueprint adoption, use the `adopt-existing` skill to inventory current versions/settings. Upgrades, migrations, and live automation changes are separate maintenance tasks.
+During blueprint adoption, use the `adopt-existing` skill to inventory current versions/settings. Application upgrades, migrations, and live automation changes remain separate maintenance tasks.
+
+## Periodic Blueprint maintenance
+
+Routine Blueprint updates are pre-authorized. Use the recorded source and the target project's current instructions; a newer upstream rule does not itself authorize a major change.
+
+- Check the source's default-branch head at implementation-session start and at a safe task boundary at least every 24 hours during ongoing sessions. During setup, configure a daily check using existing authorized automation when available, preserving a recorded equivalent periodic schedule. Verify the runner, source access, issue creation, and agent handoff/application capability; record the schedule, last successful run, and links. If no runner is available or unattended work is declined, record active-session-only coverage and explain the gap. A detection-only job cannot claim automatic adoption. Retry/report failed checks; never record them as up-to-date.
+- On a change, inspect the diff from the verified adopted state and reconcile recorded exceptions or pending updates. Before editing instructions or installing skills, create/update one maintenance issue listing baseline/source revisions, applicable changes, proposed actions, exclusions, and questions. Preserve ownership and avoid duplicate/racing adoption work. Acknowledge the update with a brief change summary and issue link; unchanged successful checks need only a timestamp.
+- Apply compatible wording, formatting, documentation corrections, and relevant skill additions/updates autonomously at or above the [90% judgment guideline](AGENTS.md#autonomy), after verifying source, compatibility, and scope. Routine work uses `TO DO`, then the normal issue lifecycle. Investigate uncertainty first; ask focused questions when confidence remains below the threshold. Changes to branch/PR policy, release authority, major workflows, architecture, security boundaries, costs, or destructive data behavior require an owner decision regardless of confidence. Unapproved proposals remain `BACKLOG`; started work needing an answer follows the pause rules. Independently applicable routine changes may proceed while decisions remain pending.
+- Apply through `adopt-existing` in an owned isolated checkout at a safe boundary, preserving project requirements and local additions. Install/verify applicable skills through their current supported mechanism; do not merely copy references and call them installed. Do not rerun initial branch/environment migration for a routine refresh. Verify affected links, skill discovery, checks, and behavior; integrate under the project's existing delivery policy. This approval does not authorize production deployment, tags, or releases.
+- Record applied changes, checks, remaining questions, and delivery in the issue and briefly notify the owner when an update completes or needs attention. Advance the adopted revision only after all applicable changes are verified, with explicit local exceptions recorded. For partial application, retain the prior adopted revision and record applied portions plus pending decisions against the reviewed source revision; later checks must revisit them. Close only fully resolved issues under [git-workflow.md](git-workflow.md).
 
 ## Update policy
 

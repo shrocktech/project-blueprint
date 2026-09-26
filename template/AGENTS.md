@@ -2,7 +2,7 @@
 
 Follow the user's latest instructions. Fill project facts and commands during setup; read detailed guides only for the current task.
 
-This blueprint evolves. At implementation-session start, compare the adopted revision with the recorded source's default-branch head. If different or adoption is unrecorded, create/update one adoption issue, preserving existing approval/ownership; new issues use `BACKLOG` + `proposal` until owner approval moves them to `TO DO`. Continue this session under current instructions. Apply guidance only in an approved update session through `adopt-existing`, preserving project requirements/local exceptions and recording the applied revision. Failed source checks do not establish an update.
+Keep this blueprint current under [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenance). Check at implementation-session start and daily during ongoing work; create/update an issue before changes. Routine compatible updates are pre-authorized at the 90% judgment threshold; major workflow changes still need an owner decision. Use `adopt-existing`, preserve local requirements, and activate updated guidance only after verified integration. Record scheduled coverage honestly; instructions alone do not run a monitor.
 
 ## Project facts
 
@@ -13,7 +13,7 @@ This blueprint evolves. At implementation-session start, compare the adopted rev
 - Conventions: link existing formatter/linter configuration and patterns.
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
-- Blueprint source (repository or URL): TODO; adopted revision: TODO; local exceptions: TODO.
+- Blueprint source (repository or URL): TODO; adopted revision: TODO; local exceptions: TODO; last successful check/reviewed source revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
 
 ## Verified commands
