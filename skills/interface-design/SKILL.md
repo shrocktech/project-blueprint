@@ -29,6 +29,8 @@ Before implementation, map the action states in `design.md` to the application's
 
 ## Verify the rendered result
 
+Use the project's required Playwright setup and recorded commands under `project.md` to exercise affected user journeys with synthetic data. Run relevant existing tests and add repeatable regression coverage for important changed behavior. Inspect the rendered browser or captured screenshots as well as assertions; automated passes alone do not establish visual correctness.
+
 Inspect the rendered page at desktop and narrow mobile widths, with zoom, wrapping labels, helper text, and errors. Compare spacing, alignment, overflow, and reading/tab order against `design.md`. Correct defects within implementation scope.
 
 For affected menus, features, or checkout, check icons in supported themes and collapsed navigation. Verify provider asset terms and payment/security cues against the real integration.

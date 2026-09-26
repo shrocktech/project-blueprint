@@ -13,18 +13,27 @@ Inspect the project and prior decisions first. Preserve established environments
 | Would this project benefit from GSD's additional planning tools? | Blueprint's existing workflow. | Consider [GSD Core](https://github.com/open-gsd/gsd-core) for larger projects or complex work spanning multiple sessions. Install only when selected. |
 | Should approved maintenance continue when no agent session is active? | Use existing authorized automation; otherwise agents handle maintenance during active sessions. | Configure unattended maintenance under [updates.md](updates.md), explaining required access, resources, and costs before a decision. |
 
-Summarize and record answers as setup decisions in project `AGENTS.md`, linking detailed configuration and verified automation status in private project docs. Proceed on those decisions without another confirmation or repeated routine interviews; explain genuine setup blockers. Graphify remains required and Context7 remains the preferred reference with official-docs fallback; production releases still require explicit authorization.
+Summarize and record answers as setup decisions in project `AGENTS.md`, linking detailed configuration and verified automation status in private project docs. Proceed on those decisions without another confirmation or repeated routine interviews; explain genuine setup blockers. Graphify and Playwright remain required and Context7 remains the preferred reference with official-docs fallback; production releases still require explicit authorization.
 
 If GSD is selected, follow its current official installation guidance. Project `AGENTS.md` and Blueprint rules remain authoritative; GitHub issues/Projects remain the work queue and completion record. GSD plans support approved issues, and its implementation phases do not advance the product lifecycle. Configure its review, delivery, and automation behavior to honor recorded choices; GSD does not independently authorize tags or releases.
 
 ## Setup checklist
 
 1. Record the phase/subphase under [phases.md](phases.md), launch state, actual development/deployed commits, branches, triggers, services, and checks. New projects start at `DEVELOPMENT: planning`; existing projects retain their verified position, asking only if unclear. Mark undeployed/unconfigured items explicitly. Establish integration under [git-workflow.md](git-workflow.md) without discarding unfinished work.
-2. Fill and verify the command table from scripts/CI; identify blocked or inapplicable commands. Keep the human-facing quick start in README.
+2. Complete [Playwright setup](#playwright). Fill and verify the command table from scripts/CI; identify blocked or inapplicable commands. Keep the human-facing quick start in README.
 3. Establish private `docs/internal/` and its index under [documentation.md](documentation.md). Add `docs/public/` and optional `docs/admin/` only when needed; record each source, destination, build command, audience, and access restrictions. Verify links and existing delivery without publishing an unauthorized release.
 4. Document test-data setup, secret configuration, and private vulnerability reporting under [security.md](security.md), without secret values. Record business/service regions and existing policies under [legal.md](legal.md); assess applicable notices before real personal-data collection, including pre-launch. Identify existing commercial decisions and customer-facing pages under [offering.md](offering.md). Adoption does not authorize replacing live policies or offers.
 5. Configure maintenance under [updates.md](updates.md), recording schedule, coverage, checks, runner/run links, and gaps. Distinguish active-agent work from verified unattended automation; record package rationale.
 6. Set up [Graphify](#graphify) and verify access to current product references under [packages.md](packages.md#current-product-references). Record blueprint revision, local exceptions, and accessible skill locations in `AGENTS.md`. Verify installed discovery or explicit reading from a retained blueprint checkout. Application domains and provider details belong in project docs, not the reusable blueprint.
+
+## Playwright
+
+Playwright is required testing infrastructure for adopting projects. Install and verify it during setup/adoption; this is not an optional interview choice. Follow the [official setup guidance](https://playwright.dev/docs/intro), preserving the application's stack, existing tests, and package-manager conventions.
+
+- Install project development tooling (normally `@playwright/test`), required browser binaries, and system dependencies. Configure the application's test URL or local server, isolated test data, and browser coverage appropriate to supported users. Preserve useful unit and integration tests.
+- Run a repeatable smoke test against the actual application, asserting meaningful page content or behavior. Record the installed version, browser coverage, test command in `AGENTS.md`, and setup/results in private project docs. Package installation, an upstream example test, or a passing build alone does not verify setup. If the application cannot run yet, record the blocker and complete verification when it can; do not mark setup verified prematurely.
+- During development, run affected browser tests and retain useful regression tests for critical journeys. Verify rendered UI through the `interface-design` skill. Investigate failures and report blocked/skipped checks explicitly before completion.
+- Maintain Playwright and its matching browsers under [updates.md](updates.md), following current upstream instructions. Unattended runs use the recorded automation choice and authorized resources; local testing remains required when CI is unavailable.
 
 ## Graphify
 
