@@ -10,7 +10,7 @@ Apply these defaults to new UI when compatible with the established stack. Prese
 
 ## Desktop, tablet, and mobile
 
-Every web UI must work on desktop, tablet, and mobile, including customer pages, administration, and critical forms. Use fluid layouts and content-driven breakpoints within the established framework. Keep essential content and actions available at every size; shrinking the desktop page or hiding features is not a responsive implementation.
+Projects with a web-facing UI must support desktop, tablet, and mobile, including customer pages, administration, and critical forms. Projects without one follow the [Playwright not-applicable rule](project.md#playwright) and skip this matrix. Use fluid layouts and content-driven breakpoints within the established framework; keep essential content and actions available at every size.
 
 Record a repeatable coverage matrix in project docs. Default viewport examples below are CSS pixels, not required layout breakpoints; add the project's supported sizes and test just above/below actual breakpoints and at intermediate widths.
 

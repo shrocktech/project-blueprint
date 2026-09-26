@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-Agents keep this blueprint current through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance): check at session start and daily during ongoing work, with verified scheduled checks when configured. They create an issue and apply routine compatible corrections and relevant skill updates autonomously at the 90% judgment threshold; major workflow changes require your decision. Setup records actual automation and gaps; copying instructions alone does not start a monitor.
+Agents check for owner-published stable releases through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance), creating an issue before eligible routine updates. New skills, source/maintenance-rule changes, and major workflows need your decision; untagged commits never auto-propagate. Without releases, changes become approval proposals. Setup records verified scheduling and gaps; instructions alone do not start a monitor.
 
 ![Application workflow: planning, build, security, release, launch, and ongoing production. Dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing/delivery, and green COMPLETED after comment checks and posted results. Owned worktrees, pink decision/red setup/silver external pauses, and live queue refresh. Security checks and authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
@@ -61,13 +61,13 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
 5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Procedures in `skills/` remain separate.
 6. Make applicable [skills](skills/README.md) available through supported installation, or retain the blueprint checkout and record verified skill paths. Keep repository-local installations in the setup checkout. Fill facts/commands and complete `project.md`.
-7. Complete required [Graphify setup](template/project.md#graphify) and [Playwright browser testing setup](template/project.md#playwright), and verify [current product reference access](template/packages.md#current-product-references), links, applicable checks, discovery, and automation/runner behavior. Record actual source/revision, skill locations, local exceptions, and remaining setup with direct links; copying instructions does not activate automation.
+7. Complete required [Graphify setup](template/project.md#graphify) and [Playwright setup or reasoned exclusion](template/project.md#playwright), and verify [current product reference access](template/packages.md#current-product-references), links, applicable checks, discovery, and automation/runner behavior. Record actual source/revision, skill locations, local exceptions, and remaining setup with direct links; copying instructions does not activate automation.
 
 Existing applications retain their framework, custom code, and data; WordPress retains its themes/plugins and established Bootstrap/Tabler. The adoption skill covers label migration and transitioning current work to `develop` without losing history or unfinished work. Application upgrades and production-affecting changes are separate tasks.
 
 ## Interface design
 
-Follow [design standards](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md), preserving established frameworks. Required [Playwright setup](template/project.md#playwright) supports rendered inspection and interaction checks across [desktop, tablet, and mobile](template/design.md#desktop-tablet-and-mobile).
+For web-facing UI, follow [design standards](template/design.md), the [interface-design skill](skills/interface-design/SKILL.md), and required [Playwright setup](template/project.md#playwright) for [desktop, tablet, and mobile](template/design.md#desktop-tablet-and-mobile). Projects without a web UI record the documented exclusion.
 
 Use the interface prompt in [Prompts](#prompts).
 
@@ -90,7 +90,7 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [Betterleaks](https://github.com/betterleaks/betterleaks) | Required secret scanning checks files, staged changes, and relevant history; verified existing Gitleaks coverage can remain during adoption. |
 | [Trivy](https://github.com/aquasecurity/trivy) | Required scanning for supported dependency vulnerabilities, infrastructure configuration, and shipped container images. Record coverage gaps, including WordPress components outside Composer coverage. |
 | [Open Code Review](https://github.com/alibaba/open-code-review) | Delegated review follows [change-type exclusions](template/git-workflow.md#delegated-code-review); every production promotion requires full review. Preview alone is insufficient. |
-| [Playwright](https://playwright.dev/) | Required browser tests verify real user journeys and affected UI behavior alongside other tests. |
+| [Playwright](https://playwright.dev/) | Required for web-facing UI; projects without one record reasoned N/A and skip the browser stack and device matrix. |
 | [Dependabot](https://docs.github.com/en/code-security/dependabot) | Finds supported dependency updates; testing and integration remain required, and deployed fixes need release verification. |
 | [GSD Core](https://github.com/open-gsd/gsd-core) | Optional planning support for complex projects when selected in setup; project rules and the existing issue queue remain authoritative. |
 

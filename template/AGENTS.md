@@ -2,7 +2,7 @@
 
 Follow the user's latest instructions. Fill project facts and commands during setup; read detailed guides only for the current task.
 
-Keep this blueprint current under [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenance). Check at implementation-session start and daily during ongoing work; create/update an issue before changes. Routine compatible updates are pre-authorized at the 90% judgment threshold; major workflow changes still need an owner decision. Use `adopt-existing`, preserve local requirements, and activate updated guidance only after verified integration. Record scheduled coverage honestly; instructions alone do not run a monitor.
+Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenance): check the recorded source's latest published stable release at session start and daily during ongoing work, pin its tag/commit, and create an issue before changes. Only eligible routine updates are pre-authorized at the 90% threshold; new skills, provenance/maintenance-rule changes, and major changes require an owner decision. Without releases, branch changes become approval proposals. Use `adopt-existing`, preserve local requirements, verify integration, and record actual scheduled coverage; instructions alone do not run a monitor.
 
 ## Project facts
 
@@ -13,7 +13,7 @@ Keep this blueprint current under [periodic Blueprint maintenance](updates.md#pe
 - Conventions: link existing formatter/linter configuration and patterns.
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
-- Blueprint source (repository or URL): TODO; adopted revision: TODO; local exceptions: TODO; last successful check/reviewed source revision: TODO; maintenance issue/schedule and pending changes: TODO.
+- Blueprint source: TODO; adopted release tag/commit (or explicitly approved unreleased commit): TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
 
 ## Verified commands
@@ -39,7 +39,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - Apply [delegated code review scope](git-workflow.md#delegated-code-review) before integration; every production promotion requires full review. Preview alone is not a review.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
 - Follow [navigation and route changes](design.md#navigation-and-route-changes): update development routes and references directly; do not add speculative legacy redirects or aliases.
-- Maintain required [Graphify infrastructure](project.md#graphify) and [Playwright browser testing](project.md#playwright) throughout development and use [current product references](packages.md#current-product-references) when implementing against external technologies.
+- Maintain required [Graphify infrastructure](project.md#graphify) and, for web-facing UI, [Playwright browser testing](project.md#playwright); use [current product references](packages.md#current-product-references) for external technologies.
 
 ## Autonomy
 
