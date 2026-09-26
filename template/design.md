@@ -6,6 +6,7 @@ Apply these defaults to new UI when compatible with the established stack. Prese
 - For compatible React projects, use shadcn/ui and shadcn-admin as the dashboard starting point; choose icons below. Other stacks use maintained native solutions under [packages.md](packages.md).
 - WordPress keeps its theme/plugin UI and established Bootstrap/Tabler; blueprint adoption never introduces a replacement framework.
 - Interfaces must be simple, accessible, and consistent. Respect lockfiles; upgrades follow [updates.md](updates.md).
+- Draw on [Impeccable](https://github.com/pbakaus/impeccable) principles: clear visual hierarchy, purposeful typography and spacing, restrained decoration, responsive layouts, and complete interaction states. Apply them within the project's established design system and accessibility requirements; project rules take precedence over stylistic preferences. The skill is optional; this reference does not install it.
 
 ## Icons
 
