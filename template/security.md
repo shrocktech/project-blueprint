@@ -7,6 +7,16 @@ Apply alongside [AGENTS.md](AGENTS.md). Keep implementation details and reportin
 - **Access:** Use credentials proactively within approved scope and least privilege. Enforce authentication, ownership, tenant boundaries, and authorization server-side; test allowed and denied cases. Do not disable controls or request blanket administrator access to make a task pass.
 - **Reporting:** Use the documented private vulnerability channel. If missing, ask privately; do not invent a contact or publish sensitive evidence. An exposed secret requires notification and authorized revocation/rotation; deleting its visible text is insufficient.
 
+## Secret scanning
+
+Secret scanning is required infrastructure. Use [Betterleaks](https://github.com/betterleaks/betterleaks) for new setups; preserve verified existing Gitleaks coverage during adoption rather than disabling it. Follow current upstream installation and [scanning guidance](https://github.com/betterleaks/betterleaks/blob/main/docs/scanning.md).
+
+- Install a verified official release and record its version, configuration, and commands in project setup docs, with commands linked from `AGENTS.md`. Scan working files and repository history during setup; fetch the history needed for the recorded scope rather than treating a shallow checkout as complete coverage.
+- Install and verify a staged-change pre-commit check without replacing Graphify or other hooks. Before integration, independently scan the exact candidate's files and incoming commit history; hooks alone do not establish a pass. Findings or scan errors block delivery until resolved or narrowly adjudicated below. Missing/skipped checks are not passes.
+- Verify detection and a failing check with a harmless synthetic secret fixture in an isolated temporary test repository, then verify clean input passes. Never use real credentials or commit the fixture to the application repository.
+- Enable redacted output and keep findings/reports private; never paste secret values into issues, logs, or shared artifacts. Investigate every finding. Allow only narrow, documented false-positive or confirmed revoked-secret exceptions; never blanket-baseline unresolved credentials. Handle exposed secrets under the reporting rule above. History rewriting requires separate authorization.
+- Keep live credential validation disabled by default; provider requests require authorization for that scope. Maintain the scanner and review rule changes under [updates.md](updates.md), retesting detection after changes. Use its CLI locally and in authorized CI within existing resource limits; neither paid services nor uploaded security reports are prerequisites. Record automation gaps and retain local checks when CI is unavailable.
+
 ## Credential storage
 
 - Hash login passwords with the supported framework's salted adaptive password APIs; prefer Argon2id for new custom authentication where supported. Preserve WordPress's native APIs and upgrade path. Never store plaintext/reversible login passwords or use a fast general-purpose hash. Offer reset/change, not retrieval.

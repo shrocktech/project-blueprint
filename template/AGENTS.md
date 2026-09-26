@@ -34,7 +34,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - Never update `main` or deploy production without an explicit release instruction; passing tests and a completed issue are not that instruction.
 - Completion means every issue comment addressed, a verified result comment posted, verified behavior, current docs, successful delivery, and a closed issue with only `COMPLETED`. Follow the final comment/closure checks in [git-workflow.md](git-workflow.md); unread or unresolved input blocks closing.
 - During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.
-- Never expose or commit secrets; use synthetic test data. Credentials authorize approved work only.
+- Never expose or commit secrets; use synthetic test data and required [secret-scanning checks](security.md#secret-scanning). Credentials authorize approved work only.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
 - Maintain required [Graphify infrastructure](project.md#graphify) and [Playwright browser testing](project.md#playwright) throughout development and use [current product references](packages.md#current-product-references) when implementing against external technologies.
 
