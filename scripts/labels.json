@@ -1,5 +1,5 @@
 [
-  {"name":"BACKLOG","color":"B1BAC4","description":"Future or unapproved work"},
+  {"name":"BACKLOG","color":"57606A","description":"Future or unapproved work"},
   {"name":"TO DO","color":"0075CA","description":"Approved work ready to start"},
   {"name":"IN PROGRESS","color":"FBCA04","description":"Implementation underway, paused, or ready to resume"},
   {"name":"REVIEW","color":"A371F7","description":"Implementation finished; final testing, agent review, or delivery verification"},

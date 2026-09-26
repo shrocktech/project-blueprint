@@ -8,7 +8,7 @@ Verify repository, Issues, and Project access before development; create/link th
 
 | Status / label | Color | Meaning |
 | --- | --- | --- |
-| `BACKLOG` | Gray | Future/unapproved work; do not implement. |
+| `BACKLOG` | Dark gray | Future/unapproved work; do not implement. |
 | `TO DO` | Blue | Approved work expected to be done. |
 | `IN PROGRESS` | Yellow | Implementation underway, paused, or ready to resume. |
 | `REVIEW` | Lavender | Final testing, agent review, or delivery verification underway. |

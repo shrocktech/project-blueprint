@@ -4,7 +4,7 @@ Reusable instructions for new and existing projects. You decide what to build an
 
 This blueprint evolves without a changelog; agents check at implementation-session start and queue updates under [AGENTS.md](template/AGENTS.md), keeping current guidance until approved adoption.
 
-![Application workflow: planning, build, security, release, launch, and ongoing production. Gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing/delivery, and green COMPLETED after comment checks and posted results. Owned worktrees, pink decision/red setup/silver external pauses, and live queue refresh. Security checks and authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
+![Application workflow: planning, build, security, release, launch, and ongoing production. Dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing/delivery, and green COMPLETED after comment checks and posted results. Owned worktrees, pink decision/red setup/silver external pauses, and live queue refresh. Security checks and authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches).
 
