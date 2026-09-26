@@ -25,6 +25,7 @@ This blueprint evolves. At implementation-session start, compare the adopted rev
 | Build | TODO | TODO — unverified |
 | Test | TODO | TODO — unverified |
 | Lint / types | TODO | TODO — unverified |
+| Format check | TODO | TODO — unverified |
 
 Use actual scripts/CI. Run applicable commands before marking them verified; identify inapplicable or blocked checks. Never include secret values.
 
@@ -59,6 +60,8 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Marketing, pricing, packaging, or refunds | [offering.md](offering.md); `pricing-research` skill for initial or material commercial decisions |
 | Documentation | [documentation.md](documentation.md) |
 | Security or customer-data changes | [security.md](security.md) |
+| Dependency, build, or infrastructure changes | [Trivy scans](security.md#dependency-and-configuration-scanning) |
+| Code quality | [Linting and formatting](packages.md#linting-and-formatting) |
 | Personal-data practices, customer terms, or policies | [legal.md](legal.md); `legal-review` skill for policy preparation or material review |
 | Product references / package choice / updates | [packages.md](packages.md) / [updates.md](updates.md) |
 | Launch / release | [launch.md](launch.md) |

@@ -7,6 +7,7 @@ During blueprint adoption, use the `adopt-existing` skill to inventory current v
 ## Update policy
 
 - Check supported dependencies weekly with Dependabot. Enable security alerts and security update PRs; assess relevant vulnerabilities promptly rather than waiting for the weekly run. Include application packages, build tooling, and workflow/container dependencies where present.
+- Maintain Trivy and its databases and perform the weekly [vulnerability/configuration rescans](security.md#dependency-and-configuration-scanning), including unchanged deployed artifacts where accessible. Record verified scheduling and coverage gaps; a dependency update check alone is not a vulnerability rescan.
 - Automatically merge eligible stable patch/minor updates into `develop` after required checks pass. Group compatible routine updates to reduce noise; isolate failures and major upgrades.
 - Agents handle major upgrades, compatibility repairs, and security fixes autonomously when behavior and approved requirements can be preserved. Review release notes, perform migrations, and verify affected behavior before integration. A major version alone is not a reason to ask the owner.
 - Ask only for genuine product, cost, licensing, architecture, or destructive-data decisions. Use the appropriate `paused:` label under [git-workflow.md](git-workflow.md) when necessary; continue other work.

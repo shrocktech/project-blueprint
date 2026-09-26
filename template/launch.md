@@ -4,7 +4,7 @@ Use this checklist for private beta and public release under [phases.md](phases.
 
 For an already-live product, use this checklist for subsequent releases under [git-workflow.md](git-workflow.md). Preserve release history; adoption uses the `adopt-existing` skill and does not repeat first-launch setup.
 
-Before any production promotion, complete [delegated code review](git-workflow.md#delegated-code-review) against the verified production baseline and exact release candidate. Earlier issue reviews do not replace this release-wide check.
+Before any production promotion, complete [delegated code review](git-workflow.md#delegated-code-review) against the verified production baseline and exact release candidate, plus applicable [Trivy scans](security.md#dependency-and-configuration-scanning) and configured [lint/format checks](packages.md#linting-and-formatting). Earlier issue reviews do not replace release-candidate verification.
 
 ## Private beta
 
