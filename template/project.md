@@ -19,6 +19,8 @@ If GSD is selected, follow its current official installation guidance. Project `
 
 ## Setup checklist
 
+Record each required tool's installed version/revision, location, and verification status. Record reasoned `not applicable` only where its owning rule permits exclusion; otherwise record a blocker and keep setup incomplete. Missing records or installation without required verification do not complete setup.
+
 1. Record the phase/subphase under [phases.md](phases.md), launch state, actual development/deployed commits, branches, triggers, services, and checks. New projects start at `DEVELOPMENT: planning`; existing projects retain their verified position, asking only if unclear. Mark undeployed/unconfigured items explicitly. Establish integration under [git-workflow.md](git-workflow.md) without discarding unfinished work.
 2. Complete [Playwright setup](#playwright), [Open Code Review setup](#open-code-review), and [linting and formatting](packages.md#linting-and-formatting). Fill and verify the command table from scripts/CI; identify blocked or inapplicable commands. Keep the human-facing quick start in README.
 3. Establish private `docs/internal/` and its index under [documentation.md](documentation.md). Add `docs/public/` and optional `docs/admin/` only when needed; record each source, destination, build command, audience, and access restrictions. Verify links and existing delivery without publishing an unauthorized release.

@@ -67,15 +67,16 @@ Existing applications retain their framework, custom code, and data; WordPress r
 
 ## Interface design
 
-For UI work, agents follow [design.md](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md): compact headers, responsive field groups, consistent alignment, useful muted icons, and clear save/submit feedback. Favor icons alongside labels in admin menus, features, and checkout. Existing frameworks and native interactions remain in place. [Desktop, tablet, and mobile](template/design.md#desktop-tablet-and-mobile) support is required: agents install the official [Playwright CLI skill](https://github.com/microsoft/playwright-cli) during project setup, inspect rendered results, and test interactions across the recorded device matrix. A desktop screenshot or passing build alone is insufficient.
+Follow [design standards](template/design.md) and the [interface-design skill](skills/interface-design/SKILL.md), preserving established frameworks. Required [Playwright setup](template/project.md#playwright) supports rendered inspection and interaction checks across [desktop, tablet, and mobile](template/design.md#desktop-tablet-and-mobile).
 
 Use the interface prompt in [Prompts](#prompts).
 
 ## Security and code quality
 
-Security starts with the application's access controls, data handling, and deployment configuration. The tools below provide complementary evidence throughout development; no scanner, skill, or clean report guarantees security. [Security review](template/security.md#security-review) owns coverage, findings, and risk decisions.
+Tools complement application security controls; a clean report cannot guarantee security. [Security review](template/security.md#security-review) governs coverage, findings, and risk decisions.
 
-![Security and quality flow: Graphify, Context7, WordPress skills, and Impeccable principles support implementation. Lint and format checks, BetterLeaks, Trivy, Open Code Review, and Playwright check the candidate. Fix and recheck, record evidence, obtain release authorization, and deploy the verified candidate. Maintenance repeats the checks.](assets/security-quality-flow.png)
+<!-- Next graphic regeneration: use Betterleaks casing and a generic WordPress icon. -->
+![Security and quality flow: Graphify, Context7, WordPress skills, and Impeccable principles support implementation. Lint and format checks, Betterleaks, Trivy, Open Code Review, and Playwright check the candidate. Fix and recheck, record evidence, obtain release authorization, and deploy the verified candidate. Maintenance repeats the checks.](assets/security-quality-flow.png)
 
 [Open the full-size security and quality graphic](assets/security-quality-flow.png). Scheduled rescans require verified automation; otherwise agents perform checks during active sessions and record the gap.
 
@@ -85,15 +86,15 @@ Security starts with the application's access controls, data handling, and deplo
 | [Context7](https://context7.com/docs) | Preferred current, version-specific technical references, with official vendor documentation as fallback and authority. |
 | [WordPress agent skills](https://github.com/WordPress/agent-skills) | Required for WordPress projects; relevant skills guide platform-specific implementation, analysis, and review. |
 | [Impeccable](https://github.com/pbakaus/impeccable) | Design principles support hierarchy, spacing, responsive layouts, and interaction states. Its skill is optional; it is not a security scanner. |
-| [ESLint](https://eslint.org/) / [Prettier](https://prettier.io/) / [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) | Stack-appropriate linting and formatting keep code consistent and flag problematic patterns. Preserve equivalent existing tools; WordPress PHP uses PHP_CodeSniffer with the WordPress rules. |
+| [ESLint](https://eslint.org/) / [Prettier](https://prettier.io/) / [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) | [Stack-appropriate checks](template/packages.md#linting-and-formatting) enforce consistent code and flag problematic patterns; preserve equivalent existing tools. |
 | [Betterleaks](https://github.com/betterleaks/betterleaks) | Required secret scanning checks files, staged changes, and relevant history; verified existing Gitleaks coverage can remain during adoption. |
 | [Trivy](https://github.com/aquasecurity/trivy) | Required scanning for supported dependency vulnerabilities, infrastructure configuration, and shipped container images. Record coverage gaps, including WordPress components outside Composer coverage. |
-| [Open Code Review](https://github.com/alibaba/open-code-review) | Required delegated review examines actual changes and surrounding code; a preview alone is not a review. |
+| [Open Code Review](https://github.com/alibaba/open-code-review) | Delegated review follows [change-type exclusions](template/git-workflow.md#delegated-code-review); every production promotion requires full review. Preview alone is insufficient. |
 | [Playwright](https://playwright.dev/) | Required browser tests verify real user journeys and affected UI behavior alongside other tests. |
 | [Dependabot](https://docs.github.com/en/code-security/dependabot) | Finds supported dependency updates; testing and integration remain required, and deployed fixes need release verification. |
 | [GSD Core](https://github.com/open-gsd/gsd-core) | Optional planning support for complex projects when selected in setup; project rules and the existing issue queue remain authoritative. |
 
-Agents inspect and implement with applicable references, then run [lint/format checks](template/packages.md#linting-and-formatting), [secret scans](template/security.md#secret-scanning), applicable [Trivy scans](template/security.md#dependency-and-configuration-scanning), [code review](template/git-workflow.md#delegated-code-review), and tests. They investigate findings, fix and recheck, and record private evidence before verified integration. Production promotion requires checks on the release candidate and explicit authorization; unresolved high/critical risks follow the existing owner-only acceptance policy. [Maintenance](template/updates.md) repeats vulnerability checks as advisories change, even when application code has not changed.
+Agents verify changes under [delivery rules](template/git-workflow.md#isolation-branches-and-delivery) and [security review](template/security.md#security-review), fixing findings and recording evidence. [Release](template/launch.md) requires candidate checks and authorization; [maintenance](template/updates.md) repeats checks as advisories change.
 
 ## Issue interviews
 
