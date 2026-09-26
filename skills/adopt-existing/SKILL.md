@@ -34,6 +34,7 @@ For already-live products, preserve the current service and release baseline. If
 
 ## WordPress, when applicable
 
+- Complete required WordPress skills setup under the target's `project.md`; use routing/triage and relevant specialist skills at their verified installed locations.
 - Preserve core behavior, parent/child theme, plugins/custom plugins, hooks, shortcodes, blocks, page-builder content, and established Bootstrap/Tabler UI.
 - Keep customizations in their supported locations; do not edit core/vendor/parent-theme files as a shortcut. Document existing modifications there and propose a separate migration.
 - Enqueue scripts/styles through WordPress on relevant pages; avoid duplicate frameworks and CSS leaking between frontend, admin, and editor.

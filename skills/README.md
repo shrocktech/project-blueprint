@@ -16,4 +16,4 @@ Inside each skill, plain filenames such as `git-workflow.md` refer to the target
 
 Keep application-specific configuration and domains in that project's appropriate docs, not these reusable skills.
 
-For product-specific skills, follow [current product references](../template/packages.md#current-product-references): project conventions belong in skills; current vendor details come through Context7 or official documentation. Required Graphify tooling follows [project setup](../template/project.md#graphify).
+For product-specific skills, follow [current product references](../template/packages.md#current-product-references): project conventions belong in skills; current vendor details come through Context7 or official documentation. Required Graphify tooling follows [project setup](../template/project.md#graphify). WordPress projects also require the [official WordPress skills](../template/project.md#wordpress-skills).

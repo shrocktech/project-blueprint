@@ -52,6 +52,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Phase planning or transitions | [phases.md](phases.md) |
 | Setup or environments | [project.md](project.md) |
 | Existing-project adoption | `adopt-existing` skill at its recorded location, before changes |
+| WordPress implementation or review | Required [WordPress skills](project.md#wordpress-skills) at their recorded locations |
 | Issues, implementation, queue, commits | [git-workflow.md](git-workflow.md) |
 | User-requested issue interview | `issue-interview` skill at its recorded location |
 | UI | [design.md](design.md); `interface-design` skill for page/form layout and interaction work |
@@ -62,4 +63,4 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Product references / package choice / updates | [packages.md](packages.md) / [updates.md](updates.md) |
 | Launch / release | [launch.md](launch.md) |
 
-Read current code, issue comments, and applicable skills. Resolve material instruction conflicts explicitly. Obtain missing skills from `skills/<name>/SKILL.md` at the adopted source/revision. Establish missing source facts from the supplied checkout or ask; never guess a repository or record an unapplied revision as adopted. `agent.md` redirects here; `CLAUDE.md` imports it.
+Read current code, issue comments, and applicable skills. Resolve material instruction conflicts explicitly. Obtain missing Blueprint skills from `skills/<name>/SKILL.md` at the adopted source/revision; obtain external skills from the upstream source linked in their setup guidance. Establish missing source facts from the supplied checkout or ask; never guess a repository or record an unapplied revision as adopted. `agent.md` redirects here; `CLAUDE.md` imports it.
