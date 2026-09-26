@@ -38,6 +38,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - Never expose or commit secrets; use synthetic test data and required [secret-scanning checks](security.md#secret-scanning). Credentials authorize approved work only.
 - Complete [delegated code review](git-workflow.md#delegated-code-review) before integration and production promotion; preview alone is not a review.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
+- Follow [navigation and route changes](design.md#navigation-and-route-changes): update development routes and references directly; do not add speculative legacy redirects or aliases.
 - Maintain required [Graphify infrastructure](project.md#graphify) and [Playwright browser testing](project.md#playwright) throughout development and use [current product references](packages.md#current-product-references) when implementing against external technologies.
 
 ## Autonomy

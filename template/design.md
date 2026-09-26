@@ -8,6 +8,14 @@ Apply these defaults to new UI when compatible with the established stack. Prese
 - Interfaces must be simple, accessible, and consistent. Respect lockfiles; upgrades follow [updates.md](updates.md).
 - Draw on [Impeccable](https://github.com/pbakaus/impeccable) principles: clear visual hierarchy, purposeful typography and spacing, restrained decoration, responsive layouts, and complete interaction states. Apply them within the project's established design system and accessibility requirements; project rules take precedence over stylistic preferences. The skill is optional; this reference does not install it.
 
+## Navigation and route changes
+
+During development, change navigation and routes directly. Do not add redirects from retired URLs, legacy route aliases, or compatibility shims to preserve an earlier development layout. Imagined bookmarks, external links, SEO history, or possible future users are not requirements; adding such compatibility requires an explicit owner instruction.
+
+- Update menus, internal links, route definitions, generated URLs, tests, and relevant docs to the intended destination. Remove obsolete routes and associated development-only forwarding within the changed scope; do not leave redirect chains or silently send unknown URLs to a replacement page or home page.
+- Verify current links reach their intended URLs directly and retired routes return the application's appropriate not-found behavior without forwarding. Check affected browser journeys under [project.md](project.md#playwright).
+- Keep functional authentication, HTTPS enforcement, and required native platform flows tied to their actual requirements. This navigation rule does not authorize removing them or disrupting verified live URLs during adoption. Record actual published-route obligations for an existing live project; a development environment alone does not make those obligations disposable. Do not invent them for an unreleased project.
+
 ## Icons
 
 - Favor icons with labels in menus, features, and checkout where space allows. Keep one coherent general UI set: the established library or stack-appropriate [Lucide](https://lucide.dev/), [Heroicons](https://heroicons.com/), or [Bootstrap Icons](https://icons.getbootstrap.com/), with consistent sizing, style, and meaning.
