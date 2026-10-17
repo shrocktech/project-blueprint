@@ -15,6 +15,7 @@ Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenanc
 - Private documentation index, dependency rationale, automation status: record verified locations.
 - Blueprint source: TODO; adopted release tag/commit (or explicitly approved unreleased commit): TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
+- Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [project.md](project.md#task-observer).
 
 ## Verified commands
 
@@ -31,6 +32,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 
 ## Always apply
 
+- If Task Observer is enabled, load its recorded skill at substantial multi-step task start/resumption and related feedback or requested observation review; follow [setup and review boundaries](project.md#task-observer). Observations do not authorize changes or override project instructions.
 - Development needs an issue and an isolated issue branch/worktree; an existing dedicated checkout suffices. Follow [git-workflow.md](git-workflow.md) for verified direct integration and release authorization.
 - Never update `main` or deploy production without an explicit release instruction; passing tests and a completed issue are not that instruction.
 - Completion means every issue comment addressed, a verified result comment posted, verified behavior, current docs, successful delivery, and a closed issue with only `COMPLETED`. Follow the final comment/closure checks in [git-workflow.md](git-workflow.md); unread or unresolved input blocks closing.

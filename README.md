@@ -23,6 +23,7 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Change phase | Say “move to security” or name the next phase; the agent records your decision under [phases.md](template/phases.md). |
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change; existing projects follow the update guidance in their `AGENTS.md`. |
+| Capture recurring workflow lessons | Select optional [Task Observer](template/project.md#task-observer) during setup; request an observation review when useful. Proposed fixes use the existing issue queue and approval rules. |
 
 The board and matching issue labels follow `BACKLOG → TO DO → IN PROGRESS → REVIEW → COMPLETED`. `REVIEW` shows finished implementation undergoing tests, automated checks, or final delivery verification; it does not require your review of every issue. Fixes return to `IN PROGRESS`.
 
@@ -75,8 +76,7 @@ Use the interface prompt in [Prompts](#prompts).
 
 Tools complement application security controls; a clean report cannot guarantee security. [Security review](template/security.md#security-review) governs coverage, findings, and risk decisions.
 
-<!-- Next graphic regeneration: use Betterleaks casing and a generic WordPress icon. -->
-![Security and quality flow: Graphify, Context7, WordPress skills, and Impeccable principles support implementation. Lint and format checks, Betterleaks, Trivy, Open Code Review, and Playwright check the candidate. Fix and recheck, record evidence, obtain release authorization, and deploy the verified candidate. Maintenance repeats the checks.](assets/security-quality-flow.png)
+![Security and quality flow: Graphify, Context7, WordPress skills, and Impeccable principles support implementation. Lint and format checks, Betterleaks, Trivy, Open Code Review, and Playwright check the candidate. Fix and recheck, record evidence, obtain release authorization, and deploy the verified candidate. Maintenance repeats the checks. Optional Task Observer captures private lessons as reviewed proposals using the existing issue queue and approval rules.](assets/security-quality-flow.png)
 
 [Open the full-size security and quality graphic](assets/security-quality-flow.png). Scheduled rescans require verified automation; otherwise agents perform checks during active sessions and record the gap.
 
@@ -93,6 +93,7 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [Playwright](https://playwright.dev/) | Required for web-facing UI; projects without one record reasoned N/A and skip the browser stack and device matrix. |
 | [Dependabot](https://docs.github.com/en/code-security/dependabot) | Finds supported dependency updates; testing and integration remain required, and deployed fixes need release verification. |
 | [GSD Core](https://github.com/open-gsd/gsd-core) | Optional planning support for complex projects when selected in setup; project rules and the existing issue queue remain authoritative. |
+| [Task Observer](https://github.com/rebelytics/one-skill-to-rule-them-all) | Optional, owner-selected lesson capture with private persistent observations, verified activation, and reviewed proposals under [setup guidance](template/project.md#task-observer). |
 
 Agents verify changes under [delivery rules](template/git-workflow.md#isolation-branches-and-delivery) and [security review](template/security.md#security-review), fixing findings and recording evidence. [Release](template/launch.md) requires candidate checks and authorization; [maintenance](template/updates.md) repeats checks as advisories change.
 
