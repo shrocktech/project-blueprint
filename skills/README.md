@@ -18,4 +18,6 @@ Keep application-specific configuration and domains in that project's appropriat
 
 Optional external [Task Observer](../template/project.md#task-observer) captures reusable lessons when selected during setup. Its complete pinned upstream bundle, private storage, explicit activation, and fresh-session verification follow that guide; it is not bundled here.
 
+For public-page art direction, [TASTE setup](../template/project.md#taste) identifies the optional `design-taste-frontend` bundle and its verification. Existing `interface-design` reads the target's design rules; TASTE supports that workflow without replacing application-form conventions or Playwright coverage.
+
 For product-specific skills, follow [current product references](../template/packages.md#current-product-references): project conventions belong in skills; current vendor details come through Context7 or official documentation. Required Graphify tooling follows [project setup](../template/project.md#graphify). WordPress projects also require the [official WordPress skills](../template/project.md#wordpress-skills).

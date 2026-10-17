@@ -70,13 +70,15 @@ Existing applications retain their framework, custom code, and data; WordPress r
 
 For web-facing UI, follow [design standards](template/design.md), the [interface-design skill](skills/interface-design/SKILL.md), and required [Playwright setup](template/project.md#playwright) for [desktop, tablet, and mobile](template/design.md#desktop-tablet-and-mobile). Projects without a web UI record the documented exclusion.
 
+[TASTE](template/project.md#taste) supports content-led art direction and screenshot critique for public-facing pages. Its optional pinned skill follows project brand, accessibility, performance, and truthful-content rules; application forms retain their established patterns.
+
 Use the interface prompt in [Prompts](#prompts).
 
 ## Security and code quality
 
 Tools complement application security controls; a clean report cannot guarantee security. [Security review](template/security.md#security-review) governs coverage, findings, and risk decisions.
 
-![Security and quality flow: Graphify, Context7, WordPress skills, and Impeccable principles support implementation. Lint and format checks, Betterleaks, Trivy, Open Code Review, and Playwright check the candidate. Fix and recheck, record evidence, obtain release authorization, and deploy the verified candidate. Maintenance repeats the checks. Optional Task Observer captures private lessons as reviewed proposals using the existing issue queue and approval rules.](assets/security-quality-flow.png)
+![Security and quality flow: Graphify, Context7, WordPress skills, and Impeccable principles support implementation. Lint and format checks, Betterleaks, Trivy, Open Code Review, and Playwright check the candidate. Fix and recheck, record evidence, obtain release authorization, and deploy the verified candidate. Maintenance repeats the checks. Optional Task Observer captures private lessons as reviewed proposals using the existing issue queue and approval rules. TASTE supports public-page art direction and screenshot critique; project design rules and required Playwright verification govern.](assets/security-quality-flow.png)
 
 [Open the full-size security and quality graphic](assets/security-quality-flow.png). Scheduled rescans require verified automation; otherwise agents perform checks during active sessions and record the gap.
 
@@ -94,6 +96,7 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [Dependabot](https://docs.github.com/en/code-security/dependabot) | Finds supported dependency updates; testing and integration remain required, and deployed fixes need release verification. |
 | [GSD Core](https://github.com/open-gsd/gsd-core) | Optional planning support for complex projects when selected in setup; project rules and the existing issue queue remain authoritative. |
 | [Task Observer](https://github.com/rebelytics/one-skill-to-rule-them-all) | Optional, owner-selected lesson capture with private persistent observations, verified activation, and reviewed proposals under [setup guidance](template/project.md#task-observer). |
+| [TASTE](https://github.com/leonxlnx/taste-skill) | Public-page design reference and optional skill; content-led composition and screenshot critique under [project design rules](template/design.md). |
 
 Agents verify changes under [delivery rules](template/git-workflow.md#isolation-branches-and-delivery) and [security review](template/security.md#security-review), fixing findings and recording evidence. [Release](template/launch.md) requires candidate checks and authorization; [maintenance](template/updates.md) repeats checks as advisories change.
 
