@@ -13,6 +13,7 @@ Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenanc
 - Conventions: link existing formatter/linter configuration and patterns.
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
+- Vulnerability intelligence: link the private inventory and [monitor health record](updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.
 - Blueprint source: TODO; adopted release tag/commit (or explicitly approved unreleased commit): TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [project.md](project.md#task-observer).
@@ -38,6 +39,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - Completion means every issue comment addressed, a verified result comment posted, verified behavior, current docs, successful delivery, and a closed issue with only `COMPLETED`. Follow the final comment/closure checks in [git-workflow.md](git-workflow.md); unread or unresolved input blocks closing.
 - During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.
 - Never expose or commit secrets; use synthetic test data and required [secret-scanning checks](security.md#secret-scanning). Credentials authorize approved work only.
+- At implementation-session start, inspect [advisory monitoring health](updates.md#advisory-monitoring-and-health); run due checks or record failures/gaps and triage actionable findings through the existing maintenance queue. Follow [NVD/OSV matching and deduplication](security.md#vulnerability-intelligence); monitoring never authorizes production changes.
 - Apply [delegated code review scope](git-workflow.md#delegated-code-review) before integration; every production promotion requires full review. Preview alone is not a review.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
 - Follow [navigation and route changes](design.md#navigation-and-route-changes): update development routes and references directly; do not add speculative legacy redirects or aliases.
