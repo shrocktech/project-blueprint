@@ -122,7 +122,7 @@ flowchart TD
     J --> K[Notify on changes, failures or decisions]
 ```
 
-Optional [Monid](template/project.md#monid-for-development) supports budgeted development experiments. When you offer a credential, agents prepare an empty variable in the project-root `.env` and link you to the file for local entry under [secret handling](template/security.md#local-development-secrets). Only placeholder names belong in `.env.example`; actual secrets stay out of chat, Git and published output.
+Optional [Monid](template/project.md#monid-for-development) supports budgeted development experiments. When you offer a credential, agents prepare an empty variable in the project-root `.env` and link you to the file for local entry under [secret handling](template/security.md#local-development-secrets). Only placeholder names belong in `.env.example`; actual secrets stay out of chat, Git and published output. Owners who keep one shared key across projects can instead select [git-crypt](template/security.md#encrypted-env-with-git-crypt) during setup: `.env` is then tracked encrypted, agents check for the key at every session start and hand you a one-time machine setup command when it is missing.
 
 ## Issue interviews
 

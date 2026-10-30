@@ -17,6 +17,7 @@ Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenanc
 - Blueprint source: TODO; recorded default branch and adopted commit: TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [project.md](project.md#task-observer).
+- Encrypted `.env`: TODO — git-crypt selected or declined; if selected, record the shared key path (default `/etc/secrets/git-crypt.key`) and the verified `git-crypt status` result under [security.md](security.md#encrypted-env-with-git-crypt).
 
 ## Verified commands
 
@@ -39,6 +40,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - Completion means every issue comment addressed, a verified result comment posted, verified behavior, current docs, successful delivery, and a closed issue with only `COMPLETED`. Follow the final comment/closure checks in [git-workflow.md](git-workflow.md); unread or unresolved input blocks closing.
 - During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.
 - Follow [local secret handling](security.md#local-development-secrets): prepare the project-root `.env` placeholder and give its exact file link when a credential is offered; never request secrets in chat. Never expose or commit secrets; use synthetic test data and required [secret-scanning checks](security.md#secret-scanning). Credentials authorize approved work only.
+- If git-crypt is selected, at session start in every checkout verify the shared key is readable and `.env` is unlocked under [encrypted `.env`](security.md#encrypted-env-with-git-crypt), unlocking once if needed and saying nothing when it passes. If the key is missing, give the owner the machine setup command, pause `paused: setup`, and do not ask for the key or substitute other secret handling.
 - At implementation-session start, inspect [advisory monitoring health](updates.md#advisory-monitoring-and-health); run due checks or record failures/gaps and triage actionable findings through the existing maintenance queue. Follow [NVD/OSV matching and deduplication](security.md#vulnerability-intelligence); monitoring never authorizes production changes.
 - Apply [delegated code review scope](git-workflow.md#delegated-code-review) before integration; every production promotion requires full review. Preview alone is not a review.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
@@ -66,6 +68,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Marketing, pricing, packaging, or refunds | [offering.md](offering.md); `pricing-research` skill for initial or material commercial decisions |
 | Documentation | [documentation.md](documentation.md) |
 | Security or customer-data changes | [security.md](security.md) |
+| `.env` locked, key missing, new machine or repository, key rotation | [Encrypted `.env` with git-crypt](security.md#encrypted-env-with-git-crypt) |
 | Dependency, build, or infrastructure changes | [Trivy scans](security.md#dependency-and-configuration-scanning) |
 | Code quality | [Linting and formatting](packages.md#linting-and-formatting) |
 | Personal-data practices, customer terms, or policies | [legal.md](legal.md); `legal-review` skill for policy preparation or material review |
