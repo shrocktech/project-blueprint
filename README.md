@@ -4,7 +4,7 @@ Reusable instructions for new and existing projects. You decide what to build an
 
 Initial setup always includes an owner interview, with simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Agents check the recorded Blueprint default branch weekly through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance), creating an issue before applying eligible routine changes. Significant changes and new optional tools need your decision. Setup verifies actual scheduling; instructions alone do not start a monitor.
 
-![Application workflow: planning, build, security, release, launch, and ongoing production. Dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing/delivery, and green COMPLETED after comment checks and posted results. Owned worktrees, pink decision/red setup/silver external pauses, and live queue refresh. Security checks and authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
+![Application workflow with ten stops: DEVELOPMENT planning, build and security; RELEASE offering, beta and validation; LAUNCH open, feedback and stabilize; PRODUCTION ongoing. Board statuses: dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing and deployment, green COMPLETED. Owned issue worktrees follow issue branch to develop to authorized main. Paused work stays IN PROGRESS with pink decision, red setup or silver external reason. Refresh the live queue after completion or pause and before stopping. Explicit authorization precedes private beta and public launch. Owner/developer admin footer shows environment and numbered phase; customer views show neither. GitHub Free requires no paid features](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches).
 
@@ -48,7 +48,7 @@ Ten stops; the number shows how far along a project is.
 
 [phases.md](template/phases.md) defines work and completion criteria. Direct transitions naturally, such as “move to security”; agents recommend advancement without repeated prompts. Changing phase does not authorize deployment or public opening. New features do not reset the product.
 
-`planning` includes specifications, security requirements, and setup. `planning` and `build` run only secret scanning and the release rule; the full tool set installs at `security` and stays on through release and production under [checks by phase](template/security.md#checks-by-phase), with rechecks during `validation`. [security.md](template/security.md#security-review) governs review scope, evidence, release requirements, and owner risk acceptance; findings stay private.
+`planning` includes specifications, security requirements, and setup. Use the phase-specific requirements in [checks by phase](template/security.md#checks-by-phase), including desktop verification during planning/build and the full check set from security through production. [security.md](template/security.md#security-review) governs review scope, evidence, release requirements, and owner risk acceptance; findings stay private.
 
 The [admin footer](template/design.md#environment-and-phase-display) shows **Environment** and, for owner/developer views, **Phase** with its stop number: an invited production beta reads `Environment: PRODUCTION · Phase: 5/10 · RELEASE: beta`. Customer-facing pages and customer-admin views show neither; phases are not GitHub labels or Project fields.
 
@@ -80,7 +80,7 @@ Use the interface prompt in [Prompts](#prompts).
 
 Tools complement application security controls; a clean report cannot guarantee security. [Security review](template/security.md#security-review) governs coverage, findings, and risk decisions.
 
-![Security and quality flow: Graphify, Context7, WordPress skills, and Impeccable principles support implementation. Lint and format checks, Betterleaks, Trivy, Open Code Review, and Playwright check the candidate. Fix and recheck, record evidence, obtain release authorization, and deploy the verified candidate. Weekly maintenance combines Dependabot, rescans and NVD/OSV advisory matching, with deduplicated issues and verified monitor health. Optional Task Observer captures private lessons as reviewed proposals using the existing issue queue and approval rules. TASTE supports public-page art direction and screenshot critique; project design rules and required Playwright verification govern.](assets/security-quality-flow.png)
+![Security and quality by phase. Planning/build require secret scans, agent review, desktop Playwright for web UI, lint/format and existing tests; install Graphify and record failures. From DEVELOPMENT security onward require working Graphify, applicable Trivy scans, delegated code review, full desktop/tablet/mobile coverage and NVD/OSV monitoring. Full checks precede leaving DEVELOPMENT; every production promotion requires review and owner authorization. Weekly Blueprint, dependency and applicable security checks share verified scheduling with authorized Saturday VM maintenance. Root .env is ignored by default or encrypted with selected git-crypt. Steel, GSD, Task Observer, Monid and git-crypt are optional; Impeccable and TASTE skills are optional. No paid GitHub features are required and no tool guarantees security](assets/security-quality-flow.png)
 
 [Open the full-size security and quality graphic](assets/security-quality-flow.png). Weekly rescans and inventory-matched NVD/OSV advisory checks share the maintenance workflow. [Monitor health](template/updates.md#advisory-monitoring-and-health) records verified scheduled execution, last successful checks and gaps; otherwise agents check during active sessions. Existing projects approve maintenance-rule changes under the recorded adoption policy.
 
@@ -124,7 +124,7 @@ flowchart TD
     J --> K[Notify on changes, failures or decisions]
 ```
 
-Optional [Monid](template/project.md#monid-for-development) supports budgeted development experiments. When you offer a credential, agents prepare an empty variable in the project-root `.env` and link you to the file for local entry under [secret handling](template/security.md#local-development-secrets). Only placeholder names belong in `.env.example`; actual secrets stay out of chat, Git and published output. Owners who keep one shared key across projects can instead select [git-crypt](template/security.md#encrypted-env-with-git-crypt) during setup: `.env` is then tracked encrypted, agents check for the key at every session start and hand you a one-time machine setup command when it is missing.
+Optional [Monid](template/project.md#monid-for-development) supports budgeted development experiments. When you offer a credential, agents prepare an empty variable in the project-root `.env` and link you to the file for local entry under [secret handling](template/security.md#local-development-secrets). Only placeholder names belong in `.env.example`; plaintext secrets stay out of chat, Git and published output. Owners can instead select [git-crypt](template/security.md#encrypted-env-with-git-crypt) during setup: `.env` is then tracked encrypted, agents check for the key at every session start and provide a verified machine-specific setup procedure when it is missing.
 
 ## Issue interviews
 
@@ -189,7 +189,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Interface design**
 
-> Build or refine this screen using our design standards and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at desktop and mobile widths.
+> Build or refine this screen using our design standards and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at the device coverage required for the current phase.
 
 **Issue interview**
 

@@ -14,7 +14,7 @@ Apply these defaults to new UI when compatible with the established stack. Prese
 
 Projects with a web-facing UI must support desktop, tablet, and mobile, including customer pages, administration, and critical forms. Projects without one follow the [Playwright not-applicable rule](project.md#playwright) and skip this matrix. Use fluid layouts and content-driven breakpoints within the established framework; keep essential content and actions available at every size.
 
-Record a repeatable coverage matrix in project docs. Default viewport examples below are CSS pixels, not required layout breakpoints; add the project's supported sizes and test just above/below actual breakpoints and at intermediate widths.
+Apply the verification scope in [checks by phase](security.md#checks-by-phase); design for all three device classes throughout development. Record a repeatable coverage matrix in project docs. Default viewport examples below are CSS pixels, not required layout breakpoints; add the project's supported sizes and test just above/below actual breakpoints and at intermediate widths.
 
 | View | Representative coverage |
 | --- | --- |
@@ -55,7 +55,7 @@ Use the `interface-design` skill at its recorded location for layout planning an
 
 ## Environment and phase display
 
-Every admin layout has a persistent footer; its left side shows, in small muted text with adequate contrast in supported themes, the environment and, for owner/developer views, the current [project phase](phases.md) with its stop number:
+Owner/developer admin layouts have a persistent footer whose left side shows the environment and current [project phase](phases.md) with its stop number, in small muted text with adequate contrast in supported themes:
 
 ```text
 Environment: DEVELOPMENT · Phase: 2/10 · DEVELOPMENT: build
