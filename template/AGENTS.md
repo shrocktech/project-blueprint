@@ -7,7 +7,7 @@ Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenanc
 ## Project facts
 
 - Purpose, users, stack, runtime, package manager, directories: to be filled in.
-- Lifecycle: phase TODO; subphase TODO (`none` for `PRODUCTION`); active plan TODO. Use [phases.md](phases.md) for current focus and transitions.
+- Lifecycle: stop TODO/10; phase TODO; subphase TODO (`none` for `PRODUCTION`); active plan TODO. Use [phases.md](phases.md) for current focus and transitions.
 - Owner: the human authorized to bind the project/business; record their role and delegates. Policy approval requires explicit legal/business delegation; development or release access alone does not confer it.
 - Business and customer/service jurisdictions: record verified scope in private project docs; no assumed country.
 - Conventions: link existing formatter/linter configuration and patterns.
@@ -41,11 +41,11 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.
 - Follow [local secret handling](security.md#local-development-secrets): prepare the project-root `.env` placeholder and give its exact file link when a credential is offered; never request secrets in chat. Never expose or commit secrets; use synthetic test data and required [secret-scanning checks](security.md#secret-scanning). Credentials authorize approved work only.
 - If git-crypt is selected, at session start in every checkout verify the shared key is readable and `.env` is unlocked under [encrypted `.env`](security.md#encrypted-env-with-git-crypt), unlocking once if needed and saying nothing when it passes. If the key is missing, give the owner the machine setup command, pause `paused: setup`, and do not ask for the key or substitute other secret handling.
-- At implementation-session start, inspect [advisory monitoring health](updates.md#advisory-monitoring-and-health); run due checks or record failures/gaps and triage actionable findings through the existing maintenance queue. Follow [NVD/OSV matching and deduplication](security.md#vulnerability-intelligence); monitoring never authorizes production changes.
-- Apply [delegated code review scope](git-workflow.md#delegated-code-review) before integration; every production promotion requires full review. Preview alone is not a review.
+- From `DEVELOPMENT: security` onward, at implementation-session start inspect [advisory monitoring health](updates.md#advisory-monitoring-and-health); run due checks or record failures/gaps and triage actionable findings through the existing maintenance queue. Follow [NVD/OSV matching and deduplication](security.md#vulnerability-intelligence); monitoring never authorizes production changes.
+- Apply [delegated code review scope](git-workflow.md#delegated-code-review) before integration from `DEVELOPMENT: security` onward; every production promotion requires full review. Preview alone is not a review.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
 - Follow [navigation and route changes](design.md#navigation-and-route-changes): update development routes and references directly; do not add speculative legacy redirects or aliases.
-- Maintain required [Graphify infrastructure](project.md#graphify) and, for web-facing UI, [Playwright browser testing](project.md#playwright); use [current product references](packages.md#current-product-references) for external technologies.
+- Maintain [Graphify infrastructure](project.md#graphify) and, for web-facing UI, [Playwright browser testing](project.md#playwright) at the level set by [checks by phase](security.md#checks-by-phase); use [current product references](packages.md#current-product-references) for external technologies.
 
 ## Autonomy
 

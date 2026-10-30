@@ -37,18 +37,20 @@ Questions and reviews do not start unrelated implementation. The 90% confidence 
 
 ## Project phases
 
+Ten stops; the number shows how far along a project is.
+
 | Parent | Subphases |
 | --- | --- |
-| **DEVELOPMENT** | planning → build → security |
-| **RELEASE** | offering → beta → validation |
-| **LAUNCH** | open → feedback → stabilize |
-| **PRODUCTION** | None; final ongoing marketing, growth, maintenance, and feature releases |
+| **DEVELOPMENT** | 1 planning → 2 build → 3 security |
+| **RELEASE** | 4 offering → 5 beta → 6 validation |
+| **LAUNCH** | 7 open → 8 feedback → 9 stabilize |
+| **PRODUCTION** | 10; final ongoing marketing, growth, maintenance, and feature releases |
 
 [phases.md](template/phases.md) defines work and completion criteria. Direct transitions naturally, such as “move to security”; agents recommend advancement without repeated prompts. Changing phase does not authorize deployment or public opening. New features do not reset the product.
 
-`planning` includes specifications, security requirements, and setup. Security applies throughout development, with a review before beta and rechecks during `validation`. [security.md](template/security.md#security-review) governs review scope, evidence, release requirements, and owner risk acceptance; findings stay private.
+`planning` includes specifications, security requirements, and setup. `planning` and `build` run only secret scanning and the release rule; the full tool set installs at `security` and stays on through release and production under [checks by phase](template/security.md#checks-by-phase), with rechecks during `validation`. [security.md](template/security.md#security-review) governs review scope, evidence, release requirements, and owner risk acceptance; findings stay private.
 
-Owner/developer admin views separate **Environment** from **Project phase**: an invited production beta shows `PRODUCTION` and `RELEASE: beta`. Final `PRODUCTION` has no subphase. Customer-admin views need no lifecycle display; phases are not GitHub labels or Project fields.
+The [admin footer](template/design.md#environment-and-phase-display) shows **Environment** and, for owner/developer views, **Phase** with its stop number: an invited production beta reads `Environment: PRODUCTION · Phase: 5/10 · RELEASE: beta`. Customer-facing pages and customer-admin views show neither; phases are not GitHub labels or Project fields.
 
 ## Project setup
 

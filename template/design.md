@@ -45,8 +45,6 @@ During development, change navigation and routes directly. Do not add redirects 
 ## Page and form layout
 
 - Use a compact title/action row for application pages, with useful content directly below. Avoid oversized headers and decorative empty space in settings and administration screens.
-- Show a persistent badge for the current environment inside the admin header, normally upper right before utility icons: `DEVELOPMENT`, `PRODUCTION`, or `STAGING` when staging is active. Use consistent, distinct colors with readable text and adequate contrast in supported themes; keep it visible on narrow screens. Derive the label from explicit deployment-environment configuration, not build mode or hostname alone.
-- In owner/developer admin views, also show the [project phase](phases.md), such as `RELEASE: beta`; final `PRODUCTION` has no suffix. Use visible, accessible labels **Environment** and **Project phase**. Keep display-safe phase values synchronized through authorized delivery; customer-admin views need no lifecycle display. Neither badge controls deployment or access.
 - Use shared components for the page shell, header, sections, field groups, checkbox rows, and actions. Keep primary action placement clear without redundant controls; project-specific patterns belong in `docs/internal/`.
 - Put two or three related short fields in a row when they fit comfortably; give long or complex controls more width. Stack on narrow screens and preserve logical reading/tab order. Do not force unrelated fields into columns.
 - Use the existing spacing scale for page padding, field gaps, and sections. Align labels, control edges, and actions consistently; keep helper/error text associated with its field without displacing neighboring controls unnecessarily.
@@ -54,6 +52,18 @@ During development, change navigation and routes directly. Do not add redirects 
 - Keep density comfortable: readable text, visible focus, usable hit targets, and layouts that reflow when zoomed. Compactness must not hide labels or clip content.
 
 Use the `interface-design` skill at its recorded location for layout planning and rendered verification. Follow [AGENTS.md](AGENTS.md) for skill discovery.
+
+## Environment and phase display
+
+Every admin layout has a persistent footer; its left side shows, in small muted text with adequate contrast in supported themes, the environment and, for owner/developer views, the current [project phase](phases.md) with its stop number:
+
+```text
+Environment: DEVELOPMENT · Phase: 2/10 · DEVELOPMENT: build
+```
+
+- Environment is `DEVELOPMENT`, `PRODUCTION`, or `STAGING` when staging is active, derived from explicit deployment-environment configuration, not build mode or hostname alone. Give each a consistent, distinct color.
+- Phase comes from one configuration value (for example `APP_PHASE`) that the agent updates through authorized delivery at each recorded transition; never hardcode it in templates. `10/10 · PRODUCTION` has no subphase.
+- Keep the footer visible on narrow screens without obscuring content or focused fields. Customer-facing pages and customer-admin views show neither value. Neither value controls deployment or access.
 
 ## Save, submit, and feedback
 
