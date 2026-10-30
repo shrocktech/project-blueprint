@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-Agents check for owner-published stable releases through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance), creating an issue before eligible routine updates. New skills, source/maintenance-rule changes, and major workflows need your decision; untagged commits never auto-propagate. Without releases, changes become approval proposals. Setup records verified scheduling and gaps; instructions alone do not start a monitor.
+Initial setup always includes an owner interview, with simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Agents check the recorded Blueprint default branch weekly through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance), creating an issue before applying eligible routine changes. Significant changes and new optional tools need your decision. Setup verifies actual scheduling; instructions alone do not start a monitor.
 
 ![Application workflow: planning, build, security, release, launch, and ongoing production. Dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing/delivery, and green COMPLETED after comment checks and posted results. Owned worktrees, pink decision/red setup/silver external pauses, and live queue refresh. Security checks and authorization precede beta and public launch.](assets/project-workflow-landscape.jpg)
 
@@ -57,7 +57,7 @@ Use the setup prompt in [Prompts](#prompts).
 Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/REPO` below means the target repository. The adopting agent should:
 
 1. Fetch this blueprint into a separate checkout and record its commit. Read [git-workflow.md](template/git-workflow.md) and, for an existing application, [adopt-existing](skills/adopt-existing/SKILL.md). Inspect before editing the target.
-2. Create/claim a setup issue and follow the bootstrap order in [git-workflow.md](template/git-workflow.md). Resolve unsettled choices through the short [setup interview](template/project.md#setup-interview), preserving known decisions before configuring the project.
+2. Create/claim a setup issue and follow the bootstrap order in [git-workflow.md](template/git-workflow.md). Always conduct the initial [setup interview](template/project.md#setup-interview), preserving known decisions before configuring the project.
 3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its five statuses and colors, preserving mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` without a stage.
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
 5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Procedures in `skills/` remain separate.
@@ -80,7 +80,7 @@ Tools complement application security controls; a clean report cannot guarantee 
 
 ![Security and quality flow: Graphify, Context7, WordPress skills, and Impeccable principles support implementation. Lint and format checks, Betterleaks, Trivy, Open Code Review, and Playwright check the candidate. Fix and recheck, record evidence, obtain release authorization, and deploy the verified candidate. Weekly maintenance combines Dependabot, rescans and NVD/OSV advisory matching, with deduplicated issues and verified monitor health. Optional Task Observer captures private lessons as reviewed proposals using the existing issue queue and approval rules. TASTE supports public-page art direction and screenshot critique; project design rules and required Playwright verification govern.](assets/security-quality-flow.png)
 
-[Open the full-size security and quality graphic](assets/security-quality-flow.png). Weekly rescans and inventory-matched NVD/OSV advisory checks share the maintenance workflow. [Monitor health](template/updates.md#advisory-monitoring-and-health) records verified scheduled execution, last successful checks and gaps; otherwise agents check during active sessions. Existing projects approve maintenance-rule adoption under the stable-release propagation policy.
+[Open the full-size security and quality graphic](assets/security-quality-flow.png). Weekly rescans and inventory-matched NVD/OSV advisory checks share the maintenance workflow. [Monitor health](template/updates.md#advisory-monitoring-and-health) records verified scheduled execution, last successful checks and gaps; otherwise agents check during active sessions. Existing projects approve maintenance-rule changes under the recorded adoption policy.
 
 | Tool or source | Contribution and scope |
 | --- | --- |
@@ -101,6 +101,28 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [TASTE](https://github.com/leonxlnx/taste-skill) | Public-page design reference and optional skill; content-led composition and screenshot critique under [project design rules](template/design.md). |
 
 Agents verify changes under [delivery rules](template/git-workflow.md#isolation-branches-and-delivery) and [security review](template/security.md#security-review), fixing findings and recording evidence. [Release](template/launch.md) requires candidate checks and authorization; [maintenance](template/updates.md) repeats checks as advisories change.
+
+## Weekly maintenance and credentials
+
+[Setup](template/project.md#setup-interview) records a weekly plan covering Blueprint changes, NVD/OSV checks, Trivy rescans and dependency updates. [VM maintenance](template/updates.md#weekly-vm-maintenance) defaults to late Saturday in the recorded timezone, with agreed restart/reboot scope and recovery checks. Shared VMs have one host job. Each check records its own result; failed or missing runs are reported, not counted as clean.
+
+```mermaid
+flowchart TD
+    A[Initial owner interview] --> B[Verify scheduler, access and agent handoff]
+    B --> C[Weekly maintenance window]
+    C --> D[Blueprint default-branch comparison]
+    C --> E[NVD / OSV, Trivy and dependency checks]
+    C --> F[One job per VM: OS updates and authorized restarts]
+    D --> G[Issue first: apply routine changes; ask on major changes]
+    E --> H[Triage findings and verify fixes]
+    F --> I[Verify services and scheduler after restart]
+    G --> J[Record results, gaps and last success]
+    H --> J
+    I --> J
+    J --> K[Notify on changes, failures or decisions]
+```
+
+Optional [Monid](template/project.md#monid-for-development) supports budgeted development experiments. When you offer a credential, agents prepare an empty variable in the project-root `.env` and link you to the file for local entry under [secret handling](template/security.md#local-development-secrets). Only placeholder names belong in `.env.example`; actual secrets stay out of chat, Git and published output.
 
 ## Issue interviews
 

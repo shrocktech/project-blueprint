@@ -2,7 +2,7 @@
 
 Follow the user's latest instructions. Fill project facts and commands during setup; read detailed guides only for the current task.
 
-Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenance): check the recorded source's latest published stable release at session start and daily during ongoing work, pin its tag/commit, and create an issue before changes. Only eligible routine updates are pre-authorized at the 90% threshold; new skills, provenance/maintenance-rule changes, and major changes require an owner decision. Without releases, branch changes become approval proposals. Use `adopt-existing`, preserve local requirements, verify integration, and record actual scheduled coverage; instructions alone do not run a monitor.
+Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenance): check the recorded source's default branch weekly, pin its commit, and create an issue before changes. Eligible routine updates are pre-authorized at the 90% threshold; new optional tools/skills, provenance/maintenance-rule changes and major changes require an owner decision. Use `adopt-existing`, preserve interview decisions and local requirements, verify integration, and record actual scheduled coverage. Check maintenance health at session start; instructions alone do not run a monitor.
 
 ## Project facts
 
@@ -14,7 +14,7 @@ Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenanc
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
 - Vulnerability intelligence: link the private inventory and [monitor health record](updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.
-- Blueprint source: TODO; adopted release tag/commit (or explicitly approved unreleased commit): TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
+- Blueprint source: TODO; recorded default branch and adopted commit: TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [project.md](project.md#task-observer).
 
@@ -38,7 +38,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - Never update `main` or deploy production without an explicit release instruction; passing tests and a completed issue are not that instruction.
 - Completion means every issue comment addressed, a verified result comment posted, verified behavior, current docs, successful delivery, and a closed issue with only `COMPLETED`. Follow the final comment/closure checks in [git-workflow.md](git-workflow.md); unread or unresolved input blocks closing.
 - During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.
-- Never expose or commit secrets; use synthetic test data and required [secret-scanning checks](security.md#secret-scanning). Credentials authorize approved work only.
+- Follow [local secret handling](security.md#local-development-secrets): prepare the project-root `.env` placeholder and give its exact file link when a credential is offered; never request secrets in chat. Never expose or commit secrets; use synthetic test data and required [secret-scanning checks](security.md#secret-scanning). Credentials authorize approved work only.
 - At implementation-session start, inspect [advisory monitoring health](updates.md#advisory-monitoring-and-health); run due checks or record failures/gaps and triage actionable findings through the existing maintenance queue. Follow [NVD/OSV matching and deduplication](security.md#vulnerability-intelligence); monitoring never authorizes production changes.
 - Apply [delegated code review scope](git-workflow.md#delegated-code-review) before integration; every production promotion requires full review. Preview alone is not a review.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
