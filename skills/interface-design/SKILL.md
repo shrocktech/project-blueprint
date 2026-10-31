@@ -35,7 +35,7 @@ Use the device coverage required by `security.md` checks by phase and the deskto
 
 For affected menus, features, or checkout, check icons in supported themes and collapsed navigation. Verify provider asset terms and payment/security cues against the real integration.
 
-Exercise the form against the state table in `design.md`: try edits/reverts, incomplete inputs, paste/autofill, repeated click/Enter, delayed/failed responses, and edits during pending requests. Observe status messages, request counts, retained drafts, and persisted results, including recovery after an uncertain outcome. For credential fields, exercise saved/replace/cancel/remove states with synthetic secrets.
+Exercise the form against the state table in `design.md`: try edits/reverts, incomplete inputs, paste/autofill, repeated click/Enter, delayed/failed responses, and edits during pending requests. Observe status messages, request counts, retained drafts, and persisted results, including recovery after an uncertain outcome. For credential fields, exercise the credential states in `design.md` with synthetic secrets: saved masking and exact key length, eye reveal/hide, direct overwrite, unchanged/empty preservation, successful/failed saves, and navigation without saving. Verify masks never become submitted secrets and stored-secret reveal is authorized.
 
 Check keyboard navigation, label activation, error associations, focus, and status announcements. Confirm persistence by reloading or reading back through the application. Report unavailable checks explicitly; source inspection or a passing build does not constitute visual verification.
 
