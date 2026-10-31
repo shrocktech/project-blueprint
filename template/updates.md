@@ -18,6 +18,8 @@ Routine Blueprint updates from the recorded source repository's default branch a
 
 ## Update policy
 
+Include [recovery inventory and backup health](security.md#local-development-secrets) in weekly maintenance: verify freshness, failures, independent access and due restore drills; report gaps through the existing maintenance issue process.
+
 - Check supported dependencies weekly with Dependabot. Enable security alerts and security update PRs; assess relevant vulnerabilities promptly rather than waiting for the weekly run. Include application packages, build tooling, and workflow/container dependencies where present.
 - From the phase specified in [checks by phase](security.md#checks-by-phase), maintain Trivy and its databases and perform the weekly [vulnerability/configuration rescans](security.md#dependency-and-configuration-scanning) alongside [NVD/OSV advisory monitoring](#advisory-monitoring-and-health), including unchanged deployed artifacts where accessible. Share inventory, scheduling and finding records; a dependency update check alone is not a vulnerability rescan.
 - Automatically merge eligible stable patch/minor updates into `develop` after required checks pass. Group compatible routine updates to reduce noise; isolate failures and major upgrades.
@@ -43,7 +45,7 @@ During the initial interview, record each host's OS, owner, dedicated/shared sta
 
 - Configure one host-level job per VM using the OS/provider's supported update mechanism and existing authorized resources. Projects reference that job rather than installing competing updaters. Coordinate locks and active work across projects; bounded deferral for unsafe interruption must create an overdue/failure record, not silently skip maintenance forever.
 - Install supported OS/security updates weekly; inspect failures and pending restart requirements. Restart affected services or reboot within the recorded authorization/window when needed. Major OS upgrades, changed downtime/security boundaries and production reboot authority require an owner decision. An approved recurring reboot window does not authorize application production releases.
-- Verify backup/recovery readiness appropriate to the host before changes. Persist job progress across reboot and verify reconnection, expected services, application health and maintenance scheduler recovery afterward. Confirm pending updates/reboot state, retain private results and last successful completion, and report failures or recovery actions. A reboot request alone is not success; avoid repeated reboot loops.
+- Verify [inventoried backup/recovery readiness](security.md#local-development-secrets) appropriate to the host before changes. Persist job progress across reboot and verify reconnection, expected services, application health and maintenance scheduler recovery afterward. Confirm pending updates/reboot state, retain private results and last successful completion, and report failures or recovery actions. A reboot request alone is not success; avoid repeated reboot loops.
 - Share the weekly maintenance plan with vulnerability and Blueprint checks, ordering disruptive work so it cannot interrupt those checks or their agent handoff. Record independent outcomes and resume incomplete checks. Apply [monitor health](#advisory-monitoring-and-health), including observed scheduled execution and missed-run detection; no host access or scheduler means an explicit gap, not a claim that the VM is maintained.
 
 ## WordPress maintenance

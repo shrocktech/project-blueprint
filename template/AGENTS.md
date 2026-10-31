@@ -14,6 +14,7 @@ Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenanc
 - Brand: canonical kit and implementation tokens TODO; approval/provisional scope TODO; protected Brand Guidelines settings route and editor roles TODO. Follow [design.md](design.md#brand-foundation-and-settings).
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
+- Recovery: private inventory/runbook, backup destinations and health, independent key/access recovery, restore objectives/cadence and last verified drill or blockers TODO under [security.md](security.md#local-development-secrets).
 - Vulnerability intelligence: link the private inventory and [monitor health record](updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.
 - Blueprint source: TODO; recorded default branch and adopted commit: TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.

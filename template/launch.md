@@ -8,7 +8,7 @@ Before any production promotion, complete [delegated code review](git-workflow.m
 
 ## Private beta
 
-- Test critical journeys outside production first. With explicit beta-release authorization, promote the tested candidate to `main` and the normal production address, enforcing invitation-only access server-side. Display beta status; verify access controls, recovery, and applicable notices before admitting testers. Staging remains optional under [project.md](project.md).
+- Test critical journeys outside production first. With explicit beta-release authorization, promote the tested candidate to `main` and the normal production address, enforcing invitation-only access server-side. Display beta status; verify access controls, [complete project recovery](security.md#local-development-secrets), and applicable notices before admitting testers. Staging remains optional under [project.md](project.md).
 - Record invited scope, known limits, charges if any, and whether accounts/data persist or reset. Treat beta data as real; keep destructive, stress, and disposable-data tests outside production. Provide the instructions/support testers need without requiring a full public docs site.
 - Turn feedback into issues: fix and retest launch blockers; put optional ideas in the backlog. Continue implementation on issue branches into `develop`, delivering beta fixes within recorded release authorization. Beta permission does not authorize public opening; verify the final candidate before recommending launch.
 
@@ -24,7 +24,7 @@ Before any production promotion, complete [delegated code review](git-workflow.m
 - **Customer changelog:** Create `CHANGELOG.md` during final go-live preparation and publish it at launch. Begin with the initial version, release date, and a short customer-readable summary. Do not reconstruct the development history or publish internal issue notes.
 - **Release record:** Prepare the initial versioned release and its notes. Once the approved, tested changes reach `main`, tag the exact release commit and publish the release record. Keep its version and summary consistent with the changelog.
 - **Customer links:** Provide stable links to documentation, the changelog, and the release details from the website or app where appropriate. A single changelog page may also serve as the release-notes page. If GitHub releases are private, publish the customer-safe notes on the website or docs instead of sending customers to an inaccessible link.
-- **Operational readiness:** Verify production configuration, the critical user journeys, and the deployment/rollback procedure. Confirm backups and recovery for persistent data where applicable. Record project-specific checks in private `docs/internal/`.
+- **Operational readiness:** Verify production configuration, the critical user journeys, and the deployment/rollback procedure. Verify the [complete recovery inventory and isolated restore evidence](security.md#local-development-secrets), including configuration, credentials, data, assets and external access; unresolved required recovery dependencies block readiness. Record project-specific checks in private `docs/internal/`.
 
 ## Go live and verify
 
