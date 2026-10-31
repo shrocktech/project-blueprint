@@ -11,6 +11,7 @@ Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenanc
 - Owner: the human authorized to bind the project/business; record their role and delegates. Policy approval requires explicit legal/business delegation; development or release access alone does not confer it.
 - Business and customer/service jurisdictions: record verified scope in private project docs; no assumed country.
 - Conventions: link existing formatter/linter configuration and patterns.
+- Brand: canonical kit and implementation tokens TODO; approval/provisional scope TODO; protected Brand Guidelines settings route and editor roles TODO. Follow [design.md](design.md#brand-foundation-and-settings).
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
 - Vulnerability intelligence: link the private inventory and [monitor health record](updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.

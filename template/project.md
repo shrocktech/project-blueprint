@@ -8,6 +8,7 @@ Always conduct a short owner interview at initial installation/adoption, includi
 
 | Question | Recommended default | Alternative to discuss |
 | --- | --- | --- |
+| What branding should this project use? | Preserve existing identity/tools; establish the [brand foundation and settings page](design.md#brand-foundation-and-settings), with owner-approved essentials before styled UI. | Create or extend an identity; offer optional Cofoundy Brand Skills only where needed and record the choice. |
 | How would you like changes reviewed? | Agent verification and direct integration under [git-workflow.md](git-workflow.md). | Pull requests. Separately establish whether they require human approval or agent review and passing checks; preserve existing protections. |
 | Do you need a separate staging environment? | Development and production under [environment defaults](#environment-defaults). | Explicitly requested staging for release or integration checks; preserve existing staging. |
 | Do agent tasks need persistent or remote browser sessions? | Use the existing browser tools and required Playwright tests. | Select optional [Steel Browser](#steel-browser) when session management, remote browsing, or page extraction would help. |

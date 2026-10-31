@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-Initial setup always includes an owner interview, with simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Agents check the recorded Blueprint default branch weekly through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance), creating an issue before applying eligible routine changes. Significant changes and new optional tools need your decision. Setup verifies actual scheduling; instructions alone do not start a monitor.
+Initial setup always includes an owner interview, with simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Establish the [approved brand foundation](template/design.md#brand-foundation-and-settings) before styled UI; each application provides a protected Brand Guidelines settings page, reusing existing identity and tools. Agents check the recorded Blueprint default branch weekly through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance), creating an issue before applying eligible routine changes. Significant changes and new optional tools need your decision. Setup verifies actual scheduling; instructions alone do not start a monitor.
 
 ![Application workflow with ten stops: DEVELOPMENT planning, build and security; RELEASE offering, beta and validation; LAUNCH open, feedback and stabilize; PRODUCTION ongoing. Board statuses: dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing and deployment, green COMPLETED. Owned issue worktrees follow issue branch to develop to authorized main. Paused work stays IN PROGRESS with pink decision, red setup or silver external reason. Refresh the live queue after completion or pause and before stopping. Explicit authorization precedes private beta and public launch. Owner/developer admin footer shows environment and numbered phase; customer views show neither. GitHub Free requires no paid features](assets/project-workflow-landscape.jpg)
 
@@ -165,7 +165,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/phases.md](template/phases.md) | Lifecycle focus, subphases, completion criteria, and user-directed transitions |
 | [template/project.md](template/project.md) | Initial setup and environment defaults |
 | [template/git-workflow.md](template/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
-| [template/design.md](template/design.md) | Stack-compatible layouts, form actions, feedback, and credential fields |
+| [template/design.md](template/design.md) | Approved brand foundation and settings page, stack-compatible layouts, form actions, feedback, and credential fields |
 | [template/offering.md](template/offering.md) | Accurate marketing, researched commercial decisions, and consistent customer information |
 | [template/security.md](template/security.md) | Credentials, data, access, security review, release checks, and reporting |
 | [template/legal.md](template/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
