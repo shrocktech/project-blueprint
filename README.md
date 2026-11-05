@@ -80,7 +80,7 @@ Use the interface prompt in [Prompts](#prompts).
 
 Tools complement application security controls; a clean report cannot guarantee security. [Security review](template/security.md#security-review) governs coverage, findings, and risk decisions.
 
-![Security and quality by phase. Planning/build require secret scans, agent review, desktop Playwright for web UI, lint/format and existing tests; install Graphify and record failures. From DEVELOPMENT security onward require working Graphify, applicable Trivy scans, delegated code review, full desktop/tablet/mobile coverage and NVD/OSV monitoring. Full checks precede leaving DEVELOPMENT; every production promotion requires review and owner authorization. Weekly Blueprint, dependency and applicable security checks share verified scheduling with authorized Saturday VM maintenance. Root .env uses git-crypt encryption at initial setup; only verified ciphertext may be pushed, never plaintext or keys. Steel, GSD, Task Observer and Monid are optional; Impeccable and TASTE skills are optional. No paid GitHub features are required and no tool guarantees security](assets/security-quality-flow.png)
+![Security and quality by phase. Planning/build require secret scans, agent review, desktop Playwright for web UI, lint/format and existing tests; install Graphify and record failures. From DEVELOPMENT security onward require working Graphify, applicable Trivy and ZAP application/API scans, delegated code review, full desktop/tablet/mobile coverage and NVD/OSV monitoring. Full checks precede leaving DEVELOPMENT; every production promotion requires review and owner authorization. ZAP uses isolated test targets and authenticated coverage; existing tools remain required. Weekly Blueprint, dependency and applicable security checks share verified scheduling with authorized Saturday VM maintenance. Root .env uses git-crypt encryption at initial setup; only verified ciphertext may be pushed, never plaintext or keys. Steel, GSD, Task Observer, Monid and deeper Schemathesis API testing are optional; Impeccable and TASTE skills are optional. No paid GitHub features are required and no tool guarantees security](assets/security-quality-flow.png)
 
 [Open the full-size security and quality graphic](assets/security-quality-flow.png). Weekly rescans and inventory-matched NVD/OSV advisory checks share the maintenance workflow. [Monitor health](template/updates.md#advisory-monitoring-and-health) records verified scheduled execution, last successful checks and gaps; otherwise agents check during active sessions. Existing projects approve maintenance-rule changes under the recorded adoption policy.
 
@@ -93,6 +93,7 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [ESLint](https://eslint.org/) / [Prettier](https://prettier.io/) / [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) | [Stack-appropriate checks](template/packages.md#linting-and-formatting) enforce consistent code and flag problematic patterns; preserve equivalent existing tools. |
 | [Betterleaks](https://github.com/betterleaks/betterleaks) | Required secret scanning checks files, staged changes, and relevant history; verified existing Gitleaks coverage can remain during adoption. |
 | [Trivy](https://github.com/aquasecurity/trivy) | Required scanning for supported dependency vulnerabilities, infrastructure configuration, and shipped container images. Record coverage gaps, including WordPress components outside Composer coverage. |
+| [ZAP](https://www.zaproxy.org/) | Required running-application security tests for web applications and HTTP APIs from `DEVELOPMENT: security`: discovery, authenticated passive/active scans, applicable API coverage and private reports under [security guidance](template/security.md#application-and-api-security-testing). Complements existing tools. |
 | [Open Code Review](https://github.com/alibaba/open-code-review) | Delegated review follows [change-type exclusions](template/git-workflow.md#delegated-code-review); every production promotion requires full review. Preview alone is insufficient. |
 | [Playwright](https://playwright.dev/) | Required for web-facing UI; projects without one record reasoned N/A and skip the browser stack and device matrix. |
 | [Steel Browser](https://github.com/steel-dev/steel-browser) | Optional agent browser sessions, extraction, and debugging under [setup guidance](template/project.md#steel-browser). Prefer authorized local/self-hosted resources; retain required Playwright device/browser checks. |
@@ -102,18 +103,20 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [Task Observer](https://github.com/rebelytics/one-skill-to-rule-them-all) | Optional, owner-selected lesson capture with private persistent observations, verified activation, and reviewed proposals under [setup guidance](template/project.md#task-observer). |
 | [TASTE](https://github.com/leonxlnx/taste-skill) | Public-page design reference and optional skill; content-led composition and screenshot critique under [project design rules](template/design.md). |
 
+ZAP runs against isolated project test targets with synthetic accounts and controlled external integrations. Agents verify authentication and endpoint coverage, retain explicit permission tests, and protect third-party API consumption under [application and API security testing](template/security.md#application-and-api-security-testing). Schemathesis is optional for deeper schema-based API tests when needed.
+
 Agents verify changes under [delivery rules](template/git-workflow.md#isolation-branches-and-delivery) and [security review](template/security.md#security-review), fixing findings and recording evidence. [Release](template/launch.md) requires candidate checks and authorization; [maintenance](template/updates.md) repeats checks as advisories change.
 
 ## Weekly maintenance and credentials
 
-[Setup](template/project.md#setup-interview) records a weekly plan covering Blueprint changes, NVD/OSV checks, Trivy rescans and dependency updates. [VM maintenance](template/updates.md#weekly-vm-maintenance) defaults to late Saturday in the recorded timezone, with agreed restart/reboot scope and recovery checks. Shared VMs have one host job. Each check records its own result; failed or missing runs are reported, not counted as clean.
+[Setup](template/project.md#setup-interview) records a weekly plan covering Blueprint changes, NVD/OSV checks, Trivy rescans, bounded ZAP test-environment scans and dependency updates. [VM maintenance](template/updates.md#weekly-vm-maintenance) defaults to late Saturday in the recorded timezone, with agreed restart/reboot scope and recovery checks. Shared VMs have one host job. Each check records its own result; failed or missing runs are reported, not counted as clean.
 
 ```mermaid
 flowchart TD
     A[Initial owner interview] --> B[Verify scheduler, access and agent handoff]
     B --> C[Weekly maintenance window]
     C --> D[Blueprint default-branch comparison]
-    C --> E[NVD / OSV, Trivy and dependency checks]
+    C --> E[NVD / OSV, Trivy, test-environment ZAP and dependency checks]
     C --> F[One job per VM: OS updates and authorized restarts]
     D --> G[Issue first: apply routine changes; ask on major changes]
     E --> H[Triage findings and verify fixes]
