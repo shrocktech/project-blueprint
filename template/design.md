@@ -68,7 +68,7 @@ During development, change navigation and routes directly. Do not add redirects 
 ## Page and form layout
 
 - Use a compact title/action row for application pages, with useful content directly below. Avoid oversized headers and decorative empty space in settings and administration screens.
-- Use shared components for the page shell, header, sections, field groups, checkbox rows, and actions. Keep primary action placement clear without redundant controls; project-specific patterns belong in `docs/internal/`.
+- Use shared components for the page shell, header, sections, field groups, checkbox rows, and actions. Keep primary action placement clear without redundant controls; project-specific patterns belong in `project/docs/internal/`.
 - Put two or three related short fields in a row when they fit comfortably; give long or complex controls more width. Stack on narrow screens and preserve logical reading/tab order. Do not force unrelated fields into columns.
 - Use the existing spacing scale for page padding, field gaps, and sections. Align labels, control edges, and actions consistently; keep helper/error text associated with its field without displacing neighboring controls unnecessarily.
 - Center checkboxes, radios, and icons beside single-line text; align controls to the first line of wrapping labels. Associate labels with controls and make the label clickable.
@@ -111,6 +111,6 @@ Apply these defaults where compatible with the interaction; preserve established
 - After server confirmation, mask saved integration passwords entirely with asterisks. For saved API/secret keys, show the first four and last four characters with one asterisk per hidden character: a 40-character key has 32 asterisks between its visible ends. Use a monospaced display and in-field horizontal scrolling when necessary, not a shortened mask or page overflow. Apply the preview safeguards in [security.md](security.md); unsuitable keys use a fully masked display. An absent credential has an empty input.
 - Keep the saved display separate from the replacement draft. Typing/pasting starts a replacement rather than appending to the mask; unchanged or empty input preserves the saved credential. Never submit display asterisks as a replacement or infer a placeholder solely from its characters. Successful saving clears the submitted draft and restores the confirmed masked display, preserving any newer unsaved edits; failed saving preserves the draft without claiming success. Leaving without saving discards the draft.
 - The eye reveals/hides the entered draft or, on explicit activation, the saved recoverable integration credential under [security.md](security.md). Merely loading settings never retrieves the full stored secret. Application login passwords remain hashed and use change/reset; their eye reveals only the newly entered password.
-- Application-specific credential request formats, components, and state diagrams belong in `docs/internal/`.
+- Application-specific credential request formats, components, and state diagrams belong in `project/docs/internal/`.
 
 Credential storage and server-side enforcement follow [security.md](security.md).

@@ -64,7 +64,7 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 2. Create/claim a setup issue and follow the bootstrap order in [git-workflow.md](template/git-workflow.md). Always conduct the initial [setup interview](template/project.md#setup-interview), preserving known decisions before configuring the project.
 3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its five statuses and colors, preserving mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` without a stage.
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
-5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Procedures in `skills/` remain separate.
+5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Establish the application's [lowercase project workspace](template/project.md#project-workspace); existing applications complete the tracked [workspace migration](template/documentation.md#workspace-migration) during adoption or updates. Blueprint's distribution `template/` and reusable `skills/` remain separate.
 6. Make applicable [skills](skills/README.md) available through supported installation, or retain the blueprint checkout and record verified skill paths. Keep repository-local installations in the setup checkout. Fill facts/commands and complete `project.md`.
 7. Complete required [Graphify setup](template/project.md#graphify) and [Playwright setup or reasoned exclusion](template/project.md#playwright), and verify [current product reference access](template/packages.md#current-product-references), links, applicable checks, discovery, and automation/runner behavior. Record actual source/revision, skill locations, local exceptions, and remaining setup with direct links; copying instructions does not activate automation.
 
@@ -151,7 +151,7 @@ Review before collecting real personal information, even for a waitlist or beta.
 
 [offering.md](template/offering.md) keeps marketing and commercial decisions consistent before and after launch. The [pricing-research skill](skills/pricing-research/SKILL.md) compares products, costs, value, and refund terms, then recommends alternatives. You approve initial prices and material changes; agents keep pages, checkout, billing, and docs aligned. Policies follow the legal rules; publication follows release authorization.
 
-Use the pricing prompt in [Prompts](#prompts). Research and business decisions stay in private project docs; approved customer policies belong in `docs/public/legal/`.
+Use the pricing prompt in [Prompts](#prompts). Research and business decisions stay in private project docs; approved customer policies belong in `project/docs/public/legal/`.
 
 When marketing begins, the agent offers relevant Corey Haines skills linked in `offering.md`. Installation is optional, requires approval and review, and never happens during setup. The agent records your choice without repeated prompts; deferral does not block work.
 
@@ -204,7 +204,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Legal review**
 
-> Review this project's customer terms and privacy needs using legal-review. Inspect the application and existing policies first, keep wording brief and factual, and ask only for missing material decisions. Prepare applicable drafts in docs/public/legal and report any unresolved questions.
+> Review this project's customer terms and privacy needs using legal-review. Inspect the application and existing policies first, keep wording brief and factual, and ask only for missing material decisions. Prepare applicable drafts in project/docs/public/legal and report any unresolved questions.
 
 **Pricing research**
 

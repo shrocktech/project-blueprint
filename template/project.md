@@ -24,13 +24,35 @@ Summarize and record answers as setup decisions in project `AGENTS.md`, linking 
 
 If GSD is selected, follow its current official installation guidance. Project `AGENTS.md` and Blueprint rules remain authoritative; GitHub issues/Projects remain the work queue and completion record. GSD plans support approved issues, and its implementation phases do not advance the product lifecycle. Configure its review, delivery, and automation behavior to honor recorded choices; GSD does not independently authorize tags or releases.
 
+## Project workspace
+
+New and existing applications use lowercase `project/` for project knowledge and project-specific AI resources. Create directories as content is needed:
+
+```text
+project/
+  assets/
+    notes/
+    canvas/
+    files/
+  docs/
+    internal/
+    public/
+    admin/       # When needed
+  skills/
+  agents/
+```
+
+Keep `AGENTS.md`, `CLAUDE.md`, README, encrypted `.env` and the Blueprint guide entrypoints at the application root. Application source, served assets, tests, framework-required configuration and installed tool discovery directories retain their supported locations. Blueprint's own `template/` and reusable `skills/` are distribution resources. `project/skills/` and `project/agents/` hold project-specific authored resources; register or install them through each tool's supported mechanism, verify discovery and record canonical and installed locations in root `AGENTS.md`. Use one authoritative source for each resource and verify any generated or linked installation rather than editing duplicate copies.
+
+Apply [workspace migration](documentation.md#workspace-migration) during initial adoption and Blueprint updates in existing projects. Record workspace paths, migration issue/status and any required external private storage in root `AGENTS.md`. Folder names confer no privacy: apply [documentation access rules](documentation.md) and [secret and recovery rules](security.md#local-development-secrets) to notes, canvases, attachments and AI resources too. Encrypt secret-bearing files and account for assets or native canvas formats needing external backups. Only explicitly approved public documentation/assets enter published output.
+
 ## Setup checklist
 
 Record each required tool's installed version/revision, location, and verification status. Record reasoned `not applicable` only where its owning rule permits exclusion; otherwise record a blocker for the applicable phase under [checks by phase](security.md#checks-by-phase). Record deferred tools and non-blocking Graphify failures explicitly; do not call them verified. Setup completion requires the records and verification applicable to the current phase.
 
 1. Record the phase/subphase under [phases.md](phases.md), launch state, actual development/deployed commits, branches, triggers, services, and checks. New projects start at `DEVELOPMENT: planning`; existing projects retain their verified position, asking only if unclear. Mark undeployed/unconfigured items explicitly. Establish integration under [git-workflow.md](git-workflow.md) without discarding unfinished work.
 2. Complete [Playwright setup](#playwright), selected [Steel Browser setup](#steel-browser), and [linting and formatting](packages.md#linting-and-formatting); [Open Code Review setup](#open-code-review) and the full device matrix follow [checks by phase](security.md#checks-by-phase) at `DEVELOPMENT: security`. Fill and verify the command table from scripts/CI; identify blocked or inapplicable commands. Keep the human-facing quick start in README.
-3. Establish private `docs/internal/` and its index under [documentation.md](documentation.md). Add `docs/public/` and optional `docs/admin/` only when needed; record each source, destination, build command, audience, and access restrictions. Verify links and existing delivery without publishing an unauthorized release.
+3. Establish private `project/docs/internal/` and its index under [documentation.md](documentation.md). Add `project/docs/public/` and optional `project/docs/admin/` only when needed; record each source, destination, build command, audience, and access restrictions. Verify links and existing delivery without publishing an unauthorized release.
 4. Complete [Betterleaks secret-scanning setup](security.md#secret-scanning); [Trivy](security.md#dependency-and-configuration-scanning) and applicable [ZAP testing](security.md#application-and-api-security-testing) are installed and verified at `DEVELOPMENT: security` under [checks by phase](security.md#checks-by-phase). Create and protect the project-root `.env` and placeholder-only `.env.example` under [local secret handling](security.md#local-development-secrets); configure and verify standard [git-crypt encryption](security.md#encrypted-env-with-git-crypt), including plaintext blocking and scan-scope tests, before tracking `.env`. Inventory all [recovery dependencies and protected backups](security.md#local-development-secrets), record recovery objectives and restore-test evidence/gaps, and verify applicable recovery readiness. Document test-data setup, secret configuration, and private vulnerability reporting under [security.md](security.md), without secret values. Record business/service regions and existing policies under [legal.md](legal.md); assess applicable notices before real personal-data collection, including pre-launch. Identify existing commercial decisions and customer-facing pages under [offering.md](offering.md). Adoption does not authorize replacing live policies or offers.
 5. Configure maintenance under [updates.md](updates.md), including [weekly VM maintenance](updates.md#weekly-vm-maintenance) and [periodic Blueprint checks](updates.md#periodic-blueprint-maintenance); [NVD/OSV advisory monitoring and health verification](updates.md#advisory-monitoring-and-health) is configured at `DEVELOPMENT: security`; record schedules, coverage, checks, runner/run links, last successful checks, and gaps. Distinguish active-agent work from verified unattended automation; record package rationale.
 6. Set up [Graphify](#graphify), complete [WordPress skills setup](#wordpress-skills) for WordPress projects, and verify access to current product references under [packages.md](packages.md#current-product-references). Record blueprint revision, local exceptions, and accessible skill locations in `AGENTS.md`. Verify installed discovery or explicit reading from a retained blueprint checkout. Application domains and provider details belong in project docs, not the reusable blueprint.
