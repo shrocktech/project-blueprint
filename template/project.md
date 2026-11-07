@@ -30,6 +30,7 @@ New and existing applications use lowercase `project/` for project knowledge and
 
 ```text
 project/
+  CHANGELOG.md   # At go-live preparation, or migrated when already present
   assets/
     notes/
     canvas/

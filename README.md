@@ -176,7 +176,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/offering.md](template/offering.md) | Accurate marketing, researched commercial decisions, and consistent customer information |
 | [template/security.md](template/security.md) | Credentials, data, access, security review, release checks, and reporting |
 | [template/legal.md](template/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
-| [template/documentation.md](template/documentation.md) | Private internal, public, optional admin docs, and changelogs |
+| [template/documentation.md](template/documentation.md) | Private internal, public and optional admin docs; canonical application `project/CHANGELOG.md` and existing-changelog migration |
 | [template/packages.md](template/packages.md) / [template/updates.md](template/updates.md) | Package choice and verified maintenance |
 | [template/launch.md](template/launch.md) | Private beta, public opening, and release verification |
 | [skills/](skills/) | Task-specific adoption, interview, interface-design, pricing-research, and legal-review procedures |
