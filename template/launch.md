@@ -4,7 +4,9 @@ Use this checklist for private beta and public release under [phases.md](phases.
 
 For an already-live product, use this checklist for subsequent releases under [git-workflow.md](git-workflow.md). Preserve release history; adoption uses the `adopt-existing` skill and does not repeat first-launch setup.
 
-Before any production promotion, complete [delegated code review](git-workflow.md#delegated-code-review) against the verified production baseline and exact release candidate, plus applicable [Trivy scans](security.md#dependency-and-configuration-scanning) and configured [lint/format checks](packages.md#linting-and-formatting). Earlier issue reviews do not replace release-candidate verification.
+Before every production promotion, apply the full [checks by phase](security.md#checks-by-phase) and [security review](security.md#security-review) to the exact release candidate, using the verified production baseline for [delegated review](git-workflow.md#delegated-code-review).
+
+Before admitting beta testers or opening public access, monitor the deployed service's availability and application errors using existing authorized tooling. Send a harmless test alert through each configured path and confirm delivery to the responsible person or monitored destination. Record coverage, response ownership and verification evidence privately. Repeat the delivery test when routing or monitoring changes.
 
 ## Private beta
 

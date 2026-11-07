@@ -105,15 +105,7 @@ Before completing:
 
 After verified closure, remove only your own clean merged worktree/branch and prune; preserve pending/paused work. Completion does not authorize a production release.
 
-## Experimental multi-agent mode
-
-Optional, owner-selected evaluation may use one [OpenChamber](https://github.com/openchamber/openchamber) frontend, a private runtime for each [OpenCode](https://github.com/anomalyco/opencode) session, a separate Git broker, and one live application preview. Keep this mode disabled in active projects; evaluate only in a disposable LXC container or VM with synthetic data. Setup or weekly Blueprint adoption does not activate it. The owned issue checkout/worktree workflow above remains the default. Record selection, pinned tooling, isolation configuration and evidence in private project documentation under the existing setup issue.
-
-Each session's agent shell and built-in web terminal must share its restricted workspace and operating-system boundary. Keep the broker repository, branch-write authority, credentials and peer workspaces inaccessible to both shell types. The authenticated frontend binds credentials and terminal ownership to the actual session; a requested session ID, working directory or hidden UI control alone grants no access. Only the broker writes the assigned issue branch from that session's accepted, reviewed snapshot. Reject expired reviews or moved branch tips under the commit lock. Publish accepted, non-conflicting changes atomically to the shared preview; reject overlapping batches without partial publication. Retain the existing issue queue, checks, integration and release rules, using local open-source tooling without paid GitHub features.
-
-Before describing an implementation as verified, use two real sessions and test both directions through the terminal create/list/attach/input paths, including known peer terminal IDs. From both agent shells and web terminals, attempt peer-workspace writes, broker/credential access and direct writes to both Git branches; verify branch tips stay unchanged. Then verify session-specific review diffs, rejected cross-session commits and stale reviews, concurrent broker commits containing only intended changes, independently buildable branches, and accepted changes visible in two open browsers sharing one hot-reloading server. Record failures and coverage gaps. Passing a shell-only or API-only test does not verify the complete frontend workflow.
-
-Disposable testing supports the core isolation and broker approach. A pinned, patched frontend, custom session routing, fixed runtime slots and partial event routing require maintained integration before rollout. Session creation/deletion, credential expiry/revocation, crash recovery, resource limits, terminal resizing/reconnection, complete event delivery and upgrades need further verification. GitButler or Quilt alone does not establish these boundaries. No ready-to-install implementation is distributed here; any active-project rollout requires a separate owner decision and verified project-specific implementation.
+See [experimental multi-agent mode](optional-tools.md#experimental-multi-agent-mode) for disposable evaluation of a shared preview and broker-managed branches.
 
 ## Delegated code review
 

@@ -2,7 +2,7 @@
 
 Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
 
-Initial setup always includes an owner interview, with simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Establish the [approved brand foundation](template/design.md#brand-foundation-and-settings) before styled UI; each application provides a protected Brand Guidelines settings page, reusing existing identity and tools. Agents check the recorded Blueprint default branch weekly through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance), creating an issue before applying eligible routine changes. Significant changes and new optional tools need your decision. Setup verifies actual scheduling; instructions alone do not start a monitor.
+Initial setup always includes an owner interview, using the owner's private standing preferences and simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Establish the [approved brand foundation](template/design.md#brand-foundation-and-settings) before styled UI; each application provides a protected Brand Guidelines settings page, reusing existing identity and tools. Agents check the recorded Blueprint default branch weekly through [periodic maintenance](template/updates.md#periodic-blueprint-maintenance), creating an issue before applying eligible routine changes. Significant changes and new optional tools need your decision. Setup verifies actual scheduling; instructions alone do not start a monitor.
 
 ![Application workflow with ten stops: DEVELOPMENT planning, build and security; RELEASE offering, beta and validation; LAUNCH open, feedback and stabilize; PRODUCTION ongoing. Board statuses: dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing and deployment, green COMPLETED. Owned issue worktrees follow issue branch to develop to authorized main. Paused work stays IN PROGRESS with pink decision, red setup or silver external reason. Refresh the live queue after completion or pause and before stopping. Explicit authorization precedes private beta and public launch. Owner/developer admin footer shows environment and numbered phase; customer views show neither. GitHub Free requires no paid features](assets/project-workflow-landscape.jpg)
 
@@ -23,7 +23,7 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Change phase | Say “move to security” or name the next phase; the agent records your decision under [phases.md](template/phases.md). |
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change; existing projects follow the update guidance in their `AGENTS.md`. |
-| Capture recurring workflow lessons | Select optional [Task Observer](template/project.md#task-observer) during setup; request an observation review when useful. Proposed fixes use the existing issue queue and approval rules. |
+| Capture recurring workflow lessons | Select optional [Task Observer](template/optional-tools.md#task-observer) during setup; request an observation review when useful. Proposed fixes use the existing issue queue and approval rules. |
 
 The board and matching issue labels follow `BACKLOG → TO DO → IN PROGRESS → REVIEW → COMPLETED`. `REVIEW` shows finished implementation undergoing tests, automated checks, or final delivery verification; it does not require your review of every issue. Fixes return to `IN PROGRESS`.
 
@@ -33,7 +33,7 @@ Before closing, the agent resolves every comment, posts results, and checks for 
 
 Routine work uses [verified direct integration](template/git-workflow.md#isolation-branches-and-delivery), respecting existing protections without adding mandatory pull requests or extra reviewers.
 
-Optional [experimental multi-agent mode](template/git-workflow.md#experimental-multi-agent-mode) evaluates one OpenChamber frontend, isolated session agent shells and web terminals, broker-only commits, and one shared live preview. It is limited to disposable evaluation and stays disabled in active projects. The guide defines acceptance tests and implementation limitations; setup offers the choice without installing a runtime.
+Optional [experimental multi-agent mode](template/optional-tools.md#experimental-multi-agent-mode) evaluates one OpenChamber frontend, isolated session agent shells and web terminals, broker-only commits, and one shared live preview. It is limited to disposable evaluation and stays disabled in active projects. The guide defines acceptance tests and implementation limitations.
 
 Questions and reviews do not start unrelated implementation. The 90% confidence guideline is judgment, not a measured probability.
 
@@ -74,7 +74,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 
 For web-facing UI, follow [design standards](template/design.md), the [interface-design skill](skills/interface-design/SKILL.md), and required [Playwright setup](template/project.md#playwright) for [desktop, tablet, and mobile](template/design.md#desktop-tablet-and-mobile). Projects without a web UI record the documented exclusion.
 
-[TASTE](template/project.md#taste) supports content-led art direction and screenshot critique for public-facing pages. Its optional pinned skill follows project brand, accessibility, performance, and truthful-content rules; application forms retain their established patterns.
+[TASTE](template/optional-tools.md#taste) supports content-led art direction and screenshot critique for public-facing pages. Its optional pinned skill follows project brand, accessibility, performance, and truthful-content rules; application forms retain their established patterns.
 
 Use the interface prompt in [Prompts](#prompts).
 
@@ -100,11 +100,11 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [ZAP](https://www.zaproxy.org/) | Required running-application security tests for web applications and HTTP APIs from `DEVELOPMENT: security`: discovery, authenticated passive/active scans, applicable API coverage and private reports under [security guidance](template/security.md#application-and-api-security-testing). Complements existing tools. |
 | [Open Code Review](https://github.com/alibaba/open-code-review) | Delegated review follows [change-type exclusions](template/git-workflow.md#delegated-code-review); every production promotion requires full review. Preview alone is insufficient. |
 | [Playwright](https://playwright.dev/) | Required for web-facing UI; projects without one record reasoned N/A and skip the browser stack and device matrix. |
-| [Steel Browser](https://github.com/steel-dev/steel-browser) | Optional agent browser sessions, extraction, and debugging under [setup guidance](template/project.md#steel-browser). Prefer authorized local/self-hosted resources; retain required Playwright device/browser checks. |
+| [Steel Browser](https://github.com/steel-dev/steel-browser) | Optional agent browser sessions, extraction, and debugging under [setup guidance](template/optional-tools.md#steel-browser). Prefer authorized local/self-hosted resources; retain required Playwright device/browser checks. |
 | [Dependabot](https://docs.github.com/en/code-security/dependabot) | Finds supported dependency updates; testing and integration remain required, and deployed fixes need release verification. |
 | [NIST NVD](https://nvd.nist.gov/) / [Google OSV](https://osv.dev/) | Official API advisory intelligence matches actual dependencies and deployed platforms/versions; prioritizes exploitation, deduplicates actionable issues, and records confirmed AI-assisted disclosures under [security guidance](template/security.md#vulnerability-intelligence). |
 | [GSD Core](https://github.com/open-gsd/gsd-core) | Optional planning support for complex projects when selected in setup; project rules and the existing issue queue remain authoritative. |
-| [Task Observer](https://github.com/rebelytics/one-skill-to-rule-them-all) | Optional, owner-selected lesson capture with private persistent observations, verified activation, and reviewed proposals under [setup guidance](template/project.md#task-observer). |
+| [Task Observer](https://github.com/rebelytics/one-skill-to-rule-them-all) | Optional, owner-selected lesson capture with private persistent observations, verified activation, and reviewed proposals under [setup guidance](template/optional-tools.md#task-observer). |
 | [TASTE](https://github.com/leonxlnx/taste-skill) | Public-page design reference and optional skill; content-led composition and screenshot critique under [project design rules](template/design.md). |
 
 ZAP runs against isolated project test targets with synthetic accounts and controlled external integrations. Agents verify authentication and endpoint coverage, retain explicit permission tests, and protect third-party API consumption under [application and API security testing](template/security.md#application-and-api-security-testing). Schemathesis is optional for deeper schema-based API tests when needed.
@@ -131,7 +131,7 @@ flowchart TD
     J --> K[Notify on changes, failures or decisions]
 ```
 
-Optional [Monid](template/project.md#monid-for-development) supports budgeted development experiments. When you offer a credential, agents prepare an empty variable in the project-root `.env` and link you to the file for local entry under [secret handling](template/security.md#local-development-secrets). Only placeholder names belong in `.env.example`; plaintext secrets stay out of chat, Git and published output. Standard initial setup configures and verifies [git-crypt](template/security.md#encrypted-env-with-git-crypt). Never commit or push plaintext `.env`; verified encrypted `.env` is permitted. Agents verify the key and encryption at session start; machine setup follows the procedure stored with the key. Until verification, or under an explicit local-only exception, `.env` stays ignored and untracked. Local scan exceptions must not suppress plaintext detection in Git. Account for every [project recovery dependency](template/security.md#local-development-secrets): prefer root locations where compatible, encrypt necessary secret-bearing companion files, track ordinary configuration normally, and verify independent backups and clean-environment restoration for material outside Git.
+Optional [Monid](template/optional-tools.md#monid-for-development) supports budgeted development experiments. When you offer a credential, agents prepare an empty variable in the project-root `.env` and link you to the file for local entry under [secret handling](template/security.md#local-development-secrets). Only placeholder names belong in `.env.example`; plaintext secrets stay out of chat, Git and published output. Standard initial setup configures and verifies [git-crypt](template/security.md#encrypted-env-with-git-crypt). Never commit or push plaintext `.env`; verified encrypted `.env` is permitted. Agents verify the key and encryption at session start; machine setup follows the procedure stored with the key. Until verification, or under an explicit local-only exception, `.env` stays ignored and untracked. Local scan exceptions must not suppress plaintext detection in Git. Account for every [project recovery dependency](template/security.md#local-development-secrets): prefer root locations where compatible, encrypt necessary secret-bearing companion files, track ordinary configuration normally, and verify independent backups and clean-environment restoration for material outside Git.
 
 ## Issue interviews
 
