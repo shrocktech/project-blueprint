@@ -2,6 +2,10 @@
 
 Apply during development and queue work, not merely because the user asks a question or requests a review. Follow [AGENTS.md](AGENTS.md).
 
+## Authorization
+
+The owner directs [lifecycle transitions](phases.md). Updating `main`, tagging or publishing a release, and deploying to production require explicit release authority for that action. Obtain authorization for invitation-only beta and separately for public opening. Reuse approval within its recorded scope. Issue completion, passing checks, phase changes, maintenance and draft approvals grant no release authority. Clarify ambiguous requests before acting. Follow [launch.md](launch.md) for candidate checks and delivery.
+
 ## Status and labels
 
 Verify repository, Issues, and Project access before development; create/link the Project if missing. During bootstrap, create/claim the setup issue, then establish needed label/status definitions before assigning them; preserve existing mappings. Use a board grouped by Status, with these five statuses in order and exactly one matching uppercase workflow label:
@@ -18,7 +22,7 @@ Match Project status colors to the nearest available palette color.
 
 Project authorization is separate from repository authorization; inspect token scopes and account/organization permissions before attributing a failure to the plan. Synchronize through available tools during active work; background synchronization is optional. Report genuine missing access with exact setup steps, not a plan-upgrade request.
 
-Only `REVIEW` has a stage label: `testing` or `deployment`. Deployment means final integration and delivery verification; ordinary work targets development, with staging only if authorized and active. Production requires release authorization. Follow [project.md](project.md) for environments. Documentation-only work needs verified remote integration, not runtime deployment.
+Only `REVIEW` has a stage label: `testing` or `deployment`. Deployment means final integration and delivery verification; ordinary work targets development, with staging only if authorized and active. Follow [project.md](project.md) for environments. Documentation-only work needs verified remote integration, not runtime deployment.
 
 Use `IN PROGRESS` without a stage while building. Move finished work to `REVIEW` + `testing`, then `deployment` for integration/delivery. Replace previous status/stage labels. Required fixes return to `IN PROGRESS` without a stage, then repeat verification. Review means agent verification and automated checks; it adds no mandatory PR or human approval.
 
@@ -75,7 +79,7 @@ Honor an explicit stop, review-only scope, or execution limit. Preserve a handof
 
 ## Isolation, branches, and delivery
 
-Use `issue branch → develop → main` in every lifecycle phase. `develop` integrates finished work; `main` holds the preserved baseline, then authorized private-beta and public production releases. Do not update `main` or production without explicit release authorization; passing tests or changing phase is insufficient. Keep branches short-lived and never implement directly on shared branches. Beta releases and public opening follow [launch.md](launch.md).
+Use `issue branch → develop → main` in every lifecycle phase. `develop` integrates finished work; `main` holds the preserved baseline, then authorized private-beta and public production releases. Keep branches short-lived and never implement directly on shared branches. Beta releases and public opening follow [launch.md](launch.md).
 
 Default to verified direct integration from the owned issue worktree, without a pull request (PR) or separate reviewer. Use a PR only when the owner requests one or existing repository rules require it. Do not introduce mandatory PRs or human review gates during setup; preserve existing protections. Dependabot update PRs follow [updates.md](updates.md).
 
@@ -92,7 +96,7 @@ Before parallel work, record task boundaries, dependencies, and ownership in the
 
 Record and verify each active worktree's ports and test-resource identifiers. Isolate conflicting databases, storage, and services. With Docker, use a unique Compose project name and verify that explicit names, external volumes, bind mounts, and external services do not reconnect agents to shared mutable resources. If isolation is unavailable, serialize conflicting operations. Keep any setup scripts specific to the owning project.
 
-Make small, coherent commits throughout the issue at working checkpoints: one focused behavior, fix, or preparatory refactor, with its relevant tests and docs. Run checks appropriate to each step and reference the issue in each commit. Avoid unrelated cleanup or accumulating an entire large feature into one commit; keep inseparable changes together, without arbitrary line-count or time quotas. Checkpoint commits stay in the owned issue checkout until the completed candidate passes delivery checks; committing does not authorize integration or deployment.
+Commit focused checkpoints with their tests, docs and issue reference. Keep inseparable changes together and checkpoints in the owned checkout until the candidate passes delivery checks.
 
 Before completing:
 
@@ -103,7 +107,7 @@ Before completing:
 5. Post a brief result comment **on the issue**, covering changes, request/question outcomes, verification, docs, delivery, and commit links (PR links when used). Group related outcomes and link relevant comments; chat updates alone do not count. Read back the saved comment; a failed or unverified write blocks closure.
 6. Refresh the body and all comments after posting the result. Resolve unaddressed new/edited input, repeat affected checks, update the result, and refresh again. Then set Project status and the only label to `COMPLETED`, and close as completed. Immediately verify state/labels/Project and reread body/comments; missed unresolved input requires reopening with the appropriate status, review stage, or pause and continuing work. Automatic closing keywords/actions must not bypass these checks.
 
-After verified closure, remove only your own clean merged worktree/branch and prune; preserve pending/paused work. Completion does not authorize a production release.
+After verified closure, remove only your own clean merged worktree/branch and prune; preserve pending/paused work.
 
 See [experimental multi-agent mode](optional-tools.md#experimental-multi-agent-mode) for disposable evaluation of a shared preview and broker-managed branches.
 
@@ -114,4 +118,4 @@ From `DEVELOPMENT: security` onward, require full Open Code Review delegation be
 1. Fetch and record explicit baseline and candidate commit IDs: the integration target for issue delivery, or the verified production baseline for promotion (the preserved baseline for a first release). Run `ocr delegate preview --from <baseline> --to <candidate>`. Bare preview examines workspace changes and can miss committed release work. Check returned refs/merge base, reviewable files, and exclusions against the intended delivery; investigate unexpected omissions or divergent history.
 2. Obtain matching rules with `ocr delegate rule <paths...>`, then review every selected file's diff and relevant surrounding code using those rules and project requirements. Follow the returned comparison metadata. Preview only selects scope; the host agent must perform the review. An empty or failed preview is not proof of a clean review; explain legitimate exclusions.
 3. Validate findings against actual behavior. Fix confirmed correctness/security blockers and data-loss risks; document evidence for false positives and the disposition of other findings. Apply [security.md](security.md#security-review) for security risk acceptance and private reporting. Keep style-only suggestions non-blocking.
-4. Record scope/commit IDs, coverage, findings, fixes, and review outcome in the issue, linking private evidence where needed. Re-review affected code and repeat relevant checks after fixes or candidate/baseline changes; unfinished or unavailable review is not a pass. Production promotion still requires explicit release authorization.
+4. Record scope/commit IDs, coverage, findings, fixes, and review outcome in the issue, linking private evidence where needed. Re-review affected code and repeat relevant checks after fixes or candidate/baseline changes; unfinished or unavailable review is not a pass.

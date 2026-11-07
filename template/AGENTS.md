@@ -2,7 +2,7 @@
 
 Follow the user's latest instructions. Fill project facts and commands during setup; read detailed guides only for the current task.
 
-Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenance): check the recorded source's default branch weekly, pin its commit, and create an issue before changes. Eligible routine updates are pre-authorized at the 90% threshold; new optional tools/skills, provenance/maintenance-rule changes and major changes require an owner decision. Use `adopt-existing`, preserve interview decisions and local requirements, verify integration, and record actual scheduled coverage. Check maintenance health at session start; instructions alone do not run a monitor.
+At implementation-session start, check [weekly Blueprint maintenance](updates.md#periodic-blueprint-maintenance) and, from `DEVELOPMENT: security`, [advisory monitor health](updates.md#advisory-monitoring-and-health). Run due checks and triage findings.
 
 ## Project facts
 
@@ -17,6 +17,7 @@ Follow [periodic Blueprint maintenance](updates.md#periodic-blueprint-maintenanc
 - Workspace: lowercase `project/` under [project.md](project.md#project-workspace); record canonical documentation/assets/skills/agents paths, supported installed discovery locations, external private storage and migration issue/status. Existing projects follow [workspace migration](documentation.md#workspace-migration) during adoption/updates.
 - Recovery: private inventory/runbook, backup destinations and health, independent key/access recovery, restore objectives/cadence and last verified drill or blockers TODO under [security.md](security.md#local-development-secrets).
 - Vulnerability intelligence: link the private inventory and [monitor health record](updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.
+- Standing preferences: private location or `none`.
 - Blueprint source: TODO; recorded default branch and adopted commit: TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [Task Observer setup](optional-tools.md#task-observer).
@@ -37,15 +38,11 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 
 ## Always apply
 
-- If Task Observer is enabled, load its recorded skill at substantial multi-step task start/resumption and related feedback or requested observation review; follow [setup and review boundaries](optional-tools.md#task-observer). Observations do not authorize changes or override project instructions.
-- Development needs an issue and an isolated issue branch/worktree; an existing dedicated checkout suffices. Follow [git-workflow.md](git-workflow.md) for verified direct integration and release authorization.
-- Never update `main` or deploy production without an explicit release instruction; passing tests and a completed issue are not that instruction.
-- Completion means every issue comment addressed, a verified result comment posted, verified behavior, current docs, successful delivery, and a closed issue with only `COMPLETED`. Follow the final comment/closure checks in [git-workflow.md](git-workflow.md); unread or unresolved input blocks closing.
-- During implementation, refresh live work after each completed/paused issue and before stopping; continue newly added actionable approved work. Questions, reviews, and interviews do not start the implementation queue.
-- Follow [local secret handling](security.md#local-development-secrets): prepare the project-root `.env` placeholder and give its exact file link when a credential is offered; never request secrets in chat. Never expose or commit plaintext secrets; use synthetic test data and required [secret-scanning checks](security.md#secret-scanning). Credentials authorize approved work only.
-- For standard git-crypt setup, follow the session-start verification, local machine setup and pause procedure in [encrypted `.env`](security.md#encrypted-env-with-git-crypt); never request its key in chat.
-- From `DEVELOPMENT: security` onward, at implementation-session start inspect [advisory monitoring health](updates.md#advisory-monitoring-and-health); run due checks or record failures/gaps and triage actionable findings through the existing maintenance queue. Follow [NVD/OSV matching and deduplication](security.md#vulnerability-intelligence); monitoring never authorizes production changes.
-- Apply [delegated code review scope](git-workflow.md#delegated-code-review) before integration from `DEVELOPMENT: security` onward; every production promotion requires full review. Preview alone is not a review.
+- Record skipped, blocked or unverified checks, their impact and the next action. Claim only coverage supported by evidence.
+- Load enabled Task Observer for substantial tasks, resumptions and related feedback or reviews under its [activation rules](optional-tools.md#task-observer).
+- Claim an issue and use an owned checkout. Follow [delivery and closure](git-workflow.md#isolation-branches-and-delivery), [live queue refresh](git-workflow.md#issue-first-and-live-queue) and [authorization](git-workflow.md#authorization).
+- When offered credentials, prepare the [local secret entry](security.md#local-development-secrets). Use synthetic test data, run [secret scans](security.md#secret-scanning) and check [git-crypt at session start](security.md#encrypted-env-with-git-crypt).
+- Apply the [review scope](git-workflow.md#delegated-code-review) to the integration or production candidate.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
 - Follow [navigation and route changes](design.md#navigation-and-route-changes): update development routes and references directly; do not add speculative legacy redirects or aliases.
 - Maintain [Graphify infrastructure](project.md#graphify) and, for web-facing UI, [Playwright browser testing](project.md#playwright) at the level set by [checks by phase](security.md#checks-by-phase); use [current product references](packages.md#current-product-references) for external technologies.
@@ -67,7 +64,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Issues, implementation, queue, commits | [git-workflow.md](git-workflow.md) |
 | User-requested issue interview | `issue-interview` skill at its recorded location |
 | UI | [design.md](design.md), including desktop/tablet/mobile coverage; `interface-design` and installed `playwright-cli` skills for implementation and verification |
-| Persistent or remote agent browser sessions | Optional [Steel Browser setup and verification](optional-tools.md#steel-browser), when selected |
+| Selected tools or disposable shared-preview evaluation | [Optional tool setup](optional-tools.md) |
 | Marketing, pricing, packaging, or refunds | [offering.md](offering.md); `pricing-research` skill for initial or material commercial decisions |
 | Documentation | [documentation.md](documentation.md) |
 | Security or customer-data changes | [security.md](security.md) |

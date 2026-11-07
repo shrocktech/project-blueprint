@@ -14,4 +14,4 @@ The owner or explicitly authorized legal/business delegate under [AGENTS.md](AGE
 
 Assess applicability before activating or materially changing children's services; health, biometric, precise-location or financial-account data; advertising data sales/sharing; messaging/marketing; payments/subscriptions; or consequential contract terms. Obtain qualified legal review for new consequential terms (such as arbitration, class-action waivers or liability caps), unusual/high-risk processing, or material unresolved obligations. Reuse valid reviewed arrangements when facts and law remain unchanged. These rules apply even without the skill; confidence is not legal approval.
 
-Publication follows [launch.md](launch.md) and release authorization. Preparing required notices does not require a changelog or full documentation site.
+Publication follows [launch.md](launch.md). Preparing required notices does not require a changelog or full documentation site.

@@ -172,6 +172,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/phases.md](template/phases.md) | Lifecycle focus, subphases, completion criteria, and user-directed transitions |
 | [template/project.md](template/project.md) | Initial setup and environment defaults |
 | [template/git-workflow.md](template/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
+| [template/optional-tools.md](template/optional-tools.md) | Setup and verification for selected tools and disposable multi-agent evaluation |
 | [template/design.md](template/design.md) | Approved brand foundation and settings page, stack-compatible layouts, form actions, feedback, and credential fields |
 | [template/offering.md](template/offering.md) | Accurate marketing, researched commercial decisions, and consistent customer information |
 | [template/security.md](template/security.md) | Credentials, data, access, security review, release checks, and reporting |
@@ -192,7 +193,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Setup**
 
-> Set up this project using `<blueprint-source>`. Follow its README adoption steps. If an application already exists, use adopt-existing first and preserve its stack, data, working features, and live behavior. Merge instructions and configure only compatible, authorized automation.
+> Set up this project using `<blueprint-source>` and private standing preferences at `<standing-preferences>` (or `none`). Follow its README adoption steps. If an application already exists, use adopt-existing first and preserve its stack, data, working features, and live behavior. Merge instructions and configure only compatible, authorized automation.
 
 **Interface design**
 
