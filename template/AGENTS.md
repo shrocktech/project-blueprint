@@ -19,7 +19,7 @@ At implementation-session start, check [weekly Blueprint maintenance](updates.md
 - Vulnerability intelligence: link the private inventory and [monitor health record](updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.
 - Standing preferences: private location or `none`.
 - Blueprint source: TODO; recorded default branch and adopted commit: TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
-- Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, and `legal-review` skills during setup. A source folder alone does not install skills.
+- Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, `legal-review`, and `changelog` skills during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [Task Observer setup](optional-tools.md#task-observer).
 - Encrypted `.env`: standard setup; protected key path, authorized hosts and verified encryption/unlock/plaintext-blocking checks TODO under [security.md](security.md#encrypted-env-with-git-crypt). Record any owner-approved local-only exception; plaintext `.env` must never be committed or pushed.
 
@@ -67,6 +67,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Selected tools or disposable shared-preview evaluation | [Optional tool setup](optional-tools.md) |
 | Marketing, pricing, packaging, or refunds | [offering.md](offering.md); `pricing-research` skill for initial or material commercial decisions |
 | Documentation | [documentation.md](documentation.md) |
+| Issue completion or public release audit | Use the recorded `changelog` skill to assess the issue's customer impact or audit the exact candidate under the [changelog rules](documentation.md#changelog). |
 | Security or customer-data changes | [security.md](security.md) |
 | `.env` locked, key missing, new machine or repository, key rotation | [Encrypted `.env` with git-crypt](security.md#encrypted-env-with-git-crypt) |
 | Dependency, build, or infrastructure changes | [Trivy scans](security.md#dependency-and-configuration-scanning) |

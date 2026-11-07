@@ -7,6 +7,7 @@
 | [interface-design](interface-design/SKILL.md) | Compact page/form layouts, action feedback, and rendered UI verification |
 | [pricing-research](pricing-research/SKILL.md) | Comparable products, pricing/packaging, and refund recommendations |
 | [legal-review](legal-review/SKILL.md) | Terms/privacy preparation and review for the project's jurisdictions |
+| [changelog](changelog/SKILL.md) | Issue-completion entries and public release audits against verified changes |
 
 Read only the applicable skill. These are portable source packages, not automatically installed or activated by copying `template/`.
 

@@ -180,7 +180,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/documentation.md](template/documentation.md) | Private internal, public and optional admin docs; canonical application `project/CHANGELOG.md` and existing-changelog migration |
 | [template/packages.md](template/packages.md) / [template/updates.md](template/updates.md) | Package choice and verified maintenance |
 | [template/launch.md](template/launch.md) | Private beta, public opening, and release verification |
-| [skills/](skills/) | Task-specific adoption, interview, interface-design, pricing-research, and legal-review procedures |
+| [skills/](skills/) | Adoption, interview, interface design, pricing research, legal review and [application changelog audits](skills/changelog/SKILL.md) |
 | [PowerShell](scripts/setup-labels.ps1) / [Bash](scripts/setup-labels.sh) / [labels](scripts/labels.json) | Label setup and canonical colors |
 
 `agent.md` points to `AGENTS.md`; `CLAUDE.md` imports it using `@AGENTS.md`. Verify the target tool's discovery during setup. Detailed guides and skills are read only when relevant.
