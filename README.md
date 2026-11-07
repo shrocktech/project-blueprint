@@ -33,6 +33,8 @@ Before closing, the agent resolves every comment, posts results, and checks for 
 
 Routine work uses [verified direct integration](template/git-workflow.md#isolation-branches-and-delivery), respecting existing protections without adding mandatory pull requests or extra reviewers.
 
+Optional [experimental multi-agent mode](template/git-workflow.md#experimental-multi-agent-mode) evaluates one OpenChamber frontend, isolated session agent shells and web terminals, broker-only commits, and one shared live preview. It is limited to disposable evaluation and stays disabled in active projects. The guide defines acceptance tests and implementation limitations; setup offers the choice without installing a runtime.
+
 Questions and reviews do not start unrelated implementation. The 90% confidence guideline is judgment, not a measured probability.
 
 ## Project phases
