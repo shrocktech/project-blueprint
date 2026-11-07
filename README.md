@@ -78,6 +78,8 @@ For web-facing UI, follow [design standards](template/design.md), the [interface
 
 Use the interface prompt in [Prompts](#prompts).
 
+For UI work with selected Impeccable, agents use [browser iteration](template/design.md#browser-iteration) to compare and accept refinements on the running application, then clean up Live Mode and verify the saved result with existing Playwright checks. Unsupported setups use the documented fallback and record the gap.
+
 ## Security and code quality
 
 Tools complement application security controls; a clean report cannot guarantee security. [Security review](template/security.md#security-review) governs coverage, findings, and risk decisions.
