@@ -1,13 +1,13 @@
 # Project design guide
 
-During setup, fill in the approved choices below and link to their implementation. Keep applicable design checks and project exceptions in this guide. Use the protected settings page to present the same approved guidance.
-
 | Design decision | Project choice and canonical source |
 | --- | --- |
 | Identity, audience and voice | Record the approved direction and examples. |
 | Colors, typography and spacing | List their roles and link the actual CSS, design tokens or framework theme file. |
 | Logo, artwork and components | Link approved assets, mockups and representative components. |
 | Approved exceptions | Record the decision, scope and owner. |
+
+## Design checks
 
 Apply these defaults to new UI when compatible with the established stack. Preserve existing frameworks, components, icons, and custom code; replacement needs explicit permission.
 

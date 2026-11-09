@@ -17,6 +17,8 @@ Start sessions at the repository root and verify active instruction sources. Cor
 
 Use [template/standards/git-workflow.md](template/standards/git-workflow.md) for issues, tracking, live queues, and completion. This documentation repository uses only `main`: work in an owned isolated checkout or detached worktree based on `origin/main`, synchronize and verify, then push commits to `main` without force. Never create `develop` or publish additional branches here. Application branch and deployment rules belong to adopting projects. Questions and reviews do not start queue work.
 
+At issue completion, flag the verified `main` commit for release review when it changes adoption, application layout, workflow, required tooling or skills. Wording-only fixes may be batched. Publish a stable release from the reviewed commit only when the owner authorizes publication.
+
 Use the 90% judgment guideline and autonomous-work boundaries in [template/AGENTS.md](template/AGENTS.md); it is not a measured probability. Follow [template/standards/security.md](template/standards/security.md) for credentials and data. Read other templates only when changing their subject matter.
 
 Keep distributed files generic: no adopting-project personal, company, account, repository, or application identities. Use placeholders for project configuration, authority, and jurisdictions. Relevant third-party sources, packages, and skills may be named; citations do not authorize installation. Keep maintenance notes outside `template/`. Maintain consistent instructions, labels, and authorized autonomy. Verify integration into `main`, then close with only `COMPLETED`.
