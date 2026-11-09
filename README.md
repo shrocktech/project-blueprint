@@ -109,7 +109,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 └── compose.yaml        # Services run together with Docker Compose
 ```
 
-The [file map](#file-map) lists the twelve guides in `standards/`. Root `AGENTS.md` links to them by task. Create directories as content and tooling require. For a public repository, follow the [private storage rules](template/standards/documentation.md#documentation-audiences-and-sources) before adding working materials. Keep runtime files in the framework’s expected locations. For WordPress, preserve the installed theme or plugin layout and verify the [distributable ZIP](template/standards/launch.md#wordpress-distribution). See [workspace setup](template/standards/project.md#project-workspace), [repository license](template/standards/legal.md#repository-license) and [changelog rules](template/standards/documentation.md#changelog).
+The [file map](#file-map) lists the guides in `standards/`. Root `AGENTS.md` links to them by task. Create directories as content and tooling require. For a public repository, follow the [private storage rules](template/standards/documentation.md#documentation-audiences-and-sources) before adding working materials. Keep runtime files in the framework’s expected locations. For WordPress, preserve the installed theme or plugin layout and verify the [distributable ZIP](template/standards/launch.md#wordpress-distribution). See [workspace setup](template/standards/project.md#project-workspace), [repository license](template/standards/legal.md#repository-license) and [changelog rules](template/standards/documentation.md#changelog).
 
 ## Interface design
 
