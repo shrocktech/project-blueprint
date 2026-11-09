@@ -30,7 +30,9 @@ Use the repository root as the project workspace. Create directories when needed
 
 Keep `README.md`, `AGENTS.md`, `CLAUDE.md`, the [license](legal.md#repository-license), the [changelog](documentation.md#changelog) when due, and encrypted `.env` at the application root. Keep the operating guides together in `standards/` and link them from root `AGENTS.md`. Preserve framework source, test, build and deployment paths. Add workflow or container files only when the project uses them.
 
-Root `agents/` and `skills/` hold project-authored profiles and skills. Register them through each tool’s supported discovery mechanism, verify discovery and record the canonical and installed paths in `AGENTS.md`. Keep one editable source per resource. Blueprint’s reusable skills come from its distribution checkout.
+Place repository skills at `.agents/skills/<name>/SKILL.md`, with supporting files inside each skill directory. Create the directory when a project authors or installs a skill. Keep one editable source per skill. Use the shared path directly with tools that discover it. When a selected tool requires another location, link or install through its supported mechanism and verify discovery in that tool. Leave installer-managed configuration in its supported location. Record verified paths in root `AGENTS.md`.
+
+Keep short project-wide instructions in `AGENTS.md`. Create a specialist agent profile only when the project needs an invokable agent. Use the selected tool’s supported profile location and verify invocation.
 
 Apply [workspace migration](documentation.md#workspace-migration) during initial adoption and Blueprint updates in existing projects. Record workspace paths, migration issue/status and any required external private storage in root `AGENTS.md`. Folder names confer no privacy: apply [documentation access rules](documentation.md) and [secret and recovery rules](security.md#local-development-secrets) to notes, canvases, attachments and AI resources too. Encrypt secret-bearing files and account for assets or native canvas formats needing external backups. Only explicitly approved public documentation/assets enter published output.
 

@@ -11,7 +11,7 @@
 
 Read only the applicable skill. These are portable source packages, not automatically installed or activated by copying `template/`.
 
-During adoption, install relevant skills using the target agent's supported mechanism and verify discovery. If unavailable, retain the blueprint checkout and record accessible local `SKILL.md` paths in the target's `AGENTS.md` for explicit reading. Record the blueprint revision; apply later updates deliberately while preserving local additions.
+During adoption, place selected repository skills according to the [application workspace rules](../template/standards/project.md#project-workspace) and verify discovery in each selected tool. If unavailable, retain the blueprint checkout and record accessible local `SKILL.md` paths in the target's `AGENTS.md` for explicit reading. Record the blueprint revision; apply later updates deliberately while preserving local additions.
 
 Inside each skill, plain filenames such as `standards/git-workflow.md` refer to the target project's instructions, not files beside the installed skill. During initial adoption, consult the blueprint's template equivalents until those files are merged. Confirm the target repository before any mutation.
 

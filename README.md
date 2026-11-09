@@ -65,7 +65,7 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its five statuses and colors, preserving mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` without a stage.
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
 5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Establish the application's [repository layout](template/standards/project.md#project-workspace); existing applications complete the tracked [workspace migration](template/standards/documentation.md#workspace-migration) during adoption or updates. Blueprint's distribution `template/` and reusable `skills/` remain separate.
-6. Make applicable [skills](skills/README.md) available through supported installation, or retain the blueprint checkout and record verified skill paths. Keep repository-local installations in the setup checkout. Fill facts/commands and complete `standards/project.md`.
+6. Make applicable [skills](skills/README.md) available through supported installation, or retain the blueprint checkout and record verified skill paths. Place repository skills under `.agents/skills/` in the setup checkout and verify discovery for each selected tool. Fill facts/commands and complete `standards/project.md`.
 7. Complete required [Graphify setup](template/standards/project.md#graphify) and [Playwright setup or reasoned exclusion](template/standards/project.md#playwright), and verify [current product reference access](template/standards/packages.md#current-product-references), links, applicable checks, discovery, and automation/runner behavior. Record actual source/revision, skill locations, local exceptions, and remaining setup with direct links; copying instructions does not activate automation.
 
 Existing applications retain their framework, custom code, and data; WordPress retains its themes/plugins and established Bootstrap/Tabler. The adoption skill covers label migration and transitioning current work to `develop` without losing history or unfinished work. Application upgrades and production-affecting changes are separate tasks.
@@ -77,9 +77,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 ├── .github/            # GitHub repository configuration
 │   ├── dependabot.yml  # Weekly updates for supported package ecosystems
 │   └── workflows/      # GitHub Actions for checks, builds and deployments
-├── .claude/skills/     # Example discovery path when installing skills for Claude
-├── agents/             # Project-authored agent profiles
-├── skills/             # Project-authored reusable agent skills
+├── .agents/skills/     # Repository skills, one directory per skill
 ├── materials/          # Working materials collected or created during development
 │   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
 │   ├── notebooks/      # Research notes, meeting notes and working notebooks
