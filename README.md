@@ -74,36 +74,37 @@ Existing applications retain their framework, custom code, and data; WordPress r
 
 ```text
 <repo-name>/
-├── .github/            # GitHub repository configuration
-│   ├── dependabot.yml  # Weekly updates for supported package ecosystems
-│   └── workflows/      # GitHub Actions for checks, builds and deployments
 ├── .agents/skills/     # Repository skills, one directory per skill
-├── materials/          # Working materials collected or created during development
-│   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
-│   ├── notebooks/      # Research notes, meeting notes and working notebooks
-│   └── drawings/       # Editable diagrams, whiteboard sketches and canvases
+├── .github/            # GitHub repository configuration
+│   ├── workflows/      # GitHub Actions for checks, builds and deployments
+│   └── dependabot.yml  # Weekly updates for supported package ecosystems
 ├── assets/             # Runtime assets when the framework has no prescribed location
 ├── design/             # Wireframes, UI mockups and editable brand artwork
 │   └── README.md       # This application’s design guide and implementation references
 ├── docs/               # Maintained documentation
+│   ├── admin/          # Administrator guides when needed
 │   ├── internal/       # Architecture, setup, testing and recovery
-│   ├── public/         # Customer-facing guides and help
-│   └── admin/          # Administrator guides when needed
-├── standards/          # Blueprint operating guides for contributors and agents
+│   └── public/         # Customer-facing guides and help
+├── materials/          # Working materials collected or created during development
+│   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
+│   ├── drawings/       # Editable diagrams, whiteboard sketches and canvases
+│   └── notebook/       # Research notes, meeting notes and working notebooks
 ├── scripts/            # Automation, maintenance and release scripts
 ├── src/                # Application source, where supported by the framework
+├── standards/          # Blueprint operating guides for contributors and agents
 ├── tests/              # Tests and fixtures, or use the framework’s test location
+├── .distignore         # WP-CLI archive exclusions when packaging from this root
 ├── .env                # Local secrets; verify ciphertext before committing
 ├── .env.example        # Environment variable names and placeholder values
 ├── .gitattributes      # Readable git-crypt filter rules for protected files
-├── .distignore         # WP-CLI archive exclusions when packaging from this root
 ├── .gitignore          # Local files and generated output to exclude from Git
 ├── AGENTS.md           # Authoritative project instructions for agents
-├── CLAUDE.md, agent.md # Entry points directing agents to AGENTS.md
 ├── CHANGELOG.md        # Customer-visible changes when the changelog is due
+├── CLAUDE.md           # Imports the root agent instructions
+├── Dockerfile          # Image build instructions for containerized projects
 ├── LICENSE             # License or private-use terms appropriate to distribution
 ├── README.md           # Project overview, setup and navigation
-├── Dockerfile          # Image build instructions for containerized projects
+├── agent.md            # Directs agents to AGENTS.md
 └── compose.yaml        # Services run together with Docker Compose
 ```
 
