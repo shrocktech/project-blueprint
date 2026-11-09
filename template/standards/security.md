@@ -1,6 +1,6 @@
 # Security Defaults
 
-Apply alongside [AGENTS.md](AGENTS.md). Keep implementation details and reporting procedures in private `docs/internal/`, without secret values.
+Apply alongside [AGENTS.md](../AGENTS.md). Keep implementation details and reporting procedures in private `docs/internal/`, without secret values.
 
 - **Secrets and logs:** Never commit plaintext credentials or expose them in logs, errors, screenshots, issue reports, URLs, or client bundles. Keep customer content and personal information out of diagnostic outputs. Examples use placeholders; review staged changes.
 - **Test data:** Use synthetic data by default. Production data requires explicit authorization and documented safeguards. Separate development/test resources from production.

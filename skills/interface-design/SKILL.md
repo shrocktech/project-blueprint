@@ -5,7 +5,7 @@ description: Plan, implement, or review application pages and forms using the pr
 
 # Interface Design
 
-Read the target project's `AGENTS.md` and `design.md`; filenames refer to that project, not this skill directory. Use the recorded blueprint source/revision if guidance is missing. Apply `design.md` to the requested pages. For review-only tasks, report findings without edits or submissions.
+Read the target project's `AGENTS.md` and `standards/design.md`; filenames refer to that project, not this skill directory. Use the recorded blueprint source/revision if guidance is missing. Apply `standards/design.md` to the requested pages. For review-only tasks, report findings without edits or submissions.
 
 ## Establish the pattern
 
@@ -25,17 +25,17 @@ Result/status                           Cancel | Save
 
 Adapt the example to the task's content and actions; it is an application-form pattern, not a universal screen structure.
 
-Before implementation, map the action states in `design.md` to the application's data source, form/state utilities, validation boundaries, and expected result. Select an authorized test environment and synthetic data.
+Before implementation, map the action states in `standards/design.md` to the application's data source, form/state utilities, validation boundaries, and expected result. Select an authorized test environment and synthetic data.
 
 ## Verify the rendered result
 
-Use the project's required Playwright setup, official `playwright-cli` skill at its verified location, and recorded commands under `project.md` to exercise affected user journeys with synthetic data. Follow the target agent's supported browser-tool access rules. Run relevant existing tests and add repeatable regression coverage for important changed behavior. Inspect the rendered browser or captured screenshots as well as assertions; automated passes alone do not establish visual correctness.
+Use the project's required Playwright setup, official `playwright-cli` skill at its verified location, and recorded commands under `standards/project.md` to exercise affected user journeys with synthetic data. Follow the target agent's supported browser-tool access rules. Run relevant existing tests and add repeatable regression coverage for important changed behavior. Inspect the rendered browser or captured screenshots as well as assertions; automated passes alone do not establish visual correctness.
 
-Use the device coverage required by `security.md` checks by phase and the desktop/tablet/mobile matrix in `design.md`, including intermediate widths and both sides of affected breakpoints. Configure device/touch behavior as well as viewport dimensions; inspect portrait/landscape changes, zoom, wrapping labels, helper text, and errors. Compare spacing, alignment, overflow, and reading/tab order against the design rules. Exercise menus, dialogs, and essential actions at each device class; a screenshot of the initial page alone does not verify interaction states. Correct defects within implementation scope and rerun affected checks.
+Use the device coverage required by `standards/security.md` checks by phase and the desktop/tablet/mobile matrix in `standards/design.md`, including intermediate widths and both sides of affected breakpoints. Configure device/touch behavior as well as viewport dimensions; inspect portrait/landscape changes, zoom, wrapping labels, helper text, and errors. Compare spacing, alignment, overflow, and reading/tab order against the design rules. Exercise menus, dialogs, and essential actions at each device class; a screenshot of the initial page alone does not verify interaction states. Correct defects within implementation scope and rerun affected checks.
 
 For affected menus, features, or checkout, check icons in supported themes and collapsed navigation. Verify provider asset terms and payment/security cues against the real integration.
 
-Exercise the form against the state table in `design.md`: try edits/reverts, incomplete inputs, paste/autofill, repeated click/Enter, delayed/failed responses, and edits during pending requests. Observe status messages, request counts, retained drafts, and persisted results, including recovery after an uncertain outcome. For credential fields, exercise the credential states in `design.md` with synthetic secrets: saved masking and exact key length, eye reveal/hide, direct overwrite, unchanged/empty preservation, successful/failed saves, and navigation without saving. Verify masks never become submitted secrets and stored-secret reveal is authorized.
+Exercise the form against the state table in `standards/design.md`: try edits/reverts, incomplete inputs, paste/autofill, repeated click/Enter, delayed/failed responses, and edits during pending requests. Observe status messages, request counts, retained drafts, and persisted results, including recovery after an uncertain outcome. For credential fields, exercise the credential states in `standards/design.md` with synthetic secrets: saved masking and exact key length, eye reveal/hide, direct overwrite, unchanged/empty preservation, successful/failed saves, and navigation without saving. Verify masks never become submitted secrets and stored-secret reveal is authorized.
 
 Check keyboard navigation, label activation, error associations, focus, and status announcements. Confirm persistence by reloading or reading back through the application. Report unavailable checks explicitly; source inspection or a passing build does not constitute visual verification.
 

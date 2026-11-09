@@ -5,7 +5,7 @@ description: Walk the user through pending issue decisions or setup one question
 
 # Issue Interview
 
-Confirm the target repository and use its `git-workflow.md` for statuses and brief notes; this filename is relative to the project, not the installed skill. Use only for a requested walkthrough of pending answers. The interview updates issue records without starting implementation or authorizing releases.
+Confirm the target repository and use its `standards/git-workflow.md` for statuses and brief notes; this filename is relative to the project, not the installed skill. Use only for a requested walkthrough of pending answers. The interview updates issue records without starting implementation or authorizing releases.
 
 ## Prepare and ask
 
@@ -19,7 +19,7 @@ Confirm the target repository and use its `git-workflow.md` for statuses and bri
 Do this immediately after every answer, before asking the next question. Never collect a batch of answers for a final issue-update pass. The interview authorizes these answer comments and matching status/label updates; do not ask the user to repeat the answer in GitHub or remove the label manually.
 
 1. Re-read the issue's latest comments, labels, and Project status so concurrent work is preserved. Post a brief comment recording the answer's meaning, scope, and resulting next step, not just the option letter. Exclude secrets or private information from public issues. If the answer was already posted directly in the issue, use that comment instead of duplicating it.
-2. For started work whose blockers are verified resolved, immediately replace all labels with exactly `IN PROGRESS`, including removal of `paused: external`. Keep it open with matching Project status; preserve ownership and record removed types and any review stage in the comment. On resumption, restore useful types and use stages only under `REVIEW`, following `git-workflow.md`. Answering does not complete the issue.
+2. For started work whose blockers are verified resolved, immediately replace all labels with exactly `IN PROGRESS`, including removal of `paused: external`. Keep it open with matching Project status; preserve ownership and record removed types and any review stage in the comment. On resumption, restore useful types and use stages only under `REVIEW`, following `standards/git-workflow.md`. Answering does not complete the issue.
 3. If another decision, unfinished setup, or external dependency still blocks work, retain or switch to the appropriate pause reason and state the remaining blocker. For D/E, record the deferral, leave the pause intact, and skip it for the rest of this interview. An intention to answer in the issue or perform setup is not completion. Unapproved proposals remain `BACKLOG`.
 4. Read back the saved comment, labels, and Project status. Then give a short linked confirmation such as "Recorded on #123; pause removed, ready to resume" or "Recorded on #123; still waiting for provider setup." Only then ask the next question. Do not imply that implementation has already restarted. If a write or verification fails, recover and retry without duplicating comments; report an unresolved failure and retain the pending answer rather than claiming synchronization or silently postponing it to the end.
 

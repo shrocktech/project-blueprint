@@ -13,12 +13,12 @@ Read only the applicable skill. These are portable source packages, not automati
 
 During adoption, install relevant skills using the target agent's supported mechanism and verify discovery. If unavailable, retain the blueprint checkout and record accessible local `SKILL.md` paths in the target's `AGENTS.md` for explicit reading. Record the blueprint revision; apply later updates deliberately while preserving local additions.
 
-Inside each skill, plain filenames such as `git-workflow.md` refer to the target project's instructions, not files beside the installed skill. During initial adoption, consult the blueprint's template equivalents until those files are merged. Confirm the target repository before any mutation.
+Inside each skill, plain filenames such as `standards/git-workflow.md` refer to the target project's instructions, not files beside the installed skill. During initial adoption, consult the blueprint's template equivalents until those files are merged. Confirm the target repository before any mutation.
 
 Keep application-specific configuration and domains in that project's appropriate docs, not these reusable skills.
 
-Optional external [Task Observer](../template/optional-tools.md#task-observer) captures reusable lessons when selected during setup. Its complete pinned upstream bundle, private storage, explicit activation, and fresh-session verification follow that guide; it is not bundled here.
+Optional external [Task Observer](../template/standards/optional-tools.md#task-observer) captures reusable lessons when selected during setup. Its complete pinned upstream bundle, private storage, explicit activation, and fresh-session verification follow that guide; it is not bundled here.
 
-For public-page art direction, [TASTE setup](../template/optional-tools.md#taste) identifies the optional `design-taste-frontend` bundle and its verification. Existing `interface-design` reads the target's design rules; TASTE supports that workflow without replacing application-form conventions or Playwright coverage.
+For public-page art direction, [TASTE setup](../template/standards/optional-tools.md#taste) identifies the optional `design-taste-frontend` bundle and its verification. Existing `interface-design` reads the target's design rules; TASTE supports that workflow without replacing application-form conventions or Playwright coverage.
 
-For product-specific skills, follow [current product references](../template/packages.md#current-product-references): project conventions belong in skills; current vendor details come through Context7 or official documentation. Required Graphify tooling follows [project setup](../template/project.md#graphify). WordPress projects also require the [official WordPress skills](../template/project.md#wordpress-skills).
+For product-specific skills, follow [current product references](../template/standards/packages.md#current-product-references): project conventions belong in skills; current vendor details come through Context7 or official documentation. Required Graphify tooling follows [project setup](../template/standards/project.md#graphify). WordPress projects also require the [official WordPress skills](../template/standards/project.md#wordpress-skills).

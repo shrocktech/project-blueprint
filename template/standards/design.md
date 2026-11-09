@@ -74,7 +74,7 @@ During development, change navigation and routes directly. Do not add redirects 
 - Center checkboxes, radios, and icons beside single-line text; align controls to the first line of wrapping labels. Associate labels with controls and make the label clickable.
 - Keep density comfortable: readable text, visible focus, usable hit targets, and layouts that reflow when zoomed. Compactness must not hide labels or clip content.
 
-Use the `interface-design` skill at its recorded location for layout planning and rendered verification. Follow [AGENTS.md](AGENTS.md) for skill discovery.
+Use the `interface-design` skill at its recorded location for layout planning and rendered verification. Follow [AGENTS.md](../AGENTS.md) for skill discovery.
 
 ## Environment and phase display
 

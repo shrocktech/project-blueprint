@@ -1,6 +1,6 @@
 # Git and Issue Workflow
 
-Apply during development and queue work, not merely because the user asks a question or requests a review. Follow [AGENTS.md](AGENTS.md).
+Apply during development and queue work, not merely because the user asks a question or requests a review. Follow [AGENTS.md](../AGENTS.md).
 
 ## Authorization
 

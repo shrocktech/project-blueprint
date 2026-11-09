@@ -5,7 +5,7 @@ description: Assess customer impact at application issue completion, draft notab
 
 # Application changelog
 
-Work from the application root. Its `documentation.md` governs the lifecycle, migration and publication of `CHANGELOG.md`. Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/): keep the working `Unreleased` section first, released versions newest first, and use only populated categories (Added, Changed, Deprecated, Removed, Fixed, Security).
+Work from the application root. Its `standards/documentation.md` governs the lifecycle, migration and publication of `CHANGELOG.md`. Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/): keep the working `Unreleased` section first, released versions newest first, and use only populated categories (Added, Changed, Deprecated, Removed, Fixed, Security).
 
 ## Completing an issue
 
@@ -17,4 +17,4 @@ During initial development and private beta, keep evidence in the issue until th
 
 1. Identify the previous public release commit and exact candidate. Inspect their full diff and intervening history, including reverts. Cross-check completed issues and tests against what customers can actually use. For the first public launch, summarize verified capabilities. If an existing product's baseline is uncertain, report the coverage gap.
 2. Reconcile the candidate with the draft in both directions: add missing outcomes, combine duplicates, correct unsupported claims and keep future work separate. Preserve published entries and dates. Record the compared commits and any unresolved discrepancies in the release issue.
-3. For an authorized release, group only included entries under the release version and date (`YYYY-MM-DD`). Verify migration instructions, links and rendered customer output. Derive release notes from the same entries and exclude private evidence and unreleased drafts. Follow the application's `launch.md` and release authority for tagging and publication.
+3. For an authorized release, group only included entries under the release version and date (`YYYY-MM-DD`). Verify migration instructions, links and rendered customer output. Derive release notes from the same entries and exclude private evidence and unreleased drafts. Follow the application's `standards/launch.md` and release authority for tagging and publication.

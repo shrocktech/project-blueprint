@@ -1,6 +1,6 @@
 # Package Selection
 
-Read alongside [AGENTS.md](AGENTS.md), [security.md](security.md), and [updates.md](updates.md).
+Read alongside [AGENTS.md](../AGENTS.md), [security.md](security.md), and [updates.md](updates.md).
 
 Evaluate packages for approved requirements; preserve working custom code and established frameworks. Blueprint adoption uses the `adopt-existing` skill, not package upgrades.
 

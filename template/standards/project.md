@@ -1,6 +1,6 @@
 # Project Setup and Environments
 
-During setup, fill facts/commands in [AGENTS.md](AGENTS.md); routine tasks use those verified values. For an existing application, use the `adopt-existing` skill at its recorded location before merging instructions. Setup does not authorize application upgrades, data changes, or production deployment.
+During setup, fill facts/commands in [AGENTS.md](../AGENTS.md); routine tasks use those verified values. For an existing application, use the `adopt-existing` skill at its recorded location before merging instructions. Setup does not authorize application upgrades, data changes, or production deployment.
 
 ## Setup interview
 
@@ -28,7 +28,7 @@ If GSD is selected, follow its current official installation guidance. Project `
 
 Use the repository root as the project workspace. Create directories when needed. Keep reference documents in `materials/documents/`, research and notes in `materials/notebooks/`, and editable diagrams and canvases in `materials/drawings/`. UI mockups, wireframes and editable brand artwork belong in `design/`. Keep shipped images, icons and fonts in the framework’s asset location. Follow [brand guidance](design.md#brand-foundation-and-settings) and maintain audience-specific [documentation](documentation.md) under root `docs/`.
 
-Keep `README.md`, `AGENTS.md`, `CLAUDE.md`, the [license](legal.md#repository-license), the [changelog](documentation.md#changelog) when due, encrypted `.env` and Blueprint guide entrypoints at the application root. Preserve framework source, test, build and deployment paths. Add workflow or container files only when the project uses them.
+Keep `README.md`, `AGENTS.md`, `CLAUDE.md`, the [license](legal.md#repository-license), the [changelog](documentation.md#changelog) when due, and encrypted `.env` at the application root. Keep the operating guides together in `standards/` and link them from root `AGENTS.md`. Preserve framework source, test, build and deployment paths. Add workflow or container files only when the project uses them.
 
 Root `agents/` and `skills/` hold project-authored profiles and skills. Register them through each tool’s supported discovery mechanism, verify discovery and record the canonical and installed paths in `AGENTS.md`. Keep one editable source per resource. Blueprint’s reusable skills come from its distribution checkout.
 

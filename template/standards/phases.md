@@ -1,6 +1,6 @@
 # Project Phases
 
-Read the current phase, subphase, and active plan in [AGENTS.md](AGENTS.md) when starting or resuming work. These describe project focus; issue statuses, work stages, branches, and deployment environments remain separate.
+Read the current phase, subphase, and active plan in [AGENTS.md](../AGENTS.md) when starting or resuming work. These describe project focus; issue statuses, work stages, branches, and deployment environments remain separate.
 
 Ten stops in fixed order; the stop number is display-only and never typed in transitions.
 

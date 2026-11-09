@@ -1,6 +1,6 @@
 # Documentation and Changelog Rules
 
-Read alongside [AGENTS.md](AGENTS.md) and [git-workflow.md](git-workflow.md).
+Read alongside [AGENTS.md](../AGENTS.md) and [git-workflow.md](git-workflow.md).
 
 ## Documentation audiences and sources
 
@@ -27,6 +27,8 @@ Applicable customer policies use `docs/public/legal/` under [legal.md](legal.md)
 ## Workspace migration
 
 Existing applications migrate project knowledge and project-specific authored AI resources to the [repository layout](project.md#project-workspace) during adoption or update. Use the existing adoption/maintenance issue, or a linked migration issue with recorded ownership and acceptance criteria; perform work in an owned isolated checkout under [git-workflow.md](git-workflow.md). Record migration as pending until verified delivery, rather than retaining an unexamined layout exception. Incoming Blueprint text remains subject to the target's recorded update authority under [updates.md](updates.md#periodic-blueprint-maintenance); use the owner's migration authorization where recorded and ask only for a missing material decision.
+
+For an existing installation, identify the twelve Blueprint guides from the pinned source’s `template/standards/` directory. Move each installed guide to the matching `standards/` path, reconciling local edits and occupied destinations before retiring a source. Match by content and recorded provenance so unrelated same-name project files stay in place. Keep the agent entry points at the root. Update links from root files, installed skills, scripts and setup prompts, then verify guide-to-guide links and links back to `../AGENTS.md`.
 
 1. Inventory project knowledge, authored skills/agent definitions and their consumers. Map existing attachment folders (including `project/assets/files/` or `project/assets/documents/`) to `materials/documents/`, note folders to `materials/notebooks/` and canvas or drawing folders to `materials/drawings/`. Move editable brand artwork, including sources under `project/assets/brand/`, to `design/` and project-authored profiles and skills to root `agents/` and `skills/`. Classify by content before merging occupied destinations. Preserve framework assets and tool-installed resources. Move nested documentation into root `docs/`, preserving audience boundaries and repairing links and build inputs. Record source paths, collisions, tracked/untracked/ignored content, access restrictions, discovery paths, publishing inputs and recovery destinations. Coordinate moves with active editors.
 2. Move tracked content with Git-aware moves where practical; preserve useful content and history without overwriting collisions. Include required attachments, canvas dependencies and relative references. Use an intermediate path for case-only renames on case-insensitive filesystems. Private material stays in protected storage; for public application repositories, use the corresponding workspace paths in a separate private repository and record verified locations without copying private content into public Git history. Keep framework/runtime and discovery-required files in supported locations under the workspace rule.
