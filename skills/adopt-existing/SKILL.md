@@ -9,7 +9,7 @@ Confirm the target repository and blueprint revision. Plain filenames below refe
 
 Adoption changes instructions and workflow, not application architecture, packages, data, or production behavior. Preserve existing functionality and project-specific requirements. Replacement of an established stack or architecture needs explicit permission.
 
-Use the adoption/update issue and `standards/git-workflow.md` bootstrap. Routine updates from the recorded default branch are pre-authorized only within `standards/updates.md`'s scope; new optional tools/skills, provenance/maintenance-rule changes, and major changes require an owner decision. Pin the reviewed source commit before edits. Establish an owned isolated checkout; preserve other agents' worktrees. Record adoption only after verifying applicable guidance with local requirements intact; track partial application and pending decisions under `standards/updates.md`.
+Use the adoption/update issue and `standards/git-workflow.md` bootstrap. Review published stable Blueprint releases under the target’s `standards/updates.md`. Pin the release tag and commit before edits. Establish an owned isolated checkout; preserve other agents' worktrees. Record adoption only after verifying applicable guidance with local requirements intact; track partial application and pending decisions under `standards/updates.md`.
 
 For a routine refresh, inspect changed guidance and affected project configuration, apply only the relevant steps below, and skip established branch/environment/tracking bootstrap. Do not repeat settled interviews, reset lifecycle position, or migrate branches merely because this skill includes initial-adoption procedures.
 

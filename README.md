@@ -1,8 +1,8 @@
 # Project Blueprint
 
-Reusable instructions for new and existing projects. You decide what to build and when to release; agents handle the authorized technical work.
+Project Blueprint gives each project a consistent start. After setup, the project’s own repository is the source of truth for how it is built, designed, and maintained. Each project checks weekly for published Blueprint releases, applies relevant improvements within its approved scope, and asks the owner when an update requires a new decision.
 
-Initial setup always includes an owner interview, using the owner's private standing preferences and simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Establish the [approved brand foundation](template/standards/design.md#brand-foundation-and-settings) before styled UI; each application provides a protected Brand Guidelines settings page, reusing existing identity and tools. Agents check the recorded Blueprint default branch weekly through [periodic maintenance](template/standards/updates.md#periodic-blueprint-maintenance), creating an issue before applying eligible routine changes. Significant changes and new optional tools need your decision. Setup verifies actual scheduling; instructions alone do not start a monitor.
+Initial setup always includes an owner interview, using the owner's private standing preferences and simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Establish the [approved brand foundation](template/design/README.md#brand-foundation-and-settings) before styled UI; each application provides a protected Brand Guidelines settings page, reusing existing identity and tools. Verify the [weekly release check](template/standards/updates.md#periodic-blueprint-maintenance) during setup.
 
 ![Application workflow with ten stops: DEVELOPMENT planning, build and security; RELEASE offering, beta and validation; LAUNCH open, feedback and stabilize; PRODUCTION ongoing. Board statuses: dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing and deployment, green COMPLETED. Owned issue worktrees follow issue branch to develop to authorized main. Paused work stays IN PROGRESS with pink decision, red setup or silver external reason. Refresh the live queue after completion or pause and before stopping. Explicit authorization precedes private beta and public launch. Owner/developer admin footer shows environment and numbered phase; customer views show neither. GitHub Free requires no paid features](assets/project-workflow-landscape.jpg)
 
@@ -52,7 +52,7 @@ Ten stops; the number shows how far along a project is.
 
 `planning` includes specifications, security requirements, and setup. Use the phase-specific requirements in [checks by phase](template/standards/security.md#checks-by-phase), including desktop verification during planning/build and the full check set from security through production. [security.md](template/standards/security.md#security-review) governs review scope, evidence, release requirements, and owner risk acceptance; findings stay private.
 
-The [admin footer](template/standards/design.md#environment-and-phase-display) shows **Environment** and, for owner/developer views, **Phase** with its stop number: an invited production beta reads `Environment: PRODUCTION · Phase: 5/10 · RELEASE: beta`. Customer-facing pages and customer-admin views show neither; phases are not GitHub labels or Project fields.
+The [admin footer](template/design/README.md#environment-and-phase-display) shows **Environment** and, for owner/developer views, **Phase** with its stop number: an invited production beta reads `Environment: PRODUCTION · Phase: 5/10 · RELEASE: beta`. Customer-facing pages and customer-admin views show neither; phases are not GitHub labels or Project fields.
 
 ## Project setup
 
@@ -60,7 +60,7 @@ Use the setup prompt in [Prompts](#prompts).
 
 Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/REPO` below means the target repository. The adopting agent should:
 
-1. Fetch this blueprint into a separate checkout and record its commit. Read [git-workflow.md](template/standards/git-workflow.md) and, for an existing application, [adopt-existing](skills/adopt-existing/SKILL.md). Inspect before editing the target.
+1. Use the latest published stable Blueprint release in a separate checkout and record its tag and commit. Read [git-workflow.md](template/standards/git-workflow.md) and, for an existing application, [adopt-existing](skills/adopt-existing/SKILL.md). Inspect before editing the target.
 2. Create/claim a setup issue and follow the bootstrap order in [git-workflow.md](template/standards/git-workflow.md). Always conduct the initial [setup interview](template/standards/project.md#setup-interview), preserving known decisions before configuring the project.
 3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its five statuses and colors, preserving mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` without a stage.
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
@@ -84,9 +84,9 @@ Existing applications retain their framework, custom code, and data; WordPress r
 │   └── drawings/       # Editable diagrams, whiteboard sketches and canvases
 ├── assets/             # Runtime assets when the framework has no prescribed location
 ├── design/             # Wireframes, UI mockups and editable brand artwork
+│   └── README.md       # This application’s design guide and implementation references
 ├── docs/               # Maintained documentation
 │   ├── internal/       # Architecture, setup, testing and recovery
-│   │   └── brand/      # Approved guidelines and references to brand sources
 │   ├── public/         # Customer-facing guides and help
 │   └── admin/          # Administrator guides when needed
 ├── standards/          # Blueprint operating guides for contributors and agents
@@ -111,13 +111,13 @@ The [file map](#file-map) lists the guides in `standards/`. Root `AGENTS.md` lin
 
 ## Interface design
 
-For web-facing UI, follow [design standards](template/standards/design.md), the [interface-design skill](skills/interface-design/SKILL.md), and required [Playwright setup](template/standards/project.md#playwright) for [desktop, tablet, and mobile](template/standards/design.md#desktop-tablet-and-mobile). Projects without a web UI record the documented exclusion.
+For web-facing UI, follow [design standards](template/design/README.md), the [interface-design skill](skills/interface-design/SKILL.md), and required [Playwright setup](template/standards/project.md#playwright) for [desktop, tablet, and mobile](template/design/README.md#desktop-tablet-and-mobile). Projects without a web UI record the documented exclusion.
 
 [TASTE](template/standards/optional-tools.md#taste) supports content-led art direction and screenshot critique for public-facing pages. Its optional pinned skill follows project brand, accessibility, performance, and truthful-content rules; application forms retain their established patterns.
 
 Use the interface prompt in [Prompts](#prompts).
 
-For UI work with selected Impeccable, agents use [browser iteration](template/standards/design.md#browser-iteration) to compare and accept refinements on the running application, then clean up Live Mode and verify the saved result with existing Playwright checks. Unsupported setups use the documented fallback and record the gap.
+For UI work with selected Impeccable, agents use [browser iteration](template/design/README.md#browser-iteration) to compare and accept refinements on the running application, then clean up Live Mode and verify the saved result with existing Playwright checks. Unsupported setups use the documented fallback and record the gap.
 
 ## Security and code quality
 
@@ -144,7 +144,7 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [NIST NVD](https://nvd.nist.gov/) / [Google OSV](https://osv.dev/) | Official API advisory intelligence matches actual dependencies and deployed platforms/versions; prioritizes exploitation, deduplicates actionable issues, and records confirmed AI-assisted disclosures under [security guidance](template/standards/security.md#vulnerability-intelligence). |
 | [GSD Core](https://github.com/open-gsd/gsd-core) | Optional planning support for complex projects when selected in setup; project rules and the existing issue queue remain authoritative. |
 | [Task Observer](https://github.com/rebelytics/one-skill-to-rule-them-all) | Optional, owner-selected lesson capture with private persistent observations, verified activation, and reviewed proposals under [setup guidance](template/standards/optional-tools.md#task-observer). |
-| [TASTE](https://github.com/leonxlnx/taste-skill) | Public-page design reference and optional skill; content-led composition and screenshot critique under [project design rules](template/standards/design.md). |
+| [TASTE](https://github.com/leonxlnx/taste-skill) | Public-page design reference and optional skill; content-led composition and screenshot critique under [project design rules](template/design/README.md). |
 
 ZAP runs against isolated project test targets with synthetic accounts and controlled external integrations. Agents verify authentication and endpoint coverage, retain explicit permission tests, and protect third-party API consumption under [application and API security testing](template/standards/security.md#application-and-api-security-testing). Schemathesis is optional for deeper schema-based API tests when needed.
 
@@ -158,10 +158,10 @@ Agents verify changes under [delivery rules](template/standards/git-workflow.md#
 flowchart TD
     A[Initial owner interview] --> B[Verify scheduler, access and agent handoff]
     B --> C[Weekly maintenance window]
-    C --> D[Blueprint default-branch comparison]
+    C --> D[Published Blueprint release check]
     C --> E[NVD / OSV, Trivy, test-environment ZAP and dependency checks]
     C --> F[One job per VM: OS updates and authorized restarts]
-    D --> G[Issue first: apply routine changes; ask on major changes]
+    D --> G[Issue first: apply in-scope improvements; ask on conflicts]
     E --> H[Triage findings and verify fixes]
     F --> I[Verify services and scheduler after restart]
     G --> J[Record results, gaps and last success]
@@ -212,7 +212,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/standards/project.md](template/standards/project.md) | Initial setup and environment defaults |
 | [template/standards/git-workflow.md](template/standards/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
 | [template/standards/optional-tools.md](template/standards/optional-tools.md) | Setup and verification for selected tools and disposable multi-agent evaluation |
-| [template/standards/design.md](template/standards/design.md) | Approved brand foundation and settings page, stack-compatible layouts, form actions, feedback, and credential fields |
+| [template/design/README.md](template/design/README.md) | Approved brand foundation and settings page, stack-compatible layouts, form actions, feedback, and credential fields |
 | [template/standards/offering.md](template/standards/offering.md) | Accurate marketing, researched commercial decisions, and consistent customer information |
 | [template/standards/security.md](template/standards/security.md) | Credentials, data, access, security review, release checks, and reporting |
 | [template/standards/legal.md](template/standards/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
@@ -232,11 +232,11 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Setup**
 
-> Set up this project using `<blueprint-source>` and private standing preferences at `<standing-preferences>` (or `none`). Follow its README adoption steps. If an application already exists, use adopt-existing first and preserve its stack, data, working features, and live behavior. Merge instructions and configure only compatible, authorized automation.
+> Set up this project using `<blueprint-source>` and private standing preferences at `<standing-preferences>` (or `none`). Follow the latest published stable release’s README adoption steps. If an application already exists, use adopt-existing first and preserve its stack, data, working features, and live behavior. Merge instructions and configure only compatible, authorized automation.
 
 **Interface design**
 
-> Build or refine this screen using our design standards and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at the device coverage required for the current phase.
+> Build or refine this screen using our `design/README.md` and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at the device coverage required for the current phase.
 
 **Issue interview**
 

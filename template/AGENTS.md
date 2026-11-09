@@ -11,14 +11,14 @@ At implementation-session start, check [weekly Blueprint maintenance](standards/
 - Owner: the human authorized to bind the project/business; record their role and delegates. Policy approval requires explicit legal/business delegation; development or release access alone does not confer it.
 - Business and customer/service jurisdictions: record verified scope in private project docs; no assumed country.
 - Conventions: link existing formatter/linter configuration and patterns.
-- Brand: canonical kit and implementation tokens TODO; approval/provisional scope TODO; protected Brand Guidelines settings route and editor roles TODO. Follow [design.md](standards/design.md#brand-foundation-and-settings).
+- Brand: canonical kit and implementation tokens TODO; approval/provisional scope TODO; protected Brand Guidelines settings route and editor roles TODO. Follow [project design guide](design/README.md#brand-foundation-and-settings).
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
 - Workspace: repository layout under [project.md](standards/project.md#project-workspace); record documentation, assets, repository skill paths and applicable tool-specific discovery locations, external private storage and migration issue/status. Existing projects follow [workspace migration](standards/documentation.md#workspace-migration) during adoption/updates.
 - Recovery: private inventory/runbook, backup destinations and health, independent key/access recovery, restore objectives/cadence and last verified drill or blockers TODO under [security.md](standards/security.md#local-development-secrets).
 - Vulnerability intelligence: link the private inventory and [monitor health record](standards/updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.
 - Standing preferences: private location or `none`.
-- Blueprint source: TODO; recorded default branch and adopted commit: TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
+- Blueprint source: TODO; adopted published release tag and pinned commit: TODO; local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue/schedule and pending changes: TODO.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, `legal-review`, and `changelog` skills during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [Task Observer setup](standards/optional-tools.md#task-observer).
 - Encrypted `.env`: standard setup; protected key path, authorized hosts and verified encryption/unlock/plaintext-blocking checks TODO under [security.md](standards/security.md#encrypted-env-with-git-crypt). Record any owner-approved local-only exception; plaintext `.env` must never be committed or pushed.
@@ -44,7 +44,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - When offered credentials, prepare the [local secret entry](standards/security.md#local-development-secrets). Use synthetic test data, run [secret scans](standards/security.md#secret-scanning) and check [git-crypt at session start](standards/security.md#encrypted-env-with-git-crypt).
 - Apply the [review scope](standards/git-workflow.md#delegated-code-review) to the integration or production candidate.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
-- Follow [navigation and route changes](standards/design.md#navigation-and-route-changes): update development routes and references directly; do not add speculative legacy redirects or aliases.
+- Follow [navigation and route changes](design/README.md#navigation-and-route-changes): update development routes and references directly; do not add speculative legacy redirects or aliases.
 - Maintain [Graphify infrastructure](standards/project.md#graphify) and, for web-facing UI, [Playwright browser testing](standards/project.md#playwright) at the level set by [checks by phase](standards/security.md#checks-by-phase); use [current product references](standards/packages.md#current-product-references) for external technologies.
 
 ## Autonomy
@@ -63,7 +63,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | WordPress implementation or review | Required [WordPress skills](standards/project.md#wordpress-skills) at their recorded locations |
 | Issues, implementation, queue, commits | [git-workflow.md](standards/git-workflow.md) |
 | User-requested issue interview | `issue-interview` skill at its recorded location |
-| UI | [design.md](standards/design.md), including desktop/tablet/mobile coverage; `interface-design` and installed `playwright-cli` skills for implementation and verification |
+| UI | [project design guide](design/README.md), including desktop/tablet/mobile coverage; `interface-design` and installed `playwright-cli` skills for implementation and verification |
 | Selected tools or disposable shared-preview evaluation | [Optional tool setup](standards/optional-tools.md) |
 | Marketing, pricing, packaging, or refunds | [offering.md](standards/offering.md); `pricing-research` skill for initial or material commercial decisions |
 | Documentation | [documentation.md](standards/documentation.md) |
