@@ -75,14 +75,16 @@ Existing applications retain their framework, custom code, and data; WordPress r
 ```text
 <repo-name>/
 ├── .github/            # GitHub repository configuration
-│   └── workflows/     # GitHub Actions for checks, builds and deployments
+│   ├── dependabot.yml  # Weekly updates for supported package ecosystems
+│   └── workflows/      # GitHub Actions for checks, builds and deployments
+├── .claude/skills/     # Example discovery path when installing skills for Claude
 ├── agents/             # Project-authored agent profiles
 ├── skills/             # Project-authored reusable agent skills
 ├── materials/          # Working materials collected or created during development
 │   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
 │   ├── notebooks/      # Research notes, meeting notes and working notebooks
 │   └── drawings/       # Editable diagrams, whiteboard sketches and canvases
-├── assets/             # Images, icons and fonts used by the application
+├── assets/             # Runtime assets when the framework has no prescribed location
 ├── design/             # Wireframes, UI mockups and editable brand artwork
 ├── docs/               # Maintained documentation
 │   ├── internal/       # Architecture, setup, testing and recovery
@@ -91,12 +93,15 @@ Existing applications retain their framework, custom code, and data; WordPress r
 │   └── admin/          # Administrator guides when needed
 ├── scripts/            # Automation, maintenance and release scripts
 ├── src/                # Application source, where supported by the framework
-├── tests/              # Automated tests and fixtures
+├── tests/              # Tests and fixtures, or use the framework’s test location
 ├── .env                # Local secrets; verify ciphertext before committing
 ├── .env.example        # Environment variable names and placeholder values
+├── .gitattributes      # Readable git-crypt filter rules for protected files
+├── .distignore         # WP-CLI archive exclusions when packaging from this root
 ├── .gitignore          # Local files and generated output to exclude from Git
 ├── AGENTS.md           # Authoritative project instructions for agents
-├── CLAUDE.md           # Points Claude to the project instructions
+├── CLAUDE.md, agent.md # Entry points directing agents to AGENTS.md
+├── project.md, …       # Blueprint guides merged here from template/ (see file map)
 ├── CHANGELOG.md        # Customer-visible changes when the changelog is due
 ├── LICENSE             # License or private-use terms appropriate to distribution
 ├── README.md           # Project overview, setup and navigation
@@ -104,7 +109,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 └── compose.yaml        # Services run together with Docker Compose
 ```
 
-Create directories as content and tooling require. Keep runtime files in the framework’s expected locations. For WordPress, preserve the installed theme or plugin layout and verify the [distributable ZIP](template/launch.md#wordpress-distribution). See [workspace setup](template/project.md#project-workspace), [repository license](template/legal.md#repository-license) and [changelog rules](template/documentation.md#changelog).
+The [file map](#file-map) lists the guides that sit beside `AGENTS.md`. Create directories as content and tooling require. For a public repository, follow the [private storage rules](template/documentation.md#documentation-audiences-and-sources) before adding working materials. Keep runtime files in the framework’s expected locations. For WordPress, preserve the installed theme or plugin layout and verify the [distributable ZIP](template/launch.md#wordpress-distribution). See [workspace setup](template/project.md#project-workspace), [repository license](template/legal.md#repository-license) and [changelog rules](template/documentation.md#changelog).
 
 ## Interface design
 
