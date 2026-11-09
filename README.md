@@ -64,7 +64,7 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 2. Create/claim a setup issue and follow the bootstrap order in [git-workflow.md](template/git-workflow.md). Always conduct the initial [setup interview](template/project.md#setup-interview), preserving known decisions before configuring the project.
 3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its five statuses and colors, preserving mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` without a stage.
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
-5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Establish the application's [lowercase project workspace](template/project.md#project-workspace); existing applications complete the tracked [workspace migration](template/documentation.md#workspace-migration) during adoption or updates. Blueprint's distribution `template/` and reusable `skills/` remain separate.
+5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Establish the application's [repository layout](template/project.md#project-workspace); existing applications complete the tracked [workspace migration](template/documentation.md#workspace-migration) during adoption or updates. Blueprint's distribution `template/` and reusable `skills/` remain separate.
 6. Make applicable [skills](skills/README.md) available through supported installation, or retain the blueprint checkout and record verified skill paths. Keep repository-local installations in the setup checkout. Fill facts/commands and complete `project.md`.
 7. Complete required [Graphify setup](template/project.md#graphify) and [Playwright setup or reasoned exclusion](template/project.md#playwright), and verify [current product reference access](template/packages.md#current-product-references), links, applicable checks, discovery, and automation/runner behavior. Record actual source/revision, skill locations, local exceptions, and remaining setup with direct links; copying instructions does not activate automation.
 
@@ -73,29 +73,38 @@ Existing applications retain their framework, custom code, and data; WordPress r
 ### Application folder layout
 
 ```text
-<application>/
-  README.md
-  AGENTS.md
-  CLAUDE.md
-  LICENSE
-  CHANGELOG.md              # Existing changelog or prepared for public launch
-  .env                      # Encrypted in Git
-  docs/
-    internal/
-      brand/
-    public/
-    admin/                # When needed
-  project/
-    assets/
-      documents/
-      notebook/
-      drawings/
-      brand/
-    skills/
-    agents/
+<repo-name>/
+├── .github/            # GitHub repository configuration
+│   └── workflows/     # GitHub Actions for checks, builds and deployments
+├── agents/             # Project-authored agent profiles
+├── skills/             # Project-authored reusable agent skills
+├── materials/          # Working materials collected or created during development
+│   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
+│   ├── notebooks/      # Research notes, meeting notes and working notebooks
+│   └── drawings/       # Editable diagrams, whiteboard sketches and canvases
+├── assets/             # Images, icons and fonts used by the application
+├── design/             # Wireframes, UI mockups and editable brand artwork
+├── docs/               # Maintained documentation
+│   ├── internal/       # Architecture, setup, testing and recovery
+│   │   └── brand/      # Approved guidelines and references to brand sources
+│   ├── public/         # Customer-facing guides and help
+│   └── admin/          # Administrator guides when needed
+├── scripts/            # Automation, maintenance and release scripts
+├── src/                # Application source, where supported by the framework
+├── tests/              # Automated tests and fixtures
+├── .env                # Local secrets; verify ciphertext before committing
+├── .env.example        # Environment variable names and placeholder values
+├── .gitignore          # Local files and generated output to exclude from Git
+├── AGENTS.md           # Authoritative project instructions for agents
+├── CLAUDE.md           # Points Claude to the project instructions
+├── CHANGELOG.md        # Customer-visible changes when the changelog is due
+├── LICENSE             # License or private-use terms appropriate to distribution
+├── README.md           # Project overview, setup and navigation
+├── Dockerfile          # Image build instructions for containerized projects
+└── compose.yaml        # Services run together with Docker Compose
 ```
 
-Application code and tests use their framework's locations. Create workspace folders as content warrants. See [workspace setup](template/project.md#project-workspace), [repository license](template/legal.md#repository-license) and [changelog rules](template/documentation.md#changelog).
+Create directories as content and tooling require. Keep runtime files in the framework’s expected locations. For WordPress, preserve the installed theme or plugin layout and verify the [distributable ZIP](template/launch.md#wordpress-distribution). See [workspace setup](template/project.md#project-workspace), [repository license](template/legal.md#repository-license) and [changelog rules](template/documentation.md#changelog).
 
 ## Interface design
 

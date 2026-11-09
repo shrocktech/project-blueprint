@@ -35,3 +35,7 @@ Deploy or verify the authorized candidate on `main`, open the approved customer 
 ## After launch
 
 Maintain the changelog and applicable customer/administrator documentation as specified in [documentation.md](documentation.md). Publish only released entries; keep `Unreleased` drafts out of customer-facing output. Each later release should have a version, date, relevant customer notes, and working links. Keep this checklist short and add project-specific steps only when needed.
+
+## WordPress distribution
+
+When delivering a theme or plugin ZIP, inspect the exact archive. Include the installable component, runtime dependencies, license and required distribution files. Exclude credentials (including encrypted environment files), private docs, working materials and development-only resources. Use the project's packaging process. [WP-CLI dist-archive](https://developer.wordpress.org/cli/commands/dist-archive/) supports a project-specific exclusion file. Install and activate that ZIP on a disposable WordPress site and exercise its primary behavior before distribution. Verify [license and directory requirements](legal.md#repository-license) for the intended channel.

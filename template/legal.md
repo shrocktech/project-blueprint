@@ -18,7 +18,7 @@ Publication follows [launch.md](launch.md). Preparing required notices does not 
 
 ## Repository license
 
-Preserve existing license terms and third-party notices. For a private proprietary project without a license, create a root `LICENSE` using the verified year and copyright holder:
+Preserve existing license terms and third-party notices. For a project confirmed as proprietary and intended for private use, if it has no license, create a root `LICENSE` using the verified year and copyright holder:
 
 ```text
 Copyright (c) <year> <copyright holder>. All rights reserved.
@@ -26,4 +26,4 @@ Private and proprietary. Use, copying, modification and distribution require
 written permission from the copyright holder.
 ```
 
-Verify repository visibility separately. For a project intended for public reuse, use the owner's chosen license.
+Verify repository visibility separately. Select terms for the intended distribution. WordPress.org submissions require GPL-compatible licensing even when development takes place in a private repository. Check the applicable [plugin](https://developer.wordpress.org/plugins/wordpress-org/detailed-plugin-guidelines/) or [theme](https://make.wordpress.org/themes/handbook/review/required/) directory requirements.

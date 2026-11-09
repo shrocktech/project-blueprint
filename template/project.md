@@ -26,20 +26,11 @@ If GSD is selected, follow its current official installation guidance. Project `
 
 ## Project workspace
 
-New and existing applications use lowercase `project/` for project knowledge and project-specific AI resources. Create directories as content is needed:
+Use the repository root as the project workspace. Create directories when needed. Keep reference documents in `materials/documents/`, research and notes in `materials/notebooks/`, and editable diagrams and canvases in `materials/drawings/`. UI mockups, wireframes and editable brand artwork belong in `design/`. Keep shipped images, icons and fonts in the framework’s asset location. Follow [brand guidance](design.md#brand-foundation-and-settings) and maintain audience-specific [documentation](documentation.md) under root `docs/`.
 
-```text
-project/
-  assets/
-    brand/
-    documents/
-    notebook/
-    drawings/
-  skills/
-  agents/
-```
+Keep `README.md`, `AGENTS.md`, `CLAUDE.md`, the [license](legal.md#repository-license), the [changelog](documentation.md#changelog) when due, encrypted `.env` and Blueprint guide entrypoints at the application root. Preserve framework source, test, build and deployment paths. Add workflow or container files only when the project uses them.
 
-Maintain [documentation](documentation.md) under root `docs/`. Keep `AGENTS.md`, `CLAUDE.md`, README, [LICENSE](legal.md#repository-license), the [changelog](documentation.md#changelog) when due, encrypted `.env` and the Blueprint guide entrypoints at the application root. Application source, served assets, tests, framework-required configuration and installed tool discovery directories retain their supported locations. Blueprint's own `template/` and reusable `skills/` are distribution resources. `project/skills/` and `project/agents/` hold project-specific authored resources; register or install them through each tool's supported mechanism, verify discovery and record canonical and installed locations in root `AGENTS.md`. Use one authoritative source for each resource and verify any generated or linked installation rather than editing duplicate copies.
+Root `agents/` and `skills/` hold project-authored profiles and skills. Register them through each tool’s supported discovery mechanism, verify discovery and record the canonical and installed paths in `AGENTS.md`. Keep one editable source per resource. Blueprint’s reusable skills come from its distribution checkout.
 
 Apply [workspace migration](documentation.md#workspace-migration) during initial adoption and Blueprint updates in existing projects. Record workspace paths, migration issue/status and any required external private storage in root `AGENTS.md`. Folder names confer no privacy: apply [documentation access rules](documentation.md) and [secret and recovery rules](security.md#local-development-secrets) to notes, canvases, attachments and AI resources too. Encrypt secret-bearing files and account for assets or native canvas formats needing external backups. Only explicitly approved public documentation/assets enter published output.
 
@@ -57,6 +48,8 @@ Record tool versions, locations and verification results for the current [checks
 ## WordPress skills
 
 WordPress sites, themes, and plugins require the applicable skills from the official [WordPress agent-skills pack](https://github.com/WordPress/agent-skills). During setup/adoption, install `wordpress-router`, `wp-project-triage`, and relevant specialist skills project-scoped through the active agent's supported mechanism, following current upstream instructions. Include each skill's references and helper scripts; verify discovery and required helper dependencies, and record the upstream revision and installed locations in project `AGENTS.md`.
+
+For themes, preserve root `style.css` and the template entry points for the theme type (for example, `templates/index.html` in a standalone block theme or `index.php` in a standalone classic theme). For plugins, keep the main PHP file with its plugin header at the plugin root. These paths are relative to the installable component, including in repositories containing a whole site. See the [Theme Handbook](https://developer.wordpress.org/themes/core-concepts/theme-structure/) and [Plugin Handbook](https://developer.wordpress.org/plugins/plugin-basics/header-requirements/).
 
 Use routing and triage to identify the project and select skills for WordPress work. Read and follow the selected skills before implementation or review: `wp-plugin-development` for plugin work, `wp-plugin-directory-guidelines` for applicable directory-compliance reviews, `wp-performance` for performance work, and `wp-phpstan` for PHPStan analysis. Select theme, block, REST API, or operations skills as the task requires; add missing relevant skills rather than loading the entire pack for every task. Directory submission rules do not automatically apply to private plugins.
 
