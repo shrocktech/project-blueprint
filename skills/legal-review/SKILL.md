@@ -11,7 +11,7 @@ Confirm the target project. Plain filenames refer to its instructions, not files
 
 Inspect existing policies, code, configuration, provider documentation, and recorded business decisions before interviewing the owner. Preserve approved commitments and effective versions. Use synthetic data, not customer records, to verify behavior.
 
-Keep a compact private record in `project/docs/internal/` covering:
+Keep a compact private record in `docs/internal/` covering:
 
 - Business identity and locations, customer/service regions, audience/ages, and verified contact channel.
 - Data collected directly and automatically (including logs), purposes, processors/recipients, tracking/analytics, retention/backups, deletion, and implemented privacy controls.
@@ -29,7 +29,7 @@ Apply the review triggers and approval rules in `legal.md`. Assess the whole dat
 
 ## Draft and verify
 
-Prepare only relevant documents in `project/docs/public/legal/`, retaining existing routes where appropriate. Use short headings and plain language; no target word count overrides a required disclosure. Separate privacy explanations from contractual terms. Adapt reference material only when its license permits it; do not import another company's facts or commitments. Paid generators and outside skills are optional, not prerequisites.
+Prepare only relevant documents in `docs/public/legal/`, retaining existing routes where appropriate. Use short headings and plain language; no target word count overrides a required disclosure. Separate privacy explanations from contractual terms. Adapt reference material only when its license permits it; do not import another company's facts or commitments. Paid generators and outside skills are optional, not prerequisites.
 
 Check promises against observed behavior and approved decisions. Explain actual disclosures, tracking, and deletion limits without absolutes. Do not invent warranties, refund rules, governing jurisdiction, dispute terms, or liability limits. Present missing material choices with a recommendation; record policy-version approval from the authority defined in `AGENTS.md` under `legal.md`.
 

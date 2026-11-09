@@ -5,7 +5,7 @@ description: Assess customer impact at application issue completion, draft notab
 
 # Application changelog
 
-Work from the application root. Its `documentation.md` governs the lifecycle, migration and publication of `project/CHANGELOG.md`. Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/): keep the working `Unreleased` section first, released versions newest first, and use only populated categories (Added, Changed, Deprecated, Removed, Fixed, Security).
+Work from the application root. Its `documentation.md` governs the lifecycle, migration and publication of `CHANGELOG.md`. Follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/): keep the working `Unreleased` section first, released versions newest first, and use only populated categories (Added, Changed, Deprecated, Removed, Fixed, Security).
 
 ## Completing an issue
 

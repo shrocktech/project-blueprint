@@ -30,22 +30,16 @@ New and existing applications use lowercase `project/` for project knowledge and
 
 ```text
 project/
-  CHANGELOG.md   # At go-live preparation, or migrated when already present
   assets/
     brand/
-    notes/
-    canvas/
-    files/
-  docs/
-    internal/
-      brand/
-    public/
-    admin/       # When needed
+    documents/
+    notebook/
+    drawings/
   skills/
   agents/
 ```
 
-Keep `AGENTS.md`, `CLAUDE.md`, README, encrypted `.env` and the Blueprint guide entrypoints at the application root. Application source, served assets, tests, framework-required configuration and installed tool discovery directories retain their supported locations. Blueprint's own `template/` and reusable `skills/` are distribution resources. `project/skills/` and `project/agents/` hold project-specific authored resources; register or install them through each tool's supported mechanism, verify discovery and record canonical and installed locations in root `AGENTS.md`. Use one authoritative source for each resource and verify any generated or linked installation rather than editing duplicate copies.
+Maintain [documentation](documentation.md) under root `docs/`. Keep `AGENTS.md`, `CLAUDE.md`, README, [LICENSE](legal.md#repository-license), the [changelog](documentation.md#changelog) when due, encrypted `.env` and the Blueprint guide entrypoints at the application root. Application source, served assets, tests, framework-required configuration and installed tool discovery directories retain their supported locations. Blueprint's own `template/` and reusable `skills/` are distribution resources. `project/skills/` and `project/agents/` hold project-specific authored resources; register or install them through each tool's supported mechanism, verify discovery and record canonical and installed locations in root `AGENTS.md`. Use one authoritative source for each resource and verify any generated or linked installation rather than editing duplicate copies.
 
 Apply [workspace migration](documentation.md#workspace-migration) during initial adoption and Blueprint updates in existing projects. Record workspace paths, migration issue/status and any required external private storage in root `AGENTS.md`. Folder names confer no privacy: apply [documentation access rules](documentation.md) and [secret and recovery rules](security.md#local-development-secrets) to notes, canvases, attachments and AI resources too. Encrypt secret-bearing files and account for assets or native canvas formats needing external backups. Only explicitly approved public documentation/assets enter published output.
 

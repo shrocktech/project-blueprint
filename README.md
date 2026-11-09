@@ -70,6 +70,33 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 
 Existing applications retain their framework, custom code, and data; WordPress retains its themes/plugins and established Bootstrap/Tabler. The adoption skill covers label migration and transitioning current work to `develop` without losing history or unfinished work. Application upgrades and production-affecting changes are separate tasks.
 
+### Application folder layout
+
+```text
+<application>/
+  README.md
+  AGENTS.md
+  CLAUDE.md
+  LICENSE
+  CHANGELOG.md              # Existing changelog or prepared for public launch
+  .env                      # Encrypted in Git
+  docs/
+    internal/
+      brand/
+    public/
+    admin/                # When needed
+  project/
+    assets/
+      documents/
+      notebook/
+      drawings/
+      brand/
+    skills/
+    agents/
+```
+
+Application code and tests use their framework's locations. Create workspace folders as content warrants. See [workspace setup](template/project.md#project-workspace), [repository license](template/legal.md#repository-license) and [changelog rules](template/documentation.md#changelog).
+
 ## Interface design
 
 For web-facing UI, follow [design standards](template/design.md), the [interface-design skill](skills/interface-design/SKILL.md), and required [Playwright setup](template/project.md#playwright) for [desktop, tablet, and mobile](template/design.md#desktop-tablet-and-mobile). Projects without a web UI record the documented exclusion.
@@ -151,7 +178,7 @@ Review before collecting real personal information, even for a waitlist or beta.
 
 [offering.md](template/offering.md) keeps marketing and commercial decisions consistent before and after launch. The [pricing-research skill](skills/pricing-research/SKILL.md) compares products, costs, value, and refund terms, then recommends alternatives. You approve initial prices and material changes; agents keep pages, checkout, billing, and docs aligned. Policies follow the legal rules; publication follows release authorization.
 
-Use the pricing prompt in [Prompts](#prompts). Research and business decisions stay in private project docs; approved customer policies belong in `project/docs/public/legal/`.
+Use the pricing prompt in [Prompts](#prompts). Research and business decisions stay in private project docs; approved customer policies belong in `docs/public/legal/`.
 
 When marketing begins, the agent offers relevant Corey Haines skills linked in `offering.md`. Installation is optional, requires approval and review, and never happens during setup. The agent records your choice without repeated prompts; deferral does not block work.
 
@@ -177,7 +204,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/offering.md](template/offering.md) | Accurate marketing, researched commercial decisions, and consistent customer information |
 | [template/security.md](template/security.md) | Credentials, data, access, security review, release checks, and reporting |
 | [template/legal.md](template/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
-| [template/documentation.md](template/documentation.md) | Private internal, public and optional admin docs; canonical application `project/CHANGELOG.md` and existing-changelog migration |
+| [template/documentation.md](template/documentation.md) | Private internal, public and optional admin docs; canonical application `CHANGELOG.md` and existing-changelog migration |
 | [template/packages.md](template/packages.md) / [template/updates.md](template/updates.md) | Package choice and verified maintenance |
 | [template/launch.md](template/launch.md) | Private beta, public opening, and release verification |
 | [skills/](skills/) | Adoption, interview, interface design, pricing research, legal review and [application changelog audits](skills/changelog/SKILL.md) |
@@ -205,7 +232,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Legal review**
 
-> Review this project's customer terms and privacy needs using legal-review. Inspect the application and existing policies first, keep wording brief and factual, and ask only for missing material decisions. Prepare applicable drafts in project/docs/public/legal and report any unresolved questions.
+> Review this project's customer terms and privacy needs using legal-review. Inspect the application and existing policies first, keep wording brief and factual, and ask only for missing material decisions. Prepare applicable drafts in docs/public/legal and report any unresolved questions.
 
 **Pricing research**
 

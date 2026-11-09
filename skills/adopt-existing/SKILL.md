@@ -28,7 +28,7 @@ For a routine refresh, inspect changed guidance and affected project configurati
 2. Follow the integration/release policy in `git-workflow.md`. If `develop` is missing, establish it from the verified appropriate state with its tracked files and history. If it exists, reconcile through reviewed/tested integration; never reset it to force alignment. Preserve unfinished work on owned branches and coordinate retargeting of existing PRs rather than merging every branch.
 3. Direct issue work and maintenance integration to `develop`; update obsolete instructions and development automation references. Inspect repository and hosting triggers before pushing. Creating a branch does not switch a deployment.
 4. Follow `project.md` for authorized development/test routing and optional staging. Verify the replacement preview and deployed commit before retiring an old preview. Preserve production routing and existing operational update settings. Branch transitions never relocate databases, uploads, hosted customer applications, or other runtime resources.
-5. Record the final branches, routes/triggers, checks, and pending transition work in `project/docs/internal/`. Preserve `main`, its history, and any distinct deployed/unreleased states.
+5. Record the final branches, routes/triggers, checks, and pending transition work in `docs/internal/`. Preserve `main`, its history, and any distinct deployed/unreleased states.
 
 Before launch, preserve existing `main` history and deployed behavior. Continue implementation/testing through `develop`; changes to `main` require an authorized beta or public release under `launch.md`. Existing landing pages and private betas retain their access settings until an authorized change.
 
