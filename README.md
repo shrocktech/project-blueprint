@@ -232,13 +232,17 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 ## Prompts
 
+**Start planning**
+
+> Start planning this project with me. Review what I’ve collected in `materials/` and any wireframes in `design/`. Tell me what looks settled and what still needs a decision. Use our conversation to draft or update the project specification, keeping tentative ideas clearly marked. Wait for me to say when to start building.
+
 **Setup**
 
-> Set up this project using `<blueprint-source>` and private standing preferences at `<standing-preferences>` (or `none`). Follow the latest published stable release’s README adoption steps. If an application already exists, use adopt-existing first and preserve its stack, data, working features, and live behavior. Merge instructions and configure only compatible, authorized automation.
+> Use the latest stable release from `<blueprint-source>` and my private standing preferences at `<standing-preferences>` (or `none`). For first-time setup, follow the README and walk me through the setup interview, reusing decisions we’ve already made. For an existing application, use `adopt-existing` and preserve its working features, data, and live behavior. If Blueprint is already adopted, follow the release-update procedure. Verify the result and record the adopted tag and commit.
 
 **Interface design**
 
-> Build or refine this screen using our `design/README.md` and interface-design skill. Reuse the established components, keep related fields compact, and verify button readiness, processing, success, and failure at the device coverage required for the current phase.
+> Build or refine this screen using `design/README.md`, any relevant wireframes in `design/`, and the `interface-design` skill. Reuse the project’s components and theme. Inspect the rendered screen in the browser, use Impeccable’s browser iteration when available, and verify the affected user flow with Playwright at the sizes required for this phase. Check that people can tell when an action is ready, in progress, successful, or failed.
 
 **Issue interview**
 
