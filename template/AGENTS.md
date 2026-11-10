@@ -11,7 +11,7 @@ At implementation-session start, check [weekly Blueprint maintenance](standards/
 - Owner: the human authorized to bind the project/business; record their role and delegates. Policy approval requires explicit legal/business delegation; development or release access alone does not confer it.
 - Business and customer/service jurisdictions: record verified scope in private project docs; no assumed country.
 - Conventions: link existing formatter/linter configuration and patterns.
-- Brand: canonical kit and implementation tokens TODO; approval/provisional scope TODO; protected Brand Guidelines settings route and editor roles TODO. Follow [project design guide](design/README.md#brand-foundation-and-settings).
+- Brand: canonical kit and implementation tokens TODO; approval/provisional scope TODO; Brand Guidelines settings location TODO. Follow [project design guide](design/README.md#brand-foundation-and-settings).
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
 - Workspace: repository layout under [project.md](standards/project.md#project-workspace); record documentation, assets, repository skill paths and applicable tool-specific discovery locations, external private storage and migration issue/status. Existing projects follow [workspace migration](standards/documentation.md#workspace-migration) during adoption/updates.
