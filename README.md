@@ -85,13 +85,13 @@ Existing applications retain their framework, custom code, and data; WordPress r
 │   ├── admin/          # Administrator guides when needed
 │   ├── internal/       # Architecture, setup, testing and recovery
 │   └── public/         # Customer-facing guides and help
-├── materials/          # Working materials collected or created during development
+├── materials/          # Documents, notes, and drawings used throughout the project
 │   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
 │   ├── drawings/       # Editable diagrams, whiteboard sketches and canvases
 │   └── notebook/       # Research notes, meeting notes and working notebooks
 ├── scripts/            # Automation, maintenance and release scripts
 ├── src/                # Application source, where supported by the framework
-├── standards/          # Blueprint operating guides for contributors and agents
+├── standards/          # The rules for how this project is built and maintained
 ├── tests/              # Tests and fixtures, or use the framework’s test location
 ├── .distignore         # WP-CLI archive exclusions when packaging from this root
 ├── .env                # Local secrets; verify ciphertext before committing
