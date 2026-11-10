@@ -105,6 +105,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 ├── Dockerfile          # Image build instructions for containerized projects
 ├── LICENSE             # License or private-use terms appropriate to distribution
 ├── README.md           # Project overview, setup and navigation
+├── SECURITY.md         # Verified private channel for vulnerability reports
 ├── agent.md            # Directs agents to AGENTS.md
 └── compose.yaml        # Services run together with Docker Compose
 ```
@@ -238,7 +239,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Setup**
 
-> Use the latest stable release from `<blueprint-source>` and my private standing preferences at `<standing-preferences>` (or `none`). For first-time setup, follow the README and walk me through the setup interview, reusing decisions we’ve already made. For an existing application, use `adopt-existing` and preserve its working features, data, and live behavior. If Blueprint is already adopted, follow the release-update procedure. Verify the result and record the adopted tag and commit.
+> Use the latest stable release from `<blueprint-source>` and my private standing preferences at `<standing-preferences>` (or `none`). For first-time setup, follow the README and walk me through the setup interview, reusing decisions we’ve already made. For first adoption into an existing application, read and follow `skills/adopt-existing/SKILL.md` directly from the pinned Blueprint checkout. Preserve working features, data, and live behavior. If Blueprint is already adopted, follow the release-update procedure. Verify the result and record the adopted tag and commit.
 
 **Interface design**
 

@@ -1,6 +1,6 @@
 # Project Setup and Environments
 
-During setup, fill facts/commands in [AGENTS.md](../AGENTS.md); routine tasks use those verified values. For an existing application, use the `adopt-existing` skill at its recorded location before merging instructions. Setup does not authorize application upgrades, data changes, or production deployment.
+During setup, fill facts/commands in [AGENTS.md](../AGENTS.md); routine tasks use those verified values. For an existing application, follow the adoption skill before merging instructions. On first adoption, read `skills/adopt-existing/SKILL.md` from the pinned Blueprint checkout; after installation, use its recorded project location. Setup does not authorize application upgrades, data changes, or production deployment.
 
 ## Setup interview
 
