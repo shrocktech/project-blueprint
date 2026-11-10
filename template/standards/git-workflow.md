@@ -6,6 +6,10 @@ Apply during development and queue work, not merely because the user asks a ques
 
 The owner directs [lifecycle transitions](phases.md). Updating `main`, tagging or publishing a release, and deploying to production require explicit release authority for that action. Obtain authorization for invitation-only beta and separately for public opening. Reuse approval within its recorded scope. Issue completion, passing checks, phase changes, maintenance and draft approvals grant no release authority. Clarify ambiguous requests before acting. Follow [launch.md](launch.md) for candidate checks and delivery.
 
+**Production hotfixes.** Any developer working on the project can authorize and deliver a focused fix for an urgent defect in the deployed application, using the project's existing release access. Record this standing delegation once in the project facts and reuse it for each qualifying fix. Honor narrower local authority. Initial beta, public launch and unrelated changes follow the usual release rules.
+
+Claim the issue and start the fix in an owned checkout from the verified deployed commit. Carry the fix into `develop` through normal integration. For production, select only the fix against the deployed baseline, run the [production candidate checks](launch.md) on that exact candidate, and deliver through the project's normal release mechanism. If production advances, reconcile and recheck the candidate. Verify the affected behavior in production and record the deployed revision and the corresponding fix on `develop` before closing.
+
 ## Status and labels
 
 Verify repository, Issues, and Project access before development; create/link the Project if missing. During bootstrap, create/claim the setup issue, then establish needed label/status definitions before assigning them; preserve existing mappings. Use a board grouped by Status, with these five statuses in order and exactly one matching uppercase workflow label:
@@ -83,7 +87,7 @@ Use `issue branch → develop → main` in every lifecycle phase. `develop` inte
 
 Default to verified direct integration from the owned issue worktree, without a pull request (PR) or separate reviewer. Use a PR only when the owner requests one or existing repository rules require it. Do not introduce mandatory PRs or human review gates during setup; preserve existing protections. Dependabot update PRs follow [updates.md](updates.md).
 
-Inspect status and worktrees, fetch, and create an issue branch/worktree from `origin/develop`:
+Inspect status and worktrees, fetch, and create an issue branch/worktree from `origin/develop` for routine work (use the deployed baseline for a [production hotfix](#authorization)):
 
 ```sh
 git fetch origin

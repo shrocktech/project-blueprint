@@ -22,6 +22,7 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Clear several pending answers | Request an issue interview with the prompt below. |
 | Prepare an offer | Request pricing research with the prompt below; choose a recommendation or give your own terms. |
 | Change phase | Say “move to security” or name the next phase; the agent records your decision under [phases.md](template/standards/phases.md). |
+| Fix an urgent production defect | Any project developer can authorize a scoped fix under the project's [hotfix rules](template/standards/git-workflow.md#authorization). |
 | Release | Instruct the agent which release to perform. Passing tests alone does not authorize production. |
 | Update these standards | Request a blueprint change; existing projects follow the update guidance in their `AGENTS.md`. |
 | Capture recurring workflow lessons | Select optional [Task Observer](template/standards/optional-tools.md#task-observer) during setup; request an observation review when useful. Proposed fixes use the existing issue queue and approval rules. |
