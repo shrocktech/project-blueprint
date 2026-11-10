@@ -117,6 +117,8 @@ The [file map](#file-map) lists the guides in `standards/`. Root `AGENTS.md` lin
 
 For web-facing UI, follow [design standards](template/design/README.md), the [interface-design skill](skills/interface-design/SKILL.md), and required [Playwright setup](template/standards/project.md#playwright) for [desktop, tablet, and mobile](template/design/README.md#desktop-tablet-and-mobile). Projects without a web UI record the documented exclusion.
 
+For a new interface or requested redesign, use the [design interview](template/design/README.md#design-interview): review collected materials, discuss reference sites and custom options, then approve a visual sample and record the UI foundation. A redesign stays scoped to the requested interface without resetting the product lifecycle. Optional [UI UX Pro Max and DesignLang](template/standards/optional-tools.md#design-planning-tools) support planning and visual checks within the project's design guide.
+
 [TASTE](template/standards/optional-tools.md#taste) supports content-led art direction and screenshot critique for public-facing pages. Its optional pinned skill follows project brand, accessibility, performance, and truthful-content rules; application forms retain their established patterns.
 
 Use the interface prompt in [Prompts](#prompts).
@@ -245,6 +247,14 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 **Interface design**
 
 > Build or refine this screen using `design/README.md`, any relevant wireframes in `design/`, and the `interface-design` skill. Reuse the project’s components and theme. Inspect the rendered screen in the browser, use Impeccable’s browser iteration when available, and verify the affected user flow with Playwright at the sizes required for this phase. Check that people can tell when an action is ready, in progress, successful, or failed.
+
+**Plan the interface**
+
+> Plan this project's interface with me using the design interview in `design/README.md`. Inspect `materials/`, `design/` and any existing UI first. Reuse settled answers and ask one brief question at a time about supplied mockups, reference sites and custom options. Recommend a coordinated UI foundation and show a visual sample before implementation. Use selected design tools where helpful and record the approved direction in the existing guide.
+
+**Plan an interface redesign**
+
+> Plan a redesign of `<screens or scope>` using the design interview in `design/README.md`. Review the working UI and my references, identify what to retain and improve, and show a visual proposal. Preserve functionality, data and the established stack unless we agree otherwise. Keep planning scoped to this redesign and wait for approval of the direction before implementation.
 
 **Issue interview**
 

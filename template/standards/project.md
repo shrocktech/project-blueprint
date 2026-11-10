@@ -12,7 +12,7 @@ Interview the owner at every initial installation or adoption. Inspect the proje
 
 | Question | Recommended default | Alternative to discuss |
 | --- | --- | --- |
-| What branding should this project use? | Preserve existing identity/tools; establish the [brand foundation and settings page](../design/README.md#brand-foundation-and-settings), with owner-approved essentials before styled UI. | Create or extend an identity; offer optional Cofoundy Brand Skills only where needed and record the choice. |
+| What brand and UI direction should this project use? | Preserve existing identity/tools; follow the [design interview](../design/README.md#design-interview) and establish the [brand foundation and settings page](../design/README.md#brand-foundation-and-settings). | Combine supplied references with a custom proposal; offer optional design tools only where needed and record the choice. |
 | How would you like changes reviewed? | Agent verification and direct integration under [git-workflow.md](git-workflow.md). | Pull requests. Separately establish whether they require human approval or agent review and passing checks; preserve existing protections. |
 | Do you want to evaluate concurrent agent sessions with one live preview? | Use the existing owned issue checkouts/worktrees. | Optional [experimental multi-agent mode](optional-tools.md#experimental-multi-agent-mode), selected by the owner for disposable evaluation only. |
 | Do you need a separate staging environment? | Development and production under [environment defaults](#environment-defaults). | Explicitly requested staging for release or integration checks; preserve existing staging. |

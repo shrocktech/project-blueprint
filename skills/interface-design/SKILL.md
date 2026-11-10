@@ -1,6 +1,6 @@
 ---
 name: interface-design
-description: Plan, implement, or review application pages and forms using the project's established UI stack. Use for desktop, tablet, and mobile layouts, responsive navigation, icons, alignment, or action-feedback work.
+description: Plan new interfaces or scoped redesigns, implement or review pages and forms using the project's UI stack. Use for design interviews, responsive layouts, navigation, icons, shared controls and action feedback.
 ---
 
 # Interface Design
@@ -8,6 +8,8 @@ description: Plan, implement, or review application pages and forms using the pr
 Read the target project's `AGENTS.md` and `design/README.md`; filenames refer to that project, not this skill directory. Use the recorded blueprint source/revision if guidance is missing. Apply `design/README.md` to the requested pages. For review-only tasks, report findings without edits or submissions.
 
 ## Establish the pattern
+
+For a new visual direction or requested redesign, follow the target project's `design/README.md` Design interview before implementation; use selected tools through `standards/optional-tools.md`. Routine screen work reuses approved choices without repeating the interview. Identify the existing shared controls and their source paths before building; implement missing controls within the approved UI foundation.
 
 Inspect nearby screens, shared components, icon mappings, spacing tokens, validation, and notifications. Sketch the requested content using those conventions, for example:
 

@@ -5,7 +5,22 @@
 | Identity, audience and voice | Record the approved direction and examples. |
 | Colors, typography and spacing | List their roles and link the actual CSS, design tokens or framework theme file. |
 | Logo, artwork and components | Link approved assets, mockups and representative components. |
+| UI foundation | Record CSS framework, component library, icon family, button variants/sizes/shape and links to their shared implementations. |
 | Approved exceptions | Record the decision, scope and owner. |
+
+## Design interview
+
+Use this interview for a new interface or an owner-requested redesign. First inspect `materials/`, `design/`, standing preferences and any working application. Reuse settled decisions; ask one brief unanswered question at a time, recommending a direction and accepting “use your judgment.”
+
+1. **Do you have mockups, wireframes or brand references to follow?** Summarize what was found and confirm which materials express the intended direction.
+2. **Is there a website or application whose design you like?** Identify the specific qualities to borrow: navigation, typography, colors, spacing or controls. Adapt references to the project's identity and respect asset licenses.
+3. **Would you like a custom design proposal?** Recommend a coordinated CSS framework, component library, icon family and button system suited to the actual stack. References and custom choices can be combined; skip questions already answered.
+
+For redesigns, establish the affected screens and what should improve, retaining useful components and working behavior. Design planning is scoped work: it does not reset the product lifecycle, repeat the setup interview or authorize replacing the stack. Explain any material replacement before seeking that decision.
+
+Present a small visual sample (two or three alternatives when useful) showing navigation, typography, buttons and fields, including relevant interaction states and themes. Obtain approval of the direction before styled implementation, then maintain the choices in this guide and link canonical tokens and shared components. Clearly distinguish drafts under `design/` from approved choices. Build or extend the needed shared controls before expanding feature screens; add consistent variants there rather than styling each screen independently. Routine refinements within the approved direction use existing autonomy rules.
+
+Selected [UI UX Pro Max and DesignLang](../standards/optional-tools.md#design-planning-tools) support recommendations, reference extraction and drift checks. Existing tools can complete the interview without them. Implement and verify through `interface-design`, [browser iteration](#browser-iteration) and phase-appropriate [device checks](#desktop-tablet-and-mobile).
 
 ## Design checks
 
@@ -32,7 +47,7 @@ For UI implementation and refinement in projects with Impeccable selected, use i
 
 During `DEVELOPMENT: planning`, establish an owner-approved brand foundation before styled UI implementation. Inspect existing assets, guidelines, theme settings, tokens, components and installed design skills first; preserve an established identity and extend its canonical sources. Adoption does not authorize rebranding, framework replacement or duplicate tooling. Unstyled wireframes, research and independent technical work may proceed while brand decisions are pending. Scale the work to the project: a small application can use a concise essentials guide and approved wordmark; larger products may need fuller guidelines.
 
-- Capture audience, purpose, positioning, personality, voice, references and constraints through the [setup interview](../standards/project.md#setup-interview), reusing known answers. Present a small set of coherent directions with representative previews; record the owner's chosen foundation and any explicitly approved provisional elements. Do not invent business facts, founder stories, endorsements or proof points.
+- Capture audience, purpose, positioning, personality, voice, references and constraints through the [design interview](#design-interview), reusing known answers. Record any explicitly approved provisional elements. Do not invent business facts, founder stories, endorsements or proof points.
 - Maintain one versioned brand kit: context and voice; color roles and verified accessible combinations; fonts, weights, hierarchy, fallbacks and licenses; logo direction and approved variants/assets; imagery/icon guidance; usage examples and restrictions. A logo brief is not a finished logo. Record asset provenance and permitted use; use existing licensed resources or free suitable alternatives, with separate approval for purchases. Naming research is preliminary screening, not trademark clearance. Omit irrelevant print specifications rather than inventing them.
 - Maintain this guide and its editable artwork in `design/`. Apply [workspace migration](../standards/documentation.md#workspace-migration) to existing kits. Link to framework-managed tokens, served assets and restricted external masters at their required locations. Index the kit from the private documentation and record its location, approval and settings route in `AGENTS.md`. Keep strategy, research and drafts private under [documentation.md](../standards/documentation.md); publish only approved assets. Translate approved choices into the established theme/tokens and shared components, linking their authoritative locations rather than hand-maintaining duplicate palettes. Optional design-system tools consume this foundation; Impeccable/TASTE refine within it. Verify representative components and pages through `interface-design` and the applicable device checks.
 - Every application provides **Settings → Brand Guidelines**, or a clearly named equivalent in its existing settings area. Reuse an existing page where suitable. Show the approved logo variants, color swatches with values/roles, typography samples, imagery/icon rules, voice examples, approval/version and asset links at a glance. Render from this guide and the application’s actual theme values, directly or through a reproducibly generated view; distinguish approved values from drafts and identify where each value is maintained. Never expose private strategy or internal paths through public assets or customer views.
