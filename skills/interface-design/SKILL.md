@@ -29,6 +29,8 @@ Adapt the example to the task's content and actions; it is an application-form p
 
 Before implementation, map the action states in `design/README.md` to the application's data source, form/state utilities, validation boundaries, and expected result. Select an authorized test environment and synthetic data.
 
+Run applicable shared-control checks under the target project's `standards/packages.md`. Maintain the live control examples specified in `design/README.md` as controls evolve, and verify them alongside affected feature screens.
+
 ## Verify the rendered result
 
 Use the project's required Playwright setup, official `playwright-cli` skill at its verified location, and recorded commands under `standards/project.md` to exercise affected user journeys with synthetic data. Follow the target agent's supported browser-tool access rules. Run relevant existing tests and add repeatable regression coverage for important changed behavior. Inspect the rendered browser or captured screenshots as well as assertions; automated passes alone do not establish visual correctness.
