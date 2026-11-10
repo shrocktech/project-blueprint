@@ -12,9 +12,10 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 
 | Situation | Your action |
 | --- | --- |
+| Explore an idea before setup | Collect notes and references in `materials/` and UI wireframes in `design/`. Say “start planning” when you want to [review them together and draft the project specification](template/standards/project.md#setup-interview). |
 | Start or adopt a project | Give the agent the setup prompt below and repository access. |
 | Request implementation | Tell the agent or move an issue to `TO DO`. It refreshes the live queue, including tasks added during work. |
-| Save an idea or recommendation | Use `BACKLOG` plus one: `idea` (early thought), `suggestion` (recommended improvement), or `proposal` (developed recommendation needing a decision). Approval moves it to `TO DO` and removes the descriptor. |
+| Save an idea or recommendation for an active project | Use `BACKLOG` plus one: `idea` (early thought), `suggestion` (recommended improvement), or `proposal` (developed recommendation needing a decision). Approval moves it to `TO DO` and removes the descriptor. |
 | `paused: decision` | Answer the recommended A or another option, or give your own answer. |
 | `paused: setup` | Complete the linked user-only steps and report the result. |
 | `paused: external` | Read the provider/dependency status; usually no action is needed. |

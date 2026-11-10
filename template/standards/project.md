@@ -4,6 +4,10 @@ During setup, fill facts/commands in [AGENTS.md](../AGENTS.md); routine tasks us
 
 ## Setup interview
 
+Before setup, collect ideas and reference material in `materials/` and UI wireframes in `design/` as needed under the [workspace layout](#project-workspace). The owner can keep collecting for as long as needed.
+
+When the owner says “start planning,” review the available notes, documents, drawings and wireframes with them during the setup interview. Use that conversation to draft the [project specification](phases.md) from agreed goals, scope and acceptance criteria. Mark open questions and tentative ideas clearly.
+
 Interview the owner at every initial installation or adoption. Inspect the project and the private standing preferences recorded in `AGENTS.md`. Pre-fill known answers, preserve local protections and ask about unresolved choices. Recommend options proportionate to project size and risk. Always offer Monid. Record optional choices as selected, declined or deferred and revisit only on request or material change. Keep shared defaults private and credential-free. Spending and host access need project-specific scope.
 
 | Question | Recommended default | Alternative to discuss |
