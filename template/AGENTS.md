@@ -21,7 +21,7 @@ At implementation-session start, check [weekly Blueprint maintenance and any sel
 - Blueprint source and verified adopted tag/commit: TODO (selected pilot: `.github/blueprint-update.json`); local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue, scheduled-run evidence and agent handoff: TODO. Record incomplete adoption separately; a prepared PR does not advance this record.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, `legal-review`, and `changelog` skills during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [Task Observer setup](standards/optional-tools.md#task-observer).
-- Encrypted `.env`: standard setup; protected key path, authorized hosts and verified encryption/unlock/plaintext-blocking checks TODO under [security.md](standards/security.md#encrypted-env-with-git-crypt). Record any owner-approved local-only exception; plaintext `.env` must never be committed or pushed.
+- `.env` storage: local ignored by default; record owner-selected encrypted repository storage and verified key/access and encryption checks when enabled under [security.md](standards/security.md#encrypted-env-with-git-crypt). Never commit plaintext `.env`.
 
 ## Verified commands
 
@@ -41,7 +41,7 @@ Use actual scripts/CI. Run applicable commands before marking them verified; ide
 - Record skipped, blocked or unverified checks, their impact and the next action. Claim only coverage supported by evidence.
 - Load enabled Task Observer for substantial tasks, resumptions and related feedback or reviews under its [activation rules](standards/optional-tools.md#task-observer).
 - Claim an issue and use an owned checkout. Follow [delivery and closure](standards/git-workflow.md#isolation-branches-and-delivery), [live queue refresh](standards/git-workflow.md#issue-first-and-live-queue) and [authorization](standards/git-workflow.md#authorization).
-- When offered credentials, prepare the [local secret entry](standards/security.md#local-development-secrets). Use synthetic test data, run [secret scans](standards/security.md#secret-scanning) and check [git-crypt at session start](standards/security.md#encrypted-env-with-git-crypt).
+- When offered credentials, prepare the [local secret entry](standards/security.md#local-development-secrets). Use synthetic test data, run [secret scans](standards/security.md#secret-scanning) and check [git-crypt at session start when selected](standards/security.md#encrypted-env-with-git-crypt).
 - Apply the [review scope](standards/git-workflow.md#delegated-code-review) to the integration or production candidate.
 - Preserve existing frameworks, working features, data, and deployment behavior. Replacing an established stack needs explicit approval. Use the `adopt-existing` skill when adopting/updating this blueprint in an existing project.
 - Follow [navigation and route changes](design/README.md#navigation-and-route-changes): update development routes and references directly; do not add speculative legacy redirects or aliases.
