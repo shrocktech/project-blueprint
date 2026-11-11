@@ -18,7 +18,7 @@ Publication follows [launch.md](launch.md). Preparing required notices does not 
 
 ## Repository license
 
-Preserve existing license terms and third-party notices. For a project confirmed as proprietary and intended for private use, if it has no license, create a root `LICENSE` using the verified year and copyright holder:
+Preserve existing license terms and third-party notices. A new project's own license and copyright-holder decision may be deferred during private planning and development; do not block setup or repeatedly ask. Before distributing the project, publishing source with intended reuse rights, or making a commitment that requires license terms, select and verify the applicable terms. Repository visibility alone does not grant reuse rights. Third-party dependencies and assets must still be used within their existing licenses. For a project confirmed as proprietary and intended for private use, when a license notice is needed, create a root `LICENSE` using the verified year and copyright holder:
 
 ```text
 Copyright (c) <year> <copyright holder>. All rights reserved.

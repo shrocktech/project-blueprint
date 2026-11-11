@@ -107,7 +107,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 ├── CHANGELOG.md        # Customer-visible changes when the changelog is due
 ├── CLAUDE.md           # Imports the root agent instructions
 ├── Dockerfile          # Image build instructions for containerized projects
-├── LICENSE             # License or private-use terms appropriate to distribution
+├── LICENSE             # License or private-use terms when needed for distribution
 ├── README.md           # Project overview, setup and navigation
 ├── SECURITY.md         # Verified private channel for vulnerability reports
 ├── agent.md            # Directs agents to AGENTS.md
