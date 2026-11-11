@@ -13,7 +13,7 @@ Use the adoption/update issue and `standards/git-workflow.md` bootstrap. Review 
 
 For a routine refresh, inspect changed guidance and affected project configuration, apply only the relevant steps below, and skip established branch/environment/tracking bootstrap. Do not repeat settled interviews, reset lifecycle position, or migrate branches merely because this skill includes initial-adoption procedures.
 
-Establish the target's `standards/updates.md` Blueprint update workflow during first setup and adoption. Existing projects need the caller and verified source/adoption configuration installed once; preserve local exceptions and existing workflow files. Observe manual and scheduled execution and verify the agent handoff before retiring duplicate Blueprint polling. Keep security, dependency, backup and host maintenance. Candidate PRs still require local reconciliation, verification and integration before advancing the adoption record.
+Follow the target's `standards/updates.md` weekly Blueprint checks. The daily updater is an optional owner-selected pilot, never automatically activated by adoption. Configure and validate source examples before installing the caller; preserve local workflow files and weekly checking. Record observed manual/scheduled runs and agent handoff, keeping all other maintenance. Only verified integration advances adoption and its README version line.
 
 ## Inspect and preserve
 
