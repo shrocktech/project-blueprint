@@ -29,7 +29,7 @@ Adapt the example to the task's content and actions; it is an application-form p
 
 Before implementation, map the action states in `design/README.md` to the application's data source, form/state utilities, validation boundaries, and expected result. Select an authorized test environment and synthetic data.
 
-Run applicable shared-control checks under the target project's `standards/packages.md`. Maintain the live control examples specified in `design/README.md` as controls evolve, and verify them alongside affected feature screens.
+Run applicable shared-control and duplication checks under the target project's `standards/packages.md`; inspect findings and reuse matching implementations without forcing unrelated responsibilities into one abstraction. Maintain the live control examples specified in `design/README.md`, using the selected Storybook or simple gallery, and verify them alongside affected feature screens. The gallery imports actual components, not demonstration copies.
 
 Compare affected screens with the Brand Guidelines gallery and representative existing screens for the design guide's consistency requirements, including responsive and interaction states. When shared components or tokens change, check their affected consumers. For modals, test X and Escape separately, focus containment/restoration, close-button visibility after scrolling, and unchanged/unsaved-input dismissal without unintended submission. Keep repeatable coverage in the existing Playwright suite.
 

@@ -1,0 +1,19 @@
+name: Blueprint updates
+on:
+  schedule:
+    - cron: '23 4 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+concurrency:
+  group: blueprint-update
+  cancel-in-progress: false
+jobs:
+  prepare:
+    # Setup replaces both placeholders with the verified source and the SAME full commit.
+    uses: BLUEPRINT_OWNER/BLUEPRINT_REPO/.github/workflows/adopt-release.yml@PINNED_BLUEPRINT_COMMIT
+    with:
+      source-repository: BLUEPRINT_OWNER/BLUEPRINT_REPO
+      updater-ref: PINNED_BLUEPRINT_COMMIT

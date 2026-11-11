@@ -19,7 +19,7 @@ Light checks apply from setup; the full set switches on at `DEVELOPMENT: securit
 | [ZAP](#application-and-api-security-testing) for web applications and HTTP APIs | Plan scope; not yet installed | Install and verify; affected integrations, every production candidate, weekly test-environment scan |
 | [Delegated code review](git-workflow.md#delegated-code-review) (Open Code Review) | Agent's own review of the candidate | Applicable integration changes and every production promotion; exclusions follow the linked workflow |
 | [Playwright](project.md#playwright) for web UI | Installed at setup; desktop checks | Full desktop/tablet/mobile matrix |
-| [Lint/format](packages.md#linting-and-formatting), existing tests and meaningful behavior checks | Required as applicable | Required as applicable |
+| [Lint/format](packages.md#linting-and-formatting), [duplication checks](packages.md#duplication-checks), existing tests and meaningful behavior checks | Required as applicable | Required as applicable |
 | [Graphify](project.md#graphify) | Installed at setup; a failure is recorded, not blocking | Required working |
 | [Vulnerability intelligence](#vulnerability-intelligence) (NVD/OSV monitoring) | Not yet configured | Configure and verify under [updates.md](updates.md) |
 

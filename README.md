@@ -1,8 +1,8 @@
 # Project Blueprint
 
-Project Blueprint gives each project a consistent start. After setup, the project’s own repository is the source of truth for how it is built, designed, and maintained. Each project checks weekly for published Blueprint releases, applies relevant improvements within its approved scope, and asks the owner when an update requires a new decision.
+Project Blueprint gives each project a consistent start. After setup, the project’s own repository is the source of truth for how it is built, designed, and maintained. Each project uses a daily workflow to prepare published Blueprint updates; agents verify and integrate relevant improvements within approved scope and ask the owner only for new decisions.
 
-Initial setup always includes an owner interview, using the owner's private standing preferences and simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Establish the [approved brand foundation](template/design/README.md#brand-foundation-and-settings) before styled UI; each application provides a Brand Guidelines settings page, reusing existing identity and tools. Verify the [weekly release check](template/standards/updates.md#periodic-blueprint-maintenance) during setup.
+Initial setup always includes an owner interview, using the owner's private standing preferences and simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Establish the [approved brand foundation](template/design/README.md#brand-foundation-and-settings) before styled UI; each application provides a Brand Guidelines settings page, reusing existing identity and tools. Verify the [Blueprint update workflow](template/standards/updates.md#periodic-blueprint-maintenance) during setup.
 
 ![Before setup, collect ideas in materials/ and wireframes in design/. When the owner says “start planning,” review them together, draft the specification, and confirm setup choices. Application workflow with ten stops: DEVELOPMENT planning, build and security; RELEASE offering, beta and validation; LAUNCH open, feedback and stabilize; PRODUCTION ongoing. Board statuses: dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing and deployment, green COMPLETED. Owned issue worktrees follow issue branch to develop to authorized main. Paused work stays IN PROGRESS with pink decision, red setup or silver external reason. Refresh the live queue after completion or pause and before stopping. Explicit authorization precedes private beta and public launch. Owner/developer admin footer shows environment and numbered phase; customer views show neither. GitHub Free requires no paid features](assets/project-workflow-landscape.jpg)
 
@@ -68,7 +68,8 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
 5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Establish the application's [repository layout](template/standards/project.md#project-workspace); for an existing application, complete the [repository-wide migration](template/standards/documentation.md#workspace-migration) and verify its final tree. Blueprint's distribution `template/` and reusable `skills/` remain separate.
 6. Make applicable [skills](skills/README.md) available through supported installation, or retain the blueprint checkout and record verified skill paths. Place repository skills under `.agents/skills/` in the setup checkout and verify discovery for each selected tool. Fill facts/commands and complete `standards/project.md`.
-7. Complete required [Graphify setup](template/standards/project.md#graphify) and [Playwright setup or reasoned exclusion](template/standards/project.md#playwright), and verify [current product reference access](template/standards/packages.md#current-product-references), links, applicable checks, discovery, and automation/runner behavior. Record actual source/revision, skill locations, local exceptions, and remaining setup with direct links; copying instructions does not activate automation.
+7. Install and configure the [Blueprint update caller and adoption record](template/standards/updates.md#periodic-blueprint-maintenance) for new and existing projects. Verify manual execution, then scheduled execution and the agent handoff before retiring duplicate Blueprint polling; keep other maintenance.
+8. Complete required [Graphify setup](template/standards/project.md#graphify) and [Playwright setup or reasoned exclusion](template/standards/project.md#playwright), and verify [current product reference access](template/standards/packages.md#current-product-references), links, applicable checks, discovery, and automation/runner behavior. Record actual source/revision, skill locations, local exceptions, and remaining setup with direct links; copying instructions does not activate automation.
 
 Existing applications retain their framework, custom code, and data; WordPress retains its themes/plugins and established Bootstrap/Tabler. The adoption skill covers label migration and transitioning current work to `develop` without losing history or unfinished work. Application upgrades and production-affecting changes are separate tasks.
 
@@ -78,7 +79,9 @@ Existing applications retain their framework, custom code, and data; WordPress r
 <repo-name>/
 ├── .agents/skills/     # Repository skills, one directory per skill
 ├── .github/            # GitHub repository configuration
-│   ├── workflows/      # GitHub Actions for checks, builds and deployments
+│   ├── workflows/      # Checks, builds and deployments
+│   │   └── blueprint-update.yml # Daily stable-release proposal and manual trigger
+│   ├── blueprint-update.json # Verified source, adoption and integration branch
 │   └── dependabot.yml  # Weekly updates for supported package ecosystems
 ├── assets/             # Runtime assets when the framework has no prescribed location
 ├── design/             # Wireframes, UI mockups and editable brand artwork
@@ -121,6 +124,8 @@ For a new interface or requested redesign, use the [design interview](template/d
 
 [TASTE](template/standards/optional-tools.md#taste) supports content-led art direction and screenshot critique for public-facing pages. Its optional pinned skill follows project brand, accessibility, performance, and truthful-content rules; application forms retain their established patterns.
 
+Optional [Storybook](template/standards/optional-tools.md#storybook) provides the live gallery using actual application components. Required applicable [jscpd duplication checks](template/standards/packages.md#duplication-checks) complement shared-control lint and Playwright; they do not guarantee reuse.
+
 Use the interface prompt in [Prompts](#prompts).
 
 For UI work with selected Impeccable, agents use [browser iteration](template/design/README.md#browser-iteration) to compare and accept refinements on the running application, then clean up Live Mode and verify the saved result with existing Playwright checks. Unsupported setups use the documented fallback and record the gap.
@@ -129,7 +134,7 @@ For UI work with selected Impeccable, agents use [browser iteration](template/de
 
 Tools complement application security controls; a clean report cannot guarantee security. [Security review](template/standards/security.md#security-review) governs coverage, findings, and risk decisions.
 
-![Security and quality by phase. Planning/build require secret scans, agent review, desktop Playwright for web UI, lint/format and existing tests; install Graphify and record failures. From DEVELOPMENT security onward require working Graphify, applicable Trivy and ZAP application/API scans, delegated code review, full desktop/tablet/mobile coverage and NVD/OSV monitoring. Full checks precede leaving DEVELOPMENT; every production promotion requires review and owner authorization. ZAP uses isolated test targets and authenticated coverage; existing tools remain required. Weekly Blueprint, dependency and applicable security checks share verified scheduling with authorized Saturday VM maintenance. Root .env uses git-crypt encryption at initial setup; only verified ciphertext may be pushed, never plaintext or keys. Steel, GSD, Task Observer, Monid and deeper Schemathesis API testing are optional; Impeccable and TASTE skills are optional. No paid GitHub features are required and no tool guarantees security](assets/security-quality-flow.png)
+![Security and quality by phase. Planning/build require secret scans, agent review, desktop Playwright for web UI, lint/format, scoped jscpd duplication checks and existing tests; install Graphify and record failures. From DEVELOPMENT security onward require working Graphify, applicable Trivy and ZAP application/API scans, delegated code review, full desktop/tablet/mobile coverage and NVD/OSV monitoring. Full checks precede leaving DEVELOPMENT; production promotions require review and recorded release authority. ZAP uses isolated test targets and authenticated coverage; existing tools remain required. Daily Blueprint proposals have verified agent handoff; dependency and applicable security checks stay weekly with authorized Saturday VM maintenance. Root .env uses git-crypt encryption at initial setup; only verified ciphertext may be pushed, never plaintext or keys. Steel, GSD, Task Observer, Monid and deeper Schemathesis API testing are optional; Impeccable, TASTE and Storybook are optional. No paid GitHub features are required and no tool guarantees security](assets/security-quality-flow.png)
 
 [Open the full-size security and quality graphic](assets/security-quality-flow.png). Weekly rescans and inventory-matched NVD/OSV advisory checks share the maintenance workflow. [Monitor health](template/standards/updates.md#advisory-monitoring-and-health) records verified scheduled execution, last successful checks and gaps; otherwise agents check during active sessions. Existing projects approve maintenance-rule changes under the recorded adoption policy.
 
@@ -140,6 +145,8 @@ Tools complement application security controls; a clean report cannot guarantee 
 | [WordPress agent skills](https://github.com/WordPress/agent-skills) | Required for WordPress projects; relevant skills guide platform-specific implementation, analysis, and review. |
 | [Impeccable](https://github.com/pbakaus/impeccable) | Design principles support hierarchy, spacing, responsive layouts, and interaction states. Its skill is optional; it is not a security scanner. |
 | [ESLint](https://eslint.org/) / [Prettier](https://prettier.io/) / [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards) | [Stack-appropriate checks](template/standards/packages.md#linting-and-formatting) enforce consistent code and flag problematic patterns; preserve equivalent existing tools. |
+| [jscpd](https://jscpd.dev/) | Scoped duplication checks flag copied implementations; baseline existing debt and block new clones under [package checks](template/standards/packages.md#duplication-checks). |
+| [Storybook](https://storybook.js.org/) | Optional workshop displays/tests actual shared components; full application checks remain required. |
 | [Betterleaks](https://github.com/betterleaks/betterleaks) | Required secret scanning checks files, staged changes, and relevant history; verified existing Gitleaks coverage can remain during adoption. |
 | [Trivy](https://github.com/aquasecurity/trivy) | Required scanning for supported dependency vulnerabilities, infrastructure configuration, and shipped container images. Record coverage gaps, including WordPress components outside Composer coverage. |
 | [ZAP](https://www.zaproxy.org/) | Required running-application security tests for web applications and HTTP APIs from `DEVELOPMENT: security`: discovery, authenticated passive/active scans, applicable API coverage and private reports under [security guidance](template/standards/security.md#application-and-api-security-testing). Complements existing tools. |
@@ -156,18 +163,18 @@ ZAP runs against isolated project test targets with synthetic accounts and contr
 
 Agents verify changes under [delivery rules](template/standards/git-workflow.md#isolation-branches-and-delivery) and [security review](template/standards/security.md#security-review), fixing findings and recording evidence. [Release](template/standards/launch.md) requires candidate checks and authorization; [maintenance](template/standards/updates.md) repeats checks as advisories change.
 
-## Weekly maintenance and credentials
+## Maintenance and credentials
 
-[Setup](template/standards/project.md#setup-interview) records a weekly plan covering Blueprint changes, NVD/OSV checks, Trivy rescans, bounded ZAP test-environment scans and dependency updates. [VM maintenance](template/standards/updates.md#weekly-vm-maintenance) defaults to late Saturday in the recorded timezone, with agreed restart/reboot scope and recovery checks. Shared VMs have one host job. Each check records its own result; failed or missing runs are reported, not counted as clean.
+[Setup](template/standards/project.md#setup-interview) installs the [daily Blueprint update workflow](template/standards/updates.md#periodic-blueprint-maintenance) and records weekly NVD/OSV checks, Trivy rescans, bounded ZAP test-environment scans and dependency updates. [VM maintenance](template/standards/updates.md#weekly-vm-maintenance) defaults to late Saturday in the recorded timezone, with agreed restart/reboot scope and recovery checks. Shared VMs have one host job. Each check records its own result; failed or missing runs are reported, not counted as clean. An update proposal needs a verified agent handoff and application checks before integration; active-session-only completion is recorded explicitly.
 
 ```mermaid
 flowchart TD
     A[Initial owner interview] --> B[Verify scheduler, access and agent handoff]
     B --> C[Weekly maintenance window]
-    C --> D[Published Blueprint release check]
+    B --> D[Daily published Blueprint release proposal]
     C --> E[NVD / OSV, Trivy, test-environment ZAP and dependency checks]
     C --> F[One job per VM: OS updates and authorized restarts]
-    D --> G[Issue first: apply in-scope improvements; ask on conflicts]
+    D --> G[Issue and safe candidate PR: agent verifies and integrates]
     E --> H[Triage findings and verify fixes]
     F --> I[Verify services and scheduler after restart]
     G --> J[Record results, gaps and last success]
@@ -227,6 +234,8 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/standards/launch.md](template/standards/launch.md) | Private beta, public opening, and release verification |
 | [skills/](skills/) | Adoption, interview, interface design, pricing research, legal review and [application changelog audits](skills/changelog/SKILL.md) |
 | [PowerShell](scripts/setup-labels.ps1) / [Bash](scripts/setup-labels.sh) / [labels](scripts/labels.json) | Label setup and canonical colors |
+| [Update caller](template/.github/workflows/blueprint-update.yml) / [adoption record](template/.github/blueprint-update.json) | Installed in each adopting project; setup fills verified source and pins |
+| [Reusable updater](.github/workflows/adopt-release.yml) / [proposal script](scripts/blueprint-update.py) / [tests](scripts/test-blueprint-update.py) | Pinned release detection and safe issue/PR preparation; no automatic integration |
 
 `agent.md` points to `AGENTS.md`; `CLAUDE.md` imports it using `@AGENTS.md`. Verify the target tool's discovery during setup. Detailed guides and skills are read only when relevant.
 

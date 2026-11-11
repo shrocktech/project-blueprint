@@ -1,0 +1,42 @@
+name: Prepare Blueprint release
+on:
+  workflow_call:
+    inputs:
+      source-repository:
+        required: true
+        type: string
+      updater-ref:
+        required: true
+        type: string
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Validate pinned source
+        env:
+          SOURCE: ${{ inputs.source-repository }}
+          UPDATER_REF: ${{ inputs.updater-ref }}
+        run: |
+          [[ "$SOURCE" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
+          [[ "$UPDATER_REF" =~ ^[0-9a-f]{40}$ ]]
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          path: target
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: ${{ inputs.source-repository }}
+          ref: ${{ inputs.updater-ref }}
+          path: updater
+          persist-credentials: false
+      - name: Prepare proposal without running application code
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE: ${{ inputs.source-repository }}
+        run: python3 updater/scripts/blueprint-update.py --source "$SOURCE" --target target

@@ -1,0 +1,8 @@
+{
+  "source": "BLUEPRINT_OWNER/BLUEPRINT_REPO",
+  "integrationBranch": "develop",
+  "adopted": {
+    "tag": "VERIFIED_RELEASE_TAG",
+    "commit": "VERIFIED_RELEASE_COMMIT"
+  }
+}
