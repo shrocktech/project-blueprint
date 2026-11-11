@@ -52,21 +52,51 @@ def pages(path):
     raise ValueError("Pagination limit reached; review manually")
 
 
-def config(root, source):
+class NotConfigured(Exception):
+    """Expected setup state, not a successful release check."""
+
+
+def notice(message):
+    print(message)
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        with open(summary, "a", encoding="utf-8") as stream:
+            stream.write(message + "\n")
+
+
+def config(root, source, adoption=True):
     p = root / ".github/blueprint-update.json"
-    if p.is_symlink() or not p.is_file():
-        raise ValueError("Configure .github/blueprint-update.json before activation")
+    if p.is_symlink() or p.parent.is_symlink():
+        raise ValueError("Configuration must not be a symlink")
+    if not p.exists():
+        raise NotConfigured("Not configured: install the adoption record; no release check completed")
     cfg = json.loads(p.read_text())
+    if cfg.get("source") == "BLUEPRINT_OWNER/BLUEPRINT_REPO":
+        raise NotConfigured("Not configured: fill the source; no release check completed")
     if not REPO.fullmatch(source) or cfg.get("source") != source:
         raise ValueError("Source mismatch")
-    if not SHA.fullmatch(cfg.get("adopted", {}).get("commit", "")):
-        raise ValueError("Record a verified adoption commit")
-    if not TAG.fullmatch(cfg["adopted"].get("tag", "")):
-        raise ValueError("Record a stable adoption tag")
     branch = cfg.get("integrationBranch", "")
     if not isinstance(branch, str) or branch.startswith("-") or not branch:
         raise ValueError("Record the integration branch")
     run("git", "check-ref-format", "--branch", branch)
+    if adoption:
+        adopted = cfg.get("adopted", {})
+        if adopted.get("commit") == "VERIFIED_RELEASE_COMMIT" or adopted.get("tag") == "VERIFIED_RELEASE_TAG":
+            raise NotConfigured("Not configured: verify integration-branch adoption; no release check completed")
+        if not SHA.fullmatch(adopted.get("commit", "")):
+            raise ValueError("Record a verified adoption commit")
+        if not TAG.fullmatch(adopted.get("tag", "")):
+            raise ValueError("Record a stable adoption tag")
+    return cfg
+
+
+def integration_config(target, source):
+    routing = config(target, source, adoption=False)
+    git(target, "fetch", "--depth=1", "origin", routing["integrationBranch"])
+    git(target, "checkout", "--detach", "FETCH_HEAD")
+    cfg = config(target, source)
+    if cfg["integrationBranch"] != routing["integrationBranch"]:
+        raise ValueError("Default/integration routing disagrees")
     return cfg
 
 
@@ -100,6 +130,11 @@ def proposal(source, base, latest, target):
     for name in sorted(set(old) | set(new)):
         if old.get(name) == new.get(name):
             continue
+        if name in (".github/workflows/adopt-release.yml", "scripts/blueprint-update.py"):
+            review.append("Updater implementation: review the caller's executable pins separately")
+            continue
+        if not name.startswith(("template/", "skills/")):
+            continue
         destination = mapped(name)
         if destination is None:
             review.append(name + " (agent-managed)")
@@ -132,7 +167,7 @@ def proposal(source, base, latest, target):
             review.append(destination + " (local content)")
             continue
         writes[destination] = after
-    return writes, review
+    return writes, list(dict.fromkeys(review))
 
 
 def apply(target, writes):
@@ -151,17 +186,12 @@ def main():
     parser.add_argument("--target", type=Path, required=True)
     args = parser.parse_args()
     target = args.target.resolve()
-    cfg = config(target, args.source)
     repo = os.environ["GITHUB_REPOSITORY"]
     if not REPO.fullmatch(repo):
         raise ValueError("Invalid target repository")
     if git(target, "status", "--porcelain").strip():
         raise ValueError("Use a clean disposable checkout")
-    # Configuration on the default branch determines the integration target.
-    git(target, "fetch", "origin", cfg["integrationBranch"])
-    git(target, "checkout", "--detach", "FETCH_HEAD")
-    if config(target, args.source) != cfg:
-        raise ValueError("Default/integration adoption records disagree")
+    cfg = integration_config(target, args.source)
     releases = pages(f"repos/{args.source}/releases")
     stable = [r for r in releases if not r["draft"] and not r["prerelease"] and TAG.fullmatch(r["tag_name"])]
     if not stable:
@@ -206,11 +236,13 @@ def main():
         if matches:
             issue = matches[0]
             if issue["state"] == "closed":
-                raise ValueError("Closed maintenance issue with stale adoption record; reconcile before retry")
+                notice("Waiting on agent: closed maintenance issue needs adoption reconciliation: " + issue["html_url"])
+                return
         else:
             issue = api(f"repos/{repo}/issues", {"title": f"Review Blueprint {tag}", "body": body, "labels": ["TO DO"]})
         print("Maintenance issue:", issue["html_url"])
         if major or not writes:
+            notice("Waiting on agent: assess and verify adoption: " + issue["html_url"])
             return
         branch = f"blueprint/{tag}"
         apply(target, writes)
@@ -221,16 +253,17 @@ def main():
         if remote.strip():
             git(target, "fetch", "origin", f"refs/heads/{branch}")
             if git(target, "rev-parse", "FETCH_HEAD^{tree}").strip() != candidate_tree:
-                raise ValueError("Existing proposal differs or base advanced; agent owns reconciliation, no force push")
+                notice("Waiting on agent: existing proposal needs reconciliation; no force push: " + issue["html_url"])
+                return
         else:
             git(target, "-c", "user.name=Blueprint updater", "-c", "user.email=blueprint@users.noreply.github.com",
                 "-c", "core.hooksPath=/dev/null", "-c", "commit.gpgsign=false", "commit", "-m", f"Prepare Blueprint {tag} (#{issue['number']})")
             git(target, "push", "origin", f"HEAD:refs/heads/{branch}")
         prs = pages(f"repos/{repo}/pulls?state=all&head={repo.split('/')[0]}:{branch}")
         if prs:
-            if len(prs) != 1 or prs[0]["state"] != "open" or prs[0]["base"]["ref"] != cfg["integrationBranch"]:
+            if len(prs) != 1 or prs[0]["base"]["ref"] != cfg["integrationBranch"]:
                 raise ValueError("Existing PR requires agent reconciliation")
-            print("Existing PR:", prs[0]["html_url"])
+            notice("Waiting on agent: reconcile existing proposal: " + prs[0]["html_url"])
         else:
             pr = api(f"repos/{repo}/pulls", {"title": f"Prepare Blueprint {tag}", "base": cfg["integrationBranch"],
                       "head": branch, "body": f"Tracks {issue['html_url']}\n\n{body}"})
@@ -238,4 +271,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except NotConfigured as exc:
+        notice(str(exc))

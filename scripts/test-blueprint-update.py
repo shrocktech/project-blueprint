@@ -1,6 +1,10 @@
 """Run with Python's standard library; synthetic repositories only."""
 import importlib.util
 import json
+import io
+import os
+import sys
+from contextlib import redirect_stdout
 from pathlib import Path
 import tempfile
 import unittest
@@ -127,6 +131,141 @@ class ProposalTests(unittest.TestCase):
         self.write(self.target, ".github/blueprint-update.json", json.dumps(good))
         with self.assertRaises(ValueError):
             updater.config(self.target, "example/source")
+
+    def test_review_scope_and_updater_notice(self):
+        for name in ("README.md", "AGENTS.md", "assets/graphic.png", "scripts/setup-labels.sh",
+                     "scripts/blueprint-update.py", ".github/workflows/adopt-release.yml",
+                     "template/AGENTS.md", "template/design/README.md"):
+            self.write(self.source, name, "changed\n")
+        _, review = self.plan()
+        self.assertEqual(len(review), 3)
+        self.assertEqual(sum("Updater implementation" in x for x in review), 1)
+        self.assertTrue(any("template/AGENTS.md" in x for x in review))
+
+    def test_not_configured_is_distinct_from_invalid(self):
+        with self.assertRaises(updater.NotConfigured):
+            updater.config(self.target, "example/source")
+        cfg = {"source": "example/source", "integrationBranch": "develop",
+               "adopted": {"tag": "VERIFIED_RELEASE_TAG", "commit": "VERIFIED_RELEASE_COMMIT"}}
+        self.write(self.target, ".github/blueprint-update.json", json.dumps(cfg))
+        updater.config(self.target, "example/source", adoption=False)
+        with self.assertRaises(updater.NotConfigured):
+            updater.config(self.target, "example/source")
+        cfg["source"] = "wrong/source"
+        self.write(self.target, ".github/blueprint-update.json", json.dumps(cfg))
+        with self.assertRaises(ValueError):
+            updater.config(self.target, "example/source")
+
+    def orchestrated_fixture(self):
+        updater.git(self.source, "tag", "v1.0.0", self.base)
+        self.write(self.source, "template/standards/checks.md", "incoming\n")
+        self.latest = self.commit()
+        updater.git(self.source, "tag", "v1.1.0", self.latest)
+        updater.git(self.target, "init", "-q", "-b", "main")
+        updater.git(self.target, "config", "user.name", "Fixture")
+        updater.git(self.target, "config", "user.email", "fixture@example.invalid")
+        cfg = {"source": "example/source", "integrationBranch": "develop",
+               "adopted": {"tag": "VERIFIED_RELEASE_TAG", "commit": "VERIFIED_RELEASE_COMMIT"}}
+        self.write(self.target, ".github/blueprint-update.json", json.dumps(cfg))
+        updater.git(self.target, "add", ".")
+        updater.git(self.target, "commit", "-qm", "Default routing")
+        self.main_head = updater.git(self.target, "rev-parse", "HEAD")
+        updater.git(self.target, "checkout", "-qb", "develop")
+        cfg["adopted"] = {"tag": "v1.0.0", "commit": self.base}
+        self.write(self.target, ".github/blueprint-update.json", json.dumps(cfg))
+        updater.git(self.target, "add", ".")
+        updater.git(self.target, "commit", "-qm", "Verified integration adoption")
+        self.remote = Path(self.tmp.name) / "remote.git"
+        updater.run("git", "clone", "--bare", str(self.target), str(self.remote))
+        updater.git(self.target, "remote", "add", "origin", str(self.remote))
+        self.issue = {"number": 1, "html_url": "https://example.invalid/issues/1", "state": "open",
+                      "user": {"login": "github-actions[bot]"},
+                      "body": f"<!-- blueprint-update:{self.latest} -->"}
+        self.issue_exists = False
+        self.pr_exists = False
+
+    def invoke_fixture(self):
+        updater.git(self.target, "reset", "--hard", "HEAD")
+        updater.git(self.target, "checkout", "--detach", "main")
+        real_run = updater.run
+        def local_clone(*args, **kwargs):
+            if "clone" in args and "https://github.com/example/source.git" in args:
+                return real_run("git", "clone", "--bare", str(self.source), args[-1])
+            return real_run(*args, **kwargs)
+        def mock_api(path, payload=None, method=None):
+            if path.startswith("repos/example/source/releases"):
+                return [{"draft": False, "prerelease": False, "tag_name": "v1.1.0", "published_at": "2026-01-01"}]
+            if "/issues?" in path:
+                return [self.issue] if self.issue_exists else []
+            if path.endswith("/issues"):
+                self.issue_exists = True
+                return self.issue
+            if "/pulls?" in path:
+                return [{"state": "open", "base": {"ref": "develop"}, "html_url": "https://example.invalid/pull/2"}] if self.pr_exists else []
+            if path.endswith("/pulls"):
+                self.pr_exists = True
+                return {"html_url": "https://example.invalid/pull/2"}
+            raise AssertionError(path)
+        output = io.StringIO()
+        with patch.object(updater, "run", side_effect=local_clone), patch.object(updater, "api", side_effect=mock_api), \
+             patch.dict(os.environ, {"GITHUB_REPOSITORY": "example/target", "GITHUB_STEP_SUMMARY": ""}), \
+             patch.object(sys, "argv", ["updater", "--source", "example/source", "--target", str(self.target)]), redirect_stdout(output):
+            updater.main()
+        return output.getvalue()
+
+    def test_main_develop_and_waiting_states(self):
+        self.orchestrated_fixture()
+        self.assertIn("Prepared PR", self.invoke_fixture())
+        self.assertIn("Waiting on agent", self.invoke_fixture())
+        updater.git(self.target, "reset", "--hard", "HEAD")
+        updater.git(self.target, "checkout", "develop")
+        self.write(self.target, "application.txt", "active work\n")
+        updater.git(self.target, "add", ".")
+        updater.git(self.target, "commit", "-qm", "Advance integration")
+        updater.git(self.target, "push", "origin", "develop")
+        self.assertIn("Waiting on agent", self.invoke_fixture())
+        # Waiting does not advance adoption or the default branch.
+        self.assertEqual(updater.git(self.target, "rev-parse", "main"), self.main_head)
+        self.assertEqual(updater.config(self.target, "example/source")["adopted"]["commit"], self.base)
+        self.issue["state"] = "closed"
+        self.assertIn("closed maintenance issue", self.invoke_fixture())
+
+    def test_verified_integration_adoption_without_default_promotion(self):
+        self.orchestrated_fixture()
+        cfg = updater.config(self.target, "example/source")
+        cfg["adopted"] = {"tag": "v1.1.0", "commit": self.latest}
+        self.write(self.target, ".github/blueprint-update.json", json.dumps(cfg))
+        updater.git(self.target, "add", ".")
+        updater.git(self.target, "commit", "-qm", "Verified integration update")
+        updater.git(self.target, "push", "origin", "develop")
+        self.assertIn("Stable guidance current", self.invoke_fixture())
+        self.assertEqual(updater.git(self.target, "rev-parse", "main"), self.main_head)
+        self.assertFalse(self.issue_exists)
+
+    def test_routing_mismatch_is_not_waiting(self):
+        self.orchestrated_fixture()
+        cfg = updater.config(self.target, "example/source")
+        cfg["integrationBranch"] = "other"
+        self.write(self.target, ".github/blueprint-update.json", json.dumps(cfg))
+        updater.git(self.target, "add", ".")
+        updater.git(self.target, "commit", "-qm", "Routing conflict fixture")
+        updater.git(self.target, "push", "origin", "develop")
+        with self.assertRaisesRegex(ValueError, "routing disagrees"):
+            self.invoke_fixture()
+
+    def test_diverged_source_is_not_waiting(self):
+        self.orchestrated_fixture()
+        updater.git(self.source, "checkout", "--orphan", "divergent")
+        updater.git(self.source, "commit", "-qm", "Unrelated source history")
+        updater.git(self.source, "tag", "-f", "v1.1.0", "HEAD")
+        with self.assertRaisesRegex(ValueError, "Divergence/rollback"):
+            self.invoke_fixture()
+
+    def test_tag_integrity_failure_is_not_waiting(self):
+        self.orchestrated_fixture()
+        updater.git(self.source, "tag", "-f", "v1.0.0", self.latest)
+        with self.assertRaisesRegex(ValueError, "integrity mismatch"):
+            self.invoke_fixture()
 
     def test_pagination(self):
         with patch.object(updater, "api", side_effect=[[{}] * 100, [{"id": 2}]]):

@@ -28,7 +28,7 @@ jobs:
         with:
           path: target
           ref: ${{ github.event.repository.default_branch }}
-          fetch-depth: 0
+          fetch-depth: 1
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
         with:
           repository: ${{ inputs.source-repository }}
