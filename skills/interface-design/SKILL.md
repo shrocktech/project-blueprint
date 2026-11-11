@@ -31,6 +31,8 @@ Before implementation, map the action states in `design/README.md` to the applic
 
 Run applicable shared-control checks under the target project's `standards/packages.md`. Maintain the live control examples specified in `design/README.md` as controls evolve, and verify them alongside affected feature screens.
 
+Compare affected screens with the Brand Guidelines gallery and representative existing screens for the design guide's consistency requirements, including responsive and interaction states. When shared components or tokens change, check their affected consumers. For modals, test X and Escape separately, focus containment/restoration, close-button visibility after scrolling, and unchanged/unsaved-input dismissal without unintended submission. Keep repeatable coverage in the existing Playwright suite.
+
 ## Verify the rendered result
 
 Use the project's required Playwright setup, official `playwright-cli` skill at its verified location, and recorded commands under `standards/project.md` to exercise affected user journeys with synthetic data. Follow the target agent's supported browser-tool access rules. Run relevant existing tests and add repeatable regression coverage for important changed behavior. Inspect the rendered browser or captured screenshots as well as assertions; automated passes alone do not establish visual correctness.

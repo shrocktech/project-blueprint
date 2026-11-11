@@ -26,6 +26,7 @@ Selected [UI UX Pro Max and DesignLang](../standards/optional-tools.md#design-pl
 
 Apply these defaults to new UI when compatible with the established stack. Preserve existing frameworks, components, icons, and custom code; replacement needs explicit permission.
 
+- Design consistency is an acceptance requirement for every UI task. Use the approved theme, shared components and established interaction patterns across comparable screens: buttons, fields, dialogs, navigation, typography, spacing, icons and feedback states. Extend canonical components and tokens when needed instead of introducing screen-specific substitutes. Different page purposes may use different layouts. Changes to the overall design direction need owner approval; routine consistent refinements proceed autonomously. Verify affected shared-component consumers as well as the edited screen.
 - For new projects, use the latest stable Tailwind CSS, verifying the version at installation.
 - For compatible React projects, use shadcn/ui and shadcn-admin as the dashboard starting point; choose icons below. Other stacks use maintained native solutions under [packages.md](../standards/packages.md).
 - WordPress keeps its theme/plugin UI and established Bootstrap/Tabler; blueprint adoption never introduces a replacement framework.
@@ -91,6 +92,7 @@ During development, change navigation and routes directly. Do not add redirects 
 
 ## Page and form layout
 
+- Implement modal dismissal in the shared dialog component: every dismissible modal has a neatly aligned, visually restrained X in the upper-right corner and closes with Escape. Keep the X visible while content scrolls, with adequate contrast, a comfortable click/touch target, visible keyboard focus and an accessible “Close” label. Both actions use the same dismissal path, never submit the form, and restore focus to the opener or a logical destination if it no longer exists. Preserve meaningful unsaved input safely or confirm before discarding it; avoid prompts for unchanged forms. Follow the [accessible modal pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) for focus containment and labeling. Backdrop-click dismissal is a project choice. Include the shared modal in the Brand Guidelines control gallery.
 - Use a compact title/action row for application pages, with useful content directly below. Avoid oversized headers and decorative empty space in settings and administration screens.
 - Use shared components for the page shell, header, sections, field groups, checkbox rows, and actions. Keep primary action placement clear without redundant controls; project-specific patterns belong in `docs/internal/`.
 - Put two or three related short fields in a row when they fit comfortably; give long or complex controls more width. Stack on narrow screens and preserve logical reading/tab order. Do not force unrelated fields into columns.
