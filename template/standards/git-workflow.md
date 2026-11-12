@@ -111,7 +111,7 @@ Before completing:
 5. Post a brief result comment **on the issue**, covering changes, request/question outcomes, verification, docs, delivery, and commit links (PR links when used). Group related outcomes and link relevant comments; chat updates alone do not count. Read back the saved comment; a failed or unverified write blocks closure.
 6. Refresh the body and all comments after posting the result. Resolve unaddressed new/edited input, repeat affected checks, update the result, and refresh again. Then set Project status and the only label to `COMPLETED`, and close as completed. Immediately verify state/labels/Project and reread body/comments; missed unresolved input requires reopening with the appropriate status, review stage, or pause and continuing work. Automatic closing keywords/actions must not bypass these checks.
 
-After verified closure, remove only your own clean merged worktree/branch and prune; preserve pending/paused work.
+After verified integration and closure, remove your clean, completed worktree and its local and remote issue branches. Verify branch tips and merged PRs or equivalent integrated commits, including squash merges, before deletion; preserve unmerged changes, active or shared worktrees, default/integration branches, and any branch with a recorded continuing purpose. Inspect other stale branches and worktrees at task boundaries; remove only those verified integrated and safe to clean up, coordinating ownership before touching another agent's workspace. Prune stale references. Record justified exceptions and revisit them when their purpose ends.
 
 See [experimental multi-agent mode](optional-tools.md#experimental-multi-agent-mode) for disposable evaluation of a shared preview and broker-managed branches.
 
