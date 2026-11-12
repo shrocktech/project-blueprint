@@ -2,7 +2,7 @@
 
 Apply alongside [AGENTS.md](../AGENTS.md). Keep implementation details and reporting procedures in private `docs/internal/`, without secret values.
 
-- **Secrets and logs:** Never commit plaintext credentials or expose them in logs, errors, screenshots, issue reports, URLs, or client bundles. Keep customer content and personal information out of diagnostic outputs. Examples use placeholders; review staged changes.
+- **Secrets and logs:** Never commit plaintext credentials or expose them in logs, errors, screenshots, issue reports, URLs, or client bundles. Keep customer content and personal information out of diagnostic outputs. Examples use placeholders; review staged changes. Apply [project log limits](updates.md#update-policy).
 - **Test data:** Use synthetic data by default. Production data requires explicit authorization and documented safeguards. Separate development/test resources from production.
 - **Access:** Use credentials proactively within approved scope and least privilege. Enforce authentication, ownership, tenant boundaries, and authorization server-side; test allowed and denied cases. Do not disable controls or request blanket administrator access to make a task pass.
 - **Reporting:** During setup, verify a private vulnerability reporting channel and document it in root `SECURITY.md`, or reuse an existing [GitHub-recognized security policy](https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository). If the channel is unknown, ask the owner privately before publishing instructions. Keep sensitive evidence in the private channel. An exposed secret requires notification and authorized revocation/rotation; deleting its visible text is insufficient.
