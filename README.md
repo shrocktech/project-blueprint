@@ -95,6 +95,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 ├── src/                # Application source, where supported by the framework
 ├── standards/          # The rules for how this project is built and maintained
 ├── tests/              # Tests and fixtures, or use the framework’s test location
+├── website/            # Optional small static site deployed separately from the application
 ├── workfiles/          # Working materials retained throughout the project
 │   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
 │   ├── drawings/       # Wireframes, sketches, diagrams, inspiration and mockups
