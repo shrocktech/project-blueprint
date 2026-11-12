@@ -11,7 +11,7 @@
 
 ## Design interview
 
-Use this interview for a new interface or an owner-requested redesign. First inspect `workspace/`, `design/`, standing preferences and any working application. Reuse settled decisions; ask one brief unanswered question at a time, recommending a direction and accepting “use your judgment.”
+Use this interview for a new interface or an owner-requested redesign. First inspect `workfiles/`, `design/`, standing preferences and any working application. Reuse settled decisions; ask one brief unanswered question at a time, recommending a direction and accepting “use your judgment.”
 
 1. **Do you have mockups, wireframes or brand references to follow?** Summarize what was found and confirm which materials express the intended direction.
 2. **Is there a website or application whose design you like?** Identify the specific qualities to borrow: navigation, typography, colors, spacing or controls. Adapt references to the project's identity and respect asset licenses.
@@ -19,7 +19,7 @@ Use this interview for a new interface or an owner-requested redesign. First ins
 
 For redesigns, establish the affected screens and what should improve, retaining useful components and working behavior. Design planning is scoped work: it does not reset the product lifecycle, repeat the setup interview or authorize replacing the stack. Explain any material replacement before seeking that decision.
 
-Present a small visual sample (two or three alternatives when useful) showing navigation, typography, buttons and fields, including relevant interaction states and themes. Obtain approval of the direction before styled implementation, then maintain the choices in this guide and link canonical tokens and shared components. Keep drafts in `workspace/drawings/` or private temporary storage and approved choices in `design/`. Build or extend the needed shared controls before expanding feature screens; add consistent variants there rather than styling each screen independently. Routine refinements within the approved direction use existing autonomy rules.
+Present a small visual sample (two or three alternatives when useful) showing navigation, typography, buttons and fields, including relevant interaction states and themes. Obtain approval of the direction before styled implementation, then maintain the choices in this guide and link canonical tokens and shared components. Keep drafts in `workfiles/drawings/` or private temporary storage and approved choices in `design/`. Build or extend the needed shared controls before expanding feature screens; add consistent variants there rather than styling each screen independently. Routine refinements within the approved direction use existing autonomy rules.
 
 Selected [UI UX Pro Max and DesignLang](../standards/optional-tools.md#design-planning-tools) support recommendations, reference extraction and drift checks. Choose a simple gallery or optional [Storybook](../standards/optional-tools.md#storybook) according to stack and component complexity; reuse an existing choice. Existing tools can complete the interview without them. Implement and verify through `interface-design`, [browser iteration](#browser-iteration) and phase-appropriate [device checks](#desktop-tablet-and-mobile).
 
