@@ -23,7 +23,7 @@ Interview the owner at every initial installation or adoption. Inspect the proje
 | Should agents capture reusable workflow lessons? | Offer optional [Task Observer](optional-tools.md#task-observer). | Keep ordinary issue notes without installing an observer. |
 | Use Monid for development and testing? | Always offer [Monid](optional-tools.md#monid-for-development); record the choice, budget and secure credential entry location. | Existing direct tools/APIs; decline or defer Monid. |
 | How should local secrets be stored and recovered? | Keep `.env` ignored and untracked by default; the owner may select [encrypted repository storage](security.md#encrypted-env-with-git-crypt). | Record the choice and recovery path. Never commit plaintext `.env`. |
-| When should weekly maintenance run? | Verify weekly Blueprint/security/dependency checks and ask whether to select the optional daily updater pilot under [updates.md](updates.md). | Record unavailable/declined automation and active-session fallback explicitly. |
+| When should weekly maintenance run? | Verify weekly Blueprint/security/dependency checks and configure the daily updater under [updates.md](updates.md). | Record unavailable/declined automation and active-session fallback explicitly. |
 | Does the VM permit Saturday updates and reboots? | [Late Saturday maintenance](updates.md#weekly-vm-maintenance) with recorded timezone, host scope, downtime and reboot authorization. | Preserve a suitable existing window or provider-managed maintenance; shared hosts use one job. |
 
 Record decisions in `AGENTS.md` and link private configuration and verification evidence. Proceed on settled choices.

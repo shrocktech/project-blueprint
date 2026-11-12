@@ -2,7 +2,7 @@
 
 Follow the user's latest instructions. Fill project facts and commands during setup; read detailed guides only for the current task.
 
-At implementation-session start, check [weekly Blueprint maintenance and any selected pilot](standards/updates.md#periodic-blueprint-maintenance) and, from `DEVELOPMENT: security`, [advisory monitor health](standards/updates.md#advisory-monitoring-and-health). Run due fallback checks and triage findings.
+At implementation-session start, check [weekly Blueprint maintenance and the daily updater](standards/updates.md#periodic-blueprint-maintenance) and, from `DEVELOPMENT: security`, [advisory monitor health](standards/updates.md#advisory-monitoring-and-health). Run due fallback checks and triage findings.
 
 ## Project facts
 
@@ -18,7 +18,7 @@ At implementation-session start, check [weekly Blueprint maintenance and any sel
 - Recovery: private inventory/runbook, backup destinations and health, independent key/access recovery, restore objectives/cadence and last verified drill or blockers TODO under [security.md](standards/security.md#local-development-secrets).
 - Vulnerability intelligence: link the private inventory and [monitor health record](standards/updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.
 - Standing preferences: private location or `none`.
-- Blueprint source and verified adopted tag/commit: TODO (selected pilot: `.github/blueprint-update.json`); local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue, scheduled-run evidence and agent handoff: TODO. Record incomplete adoption separately; a prepared PR does not advance this record.
+- Blueprint source and verified adopted tag/commit: TODO (`.github/blueprint-update.json`); local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue, scheduled-run evidence and agent handoff: TODO. Record incomplete adoption separately; a prepared PR does not advance this record.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, `legal-review`, and `changelog` skills during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [Task Observer setup](standards/optional-tools.md#task-observer).
 - `.env` storage: local ignored by default; record owner-selected encrypted repository storage and verified key/access and encryption checks when enabled under [security.md](standards/security.md#encrypted-env-with-git-crypt). Never commit plaintext `.env`.
