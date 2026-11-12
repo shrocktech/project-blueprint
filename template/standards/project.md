@@ -4,7 +4,7 @@ During setup, fill facts/commands in [AGENTS.md](../AGENTS.md); routine tasks us
 
 ## Setup interview
 
-Before setup, collect ideas and reference material in `materials/` and UI wireframes in `design/` as needed under the [workspace layout](#project-workspace). The owner can keep collecting for as long as needed.
+Before setup, start with `workspace/` for ideas, reference material and early wireframes under the [workspace layout](#project-workspace); it can exist before a repository is connected. The owner can keep collecting for as long as needed.
 
 When the owner says “start planning,” review the available notes, documents, drawings and wireframes with them during the setup interview. Use that conversation to draft the [project specification](phases.md) from agreed goals, scope and acceptance criteria. Mark open questions and tentative ideas clearly.
 
@@ -32,7 +32,7 @@ If GSD is selected, follow its current official installation guidance. Project `
 
 ## Project workspace
 
-Use the repository root as the project workspace. Create directories when needed. Keep reference documents in `materials/documents/`, research and notes in `materials/notebook/`, and editable diagrams and canvases in `materials/drawings/`. UI mockups, wireframes and editable brand artwork belong in `design/`. Keep shipped images, icons and fonts in the framework’s asset location. During setup, fill in the project design guide with approved choices and links to the actual CSS, theme and components. Remove examples for stacks the project does not use and retain shared accessibility and responsive checks. Follow [brand guidance](../design/README.md#brand-foundation-and-settings) and maintain audience-specific [documentation](documentation.md) under root `docs/`.
+Use the repository root as the project workspace and keep working materials under `workspace/`. Create its three content directories as needed: `workspace/documents/` for reference documents, `workspace/drawings/` for early wireframes, sketches, diagrams, inspiration and mockups, and `workspace/notebook/` for research and notes. Keep approved design decisions, the design guide and editable brand artwork in root `design/`; link to relevant working drawings rather than duplicating them. Keep shipped images, icons and fonts in the framework’s asset location. During setup, fill in the project design guide with approved choices and links to the actual CSS, theme and components. Remove examples for stacks the project does not use and retain shared accessibility and responsive checks. Follow [brand guidance](../design/README.md#brand-foundation-and-settings) and maintain audience-specific [documentation](documentation.md) under root `docs/`.
 
 Keep `README.md`, `AGENTS.md`, `CLAUDE.md`, the [license](legal.md#repository-license) and [changelog](documentation.md#changelog) when needed, and local `.env` at the application root. Keep the operating guides together in `standards/` and link them from root `AGENTS.md`. Preserve framework source, test, build and deployment paths. Add workflow or container files only when the project uses them.
 

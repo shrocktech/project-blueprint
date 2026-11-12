@@ -4,7 +4,7 @@ Project Blueprint gives each project a consistent start. After setup, the projec
 
 Initial setup always includes an owner interview, using the owner's private standing preferences and simpler defaults for small projects, optional Monid and recorded maintenance/reboot choices. Establish the [approved brand foundation](template/design/README.md#brand-foundation-and-settings) before styled UI; each application provides a Brand Guidelines settings page, reusing existing identity and tools. Verify [weekly Blueprint checking and the daily updater](template/standards/updates.md#periodic-blueprint-maintenance) during setup.
 
-![Before setup, collect ideas in materials/ and wireframes in design/. When the owner says “start planning,” review them together, draft the specification, and confirm setup choices. Application workflow with ten stops: DEVELOPMENT planning, build and security; RELEASE offering, beta and validation; LAUNCH open, feedback and stabilize; PRODUCTION ongoing. Board statuses: dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing and deployment, green COMPLETED. Owned issue worktrees follow issue branch to develop to authorized main. Paused work stays IN PROGRESS with pink decision, red setup or silver external reason. Refresh the live queue after completion or pause and before stopping. Explicit authorization precedes private beta and public launch. Owner/developer admin footer shows environment and numbered phase; customer views show neither. GitHub Free requires no paid features](assets/project-workflow-landscape.jpg)
+![Before setup, collect ideas and wireframes in workspace/. When the owner says “start planning,” review them together, draft the specification, and confirm setup choices. Application workflow with ten stops: DEVELOPMENT planning, build and security; RELEASE offering, beta and validation; LAUNCH open, feedback and stabilize; PRODUCTION ongoing. Board statuses: dark gray BACKLOG, blue TO DO, yellow IN PROGRESS, lavender REVIEW with testing and deployment, green COMPLETED. Owned issue worktrees follow issue branch to develop to authorized main. Paused work stays IN PROGRESS with pink decision, red setup or silver external reason. Refresh the live queue after completion or pause and before stopping. Explicit authorization precedes private beta and public launch. Owner/developer admin footer shows environment and numbered phase; customer views show neither. GitHub Free requires no paid features](assets/project-workflow-landscape.jpg)
 
 Application workflow overview. [Open the full-size landscape JPEG](assets/project-workflow-landscape.jpg) (11 × 8.5 inches).
 
@@ -12,7 +12,7 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 
 | Situation | Your action |
 | --- | --- |
-| Explore an idea before setup | Collect notes and references in `materials/` and UI wireframes in `design/`. Say “start planning” when you want to [review them together and draft the project specification](template/standards/project.md#setup-interview). |
+| Explore an idea before setup | Collect notes, references and early wireframes in `workspace/`. Say “start planning” when you want to [review them together and draft the project specification](template/standards/project.md#setup-interview). |
 | Start or adopt a project | Give the agent the setup prompt below and repository access. |
 | Request implementation | Tell the agent or move an issue to `TO DO`. It refreshes the live queue, including tasks added during work. |
 | Save an idea or recommendation for an active project | Use `BACKLOG` plus one: `idea` (early thought), `suggestion` (recommended improvement), or `proposal` (developed recommendation needing a decision). Approval moves it to `TO DO` and removes the descriptor. |
@@ -85,20 +85,20 @@ Existing applications retain their framework, custom code, and data; WordPress r
 │   └── dependabot.yml  # Weekly updates for supported package ecosystems
 ├── assets/             # Runtime assets when the framework has no prescribed location
 ├── backups/            # Local recovery copies when needed; ignored and never publicly served
-├── design/             # Wireframes, UI mockups and editable brand artwork
+├── design/             # Approved design guide, system and editable brand artwork
 │   └── README.md       # This application’s design guide and implementation references
 ├── docs/               # Maintained documentation
 │   ├── admin/          # Administrator guides when needed
 │   ├── internal/       # Architecture, setup, testing and recovery
 │   └── public/         # Customer-facing guides and help
-├── materials/          # Documents, notes, and drawings used throughout the project
-│   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
-│   ├── drawings/       # Editable diagrams, whiteboard sketches and canvases
-│   └── notebook/       # Research notes, meeting notes and working notebooks
 ├── scripts/            # Automation, maintenance and release scripts
 ├── src/                # Application source, where supported by the framework
 ├── standards/          # The rules for how this project is built and maintained
 ├── tests/              # Tests and fixtures, or use the framework’s test location
+├── workspace/          # Working materials collected from the first idea onward
+│   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
+│   ├── drawings/       # Wireframes, sketches, diagrams, inspiration and mockups
+│   └── notebook/       # Research notes, meeting notes and working notebooks
 ├── .distignore         # WP-CLI archive exclusions when packaging from this root
 ├── .env                # Local secrets; ignored unless verified encrypted storage is selected
 ├── .env.example        # Environment variable names and placeholder values
@@ -248,7 +248,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Start planning**
 
-> Start planning this project with me. Review what I’ve collected in `materials/` and any wireframes in `design/`. Tell me what looks settled and what still needs a decision. Use our conversation to draft or update the project specification, keeping tentative ideas clearly marked. Wait for me to say when to start building.
+> Start planning this project with me. Review the notes, documents and early wireframes I’ve collected in `workspace/` and any existing design guidance in `design/`. Tell me what looks settled and what still needs a decision. Use our conversation to draft or update the project specification, keeping tentative ideas clearly marked. Wait for me to say when to start building.
 
 **Setup**
 
@@ -256,11 +256,11 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Interface design**
 
-> Build or refine this screen using `design/README.md`, any relevant wireframes in `design/`, and the `interface-design` skill. Reuse the project’s components and theme. Inspect the rendered screen in the browser, use Impeccable’s browser iteration when available, and verify the affected user flow with Playwright at the sizes required for this phase. Check that people can tell when an action is ready, in progress, successful, or failed.
+> Build or refine this screen using `design/README.md`, any relevant wireframes in `workspace/drawings/`, and the `interface-design` skill. Reuse the project’s components and theme. Inspect the rendered screen in the browser, use Impeccable’s browser iteration when available, and verify the affected user flow with Playwright at the sizes required for this phase. Check that people can tell when an action is ready, in progress, successful, or failed.
 
 **Plan the interface**
 
-> Plan this project's interface with me using the design interview in `design/README.md`. Inspect `materials/`, `design/` and any existing UI first. Reuse settled answers and ask one brief question at a time about supplied mockups, reference sites and custom options. Recommend a coordinated UI foundation and show a visual sample before implementation. Use selected design tools where helpful and record the approved direction in the existing guide.
+> Plan this project's interface with me using the design interview in `design/README.md`. Inspect `workspace/`, `design/` and any existing UI first. Reuse settled answers and ask one brief question at a time about supplied mockups, reference sites and custom options. Recommend a coordinated UI foundation and show a visual sample before implementation. Use selected design tools where helpful and record the approved direction in the existing guide.
 
 **Plan an interface redesign**
 

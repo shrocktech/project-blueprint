@@ -11,7 +11,7 @@
 
 ## Design interview
 
-Use this interview for a new interface or an owner-requested redesign. First inspect `materials/`, `design/`, standing preferences and any working application. Reuse settled decisions; ask one brief unanswered question at a time, recommending a direction and accepting “use your judgment.”
+Use this interview for a new interface or an owner-requested redesign. First inspect `workspace/`, `design/`, standing preferences and any working application. Reuse settled decisions; ask one brief unanswered question at a time, recommending a direction and accepting “use your judgment.”
 
 1. **Do you have mockups, wireframes or brand references to follow?** Summarize what was found and confirm which materials express the intended direction.
 2. **Is there a website or application whose design you like?** Identify the specific qualities to borrow: navigation, typography, colors, spacing or controls. Adapt references to the project's identity and respect asset licenses.
