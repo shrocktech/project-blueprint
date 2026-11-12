@@ -211,7 +211,7 @@ When marketing begins, the agent offers relevant Corey Haines skills linked in `
 
 ## Environments and costs
 
-Use `develop.<domain>` from `develop` for development/testing and the main domain from `main` for authorized production releases. During `RELEASE: beta`, an explicitly authorized private beta can run there with invitation-only access; public opening requires launch authorization under [launch.md](template/standards/launch.md). Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption.
+Use `develop.<domain>` from `develop` for development/testing and the main domain from `main` for authorized production releases. An occasional very small project can use the [main-only exception](template/standards/git-workflow.md#isolation-branches-and-delivery) when you ask for it. During `RELEASE: beta`, an explicitly authorized private beta can run there with invitation-only access; public opening requires launch authorization under [launch.md](template/standards/launch.md). Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption.
 
 Use generic placeholders here. Record actual application domains, provider configuration, and deployment details only in the adopting project's appropriate documentation.
 

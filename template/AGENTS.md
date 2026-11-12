@@ -12,6 +12,7 @@ At implementation-session start, check [weekly Blueprint maintenance and the dai
 - Business and customer/service jurisdictions: record verified scope in private project docs; no assumed country.
 - Conventions: link existing formatter/linter configuration and patterns.
 - Brand: canonical kit and implementation tokens TODO; approval/provisional scope TODO; Brand Guidelines settings location TODO. Follow [project design guide](design/README.md#brand-foundation-and-settings).
+- Branch model: standard `issue branch → develop → main`, or the owner-chosen [main-only exception](standards/git-workflow.md#isolation-branches-and-delivery).
 - Hosting constraint: GitHub Free for public/private repositories; no required upgrade, paid features, billed usage, or visibility change.
 - Private documentation index, dependency rationale, automation status: record verified locations.
 - Repository layout: under [project.md](standards/project.md#repository-layout); record documentation, assets, repository skill paths and applicable tool-specific discovery locations, external private storage and migration issue/status. Existing projects follow [layout migration](standards/documentation.md#layout-migration) during adoption/updates.
