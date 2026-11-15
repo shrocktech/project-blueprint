@@ -53,7 +53,7 @@ Record tool versions, locations and verification results for the current [checks
 3. Establish the private index and applicable public/admin sources, destinations, builds and access under [documentation.md](documentation.md). Verify links and delivery.
 4. Follow [security setup](security.md) for project-root secrets, encryption, scanning, phase-appropriate recovery, synthetic data and private reporting. Record jurisdictions and assess [notices](legal.md) before collecting personal data. Inventory existing [offers](offering.md), policies and customer-facing pages.
 5. Configure and verify [maintenance](updates.md) for Blueprint, dependencies, advisories and hosts at the applicable phase. Record package rationale, schedules, actual run evidence and coverage.
-6. Verify [Graphify](#graphify), applicable [WordPress skills](#wordpress-skills) and [product references](packages.md#current-product-references). Record Blueprint revision, exceptions and verified skill discovery or readable checkout in `AGENTS.md`.
+6. Verify [Graphify](#graphify), applicable [WordPress skills](#wordpress-skills), [modern web guidance](#modern-web-guidance) and [product references](packages.md#current-product-references). Record Blueprint revision, exceptions and verified skill discovery or readable checkout in `AGENTS.md`.
 
 ## WordPress skills
 
@@ -83,6 +83,10 @@ Playwright is required for projects with a web-facing UI. Install and verify it 
 - During development, run affected browser tests and retain useful regression tests for critical journeys. Verify rendered UI through the `interface-design` skill. Investigate failures and report blocked/skipped checks explicitly before completion.
 - For UI work with selected Impeccable, follow [browser iteration](../design/README.md#browser-iteration), including helper cleanup and Playwright verification of the accepted source. Record Live Mode support and launch/cleanup commands alongside existing tooling; keep one application development server and preserve the project workflow.
 - Maintain Playwright, its CLI/skill, and matching browsers under [updates.md](updates.md), following current upstream instructions and rechecking skill discovery after updates. Unattended runs use the recorded automation choice and authorized resources; local testing remains required when CI is unavailable.
+
+## Modern web guidance
+
+Web-facing projects require Google Chrome's official [modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) skill so agents use current web platform features, best practices and Baseline compatibility data rather than model memory. Install it project-scoped through the active agent's supported mechanism, following current upstream instructions, and keep it on the latest version with automatic updates where supported. Set `DISABLE_TELEMETRY=1` where it runs. Verify discovery and record the installed location in `AGENTS.md`. Consult it when writing or reviewing HTML, CSS, JavaScript or browser APIs; the project's browser support targets, [design guide](../design/README.md) and conventions remain authoritative. Its `chrome-extensions` skill applies only to browser-extension projects.
 
 ## Graphify
 
