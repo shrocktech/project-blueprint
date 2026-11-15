@@ -9,7 +9,7 @@ Confirm the target repository and blueprint revision. Plain filenames below refe
 
 Adoption changes instructions and workflow, not application architecture, packages, data, or production behavior. Preserve existing functionality and project-specific requirements. Replacement of an established stack or architecture needs explicit permission.
 
-Use the adoption/update issue and `standards/git-workflow.md` bootstrap. Review published stable Blueprint releases under the target’s `standards/updates.md`. Pin the release tag and commit before edits. Establish an owned isolated checkout; preserve other agents' worktrees. Record adoption only after verifying applicable guidance with local requirements intact; track partial application and pending decisions under `standards/updates.md`.
+Use the adoption/update issue and `standards/git-workflow.md` bootstrap. Review published stable Blueprint releases under the target’s `standards/updates.md`. Record the release tag and commit before edits. Establish an owned isolated checkout; preserve other agents' worktrees. Record adoption only after verifying applicable guidance with local requirements intact; track partial application and pending decisions under `standards/updates.md`.
 
 For a routine refresh, inspect changed guidance and affected project configuration, apply only the relevant steps below, and skip established branch/environment/tracking bootstrap. Do not repeat settled interviews, reset lifecycle position, or migrate branches merely because this skill includes initial-adoption procedures.
 
@@ -25,6 +25,8 @@ Follow the target's `standards/updates.md` weekly Blueprint checks and configure
 - Merge unique local requirements into target instructions/private docs. Consolidate obsolete workflow rules while preserving useful knowledge. Use an owned isolated issue checkout under `standards/git-workflow.md`.
 
 ## Establish develop from current work
+
+Skip this section when the project records the main-only exception in `standards/git-workflow.md`; `main` stays its working branch.
 
 1. Fetch and compare actual branches and identify the current development state; the default branch may be stale. Record the source commit and where unfinished work will remain. For a live product, also identify the deployed version and production triggers; do not assume the branch tip equals the running version.
 2. Follow the integration/release policy in `standards/git-workflow.md`. If `develop` is missing, establish it from the verified appropriate state with its tracked files and history. If it exists, reconcile through reviewed/tested integration; never reset it to force alignment. Preserve unfinished work on owned branches and coordinate retargeting of existing PRs rather than merging every branch.

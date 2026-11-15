@@ -21,7 +21,7 @@ At implementation-session start, check [weekly Blueprint maintenance and the dai
 - Standing preferences: private location or `none`.
 - Blueprint source and verified adopted tag/commit: TODO (`.github/blueprint-update.json`); local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue, scheduled-run evidence and agent handoff: TODO. Record incomplete adoption separately; a prepared PR does not advance this record.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, `legal-review`, `changelog` and, for web-facing projects, [`modern-web-guidance`](standards/project.md#modern-web-guidance) skills during setup. A source folder alone does not install skills.
-- Task Observer: TODO — enabled, declined, or deferred; if enabled, record pinned source/revision, skill location, private stable observation path, and activation verification under [Task Observer setup](standards/optional-tools.md#task-observer).
+- Task Observer: TODO — enabled, declined, or deferred; if enabled, record source, skill location, private stable observation path, and activation verification under [Task Observer setup](standards/optional-tools.md#task-observer).
 - `.env` storage: local ignored by default; record owner-selected encrypted repository storage and verified key/access and encryption checks when enabled under [security.md](standards/security.md#encrypted-env-with-git-crypt). Never commit plaintext `.env`.
 
 ## Verified commands

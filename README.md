@@ -124,7 +124,7 @@ For web-facing UI, follow [design standards](template/design/README.md), the [in
 
 For a new interface or requested redesign, use the [design interview](template/design/README.md#design-interview): review collected materials, discuss reference sites and custom options, then approve a visual sample and record the UI foundation. A redesign stays scoped to the requested interface without resetting the product lifecycle. Optional [UI UX Pro Max and DesignLang](template/standards/optional-tools.md#design-planning-tools) support planning and visual checks within the project's design guide.
 
-[TASTE](template/standards/optional-tools.md#taste) supports content-led art direction and screenshot critique for public-facing pages. Its optional pinned skill follows project brand, accessibility, performance, and truthful-content rules; application forms retain their established patterns.
+[TASTE](template/standards/optional-tools.md#taste) supports content-led art direction and screenshot critique for public-facing pages. Its optional skill follows project brand, accessibility, performance, and truthful-content rules; application forms retain their established patterns.
 
 Optional [Storybook](template/standards/optional-tools.md#storybook) provides the live gallery using actual application components. Phase-appropriate [jscpd duplication checks](template/standards/packages.md#duplication-checks) complement shared-control lint and Playwright; they do not guarantee reuse.
 
@@ -212,7 +212,7 @@ When marketing begins, the agent offers relevant Corey Haines skills linked in `
 
 ## Environments and costs
 
-Use `develop.<domain>` from `develop` for development/testing and the main domain from `main` for authorized production releases. An occasional very small project can use the [main-only exception](template/standards/git-workflow.md#isolation-branches-and-delivery) when you ask for it. During `RELEASE: beta`, an explicitly authorized private beta can run there with invitation-only access; public opening requires launch authorization under [launch.md](template/standards/launch.md). Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption.
+Use `develop.<domain>` from `develop` for development/testing and the main domain from `main` for authorized production releases. During `RELEASE: beta`, an explicitly authorized private beta can run there with invitation-only access; public opening requires launch authorization under [launch.md](template/standards/launch.md). Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption. An occasional very small project can use the [main-only exception](template/standards/git-workflow.md#isolation-branches-and-delivery) when you ask for it.
 
 Use generic placeholders here. Record actual application domains, provider configuration, and deployment details only in the adopting project's appropriate documentation.
 
@@ -238,7 +238,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [skills/](skills/) | Adoption, interview, interface design, pricing research, legal review and [application changelog audits](skills/changelog/SKILL.md) |
 | [PowerShell](scripts/setup-labels.ps1) / [Bash](scripts/setup-labels.sh) / [labels](scripts/labels.json) | Label setup and canonical colors |
 | [Update caller](scripts/blueprint-update.example.yml) / [adoption record](scripts/blueprint-update.example.json) | Updater examples; configure and validate before installation |
-| [Reusable updater](.github/workflows/adopt-release.yml) / [proposal script](scripts/blueprint-update.py) / [tests](scripts/test-blueprint-update.py) | Pinned release detection and safe issue/PR preparation; no automatic integration |
+| [Reusable updater](.github/workflows/adopt-release.yml) / [proposal script](scripts/blueprint-update.py) / [tests](scripts/test-blueprint-update.py) | Release detection and safe issue/PR preparation; no automatic integration |
 
 `agent.md` points to `AGENTS.md`; `CLAUDE.md` imports it using `@AGENTS.md`. Verify the target tool's discovery during setup. Detailed guides and skills are read only when relevant.
 
@@ -254,7 +254,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Setup**
 
-> Use the latest stable release from `<blueprint-source>` and my private standing preferences at `<standing-preferences>` (or `none`). For first-time setup, follow the README and walk me through the setup interview, reusing decisions we’ve already made. For first adoption into an existing application, read and follow `skills/adopt-existing/SKILL.md` directly from the pinned Blueprint checkout. Preserve working features, data, and live behavior. If Blueprint is already adopted, follow the release-update procedure. Verify the result and record the adopted tag and commit.
+> Use the latest stable release from `<blueprint-source>` and my private standing preferences at `<standing-preferences>` (or `none`). For first-time setup, follow the README and walk me through the setup interview, reusing decisions we’ve already made. For first adoption into an existing application, read and follow `skills/adopt-existing/SKILL.md` directly from the Blueprint release checkout. Preserve working features, data, and live behavior. If Blueprint is already adopted, follow the release-update procedure. Verify the result and record the adopted tag and commit.
 
 **Interface design**
 

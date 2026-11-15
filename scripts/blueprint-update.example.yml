@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   prepare:
-    # Setup replaces both placeholders with the verified source and the SAME full commit.
-    uses: BLUEPRINT_OWNER/BLUEPRINT_REPO/.github/workflows/adopt-release.yml@PINNED_BLUEPRINT_COMMIT
+    # Setup replaces the placeholders with the verified source.
+    uses: BLUEPRINT_OWNER/BLUEPRINT_REPO/.github/workflows/adopt-release.yml@main
     with:
       source-repository: BLUEPRINT_OWNER/BLUEPRINT_REPO
-      updater-ref: PINNED_BLUEPRINT_COMMIT
+      updater-ref: main

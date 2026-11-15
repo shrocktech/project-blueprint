@@ -17,7 +17,7 @@ Inside each skill, plain filenames such as `standards/git-workflow.md` refer to 
 
 Keep application-specific configuration and domains in that project's appropriate docs, not these reusable skills.
 
-Optional external [Task Observer](../template/standards/optional-tools.md#task-observer) captures reusable lessons when selected during setup. Its complete pinned upstream bundle, private storage, explicit activation, and fresh-session verification follow that guide; it is not bundled here.
+Optional external [Task Observer](../template/standards/optional-tools.md#task-observer) captures reusable lessons when selected during setup. Its complete upstream bundle, private storage, explicit activation, and fresh-session verification follow that guide; it is not bundled here.
 
 For public-page art direction, [TASTE setup](../template/standards/optional-tools.md#taste) identifies the optional `design-taste-frontend` bundle and its verification. Existing `interface-design` reads the target's design rules; TASTE supports that workflow without replacing application-form conventions or Playwright coverage.
 

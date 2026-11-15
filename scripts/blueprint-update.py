@@ -131,7 +131,7 @@ def proposal(source, base, latest, target):
         if old.get(name) == new.get(name):
             continue
         if name in (".github/workflows/adopt-release.yml", "scripts/blueprint-update.py"):
-            review.append("Updater implementation: review the caller's executable pins separately")
+            review.append("Updater implementation changed: the caller runs the latest version")
             continue
         if not name.startswith(("template/", "skills/")):
             continue

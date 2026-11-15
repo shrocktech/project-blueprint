@@ -1,6 +1,6 @@
 # Project Setup and Environments
 
-During setup, fill facts/commands in [AGENTS.md](../AGENTS.md); routine tasks use those verified values. For an existing application, follow the adoption skill before merging instructions. On first adoption, read `skills/adopt-existing/SKILL.md` from the pinned Blueprint checkout; after installation, use its recorded project location. Setup does not authorize application upgrades, data changes, or production deployment.
+During setup, fill facts/commands in [AGENTS.md](../AGENTS.md); routine tasks use those verified values. For an existing application, follow the adoption skill before merging instructions. On first adoption, read `skills/adopt-existing/SKILL.md` from the Blueprint release checkout; after installation, use its recorded project location. Setup does not authorize application upgrades, data changes, or production deployment.
 
 ## Setup interview
 
@@ -86,7 +86,7 @@ Playwright is required for projects with a web-facing UI. Install and verify it 
 
 ## Modern web guidance
 
-Web-facing projects require Google Chrome's official [modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) skill so agents use current web platform features, best practices and Baseline compatibility data rather than model memory. Install it project-scoped through the active agent's supported mechanism, following current upstream instructions, and keep it on the latest version with automatic updates where supported. Set `DISABLE_TELEMETRY=1` where it runs. Verify discovery and record the installed location in `AGENTS.md`. Consult it when writing or reviewing HTML, CSS, JavaScript or browser APIs; the project's browser support targets, [design guide](../design/README.md) and conventions remain authoritative. Its `chrome-extensions` skill applies only to browser-extension projects.
+Projects with a web-facing UI require Google Chrome's official [modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) skill so agents use current web platform features, best practices and Baseline compatibility data rather than model memory. Install it project-scoped through the active agent's supported mechanism, following current upstream instructions, and keep it on the latest version with automatic updates where supported. Set `DISABLE_TELEMETRY=1` where it runs. Verify discovery and record the installed location in `AGENTS.md`. Consult it when writing or reviewing HTML, CSS, JavaScript or browser APIs; the project's browser support targets, [design guide](../design/README.md) and conventions remain authoritative. Its `chrome-extensions` skill applies only to browser-extension projects.
 
 ## Graphify
 

@@ -17,19 +17,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Validate pinned source
+      - name: Validate source
         env:
           SOURCE: ${{ inputs.source-repository }}
           UPDATER_REF: ${{ inputs.updater-ref }}
         run: |
           [[ "$SOURCE" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]
-          [[ "$UPDATER_REF" =~ ^[0-9a-f]{40}$ ]]
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+          [[ "$UPDATER_REF" =~ ^[A-Za-z0-9][A-Za-z0-9._/-]*$ ]]
+      - uses: actions/checkout@v7
         with:
           path: target
           ref: ${{ github.event.repository.default_branch }}
           fetch-depth: 1
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: actions/checkout@v7
         with:
           repository: ${{ inputs.source-repository }}
           ref: ${{ inputs.updater-ref }}
