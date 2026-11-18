@@ -208,7 +208,7 @@ Review before collecting real personal information, even for a waitlist or beta.
 
 Use the pricing prompt in [Prompts](#prompts). Research and business decisions stay in private project docs; approved customer policies belong in `docs/public/legal/`.
 
-When marketing begins, the agent offers relevant Corey Haines skills linked in `standards/offering.md`. Installation is optional, requires approval and review, and never happens during setup. The agent records your choice without repeated prompts; deferral does not block work.
+For public-facing websites, [search visibility](template/standards/offering.md#search-visibility) covers helpful content, crawlability, accurate structured data and AI-search considerations. The agent installs the selected `seo-audit` and `schema` skills; `ai-seo` is optional for focused work. Other marketing skills are optional and offered for approval without repeated prompts.
 
 ## Environments and costs
 
@@ -229,7 +229,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/standards/git-workflow.md](template/standards/git-workflow.md) | Issues, labels, live queue, isolation, integration, release rules |
 | [template/standards/optional-tools.md](template/standards/optional-tools.md) | Setup and verification for selected tools and disposable multi-agent evaluation |
 | [template/design/README.md](template/design/README.md) | Approved brand foundation and settings page, stack-compatible layouts, form actions, feedback, and credential fields |
-| [template/standards/offering.md](template/standards/offering.md) | Accurate marketing, researched commercial decisions, and consistent customer information |
+| [template/standards/offering.md](template/standards/offering.md) | Accurate marketing, search visibility, researched commercial decisions, and consistent customer information |
 | [template/standards/security.md](template/standards/security.md) | Credentials, data, access, security review, release checks, and reporting |
 | [template/standards/legal.md](template/standards/legal.md) | Project-specific jurisdictions, policy commitments, and review rules |
 | [template/standards/documentation.md](template/standards/documentation.md) | Private internal, public and optional admin docs; canonical application `CHANGELOG.md` and existing-changelog migration |

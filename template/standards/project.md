@@ -53,7 +53,7 @@ Record tool versions, locations and verification results for the current [checks
 3. Establish the private index and applicable public/admin sources, destinations, builds and access under [documentation.md](documentation.md). Verify links and delivery.
 4. Follow [security setup](security.md) for project-root secrets, encryption, scanning, phase-appropriate recovery, synthetic data and private reporting. Record jurisdictions and assess [notices](legal.md) before collecting personal data. Inventory existing [offers](offering.md), policies and customer-facing pages.
 5. Configure and verify [maintenance](updates.md) for Blueprint, dependencies, advisories and hosts at the applicable phase. Record package rationale, schedules, actual run evidence and coverage.
-6. Verify [Graphify](#graphify), applicable [WordPress skills](#wordpress-skills), [modern web guidance](#modern-web-guidance) and [product references](packages.md#current-product-references). Record Blueprint revision, exceptions and verified skill discovery or readable checkout in `AGENTS.md`.
+6. Verify [Graphify](#graphify), applicable [WordPress skills](#wordpress-skills), [modern web guidance](#modern-web-guidance), public-site [search skills](offering.md#search-visibility) and [product references](packages.md#current-product-references). Record Blueprint revision, exceptions and verified skill discovery or readable checkout in `AGENTS.md`.
 
 ## WordPress skills
 
