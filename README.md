@@ -84,7 +84,7 @@ Existing applications retain their framework, custom code, and data; WordPress r
 │   ├── blueprint-update.json # Updater source, adoption and integration branch
 │   └── dependabot.yml  # Weekly updates for supported package ecosystems
 ├── assets/             # Runtime assets when the framework has no prescribed location
-├── backups/            # Local recovery copies when needed; ignored and never publicly served
+├── backups/            # Local recovery copies when needed; ignored except an optional encrypted database dump, never publicly served
 ├── design/             # Approved design guide, system and editable brand artwork
 │   └── README.md       # This application’s design guide and implementation references
 ├── docs/               # Maintained documentation
