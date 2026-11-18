@@ -97,9 +97,9 @@ Existing applications retain their framework, custom code, and data; WordPress r
 ├── tests/              # Tests and fixtures, or use the framework’s test location
 ├── website/            # Optional small static site deployed separately from the application
 ├── workfiles/          # Working materials retained throughout the project
-│   ├── documents/      # Briefs, reference PDFs, spreadsheets and other documents
-│   ├── drawings/       # Wireframes, sketches, diagrams, inspiration and mockups
-│   └── notebook/       # Research notes, meeting notes and working notebooks
+│   ├── documents/      # Briefs, reference PDFs, spreadsheets and other typed documents; no images
+│   ├── notebooks/      # Research notes, meeting notes and working notebooks
+│   └── visuals/        # Screenshots, photos, wireframes, sketches, diagrams and mockups
 ├── .distignore         # WP-CLI archive exclusions when packaging from this root
 ├── .env                # Local secrets; ignored unless verified encrypted storage is selected
 ├── .env.example        # Environment variable names and placeholder values
@@ -258,7 +258,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Interface design**
 
-> Build or refine this screen using `design/README.md`, any relevant wireframes in `workfiles/drawings/`, and the `interface-design` skill. Reuse the project’s components and theme. Inspect the rendered screen in the browser, use Impeccable’s browser iteration when available, and verify the affected user flow with Playwright at the sizes required for this phase. Check that people can tell when an action is ready, in progress, successful, or failed.
+> Build or refine this screen using `design/README.md`, any relevant wireframes in `workfiles/visuals/`, and the `interface-design` skill. Reuse the project’s components and theme. Inspect the rendered screen in the browser, use Impeccable’s browser iteration when available, and verify the affected user flow with Playwright at the sizes required for this phase. Check that people can tell when an action is ready, in progress, successful, or failed.
 
 **Plan the interface**
 
