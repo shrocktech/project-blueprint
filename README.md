@@ -236,6 +236,7 @@ The blueprint supports GitHub Free for public and private repositories. Private 
 | [template/standards/documentation.md](template/standards/documentation.md) | Private internal, public and optional admin docs; canonical application `CHANGELOG.md` and existing-changelog migration |
 | [template/standards/packages.md](template/standards/packages.md) / [template/standards/updates.md](template/standards/updates.md) | Package choice and verified maintenance |
 | [template/standards/launch.md](template/standards/launch.md) | Private beta, public opening, and release verification |
+| [template/standards/edge-protection.md](template/standards/edge-protection.md) | Tunnels, staff sign-in, proxy firewall, edge rules and bans for self-hosted applications |
 | [skills/](skills/) | Adoption, interview, interface design, pricing research, legal review and [application changelog audits](skills/changelog/SKILL.md) |
 | [PowerShell](scripts/setup-labels.ps1) / [Bash](scripts/setup-labels.sh) / [labels](scripts/labels.json) | Label setup and canonical colors |
 | [Update caller](scripts/blueprint-update.example.yml) / [adoption record](scripts/blueprint-update.example.json) | Updater examples; configure and validate before installation |

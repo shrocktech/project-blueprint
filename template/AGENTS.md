@@ -18,6 +18,7 @@ At implementation-session start, check [weekly Blueprint maintenance and the dai
 - Repository layout: under [project.md](standards/project.md#repository-layout); record documentation, assets, repository skill paths and applicable tool-specific discovery locations, external private storage and migration issue/status. Existing projects follow [layout migration](standards/documentation.md#layout-migration) during adoption/updates.
 - Recovery: private inventory/runbook, backup destinations and health, independent key/access recovery, restore objectives/cadence and last verified drill or blockers TODO under [security.md](standards/security.md#local-development-secrets).
 - Vulnerability intelligence: link the private inventory and [monitor health record](standards/updates.md#advisory-monitoring-and-health), verified command/job, schedule, last successful check and coverage gaps; unconfigured until verified.
+- Edge protection: shared host-level setup relied on and [per-app checklist](standards/edge-protection.md#per-app-checklist) status, or `not applicable` with the reason.
 - Standing preferences: private location or `none`.
 - Blueprint source and verified adopted tag/commit: TODO (`.github/blueprint-update.json`); local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue, scheduled-run evidence and agent handoff: TODO. Record incomplete adoption separately; a prepared PR does not advance this record.
 - Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, `legal-review`, `changelog`, web-facing [`modern-web-guidance`](standards/project.md#modern-web-guidance) and public-site [search skills](standards/offering.md#search-visibility) during setup. A source folder alone does not install skills.
@@ -71,6 +72,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | Documentation | [documentation.md](standards/documentation.md) |
 | Issue completion or public release audit | Use the recorded `changelog` skill to assess the issue's customer impact or audit the exact candidate under the [changelog rules](standards/documentation.md#changelog). |
 | Security or customer-data changes | [security.md](standards/security.md) |
+| Public hostnames, tunnels, proxy firewall or edge rules for a self-hosted app | [edge-protection.md](standards/edge-protection.md) |
 | `.env` locked, key missing, new machine or repository, key rotation | [Encrypted `.env` with git-crypt](standards/security.md#encrypted-env-with-git-crypt) |
 | Dependency, build, or infrastructure changes | [Trivy scans](standards/security.md#dependency-and-configuration-scanning) |
 | Code quality | [Linting and formatting](standards/packages.md#linting-and-formatting) |

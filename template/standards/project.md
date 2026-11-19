@@ -108,6 +108,7 @@ For hosted web applications, apply these during new or explicitly authorized env
 | Optional staging | `staging.<domain>` | Recorded release candidate and defined trigger |
 
 - A [main-only project](git-workflow.md#isolation-branches-and-delivery) has no development environment; production deploys from `main`.
+- Self-hosted applications follow [edge-protection.md](edge-protection.md) before any hostname is reachable from the internet, including development.
 - Development and production are sufficient by default. Use `develop`, matching the branch, for new development subdomains. Staging is not a setup/release prerequisite.
 - Create or activate staging DNS, hosting, resources, jobs, or a branch only on explicit owner or authorized human developer request. An agent recommendation alone is insufficient. Preserve existing environments during adoption; never silently rename/deactivate them. Staging does not require a permanent staging branch.
 - Configure authorized automatic development deployment after checks; record actual destinations, triggers, and deployed commits. Production follows the workflow's release rule. Verify a replacement preview before retiring the previous one.

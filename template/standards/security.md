@@ -23,6 +23,7 @@ Light checks apply from setup; the full set switches on at `DEVELOPMENT: securit
 | [Lint/format](packages.md#linting-and-formatting), existing tests and meaningful behavior checks | Required as applicable | Required as applicable |
 | [Duplication checks](packages.md#duplication-checks) | Optional | Required for supported source; equivalent verified coverage accepted |
 | [Graphify](project.md#graphify) | Installed at setup; a failure is recorded, not blocking | Required working |
+| [Edge and app protection](edge-protection.md) for self-hosted applications | Exposure rules for any public hostname | WAF in log-only mode and edge rule; blocking before public launch |
 | [Vulnerability intelligence](#vulnerability-intelligence) (NVD/OSV monitoring) | Not yet configured | Configure and verify under [updates.md](updates.md) |
 
 Entering `security` means installing and verifying every item in the right-hand column and running the first full pass; record results in the transition issue. Existing projects keep their current coverage; adopt this table through the recorded update policy.
