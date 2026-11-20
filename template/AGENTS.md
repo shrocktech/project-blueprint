@@ -21,7 +21,7 @@ At implementation-session start, check [weekly Blueprint maintenance and the dai
 - Edge protection: shared host-level setup relied on and [per-app checklist](standards/edge-protection.md#per-app-checklist) status, or `not applicable` with the reason.
 - Standing preferences: private location or `none`.
 - Blueprint source and verified adopted tag/commit: TODO (`.github/blueprint-update.json`); local exceptions: TODO; last successful check/reviewed revision: TODO; maintenance issue, scheduled-run evidence and agent handoff: TODO. Record incomplete adoption separately; a prepared PR does not advance this record.
-- Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, `legal-review`, `changelog`, web-facing [`modern-web-guidance`](standards/project.md#modern-web-guidance) and public-site [search skills](standards/offering.md#search-visibility) during setup. A source folder alone does not install skills.
+- Skill locations: record verified paths for applicable `adopt-existing`, `issue-interview`, `interface-design`, `pricing-research`, `legal-review`, `changelog`, public-site `sitemap`, web-facing [`modern-web-guidance`](standards/project.md#modern-web-guidance) and public-site [search skills](standards/offering.md#search-visibility) during setup. A source folder alone does not install skills.
 - Task Observer: TODO — enabled, declined, or deferred; if enabled, record source, skill location, private stable observation path, and activation verification under [Task Observer setup](standards/optional-tools.md#task-observer).
 - `.env` storage: local ignored by default; record owner-selected encrypted repository storage and verified key/access and encryption checks when enabled under [security.md](standards/security.md#encrypted-env-with-git-crypt). Record a selected encrypted database dump, its path and last verified restore. Never commit plaintext `.env`.
 
@@ -68,7 +68,7 @@ Use available APIs/tools without repeating authorization requests. Submit routin
 | UI planning, redesign or implementation | [Design interview](design/README.md#design-interview) for a new direction; [project design guide](design/README.md), `interface-design`, `modern-web-guidance` and installed `playwright-cli` skills for implementation and device verification |
 | Selected tools or disposable shared-preview evaluation | [Optional tool setup](standards/optional-tools.md) |
 | Marketing, pricing, packaging, or refunds | [offering.md](standards/offering.md); `pricing-research` skill for initial or material commercial decisions |
-| Public website SEO or structured data | [Search visibility](standards/offering.md#search-visibility) and recorded search skills |
+| Public website SEO or structured data | [Search visibility](standards/offering.md#search-visibility), the `sitemap` skill and recorded search skills |
 | Documentation | [documentation.md](standards/documentation.md) |
 | Issue completion or public release audit | Use the recorded `changelog` skill to assess the issue's customer impact or audit the exact candidate under the [changelog rules](standards/documentation.md#changelog). |
 | Security or customer-data changes | [security.md](standards/security.md) |

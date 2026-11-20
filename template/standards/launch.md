@@ -31,7 +31,7 @@ Before admitting beta testers or opening public access, monitor the deployed ser
 
 ## Go live and verify
 
-Deploy or verify the authorized candidate on `main`, open the approved customer access, and remove beta status. Publish matching customer docs and applicable policies from `docs/public/`, administrator docs from `docs/admin/` when applicable, and changelog. Verify critical live journeys and documentation links, including denial of unauthorized admin access. Keep internal docs private. Record the deployed version, documentation destinations, checks, and blockers in the launch issue before closing it. Lifecycle progression follows [phases.md](phases.md).
+Deploy or verify the authorized candidate on `main`, open the approved customer access, and remove beta status. Publish matching customer docs and applicable policies from `docs/public/`, administrator docs from `docs/admin/` when applicable, and changelog. For a public site, confirm the live sitemap under [search visibility](offering.md#search-visibility). Verify critical live journeys and documentation links, including denial of unauthorized admin access. Keep internal docs private. Record the deployed version, documentation destinations, checks, and blockers in the launch issue before closing it. Lifecycle progression follows [phases.md](phases.md).
 
 ## After launch
 

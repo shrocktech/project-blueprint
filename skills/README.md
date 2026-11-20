@@ -8,6 +8,7 @@
 | [pricing-research](pricing-research/SKILL.md) | Comparable products, pricing/packaging, and refund recommendations |
 | [legal-review](legal-review/SKILL.md) | Terms/privacy preparation and review for the project's jurisdictions |
 | [changelog](changelog/SKILL.md) | Issue-completion entries and public release audits against verified changes |
+| [sitemap](sitemap/SKILL.md) | Automatic sitemap generation, coverage test and live verification for public websites |
 
 Read only the applicable skill. These are portable source packages, not automatically installed or activated by copying `template/`.
 
