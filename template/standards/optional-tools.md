@@ -31,6 +31,22 @@ Before production, review direct provider options, limits, licensing and behavio
 - Deduplicate sanitized proposals in the [backlog](git-workflow.md#brief-notes-and-proposals). Link verified fixes back to observations. Shared or global skill edits need separate authorization.
 - In a fresh session, verify skill activation, synthetic write/read after restart and across owned worktrees, deduplication and proposal-only handling. Remove only the fixture. Review on request or at an agreed session boundary. Unattended review needs authorized, verified [scheduling](updates.md).
 
+## Engineering practice skills
+
+[Matt Pocock's skills](https://github.com/mattpocock/skills) are small engineering practice skills under the [MIT license](https://github.com/mattpocock/skills/blob/main/LICENSE). They are optional and follow the owner's selection, per skill:
+
+| Skill | Use |
+| --- | --- |
+| `grill-me` with `grilling` | The agent questions the owner about a plan or design before work starts |
+| `diagnosing-bugs` | A reproduce, narrow and prove loop for hard bugs and performance regressions |
+| `tdd` | Test-first implementation for a feature or fix |
+| `prototype` | A throwaway build that answers one design question |
+| `improve-codebase-architecture` | A scan for structural improvements, reported for the owner to choose from |
+
+- Install only the selected skills, each complete with its supporting files, through the active agent's supported mechanism rather than the whole collection or its plugin. Verify discovery and record source and locations in `AGENTS.md`.
+- Project `AGENTS.md` and these guides remain authoritative. Do not install or run the collection's setup, triage, spec, ticket, pull-request, code-review, domain-document or handoff skills: issues, labels and statuses follow [git-workflow.md](git-workflow.md), review follows [delegated code review](git-workflow.md#delegated-code-review), and documents follow [documentation.md](documentation.md).
+- Answers from a questioning session go into the issue or the project specification. Prototypes stay in the owned issue checkout and are removed or replaced before integration. Architecture findings become [backlog proposals](git-workflow.md#brief-notes-and-proposals), not unrequested refactoring.
+
 ## Storybook
 
 [Storybook](https://storybook.js.org/docs/get-started/why-storybook) is an optional component workshop for supported UI stacks, selected during the [design interview](../design/README.md#design-interview) when the control library justifies it. A simple in-app gallery is sufficient for smaller projects. Keep decisions in `design/README.md`, runtime components in the framework's source layout and stories beside those components; use `.storybook/` only for tool configuration. Stories import the real implementations and theme rather than duplicate controls. Link the workshop from the existing Brand Guidelines page; do not maintain a competing gallery implementation.
