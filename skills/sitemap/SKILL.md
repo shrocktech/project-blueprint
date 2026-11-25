@@ -29,6 +29,6 @@ Follow Google's current [sitemap guidance](https://developers.google.com/search/
 ## Prove it
 
 - Add a test to the project's suite that lists the public indexable routes or content and fails when one is missing from the sitemap, or when the sitemap lists a URL that is not public, indexable and successful. Show that a new synthetic page appears without editing the sitemap.
-- After each public release, fetch the live `robots.txt` and sitemap. Confirm valid XML, the expected URL count, and that the listed URLs return 200 with a matching canonical URL.
+- After each public release, follow the sitemap URL in the live `robots.txt`. Verify valid XML and the expected URL count across all sitemap files, following the index when present. Fetch a representative listed URL from each page type, including any new or changed type, and confirm HTTP 200 and a matching canonical URL.
 - Submit the sitemap in Search Console when access is available, or give the owner the exact steps. Submission is a hint, not a guarantee of indexing.
 - Record the generator, sitemap URL and test command in `AGENTS.md` or linked private docs, and report any page type not yet covered.
