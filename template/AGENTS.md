@@ -7,7 +7,7 @@ At implementation-session start, check [weekly Blueprint maintenance and the dai
 ## Project facts
 
 - Purpose, users, stack, runtime, package manager, directories: to be filled in.
-- Lifecycle: stop TODO/10; phase TODO; subphase TODO (`none` for `PRODUCTION`); active plan TODO. Use [phases.md](standards/phases.md) for current focus and transitions.
+- Lifecycle: stop TODO/7; phase TODO; subphase TODO (`none` for `PRODUCTION`); active plan TODO. Use [phases.md](standards/phases.md) for current focus and transitions.
 - Owner: the human authorized to bind the project/business; record their role and delegates. Policy approval requires explicit legal/business delegation; development or release access alone does not confer it.
 - Business and customer/service jurisdictions: record verified scope in private project docs; no assumed country.
 - Conventions: link existing formatter/linter configuration and patterns.

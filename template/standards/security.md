@@ -144,4 +144,4 @@ Record date, candidate/configuration, reference versions, scope, coverage, evide
 
 Unverified required controls or unresolved critical/high findings block beta/release. Only the owner may accept a specific finding in writing: privately record its severity, release/environment scope, rationale, compensating controls, remediation tracking, review/expiry date, and approval reference. Acceptance waives only that finding while valid; preserve its severity and unresolved status. Reassess at the recorded date or when scope/conditions change. Agents cannot accept risks. Acceptance cannot turn missing checks into passes, weaken customer commitments, or authorize deployment.
 
-During `RELEASE: validation`, recheck beta fixes and final offering/data claims. Repeat affected checks for later changes.
+During `LAUNCH: prepare`, recheck any beta fixes and final offering/data claims. Repeat affected checks for later changes.

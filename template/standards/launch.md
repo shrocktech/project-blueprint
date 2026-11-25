@@ -10,6 +10,8 @@ Before admitting beta testers or opening public access, monitor the deployed ser
 
 ## Private beta
 
+Run a private beta during `LAUNCH: prepare` only when the project wants invited-user feedback before opening; otherwise continue with launch preparation.
+
 - Test critical journeys outside production first. Under [authorization](git-workflow.md#authorization), promote the tested candidate to `main` and the normal production address, enforcing invitation-only access server-side. Display beta status; verify access controls, [complete project recovery](security.md#local-development-secrets), and applicable notices before admitting testers. Staging remains optional under [project.md](project.md).
 - Record invited scope, known limits, charges if any, and whether accounts/data persist or reset. Treat beta data as real; keep destructive, stress, and disposable-data tests outside production. Provide the instructions/support testers need without requiring a full public docs site.
 - Turn feedback into issues: fix and retest launch blockers; put optional ideas in the backlog. Continue implementation on issue branches into `develop`, delivering beta fixes. Verify the final candidate before recommending launch.

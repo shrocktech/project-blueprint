@@ -41,20 +41,19 @@ Questions and reviews do not start unrelated implementation. The 90% confidence 
 
 ## Project phases
 
-Ten stops; the number shows how far along a project is.
+Seven stops; the number shows how far along a project is.
 
 | Parent | Subphases |
 | --- | --- |
 | **DEVELOPMENT** | 1 planning → 2 build → 3 security |
-| **RELEASE** | 4 offering → 5 beta → 6 validation |
-| **LAUNCH** | 7 open → 8 feedback → 9 stabilize |
-| **PRODUCTION** | 10; final ongoing marketing, growth, maintenance, and feature releases |
+| **LAUNCH** | 4 prepare → 5 open → 6 stabilize |
+| **PRODUCTION** | 7; final ongoing marketing, growth, maintenance, and feature releases |
 
 [phases.md](template/standards/phases.md) defines work and completion criteria. Direct transitions naturally, such as “move to security”; agents recommend advancement without repeated prompts. Changing phase does not authorize deployment or public opening. New features do not reset the product.
 
 `planning` includes specifications, security requirements, and setup. Use the phase-specific requirements in [checks by phase](template/standards/security.md#checks-by-phase), including desktop verification during planning/build and the full check set from security through production. [security.md](template/standards/security.md#security-review) governs review scope, evidence, release requirements, and owner risk acceptance; findings stay private.
 
-The [admin footer](template/design/README.md#environment-and-phase-display) shows **Environment** and, for owner/developer views, **Phase** with its stop number: an invited production beta reads `Environment: PRODUCTION · Phase: 5/10 · RELEASE: beta`. Customer-facing pages and customer-admin views show neither; phases are not GitHub labels or Project fields.
+The [admin footer](template/design/README.md#environment-and-phase-display) shows **Environment** and, for owner/developer views, **Phase** with its stop number: an invited production beta reads `Environment: PRODUCTION · Phase: 4/7 · LAUNCH: prepare`. Customer-facing pages and customer-admin views show neither; phases are not GitHub labels or Project fields.
 
 ## Project setup
 
@@ -214,7 +213,7 @@ For public-facing websites, [search visibility](template/standards/offering.md#s
 
 ## Environments and costs
 
-Use `develop.<domain>` from `develop` for development/testing and the main domain from `main` for authorized production releases. During `RELEASE: beta`, an explicitly authorized private beta can run there with invitation-only access; public opening requires launch authorization under [launch.md](template/standards/launch.md). Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption. An occasional very small project can use the [main-only exception](template/standards/git-workflow.md#isolation-branches-and-delivery) when you ask for it.
+Use `develop.<domain>` from `develop` for development/testing and the main domain from `main` for authorized production releases. During `LAUNCH: prepare`, an explicitly authorized private beta can run there with invitation-only access; public opening requires launch authorization under [launch.md](template/standards/launch.md). Staging at `staging.<domain>` is optional and must be explicitly requested by you or an authorized human developer; preserve existing environments during adoption. An occasional very small project can use the [main-only exception](template/standards/git-workflow.md#isolation-branches-and-delivery) when you ask for it.
 
 Use generic placeholders here. Record actual application domains, provider configuration, and deployment details only in the adopting project's appropriate documentation.
 

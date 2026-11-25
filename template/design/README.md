@@ -108,11 +108,11 @@ Use the `interface-design` skill at its recorded location for layout planning an
 Owner/developer admin layouts have a persistent footer whose left side shows the environment and current [project phase](../standards/phases.md) with its stop number, in small muted text with adequate contrast in supported themes:
 
 ```text
-Environment: DEVELOPMENT · Phase: 2/10 · DEVELOPMENT: build
+Environment: DEVELOPMENT · Phase: 2/7 · DEVELOPMENT: build
 ```
 
 - Environment is `DEVELOPMENT`, `PRODUCTION`, or `STAGING` when staging is active, derived from explicit deployment-environment configuration, not build mode or hostname alone. Give each a consistent, distinct color.
-- Phase comes from one configuration value (for example `APP_PHASE`) that the agent updates through authorized delivery at each recorded transition; never hardcode it in templates. `10/10 · PRODUCTION` has no subphase.
+- Phase comes from one configuration value (for example `APP_PHASE`) that the agent updates through authorized delivery at each recorded transition; never hardcode it in templates. `7/7 · PRODUCTION` has no subphase.
 - Keep the footer visible on narrow screens without obscuring content or focused fields. Customer-facing pages and customer-admin views show neither value. Neither value controls deployment or access.
 
 ## Save, submit, and feedback
