@@ -16,9 +16,7 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Start or adopt a project | Give the agent the setup prompt below and repository access. |
 | Request implementation | Tell the agent or move an issue to `TO DO`. It refreshes the live queue, including tasks added during work. |
 | Save an idea or recommendation for an active project | Use `BACKLOG` plus one: `idea` (early thought), `suggestion` (recommended improvement), or `proposal` (developed recommendation needing a decision). Approval moves it to `TO DO` and removes the descriptor. |
-| `paused: decision` | Answer the recommended A or another option, or give your own answer. |
-| `paused: setup` | Complete the linked user-only steps and report the result. |
-| `paused: external` | Read the provider/dependency status; usually no action is needed. |
+| `stuck` | Open the issue. Its first line says who must act: answer the recommended A or another option, complete the linked setup steps, or do nothing while a provider is awaited. |
 | Clear several pending answers | Request an issue interview with the prompt below. |
 | Prepare an offer | Request pricing research with the prompt below; choose a recommendation or give your own terms. |
 | Change phase | Say “move to security” or name the next phase; the agent records your decision under [phases.md](template/standards/phases.md). |
@@ -27,9 +25,9 @@ Application workflow overview. [Open the full-size landscape JPEG](assets/projec
 | Update these standards | Request a blueprint change; existing projects follow the update guidance in their `AGENTS.md`. |
 | Capture recurring workflow lessons | Select optional [Task Observer](template/standards/optional-tools.md#task-observer) during setup; request an observation review when useful. Proposed fixes use the existing issue queue and approval rules. |
 
-The board and matching issue labels follow `BACKLOG → TO DO → IN PROGRESS → REVIEW → COMPLETED`. `REVIEW` shows finished implementation undergoing tests, automated checks, or final delivery verification; it does not require your review of every issue. Fixes return to `IN PROGRESS`.
+The board and matching issue labels follow `BACKLOG → TO DO → IN PROGRESS → COMPLETED`. An `IN PROGRESS` card with no stage label is being built; `testing` means it is built and undergoing tests, automated checks and delivery verification, which does not require your review of every issue.
 
-Paused issues stay `IN PROGRESS` with one pause reason. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. When work resumes, testing/delivery returns to `REVIEW`. Unresolved blockers keep their pause reason.
+Work that cannot continue stays `IN PROGRESS` with `stuck`. Comment when a blocker is resolved; the agent verifies it before resuming. During interviews, it immediately records each answer and leaves resolved issues labeled only `IN PROGRESS`, visibly ready to resume. Unresolved blockers keep `stuck`.
 
 Before closing, the agent resolves every comment, posts results, and checks for missed input under the [completion checks](template/standards/git-workflow.md#isolation-branches-and-delivery).
 
@@ -63,7 +61,7 @@ Supply the blueprint URL or checkout in place of `<blueprint-source>`. `OWNER/RE
 
 1. Use the latest published stable Blueprint release in a separate checkout and record its tag and commit. Read [git-workflow.md](template/standards/git-workflow.md) and, for an existing application, [adopt-existing](skills/adopt-existing/SKILL.md). Inspect before editing the target.
 2. Create/claim a setup issue and follow the bootstrap order in [git-workflow.md](template/standards/git-workflow.md). Always conduct the initial [setup interview](template/standards/project.md#setup-interview), preserving known decisions before configuring the project.
-3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its five statuses and colors, preserving mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` without a stage.
+3. Preview labels from the blueprint checkout: `pwsh -File scripts/setup-labels.ps1 -Repo OWNER/REPO -WhatIf` or `bash scripts/setup-labels.sh OWNER/REPO --dry-run` (requires `jq`); omit the preview flag to apply. Create/link the Project and configure its four statuses and colors, preserving mappings under `adopt-existing`. Helpers only create/update label definitions; they do not migrate issue labels, configure Project fields, or delete old labels. Set the setup issue/Project to `IN PROGRESS` without a stage.
 4. Establish the integration baseline and an owned isolated setup branch/worktree before edits or skill installation. For an empty repository, create a minimal baseline within the setup issue, without application implementation or deployment. An existing dedicated isolated checkout suffices.
 5. Merge [template/](template/) into the target root inside that checkout, preserving project rules and Git history. Establish the application's [repository layout](template/standards/project.md#repository-layout); for an existing application, complete the [repository-wide migration](template/standards/documentation.md#layout-migration) and verify its final tree. Blueprint's distribution `template/` and reusable `skills/` remain separate.
 6. Make applicable [skills](skills/README.md) available through supported installation, or retain the blueprint checkout and record verified skill paths. Place repository skills under `.agents/skills/` in the setup checkout and verify discovery for each selected tool. Fill facts/commands and complete `standards/project.md`.
@@ -272,7 +270,7 @@ This repository uses only `main`, with owned isolated checkouts or detached work
 
 **Issue interview**
 
-> Interview me about paused or in-progress issues needing my input. Ask one brief question at a time with an issue link, A as your recommendation, useful B/C alternatives, D to answer later, and E to answer in the issue. Accept my own answer too. Immediately comment each answer on its issue. When resolved, leave only IN PROGRESS, verify the Project status, and confirm before the next question. Keep unresolved items paused. Finish with a brief linked recap; keep the session focused on the interview.
+> Interview me about stuck or in-progress issues needing my input. Ask one brief question at a time with an issue link, A as your recommendation, useful B/C alternatives, D to answer later, and E to answer in the issue. Accept my own answer too. Immediately comment each answer on its issue. When resolved, leave only IN PROGRESS, verify the Project status, and confirm before the next question. Keep unresolved items stuck. Finish with a brief linked recap; keep the session focused on the interview.
 
 **Legal review**
 
